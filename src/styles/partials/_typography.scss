@@ -1,0 +1,14 @@
+@font-face {
+    font-family: 'Titillium';
+    src: url('../../assets/fonts/TitilliumWeb-Regular.ttf');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Titillium';
+    src: url('../../assets/fonts/TitilliumWeb-SemiBold.ttf');
+    font-weight: 600;
+}
+
+$font-stack: 'Titillium', 'sans-serif';
+$root-font-size: 16px;

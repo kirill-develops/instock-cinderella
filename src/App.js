@@ -1,24 +1,23 @@
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      {/* <Nav /> */}
+      <Switch>
+        <Route path="/" exact render={<h1>HomePage WIP</h1>} />
+        <Route path="/warehouses" render={<h1>"All Warehouses" Page WIP</h1>} />
+        <Route path="/warehouses/:id" render={<h1>"Specific Warehouse" Page WIP</h1>} />
+        <Route path="/warehouses/:id/edit" render={<h1>"Edit Specific Warehouse" Page WIP</h1>} />
+        <Route path="/warehouses/add" render={<h1>"Add New Warehouse" Page WIP</h1>} />
+        <Route path="/inventory" render={<h1>"All Inventories" Page WIP</h1>} />
+        <Route path="/inventory/:id" render={<h1>"Specific Inventory" Page WIP</h1>} />
+        <Route path="/inventory/:id/edit" render={<h1>"Edit Specific Inventory" Page WIP</h1>} />
+        <Route path="/inventory/add" render={<h1>"Add New Inventory" Page WIP</h1>} />
+      </Switch>
+    </BrowserRouter>
   );
 }
 

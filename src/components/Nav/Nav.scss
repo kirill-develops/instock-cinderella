@@ -8,18 +8,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-<<<<<<< HEAD
   height: 8rem;
   background-color: $color-graphite;
 
   @include tablet {
     height: 6rem;
-=======
-  height: 6rem;
-  background-color: $color-graphite;
-
-  @include tablet {
->>>>>>> develop
     flex-direction: row;
     justify-content: space-between;
   }
@@ -39,30 +32,18 @@
   }
 
   &__img {
-<<<<<<< HEAD
     height: 1.75rem;
-=======
-    height: 1.5rem;
->>>>>>> develop
   }
   &__list {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     width: 100%;
-<<<<<<< HEAD
     margin-top: 1rem;
 
     @include tablet {
       margin-top: 0;
       width: 14rem;
-=======
-    margin-top: 0.5rem;
-
-    @include tablet {
-      margin-top: 0;
-      width: 13rem;
->>>>>>> develop
       padding-right: 2rem;
       justify-content: space-between;
     }
@@ -74,11 +55,7 @@
 
   &__link {
     @include navLinkStyling;
-<<<<<<< HEAD
     width: 8rem;
-=======
-    width: 7rem;
->>>>>>> develop
     display: flex; 
     align-items: center;
     justify-content: center; 

@@ -22,6 +22,9 @@
     background-color: $color-instock-indigo;
     color: $color-white;
     border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @mixin secondary-cta-default {
@@ -32,7 +35,10 @@
     padding-bottom: 1rem;
     background-color: $color-white;
     color: $color-slate;
-    border: 1px solid $color-slate;
+    border: 1px solid $color-cloud;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @mixin delete-cta-default {
@@ -44,4 +50,7 @@
     background-color: $color-red;
     color: $color-white;
     border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

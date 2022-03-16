@@ -29,20 +29,18 @@ class Nav extends Component {
     // }
 
    render () {
-    if (!this.state.activePage) {
-        return <div>Loading... </div>;
-      }
+    // if (!this.state.activePage) {
+    //     return <div>Loading... </div>;
+    //   }
        return (
          <header className="nav">
            <NavLink to="/" className="nav__logo">
              <img className="nav__img" src={instockLogo} />
            </NavLink>
            <div className="nav__list">
-             <NavLink to="/warehouses" className={this.isPageWarehouse() ? 'nav__link nav__link--active' : 'nav__link'
-             }> Warehouses
+             <NavLink to="/warehouses" className="nav__link" activeClassName="nav__link--active"> Warehouses
              </NavLink>
-             <NavLink to="/inventory" className={!this.isPageWarehouse() ? 'nav__link nav__link--active' : 'nav__link'
-             }> Inventory
+             <NavLink to="/inventory" className="nav__link" activeClassName="nav__link--active"> Inventory
              </NavLink>
            </div>
          </header>

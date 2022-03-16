@@ -42,7 +42,7 @@
 
     @include tablet {
       margin-top: 0;
-      width: 30%;
+      width: 13rem;
       padding-right: 2rem;
       justify-content: space-between;
     }
@@ -54,6 +54,7 @@
 
   &__link {
     @include navLinkStyling;
+    width: 7rem;
     display: flex; 
     align-items: center;
     justify-content: center; 

@@ -5,15 +5,26 @@ import { Component } from 'react';
 import instockLogo from "../../assets/logo/InStock-Logo_1x.png";
 
 class Nav extends Component {
-
-    state = {
-        activePage: 'inventory',
-    }
-
-
-    // ComponenetDidMount() {
     
+    state = {
+        activePage: 'warehouse',
+    }
+    
+    // componentDidMount() {
+    //     console.log(this.props)
+    //     if (this.props.match.params === 'warehouse') {
+    //         this.setState({
+    //             activePage: 'warehouse'
+    //         })
+    //     } else {
+    //         if (this.props.match.params === 'inventory') {
+    //             this.setState({
+    //                 activePage: 'inventory'
+    //             })
+    //         }
+    //     }
     // }
+
     isPageWarehouse = () => {
         if (this.state.activePage === 'warehouse') {
             return true; 
@@ -22,6 +33,9 @@ class Nav extends Component {
     }
 
    render () {
+    if (!this.state.activePage) {
+        return <div>Loading... </div>;
+      }
        return (
          <header className="nav">
            <NavLink to="/" className="nav__logo">

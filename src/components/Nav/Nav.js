@@ -7,7 +7,11 @@ import instockLogo from "../../assets/logo/InStock-Logo_1x.png";
 class Nav extends Component {
     
     state = {
+<<<<<<< HEAD
         activePage: 'inventory',
+=======
+        activePage: 'warehouse',
+>>>>>>> develop
     }
     
     // componentDidMount() {
@@ -54,4 +58,8 @@ class Nav extends Component {
      }
    } 
 
+<<<<<<< HEAD
 export default Nav;
+=======
+export default Nav;
+>>>>>>> develop

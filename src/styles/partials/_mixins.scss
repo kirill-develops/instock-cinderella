@@ -1,4 +1,6 @@
 @use 'variables'as *;
+@use 'typography'as *;
+@use 'colors'as *;
 
 @mixin tablet {
   @media (min-width: $tablet-breakpoint) {
@@ -108,4 +110,23 @@
 
 @mixin divider-top {
   border-top: 1px solid $color-outline-divider-border-tableSort;
+}
+
+@mixin navLinkStyling {
+  font-family: $font-stack;
+  color: $color-cloud;
+  text-decoration: none;
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
+  height: 2rem;
+  width: 8rem;
+  border-radius: 20px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+@mixin navLinkActiveStyling {
+  $color-white: #FFFFFF;
 }

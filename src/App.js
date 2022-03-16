@@ -1,11 +1,12 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Warehouses from './pages/Warehouses/Warehouses'
 import './App.scss';
+import Nav from "./components/Nav/Nav.js"
 
 const App = () => {
   return (
     <BrowserRouter>
-      {/* <Nav /> */}
+      <Nav />
       <Switch>
         <Route path="/" exact render={(routerProps) => <Warehouses {...routerProps} />} />
         <Route path="/warehouses" render={(routerProps) => <Warehouses {...routerProps} />} />
@@ -15,7 +16,7 @@ const App = () => {
         <Route path="/inventory" render={<h1>"All Inventories" Page WIP</h1>} />
         <Route path="/inventory/:id" render={<h1>"Specific Inventory" Page WIP</h1>} />
         <Route path="/inventory/:id/edit" render={<h1>"Edit Specific Inventory" Page WIP</h1>} />
-        <Route path="/inventory/add" render={<h1>"Add New Inventory" Page WIP</h1>} />
+        <Route path="/inventory/add" render={<h1>"Add New Inventory" Page WIP</h1>} /> */}
       </Switch>
       {/* <Footer /> */}
     </BrowserRouter >

@@ -1,0 +1,50 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+
+.new-warehouse {
+
+    &__top {
+        display: flex;
+    }
+
+    
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__border {
+        border-top: 1px solid $color-cloud;
+    }
+
+    &__label {
+        font-size: 0.813rem;
+        font-weight: 600;
+        color: $color-instock-black;
+        margin-bottom: 0.25rem;
+    }
+
+    &__input-field {
+        border: 1px solid $color-slate;
+        width: 100%;
+        height: 2.25rem;
+        border-radius: 1.25rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    &__buttons {
+        background-color: $color-lightgrey;
+    }
+
+    &__cancel-button {
+        @include secondary-cta-default;
+        width: 50%;
+    }
+
+    &__add-button {
+        @include primary-cta-default;
+        width: 50%;
+    }
+}

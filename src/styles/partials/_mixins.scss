@@ -1,4 +1,5 @@
 @use 'variables' as *;
+@use 'colors' as *;
 
 @mixin tablet {
     @media (min-width: $tablet-breakpoint) {
@@ -10,4 +11,37 @@
     @media (min-width: $desktop-breakpoint) {
         @content;
     }
+}
+
+@mixin primary-cta-default {
+    height: 2.25rem;
+    width: 100%;
+    border-radius: 1.25rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: $color-instock-indigo;
+    color: $color-white;
+    border: none;
+}
+
+@mixin secondary-cta-default {
+    height: 2.25rem;
+    width: 100%;
+    border-radius: 1.25rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: $color-white;
+    color: $color-slate;
+    border: 1px solid $color-slate;
+}
+
+@mixin delete-cta-default {
+    height: 2.25rem;
+    width: 100%;
+    border-radius: 1.25rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: $color-red;
+    color: $color-white;
+    border: none;
 }

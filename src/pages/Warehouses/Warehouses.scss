@@ -4,15 +4,13 @@
 
 .warehouses {
 
-  padding-left: $mobile-outer-padding;
-  padding-right: $mobile-outer-padding;
+  @include padding-horizontal-outer;
   background-color: $color-background-dark;
 
   &__title {
+    @include padding-horizontal-inner;
     background-color: $color-white;
     padding-top: calc(2* $mobile-outer-padding);
-    padding-left: $mobile-inner-padding;
-    padding-right: $mobile-inner-padding;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
   }
@@ -24,16 +22,23 @@
 
   &__search-housing {
     background-color: $color-white;
-    padding: $mobile-outer-padding calc($mobile-inner-padding + $mobile-outer-padding);
+    @include padding-horizontal-total;
+    padding-top: $mobile-outer-padding;
+    padding-bottom: $mobile-outer-padding;
   }
 
   &__search {
     @include form;
+    background-image: url('../../assets/icons/search-24px.svg');
+    background-position-y: center;
+    background-position-x: calc(100% - 8px);
+    background-repeat: no-repeat;
   }
 
   &__cta-housing {
     background-color: $color-white;
-    padding: 0 calc($mobile-inner-padding + $mobile-outer-padding) $mobile-outer-padding;
+    @include padding-horizontal-total;
+    padding-bottom: $mobile-outer-padding;
   }
 
   &__cta {
@@ -42,14 +47,11 @@
   }
 
   &__cta-text {
-    display: list-item;
-    list-style-type: "+";
-    padding-inline-start: 4px;
+    @include cta-text;
     color: $color-white;
   }
 
   &__list {
-    padding-left: $mobile-outer-padding;
-    padding-right: $mobile-outer-padding;
+    @include padding-horizontal-outer;
   }
 }

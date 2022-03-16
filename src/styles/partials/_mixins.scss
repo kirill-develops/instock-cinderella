@@ -12,17 +12,66 @@
   }
 }
 
+@mixin padding-horizontal-outer {
+  padding-left: $mobile-outer-padding;
+  padding-right: $mobile-outer-padding;
+
+  @include tablet {
+    padding-left: $tablet-outer-padding;
+    padding-right: $tablet-outer-padding;
+  }
+
+  @include desktop {
+    padding-left: $desktop-outer-padding;
+    padding-right: $desktop-outer-padding;
+  }
+}
+
+@mixin padding-horizontal-inner {
+  padding-left: $mobile-inner-padding;
+  padding-right: $mobile-inner-padding;
+
+  @include tablet {
+    padding-left: $tablet-inner-padding;
+    padding-right: $tablet-inner-padding;
+  }
+
+  @include desktop {
+    padding-left: $desktop-inner-padding;
+    padding-right: $desktop-inner-padding;
+  }
+}
+
+@mixin padding-horizontal-total {
+  padding-left: $mobile-totalHorizontal-padding;
+  padding-right: $mobile-totalHorizontal-padding;
+
+  @include tablet {
+    padding-left: $tablet-totalHorizontal-padding;
+    padding-right: $tablet-totalHorizontal-padding;
+  }
+
+  @include desktop {
+    padding-left: $desktop-totalHorizontal-padding;
+    padding-right: $desktop-totalHorizontal-padding;
+  }
+}
+
 @mixin form {
   height: 36px;
   width: 100%;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding-left: $mobile-outer-padding;
+  padding-right: $mobile-outer-padding;
   border-radius: 20px;
   outline: none;
   border: 1px solid $color-outline-divider-border-tableSort;
 
   @include tablet {
     height: 38px;
+  }
+
+  &::placeholder {
+    color: $color-placeholder;
   }
 }
 
@@ -45,6 +94,12 @@
   &:hover {
     background-color: $color-cta-hover;
   }
+}
+
+@mixin cta-text {
+  display: list-item;
+  list-style-type: "+";
+  padding-inline-start: 4px;
 }
 
 @mixin divider-bottom {

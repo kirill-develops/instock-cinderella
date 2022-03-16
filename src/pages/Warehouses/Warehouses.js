@@ -67,32 +67,41 @@ class warehouses extends Component {
     const { warehouseArr: warehouses } = this.state
 
     return (
-      <div>
-        <h1 className='warehouses__title'>Warehouses</h1>
+      <>
+        <div className='warehouses'>
+          <h1 className='warehouses__title'>Warehouses</h1>
+        </div>
         <form className='warehouses__form'>
-          <input type="search"
-            name="search"
-            placeholder="Search"
-            className="warehouses__search"
-          />
-          <Link to="/warehouses/add" className='warehouses__cta'>
-            <span className='warehouses__cta-text'>
-              + Add New Warehouse
-            </span>
-          </Link>
+          <div className='warehouses__search-housing'>
+            <input type="search"
+              name="search"
+              placeholder="Search"
+              className="warehouses__search"
+            />
+          </div>
+          <div className='warehouses__cta-housing'>
+            <Link to="/warehouses/add" className='warehouses__cta'>
+              <span className='warehouses__cta-text'>
+                Add New Warehouse
+              </span>
+            </Link>
+          </div>
         </form>
 
-        {warehouses
-          .map(warehouseObj => {
+        <div className='warehouses__list'>
 
-            return (
-              <Warehouse
-                key={warehouseObj.id}
-                warehouseObj={warehouseObj}
-              />
-            )
-          })}
-      </div>
+          {warehouses
+            .map(warehouseObj => {
+
+              return (
+                <Warehouse
+                  key={warehouseObj.id}
+                  warehouseObj={warehouseObj}
+                />
+              )
+            })}
+        </div>
+      </>
     )
   }
 };

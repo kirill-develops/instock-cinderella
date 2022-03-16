@@ -1,12 +1,55 @@
+@use '../../styles/partials/colors'as *;
+@use '../../styles/partials/variables'as *;
+@use '../../styles/partials/mixins'as *;
+
 .warehouses {
 
-  &__title {}
+  padding-left: $mobile-outer-padding;
+  padding-right: $mobile-outer-padding;
+  background-color: $color-background-dark;
 
-  &__form {}
+  &__title {
+    background-color: $color-white;
+    padding-top: calc(2* $mobile-outer-padding);
+    padding-left: $mobile-inner-padding;
+    padding-right: $mobile-inner-padding;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+  }
 
-  &__search {}
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
 
-  &__cta {}
+  &__search-housing {
+    background-color: $color-white;
+    padding: $mobile-outer-padding calc($mobile-inner-padding + $mobile-outer-padding);
+  }
 
-  &__cta-text {}
+  &__search {
+    @include form;
+  }
+
+  &__cta-housing {
+    background-color: $color-white;
+    padding: 0 calc($mobile-inner-padding + $mobile-outer-padding) $mobile-outer-padding;
+  }
+
+  &__cta {
+    @include cta;
+    background-color: $color-interact;
+  }
+
+  &__cta-text {
+    display: list-item;
+    list-style-type: "+";
+    padding-inline-start: 4px;
+    color: $color-white;
+  }
+
+  &__list {
+    padding-left: $mobile-outer-padding;
+    padding-right: $mobile-outer-padding;
+  }
 }

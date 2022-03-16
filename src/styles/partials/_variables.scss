@@ -1,2 +1,20 @@
+@use './colors'as *;
+
 $tablet-breakpoint: 768px;
 $desktop-breakpoint: 1280px;
+
+// mobile padding
+$mobile-outer-padding: 1rem;
+$mobile-inner-padding: 1.5rem;
+$mobile-totalVertical-padding: $mobile-outer-padding+$mobile-inner-padding;
+
+// color applications
+$color-interact: $color-instock-indigo;
+$color-placeholder: $color-slate;
+$color-table-header: $color-slate;
+$color-outline-divider-border-tableSort: $color-cloud;
+$color-background-dark: $color-graphite;
+$color-background-light: $color-lightgrey;
+$color-inStock: $color-green;
+$color-outStock: $color-red;
+$color-cta-hover: $color-graphite;

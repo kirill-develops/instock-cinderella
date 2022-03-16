@@ -1,13 +1,56 @@
-@use 'variables' as *;
+@use 'variables'as *;
 
 @mixin tablet {
-    @media (min-width: $tablet-breakpoint) {
-        @content;
-    }
+  @media (min-width: $tablet-breakpoint) {
+    @content;
+  }
 }
 
 @mixin desktop {
-    @media (min-width: $desktop-breakpoint) {
-        @content;
-    }
+  @media (min-width: $desktop-breakpoint) {
+    @content;
+  }
+}
+
+@mixin form {
+  height: 36px;
+  width: 100%;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  border-radius: 20px;
+  outline: none;
+  border: 1px solid $color-outline-divider-border-tableSort;
+
+  @include tablet {
+    height: 38px;
+  }
+}
+
+@mixin cta {
+  height: 36px;
+  width: 100%;
+  display: inline-block;
+  border-radius: 20px;
+  padding-left: $mobile-outer-padding;
+  padding-right: $mobile-outer-padding;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include tablet {
+    height: 38px;
+  }
+
+  &:hover {
+    background-color: $color-cta-hover;
+  }
+}
+
+@mixin divider-bottom {
+  border-bottom: 1px solid $color-outline-divider-border-tableSort;
+}
+
+@mixin divider-top {
+  border-top: 1px solid $color-outline-divider-border-tableSort;
 }

@@ -29,6 +29,21 @@
   }
 }
 
+@mixin margin-horizontal-outer {
+  margin-left: $mobile-outer-padding;
+  margin-right: $mobile-outer-padding;
+
+  @include tablet {
+    margin-left: $tablet-outer-padding;
+    margin-right: $tablet-outer-padding;
+  }
+
+  @include desktop {
+    margin-left: $desktop-outer-padding;
+    margin-right: $desktop-outer-padding;
+  }
+}
+
 @mixin padding-horizontal-inner {
   padding-left: $mobile-inner-padding;
   padding-right: $mobile-inner-padding;
@@ -56,6 +71,76 @@
   @include desktop {
     padding-left: $desktop-totalHorizontal-padding;
     padding-right: $desktop-totalHorizontal-padding;
+  }
+}
+
+@mixin font-header {
+  font-size: 28px;
+  line-height: 36px;
+
+  @include tablet {
+    font-size: 32px;
+    line-height: 40px;
+  }
+}
+
+@mixin font-subheader {
+  font-size: 20px;
+  line-height: 28px;
+
+  @include tablet {
+    font-size: 24px;
+    line-height: 32px;
+  }
+}
+
+@mixin font-labels-links-buttons {
+  font-size: 13px;
+  line-height: 20px;
+
+  @include tablet {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
+
+@mixin font-table-header {
+  font-size: 11px;
+  line-height: 16px;
+
+  @include tablet {
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
+
+@mixin font-body-lrg {
+  font-size: 15px;
+  line-height: 26px;
+
+  @include tablet {
+    font-size: 16px;
+    line-height: 28px;
+  }
+}
+
+@mixin font-body-med {
+  font-size: 13px;
+  line-height: 20px;
+
+  @include tablet {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
+
+@mixin font-body-sml {
+  font-size: 11px;
+  line-height: 16px;
+
+  @include tablet {
+    font-size: 12px;
+    line-height: 18px;
   }
 }
 
@@ -110,6 +195,11 @@
 
 @mixin divider-top {
   border-top: 1px solid $color-outline-divider-border-tableSort;
+}
+
+@mixin site-border {
+  border-left: 1px solid $color-outline-divider-border-tableSort;
+  border-right: 1px solid $color-outline-divider-border-tableSort;
 }
 
 @mixin navLinkStyling {

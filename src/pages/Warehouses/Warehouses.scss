@@ -9,26 +9,31 @@
 
   &__title {
     @include padding-horizontal-inner;
+    @include font-header;
     background-color: $color-white;
     padding-top: calc(2* $mobile-outer-padding);
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
   }
 
   &__form {
+    background-color: $color-background-light;
     display: flex;
     flex-direction: column;
   }
 
   &__search-housing {
     background-color: $color-white;
-    @include padding-horizontal-total;
+    @include padding-horizontal-inner;
+    @include margin-horizontal-outer;
+    @include site-border;
     padding-top: $mobile-outer-padding;
     padding-bottom: $mobile-outer-padding;
   }
 
   &__search {
     @include form;
+    @include font-labels-links-buttons;
     background-image: url('../../assets/icons/search-24px.svg');
     background-position-y: center;
     background-position-x: calc(100% - 8px);
@@ -37,12 +42,15 @@
 
   &__cta-housing {
     background-color: $color-white;
-    @include padding-horizontal-total;
+    @include padding-horizontal-inner;
+    @include margin-horizontal-outer;
+    @include site-border;
     padding-bottom: $mobile-outer-padding;
   }
 
   &__cta {
     @include cta;
+    @include font-labels-links-buttons;
     background-color: $color-interact;
   }
 
@@ -52,6 +60,7 @@
   }
 
   &__list {
+    background-color: $color-background-light;
     @include padding-horizontal-outer;
   }
 }

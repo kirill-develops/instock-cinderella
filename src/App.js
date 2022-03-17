@@ -1,5 +1,5 @@
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
-import Warehouses from './pages/Warehouses/Warehouses'
+import Warehouses from './components/WarehouseList/WarehouseList'
 import './App.scss';
 import Nav from "./components/Nav/Nav.js"
 

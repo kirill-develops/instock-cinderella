@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import apiUtils from '../../utils/apiUtils';
 
-import TableHeader from '../../components/TableHeader/TableHeader';
-import Warehouse from '../../components/Warehouse/Warehouse';
-import './Warehouses.scss';
+import TableHeader from '../TableHeader/TableHeader';
+import Warehouse from '../Warehouse/Warehouse';
+import './WarehouseList.scss';
 
 
 class warehouses extends Component {
@@ -99,9 +99,10 @@ class warehouses extends Component {
           </div>
           <div className='warehouses__headers-outer'>
             <div className='warehouses__headers-inner'>
-              {headers.map(header => {
+              {headers.map((header, i) => {
                 return (
                   <TableHeader
+                    key={i}
                     header={header}
                   />
                 )

@@ -1,15 +1,17 @@
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import Warehouses from './components/WarehouseList/WarehouseList'
 import './App.scss';
-import Nav from "./components/Nav/Nav.js"
+import Nav from './components/Nav/Nav';
+import WarehouseDetails from './components/WarehouseDetails/WarehouseDetails.js';
 
 const App = () => {
+
   return (
     <BrowserRouter>
       <Nav />
       <Switch>
         <Route path="/warehouses" render={(routerProps) => <Warehouses {...routerProps} />} />
-        <Route path="/warehouses/:id" render={<h1>"Specific Warehouse" Page WIP</h1>} />
+        <Route path="/warehouses/:id" component={WarehouseDetails} />
         <Route path="/warehouses/:id/edit" render={<h1>"Edit Specific Warehouse" Page WIP</h1>} />
         <Route path="/warehouses/add" render={<h1>"Add New Warehouse" Page WIP</h1>} />
         <Route path="/inventory" render={<h1>"All Inventories" Page WIP</h1>} />

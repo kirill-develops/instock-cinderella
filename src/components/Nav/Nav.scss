@@ -8,10 +8,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 6rem;
+  height: 8rem;
   background-color: $color-graphite;
 
   @include tablet {
+    height: 6rem;
     flex-direction: row;
     justify-content: space-between;
   }
@@ -31,18 +32,18 @@
   }
 
   &__img {
-    height: 1.5rem;
+    height: 1.75rem;
   }
   &__list {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     width: 100%;
-    margin-top: 0.5rem;
+    margin-top: 1rem;
 
     @include tablet {
       margin-top: 0;
-      width: 13rem;
+      width: 14rem;
       padding-right: 2rem;
       justify-content: space-between;
     }
@@ -54,7 +55,7 @@
 
   &__link {
     @include navLinkStyling;
-    width: 7rem;
+    width: 8rem;
     display: flex; 
     align-items: center;
     justify-content: center; 

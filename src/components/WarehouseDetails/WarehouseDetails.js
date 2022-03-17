@@ -39,7 +39,7 @@ class WarehouseDetails extends Component {
               </Link>
               <h1 className="warehouse__title">{warehouse.name}</h1>
               <Link to={`/warehouses/${warehouse.id}/edit`}>
-                <img className="warehouse__edit" src={editIcon} />
+                <img className="warehouse__edit" src={editIcon}></img>
               </Link>
             </div>
           </div>
@@ -48,7 +48,9 @@ class WarehouseDetails extends Component {
               <div className="warehouse__address">
                 <div className=" warehouse__details">
                   <h4 className="warehouse__subheader">WAREHOUSE ADDRESS:</h4>
-                  <p className="warehouse__detail">{`${warehouse.address} ${warehouse.city}, ${warehouse.country}`}</p>
+                  <p className="warehouse__detail warehouse__detail--mobile">{`${warehouse.address}, ${warehouse.city}, ${warehouse.country}`}</p>
+                  <p className="warehouse__detail warehouse__detail--tablet">{`${warehouse.address}, 
+                  ${warehouse.city}, ${warehouse.country}`}</p>
                 </div>
               </div>
               <div className="warehouse__contact">
@@ -57,7 +59,7 @@ class WarehouseDetails extends Component {
                   <p className="warehouse__detail">{warehouse.contact.name}</p>
                   <p className="warehouse__detail">{warehouse.contact.position}</p>
                 </div>
-                <div className="warehouse__details">
+                <div className="warehouse__details warehouse__details--addy">
                   <h4 className="warehouse__subheader">CONTACT INFORMATION:</h4>
                   <p className="warehouse__detail">{warehouse.contact.phone}</p>
                   <p className="warehouse__detail">{warehouse.contact.email}</p>

@@ -1,0 +1,40 @@
+@use '../../styles/partials/variables'as*;
+@use '../../styles/partials/mixins'as*;
+@use '../../styles/partials/colors'as*;
+
+
+.header {
+  flex: 1;
+  display: inline-flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  padding-right: $mobile-outer-padding;
+  background-color: $color-white;
+  width: 50%;
+
+  &__label {
+    @include font-table-header;
+    white-space: nowrap;
+    color: $color-table-header;
+  }
+
+  &__icon {
+    height: 14px;
+    padding-left: 8.94px;
+  }
+
+  &:first-child {
+    padding-left: $tablet-inner-padding;
+  }
+
+  &:last-child {
+    justify-content: flex-end;
+    flex: 0.5;
+    padding-right: $tablet-inner-padding;
+
+    .header__icon {
+      display: none;
+    }
+  }
+}

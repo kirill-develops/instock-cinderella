@@ -7,7 +7,7 @@ import Warehouse from '../Warehouse/Warehouse';
 import './WarehouseList.scss';
 
 
-class warehouses extends Component {
+class WarehouseList extends Component {
   state = {
     warehouseArr: [],
   }
@@ -74,31 +74,31 @@ class warehouses extends Component {
 
     return (
       <>
-        <div className='warehouses'>
-          <div className='warehouses__headline'>
-            <div className='warehouses__title-housing'>
-              <h1 className='warehouses__title'>Warehouses</h1>
+        <div className='warehouse-list'>
+          <div className='warehouse-list__headline'>
+            <div className='warehouse-list__title-housing'>
+              <h1 className='warehouse-list__title'>Warehouses</h1>
             </div>
 
-            <form className='warehouses__form'>
-              <div className='warehouses__search-housing'>
+            <form className='warehouse-list__form'>
+              <div className='warehouse-list__search-housing'>
                 <input type="search"
                   name="search"
                   placeholder="Search"
-                  className="warehouses__search"
+                  className="warehouse-list__search"
                 />
               </div>
-              <div className='warehouses__cta-housing'>
-                <Link to="/warehouses/add" className='warehouses__cta'>
-                  <span className='warehouses__cta-text'>
+              <div className='warehouse-list__cta-housing'>
+                <Link to="/warehouse-list/add" className='warehouse-list__cta'>
+                  <span className='warehouse-list__cta-text'>
                     Add New Warehouse
                   </span>
                 </Link>
               </div>
             </form>
           </div>
-          <div className='warehouses__headers-outer'>
-            <div className='warehouses__headers-inner'>
+          <div className='warehouse-list__headers-outer'>
+            <div className='warehouse-list__headers-inner'>
               {headers.map((header, i) => {
                 return (
                   <TableHeader
@@ -109,7 +109,7 @@ class warehouses extends Component {
               })}
             </div>
           </div>
-          <div className='warehouses__list'>
+          <div className='warehouse-list__table'>
             {warehouses
               .map(warehouseObj => {
 
@@ -117,6 +117,7 @@ class warehouses extends Component {
                   <Warehouse
                     key={warehouseObj.id}
                     warehouseObj={warehouseObj}
+                    handleDelete={this.handleDelete}
                   />
                 )
               })}
@@ -127,4 +128,4 @@ class warehouses extends Component {
   }
 };
 
-export default warehouses
+export default WarehouseList;

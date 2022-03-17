@@ -2,7 +2,7 @@
 @use '../../styles/partials/variables'as *;
 @use '../../styles/partials/mixins'as *;
 
-.warehouses {
+.warehouse-list {
 
   &__headline {
     @include tablet {
@@ -11,8 +11,8 @@
   }
 
   &__title-housing {
-    @include padding-horizontal-outer;
     background-color: $color-background-dark;
+    @include padding-horizontal-outer;
 
     @include tablet {
       padding-right: 0;
@@ -131,7 +131,7 @@
     }
   }
 
-  &__list {
+  &__table {
     background-color: $color-background-light;
     @include padding-horizontal-outer;
     border-bottom-left-radius: 3px;

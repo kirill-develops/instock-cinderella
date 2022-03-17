@@ -212,6 +212,39 @@
   box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
 }
 
+@mixin tag-out-stock {
+  height: $tag-height-mobile;
+  padding-left: 8px;
+  padding-right: 8px;
+  border-radius: 20px;
+  background-color: rgba(201, 69, 21, 0.07);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+
+
+  @include tablet {
+    height: $tag-height-tablet;
+  }
+}
+
+@mixin tag-in-stock {
+  height: $tag-height-mobile;
+  padding-left: 8px;
+  padding-right: 8px;
+  border-radius: 20px;
+  background-color: rgba(21, 132, 99, 0.07);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+
+  @include tablet {
+    height: $tag-height-tablet;
+  }
+}
+
 @mixin navLinkStyling {
   font-family: $font-stack;
   color: $color-cloud;

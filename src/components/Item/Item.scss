@@ -1,0 +1,118 @@
+@use '../../styles/partials/mixins'as*;
+@use '../../styles/partials/variables'as*;
+@use '../../styles/partials/colors'as*;
+
+.item {
+  background-color: $color-background-light;
+  @include padding-horizontal-outer;
+
+  &__inner {
+    @include divider-top;
+    @include padding-horizontal-inner;
+    @include site-border;
+    padding-right: 0;
+    padding-bottom: 1.68rem;
+    background-color: $color-white;
+
+    @include tablet {
+      border-top: none;
+      @include divider-bottom;
+      padding-bottom: 0;
+    }
+
+    &:hover {
+      background-color: rgba(46, 102, 230, 0.07);
+    }
+
+    &:first-child {
+      box-shadow: 0px 5px 5px rgba(19, 24, 44, 0.1);
+    }
+  }
+
+  &__block {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-top: $mobile-outer-padding;
+    width: 100%;
+  }
+
+  &__info {
+    @include font-body-sml;
+    white-space: initial;
+    padding-top: 4px;
+
+    &--main {
+      color: $color-instock-indigo;
+      padding-top: 4px;
+    }
+
+    &--main-link {
+      @include link;
+    }
+
+    &--out-stock {
+      margin-top: 4px;
+      padding-top: 0;
+
+      @include tag-out-stock;
+    }
+
+    &--in-stock {
+      margin-top: 4px;
+      padding-top: 0;
+
+      @include tag-in-stock;
+    }
+  }
+
+  &__label {
+    @include font-table-header;
+    display: inline-block;
+    width: 50%;
+    padding-right: $mobile-totalHorizontal-padding;
+    padding-bottom: $mobile-outer-padding;
+    white-space: nowrap;
+
+    @include tablet {
+      padding-right: $mobile-outer-padding;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+    }
+  }
+
+  &__actions-block {
+    width: 100%;
+    padding-right: $mobile-inner-padding;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include tablet {
+      flex: 0.5;
+      width: fit-content;
+      justify-content: flex-end;
+      align-items: center;
+      padding-right: 0;
+      padding-bottom: $mobile-outer-padding;
+    }
+  }
+
+  &__link {
+    height: $icon-height;
+  }
+
+  &__icon {
+    height: $icon-height;
+
+    &--edit {
+
+      @include tablet {
+        padding-left: $mobile-outer-padding;
+      }
+    }
+  }
+}

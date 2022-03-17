@@ -121,9 +121,8 @@
   &__headers-inner {
     display: none;
 
-    background-color: $color-white;
-
     @include tablet {
+      background-color: $color-background-light;
       @include site-border;
       display: flex;
       justify-content: space-between;

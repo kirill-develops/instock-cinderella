@@ -10,13 +10,14 @@
   justify-content: flex-start;
   align-items: center;
   padding-right: $mobile-outer-padding;
-  background-color: $color-white;
   width: 50%;
 
   &__label {
     @include font-table-header;
     white-space: nowrap;
     color: $color-table-header;
+    padding-top: 11px;
+    padding-bottom: 11px;
   }
 
   &__icon {

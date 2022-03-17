@@ -17,7 +17,11 @@
   }
 
   &:hover {
-    background: rgba(46, 102, 230, 0.07);
+    background-color: rgba(46, 102, 230, 0.07);
+  }
+
+  &:first-child {
+    box-shadow: 0px 5px 5px rgba(19, 24, 44, 0.1);
   }
 
   &__block {

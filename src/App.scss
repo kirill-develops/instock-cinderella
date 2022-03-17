@@ -9,4 +9,21 @@ body {
    margin: 0; 
    padding: 0;
    box-sizing: border-box;
+
 }
+
+// @use './styles/partials/typography'as *;
+
+// @use './styles/partials/colors'as *;
+
+// * {
+//   margin: 0;
+//   box-sizing: border-box;
+//   transition: 0.5s;
+// }
+
+// html {
+//   font-family: $font-stack;
+//   font-size: $root-font-size;
+//   color: $color-instock-black;
+// }

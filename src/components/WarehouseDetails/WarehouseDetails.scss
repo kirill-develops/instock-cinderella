@@ -50,18 +50,21 @@
     }
   }
   &__address {
-    border-right: solid 1px $color-outline-divider-border-tableSort;
-
+    
     @include tablet {
-        padding-right: 2rem;
+      border-right: solid 1px $color-outline-divider-border-tableSort;
         margin-top: 1rem;
         margin-bottom: 1rem;
+        padding-right: 1rem;
     }
   }
   &__details {
     display: flex;
     flex-direction: column;
-    padding-left: .5rem;
+    
+    @include tablet {
+      padding-left: 1rem;
+    }
     
   }
 

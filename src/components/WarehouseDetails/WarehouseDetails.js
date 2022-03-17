@@ -42,6 +42,7 @@ class WarehouseDetails extends Component {
               <Link to={`/warehouses/${warehouse.id}/edit`}>
                 <img className="warehouse__icon" src={editIcon}></img>
               </Link>
+              <p className="warehouse__label">Edit</p>
               </div>
             </div>
           </div>

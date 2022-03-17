@@ -4,6 +4,7 @@
 @use "../../styles/partials/variables" as *;
 
 .warehouse {
+  
   &__top {
     background-color: $color-background-dark;
     @include padding-horizontal-outer;

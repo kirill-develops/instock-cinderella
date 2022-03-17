@@ -8,7 +8,7 @@ import axios from "axios";
 
 class WarehouseDetails extends Component {
   state = {
-    warehouse: [],
+    warehouse: null,
   };
 
   componentDidMount() {
@@ -54,13 +54,13 @@ class WarehouseDetails extends Component {
               <div className="warehouse__contact">
                 <div className="warehouse__details">
                   <h4 className="warehouse__subheader">CONTACT NAME:</h4>
-                  <p className="warehouse__detail">Graeme Lyon</p>
-                  <p className="warehouse__detail">Warehouse Manager</p>
+                  <p className="warehouse__detail">{warehouse.contact.name}</p>
+                  <p className="warehouse__detail">{warehouse.contact.position}</p>
                 </div>
                 <div className="warehouse__details">
                   <h4 className="warehouse__subheader">CONTACT INFORMATION:</h4>
-                  <p className="warehouse__detail">+1(647) 509-0911</p>
-                  <p className="warehouse__detail">glyon@instock.com</p>
+                  <p className="warehouse__detail">{warehouse.contact.phone}</p>
+                  <p className="warehouse__detail">{warehouse.contact.email}</p>
                 </div>
               </div>
             </div>

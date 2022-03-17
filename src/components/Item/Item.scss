@@ -2,26 +2,31 @@
 @use '../../styles/partials/variables'as*;
 @use '../../styles/partials/colors'as*;
 
-.warehouse {
-  @include divider-top;
-  @include padding-horizontal-inner;
-  @include site-border;
-  padding-bottom: 1.68rem;
-  padding-right: 0;
-  background-color: $color-white;
+.item {
+  background-color: $color-background-light;
+  @include padding-horizontal-outer;
 
-  @include tablet {
-    border-top: none;
-    @include divider-bottom;
-    padding-bottom: 0;
-  }
+  &__inner {
+    @include divider-top;
+    @include padding-horizontal-inner;
+    @include site-border;
+    padding-right: 0;
+    padding-bottom: 1.68rem;
+    background-color: $color-white;
 
-  &:hover {
-    background-color: rgba(46, 102, 230, 0.07);
-  }
+    @include tablet {
+      border-top: none;
+      @include divider-bottom;
+      padding-bottom: 0;
+    }
 
-  &:first-child {
-    box-shadow: 0px 5px 5px rgba(19, 24, 44, 0.1);
+    &:hover {
+      background-color: rgba(46, 102, 230, 0.07);
+    }
+
+    &:first-child {
+      box-shadow: 0px 5px 5px rgba(19, 24, 44, 0.1);
+    }
   }
 
   &__block {
@@ -35,13 +40,29 @@
   &__info {
     @include font-body-sml;
     white-space: initial;
+    padding-top: 4px;
 
     &--main {
       color: $color-instock-indigo;
+      padding-top: 4px;
     }
 
     &--main-link {
       @include link;
+    }
+
+    &--out-stock {
+      margin-top: 4px;
+      padding-top: 0;
+
+      @include tag-out-stock;
+    }
+
+    &--in-stock {
+      margin-top: 4px;
+      padding-top: 0;
+
+      @include tag-in-stock;
     }
   }
 

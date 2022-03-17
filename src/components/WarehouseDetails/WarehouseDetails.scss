@@ -1,0 +1,122 @@
+@use "../../styles/partials/colors"as *;
+@use "../../styles/partials/mixins"as *;
+@use "../../styles/partials/typography"as *;
+@use "../../styles/partials/variables"as *;
+
+.warehouse-details {
+
+  &__top {
+    background-color: $color-background-dark;
+    @include padding-horizontal-outer;
+  }
+
+  &__header {
+    background-color: $color-white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    height: 6rem;
+    font-size: 0.8rem;
+  }
+
+  &__back {
+    @include padding-horizontal-outer;
+  }
+
+  &__title {
+    margin-right: auto;
+  }
+
+  &__edit {
+    @include padding-horizontal-outer;
+  }
+
+  &__backing {
+    @include padding-horizontal-outer;
+    @include divider-top;
+    background-color: $color-lightgrey;
+  }
+
+  &__information {
+    @include padding-horizontal-outer;
+    background-color: $color-white;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+      padding-left: 2rem;
+      padding-right: 2rem;
+      padding-bottom: 1rem;
+    }
+  }
+
+  &__address {
+
+    @include tablet {
+      border-right: solid 1px $color-outline-divider-border-tableSort;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      padding-right: 1rem;
+    }
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+      padding-left: 1rem;
+    }
+
+  }
+
+  &__subheader {
+    color: $color-table-header;
+    font-size: 11px;
+    padding-top: 1rem;
+  }
+
+  &__detail {
+    font-size: 0.8rem;
+  }
+
+  &__contact {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+
+    @include tablet {
+      justify-content: flex-end;
+      padding-top: 0;
+      padding-left: 1rem;
+    }
+  }
+
+  &__headers-outer {
+    display: none;
+
+    @include tablet {
+      background-color: $color-background-light;
+      @include padding-horizontal-outer;
+      display: block;
+    }
+  }
+
+  &__headers-inner {
+    display: none;
+
+    @include tablet {
+      background-color: $color-background-light;
+      @include site-border;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+  }
+}

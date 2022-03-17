@@ -4,8 +4,10 @@
 
 .warehouses {
 
-  @include tablet {
-    display: flex;
+  &__headline {
+    @include tablet {
+      display: flex;
+    }
   }
 
   &__title-housing {
@@ -36,11 +38,14 @@
 
   &__form {
     background-color: $color-background-light;
+    box-shadow: 0px 5px 5px rgba(19, 24, 44, 0.1);
     @include padding-horizontal-outer;
     display: flex;
     flex-direction: column;
 
+
     @include tablet {
+      box-shadow: none;
       flex-direction: row;
       padding-left: 0;
       background-color: $color-background-dark;
@@ -51,11 +56,11 @@
   &__search-housing {
     background-color: $color-white;
     @include padding-horizontal-inner;
-    @include site-border;
     padding-top: $mobile-outer-padding;
     padding-bottom: $mobile-outer-padding;
 
     @include tablet {
+      @include site-border;
       box-shadow: none;
       padding-top: $tablet-outer-padding;
       padding-right: 0;
@@ -78,10 +83,10 @@
   &__cta-housing {
     background-color: $color-white;
     @include padding-horizontal-inner;
-    @include site-border;
     padding-bottom: $mobile-outer-padding;
 
     @include tablet {
+      @include site-border;
       padding-top: $tablet-outer-padding;
       padding-bottom: $mobile-inner-padding;
       padding-left: $mobile-inner-padding;
@@ -103,23 +108,23 @@
     white-space: nowrap;
   }
 
-  &__header-outer {
+  &__headers-outer {
     display: none;
 
     @include tablet {
       background-color: $color-background-light;
       @include padding-horizontal-outer;
-      @include site-border;
       display: block;
     }
   }
 
-  &__header-inner {
+  &__headers-inner {
     display: none;
 
     background-color: $color-white;
 
     @include tablet {
+      @include site-border;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -130,5 +135,7 @@
   &__list {
     background-color: $color-background-light;
     @include padding-horizontal-outer;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
   }
 }

@@ -183,6 +183,15 @@
   }
 }
 
+@mixin link {
+  color: $color-instock-indigo;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 @mixin cta-text {
   display: list-item;
   list-style-type: "+";
@@ -198,7 +207,7 @@
 }
 
 @mixin site-border {
-  box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+  box-shadow: 0px 0px 5px rgba(19, 24, 44, 0.1);
 }
 
 @mixin navLinkStyling {

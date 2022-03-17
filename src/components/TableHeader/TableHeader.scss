@@ -26,12 +26,20 @@
 
   &:first-child {
     padding-left: $tablet-inner-padding;
+
+    @include desktop {
+      padding-left: $desktop-inner-padding;
+    }
   }
 
   &:last-child {
     justify-content: flex-end;
     flex: 0.5;
     padding-right: $tablet-inner-padding;
+
+    @include desktop {
+      padding-right: $desktop-inner-padding;
+    }
 
     .header__icon {
       display: none;

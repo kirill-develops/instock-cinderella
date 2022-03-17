@@ -33,7 +33,7 @@ const Warehouse = ({ warehouseObj, handleDelete }) => {
         </label>
         <div className='warehouse__actions-block'>
           <img onClick={handleDelete} src={DeleteIco} alt="delete icon" className='warehouse__icon' />
-          < Link to={`/warehouses/${id}/edit`}>
+          < Link to={`/warehouses/${id}/edit`} className="warehouse__link">
             <img src={EditIco} alt="edit icon" className='warehouse__icon--edit' />
           </Link>
         </div>

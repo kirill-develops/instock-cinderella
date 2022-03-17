@@ -75,50 +75,51 @@ class warehouses extends Component {
     return (
       <>
         <div className='warehouses'>
-
-          <div className='warehouses__title-housing'>
-            <h1 className='warehouses__title'>Warehouses</h1>
-          </div>
-
-          <form className='warehouses__form'>
-            <div className='warehouses__search-housing'>
-              <input type="search"
-                name="search"
-                placeholder="Search"
-                className="warehouses__search"
-              />
+          <div className='warehouses__headline'>
+            <div className='warehouses__title-housing'>
+              <h1 className='warehouses__title'>Warehouses</h1>
             </div>
-            <div className='warehouses__cta-housing'>
-              <Link to="/warehouses/add" className='warehouses__cta'>
-                <span className='warehouses__cta-text'>
-                  Add New Warehouse
-                </span>
-              </Link>
-            </div>
-          </form>
-        </div>
-        <div className='warehouses__header-outer'>
-          <div className='warehouses__header-inner'>
-            {headers.map(header => {
-              return (
-                <TableHeader
-                  header={header}
-                />
-              )
-            })}
-          </div>
-        </div>
-        <div className='warehouses__list'>
-          {warehouses
-            .map(warehouseObj => {
 
-              return (
-                <Warehouse
-                  key={warehouseObj.id}
-                  warehouseObj={warehouseObj}
+            <form className='warehouses__form'>
+              <div className='warehouses__search-housing'>
+                <input type="search"
+                  name="search"
+                  placeholder="Search"
+                  className="warehouses__search"
                 />
-              )
-            })}
+              </div>
+              <div className='warehouses__cta-housing'>
+                <Link to="/warehouses/add" className='warehouses__cta'>
+                  <span className='warehouses__cta-text'>
+                    Add New Warehouse
+                  </span>
+                </Link>
+              </div>
+            </form>
+          </div>
+          <div className='warehouses__headers-outer'>
+            <div className='warehouses__headers-inner'>
+              {headers.map(header => {
+                return (
+                  <TableHeader
+                    header={header}
+                  />
+                )
+              })}
+            </div>
+          </div>
+          <div className='warehouses__list'>
+            {warehouses
+              .map(warehouseObj => {
+
+                return (
+                  <Warehouse
+                    key={warehouseObj.id}
+                    warehouseObj={warehouseObj}
+                  />
+                )
+              })}
+          </div>
         </div>
       </>
     )

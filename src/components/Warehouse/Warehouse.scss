@@ -37,7 +37,7 @@
     }
 
     &--main-link {
-      text-decoration: none;
+      @include link;
     }
   }
 
@@ -76,14 +76,17 @@
     }
   }
 
-  &__icon {
+  &__link {
+    height: $icon-height;
+  }
 
+  &__icon {
+    height: $icon-height;
 
     &--edit {
 
       @include tablet {
         padding-left: $mobile-outer-padding;
-
       }
     }
   }

@@ -1,9 +1,10 @@
-@use "../../styles/partials/colors" as *;
-@use "../../styles/partials/mixins" as *;
-@use "../../styles/partials/typography" as *;
-@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/colors"as *;
+@use "../../styles/partials/mixins"as *;
+@use "../../styles/partials/typography"as *;
+@use "../../styles/partials/variables"as *;
 
-.warehouse {
+.warehouse-details {
+
   &__top {
     background-color: $color-background-dark;
     @include padding-horizontal-outer;
@@ -42,30 +43,32 @@
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 
     @include tablet {
-        display: flex; 
-        flex-direction: row; 
-        padding-left: 2rem;
-        padding-right: 2rem;  
-        padding-bottom: 1rem;   
+      display: flex;
+      flex-direction: row;
+      padding-left: 2rem;
+      padding-right: 2rem;
+      padding-bottom: 1rem;
     }
   }
+
   &__address {
-    
+
     @include tablet {
       border-right: solid 1px $color-outline-divider-border-tableSort;
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-        padding-right: 1rem;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      padding-right: 1rem;
     }
   }
+
   &__details {
     display: flex;
     flex-direction: column;
-    
+
     @include tablet {
       padding-left: 1rem;
     }
-    
+
   }
 
   &__subheader {
@@ -85,9 +88,32 @@
     padding-top: 1rem;
 
     @include tablet {
-        justify-content: flex-end;
-        padding-top: 0;
-        padding-left: 1rem;
+      justify-content: flex-end;
+      padding-top: 0;
+      padding-left: 1rem;
+    }
+  }
+
+  &__headers-outer {
+    display: none;
+
+    @include tablet {
+      background-color: $color-background-light;
+      @include padding-horizontal-outer;
+      display: block;
+    }
+  }
+
+  &__headers-inner {
+    display: none;
+
+    @include tablet {
+      background-color: $color-background-light;
+      @include site-border;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
     }
   }
 }

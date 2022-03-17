@@ -10,6 +10,16 @@
   padding-right: 0;
   background-color: $color-white;
 
+  @include tablet {
+    border-top: none;
+    @include divider-bottom;
+    padding-bottom: 0;
+  }
+
+  &:hover {
+    background: rgba(46, 102, 230, 0.07);
+  }
+
   &__block {
     display: flex;
     flex-wrap: wrap;
@@ -20,6 +30,7 @@
 
   &__info {
     @include font-body-sml;
+    white-space: initial;
 
     &--main {
       color: $color-instock-indigo;
@@ -36,6 +47,16 @@
     width: 50%;
     padding-right: $mobile-totalHorizontal-padding;
     padding-bottom: $mobile-outer-padding;
+    white-space: nowrap;
+
+    @include tablet {
+      padding-right: $mobile-outer-padding;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+    }
   }
 
   &__actions-block {
@@ -44,7 +65,26 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @include tablet {
+      flex: 0.5;
+      width: fit-content;
+      justify-content: flex-end;
+      align-items: center;
+      padding-right: 0;
+      padding-bottom: $mobile-outer-padding;
+    }
   }
 
-  &__icon {}
+  &__icon {
+
+
+    &--edit {
+
+      @include tablet {
+        padding-left: $mobile-outer-padding;
+
+      }
+    }
+  }
 }

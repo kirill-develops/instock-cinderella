@@ -4,8 +4,20 @@
 
 .warehouses {
 
-  @include padding-horizontal-outer;
-  background-color: $color-background-dark;
+  @include tablet {
+    display: flex;
+  }
+
+  &__title-housing {
+    @include padding-horizontal-outer;
+    background-color: $color-background-dark;
+
+    @include tablet {
+      padding-right: 0;
+      width: auto;
+      flex: 1.2;
+    }
+  }
 
   &__title {
     @include padding-horizontal-inner;
@@ -14,21 +26,44 @@
     padding-top: calc(2* $mobile-outer-padding);
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
+
+    @include tablet {
+      border-top-right-radius: 0px;
+      padding-right: 0;
+      padding-bottom: $mobile-inner-padding;
+    }
   }
 
   &__form {
     background-color: $color-background-light;
+    @include padding-horizontal-outer;
     display: flex;
     flex-direction: column;
+
+    @include tablet {
+      flex-direction: row;
+      padding-left: 0;
+      background-color: $color-background-dark;
+      flex: 1.5;
+    }
   }
 
   &__search-housing {
     background-color: $color-white;
     @include padding-horizontal-inner;
-    @include margin-horizontal-outer;
     @include site-border;
     padding-top: $mobile-outer-padding;
     padding-bottom: $mobile-outer-padding;
+
+    @include tablet {
+      box-shadow: none;
+      padding-top: $tablet-outer-padding;
+      padding-right: 0;
+      padding-bottom: $mobile-inner-padding;
+      flex: 1.5;
+    }
+
+    @include desktop {}
   }
 
   &__search {
@@ -43,9 +78,17 @@
   &__cta-housing {
     background-color: $color-white;
     @include padding-horizontal-inner;
-    @include margin-horizontal-outer;
     @include site-border;
     padding-bottom: $mobile-outer-padding;
+
+    @include tablet {
+      padding-top: $tablet-outer-padding;
+      padding-bottom: $mobile-inner-padding;
+      padding-left: $mobile-inner-padding;
+      border-top-right-radius: 3px;
+      flex: 1;
+      box-shadow: none;
+    }
   }
 
   &__cta {
@@ -57,6 +100,31 @@
   &__cta-text {
     @include cta-text;
     color: $color-white;
+    white-space: nowrap;
+  }
+
+  &__header-outer {
+    display: none;
+
+    @include tablet {
+      background-color: $color-background-light;
+      @include padding-horizontal-outer;
+      @include site-border;
+      display: block;
+    }
+  }
+
+  &__header-inner {
+    display: none;
+
+    background-color: $color-white;
+
+    @include tablet {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
   }
 
   &__list {

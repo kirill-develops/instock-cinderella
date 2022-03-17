@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import apiUtils from '../../utils/apiUtils';
 
+import TableHeader from '../../components/TableHeader/TableHeader';
 import Warehouse from '../../components/Warehouse/Warehouse';
 import './Warehouses.scss';
 
@@ -64,32 +65,50 @@ class warehouses extends Component {
 
   render() {
 
-    const { warehouseArr: warehouses } = this.state
+    const { warehouseArr: warehouses } = this.state;
+    const headers = ["WAREHOUSE",
+      "ADDRESS",
+      "CONTACT NAME",
+      "CONTACT INFORMATION",
+      "ACTIONS"]
 
     return (
       <>
         <div className='warehouses'>
-          <h1 className='warehouses__title'>Warehouses</h1>
+
+          <div className='warehouses__title-housing'>
+            <h1 className='warehouses__title'>Warehouses</h1>
+          </div>
+
+          <form className='warehouses__form'>
+            <div className='warehouses__search-housing'>
+              <input type="search"
+                name="search"
+                placeholder="Search"
+                className="warehouses__search"
+              />
+            </div>
+            <div className='warehouses__cta-housing'>
+              <Link to="/warehouses/add" className='warehouses__cta'>
+                <span className='warehouses__cta-text'>
+                  Add New Warehouse
+                </span>
+              </Link>
+            </div>
+          </form>
         </div>
-        <form className='warehouses__form'>
-          <div className='warehouses__search-housing'>
-            <input type="search"
-              name="search"
-              placeholder="Search"
-              className="warehouses__search"
-            />
+        <div className='warehouses__header-outer'>
+          <div className='warehouses__header-inner'>
+            {headers.map(header => {
+              return (
+                <TableHeader
+                  header={header}
+                />
+              )
+            })}
           </div>
-          <div className='warehouses__cta-housing'>
-            <Link to="/warehouses/add" className='warehouses__cta'>
-              <span className='warehouses__cta-text'>
-                Add New Warehouse
-              </span>
-            </Link>
-          </div>
-        </form>
-
+        </div>
         <div className='warehouses__list'>
-
           {warehouses
             .map(warehouseObj => {
 

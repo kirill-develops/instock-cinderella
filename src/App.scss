@@ -1,5 +1,9 @@
 @use "./styles/partials/typography" as *;
 
+* {
+  transition: 0.5s;
+}
+
 body {
    font-family: $font-stack;
    margin: 0; 

@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import backArrow from '../../assets/icons/arrow_back-24px.svg';
 import NewWarehouseDetails from '../../components/NewWarehouseDetails/NewWarehouseDetails'
 import axios from 'axios';
@@ -7,11 +7,11 @@ import { BASE_URL } from '../../utils/api';
 import './AddWarehousePage.scss';
 
 
-class AddWarehousePage extends Component {
+function AddWarehousePage() {
 
-    submitHandler = (event) => {
+    const submitHandler = (event) => {
 
-       return axios
+        return axios
             .post(`${BASE_URL}/warehouses`, {
                 name: event.target.warehouseName.value,
                 address: event.target.address.value,
@@ -31,22 +31,22 @@ class AddWarehousePage extends Component {
                 alert("Unable to add warehouse");
             });
     }
-    render() {
-        return (
-            <div className='add-warehouse'>
-                {/* <Header /> */}
-                <div className='add-warehouse__top'>
+    return (
+        <div className='add-warehouse'>
+            {/* <Header /> */}
+            <div className='add-warehouse__top'>
+                <Link to="/warehouses">
                     <img
                         className='add-warehouse__icon'
                         src={backArrow}
                         alt="back arrow icon"
                     />
-                    <h1 className='add-warehouse__title'>Add New Warehouse</h1>
-                    </div>
-                    <NewWarehouseDetails clickHandler={this.submitHandler} />
+                </Link>
+                <h1 className='add-warehouse__title'>Add New Warehouse</h1>
             </div>
-        )
-    }
+            <NewWarehouseDetails clickHandler={submitHandler} />
+        </div>
+    )
 }
 
 export default AddWarehousePage

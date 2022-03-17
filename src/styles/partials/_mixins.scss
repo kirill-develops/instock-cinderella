@@ -1,5 +1,6 @@
 @use 'variables' as *;
 @use 'colors' as *;
+@use 'typography' as *;
 
 @mixin tablet {
     @media (min-width: $tablet-breakpoint) {
@@ -25,6 +26,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: $font-stack;
 }
 
 @mixin secondary-cta-default {
@@ -39,6 +41,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: $font-stack;
 }
 
 @mixin delete-cta-default {
@@ -53,4 +56,5 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: $font-stack;
 }

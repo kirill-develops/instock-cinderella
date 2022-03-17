@@ -123,7 +123,7 @@ class NewWarehouseDetails extends Component {
                         {/* <Link to='/warehouses'> */}
                         <button className='new-warehouse__cancel-button'>Cancel</button>
                         {/* </Link> */}
-                        <button className='new-warehouse__add-button' type='submit'>Add Warehouse</button>
+                        <button className='new-warehouse__add-button' type='submit'> + Add Warehouse</button>
                     </div>
                 </form>
             </div>

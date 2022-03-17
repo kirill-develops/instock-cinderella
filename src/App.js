@@ -1,4 +1,5 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Warehouses from './pages/Warehouses/Warehouses'
 import './App.scss';
 import Nav from './components/Nav/Nav';
 import WarehouseDetails from './components/WarehouseDetails/WarehouseDetails.js';
@@ -19,7 +20,8 @@ const App = () => {
         <Route path="/inventory/:id/edit" render={<h1>"Edit Specific Inventory" Page WIP</h1>} />
         <Route path="/inventory/add" render={<h1>"Add New Inventory" Page WIP</h1>} /> */}
       </Switch>
-    </BrowserRouter>
+      {/* <Footer /> */}
+    </BrowserRouter >
   );
 }
 

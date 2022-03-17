@@ -109,7 +109,7 @@
   line-height: 16px;
 
   @include tablet {
-    font-size: 12px;
+    font-size: 11px;
     line-height: 18px;
   }
 }
@@ -180,6 +180,17 @@
 
   &:hover {
     background-color: $color-cta-hover;
+    cursor: pointer;
+  }
+}
+
+@mixin link {
+  color: $color-instock-indigo;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
   }
 }
 
@@ -198,8 +209,40 @@
 }
 
 @mixin site-border {
-  border-left: 1px solid $color-outline-divider-border-tableSort;
-  border-right: 1px solid $color-outline-divider-border-tableSort;
+  box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+}
+
+@mixin tag-out-stock {
+  height: $tag-height-mobile;
+  padding-left: 8px;
+  padding-right: 8px;
+  border-radius: 20px;
+  background-color: rgba(201, 69, 21, 0.07);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+
+
+  @include tablet {
+    height: $tag-height-tablet;
+  }
+}
+
+@mixin tag-in-stock {
+  height: $tag-height-mobile;
+  padding-left: 8px;
+  padding-right: 8px;
+  border-radius: 20px;
+  background-color: rgba(21, 132, 99, 0.07);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+
+  @include tablet {
+    height: $tag-height-tablet;
+  }
 }
 
 @mixin navLinkStyling {

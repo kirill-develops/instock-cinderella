@@ -3,7 +3,8 @@
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/variables" as *;
 
-.warehouse {
+
+.warehouse-details {
   padding: 0;
   background-color: $color-white;
   border: none;
@@ -111,6 +112,7 @@
       display: flex;
     }
   }
+
   &__address {
     @include tablet {
       border-right: solid 1px $color-outline-divider-border-tableSort;
@@ -120,6 +122,7 @@
       padding-right: 10rem;
     }
   }
+
   &__details {
     display: flex;
     flex-direction: column;
@@ -185,6 +188,29 @@
 
     @include desktop {
       padding-left: 2rem;
+    }
+  }
+
+  &__headers-outer {
+    display: none;
+
+    @include tablet {
+      background-color: $color-background-light;
+      @include padding-horizontal-outer;
+      display: block;
+    }
+  }
+
+  &__headers-inner {
+    display: none;
+
+    @include tablet {
+      background-color: $color-background-light;
+      @include site-border;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
     }
   }
 }

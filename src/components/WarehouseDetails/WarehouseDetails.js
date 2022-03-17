@@ -3,7 +3,7 @@ import "./WarehouseDetails.scss";
 import { Link } from "react-router-dom";
 import { Component } from "react";
 import arrowBack from "../../assets/icons/arrow_back-24px.svg";
-import editIcon from "../../assets/icons/edit-24px.svg";
+import editIcon from "../../assets/icons/edit-24px-white.svg";
 import axios from "axios";
 
 class WarehouseDetails extends Component {
@@ -38,19 +38,24 @@ class WarehouseDetails extends Component {
                 <img className="warehouse__back" src={arrowBack} />
               </Link>
               <h1 className="warehouse__title">{warehouse.name}</h1>
+              <div className="warehouse__edit">
               <Link to={`/warehouses/${warehouse.id}/edit`}>
-                <img className="warehouse__edit" src={editIcon}></img>
+                <img className="warehouse__icon" src={editIcon}></img>
               </Link>
+              </div>
             </div>
           </div>
           <div className="warehouse__backing">
             <div className="warehouse__information">
               <div className="warehouse__address">
-                <div className=" warehouse__details">
+                <div className="warehouse__details warehouse__details--mobile">
                   <h4 className="warehouse__subheader">WAREHOUSE ADDRESS:</h4>
-                  <p className="warehouse__detail warehouse__detail--mobile">{`${warehouse.address}, ${warehouse.city}, ${warehouse.country}`}</p>
-                  <p className="warehouse__detail warehouse__detail--tablet">{`${warehouse.address}, 
-                  ${warehouse.city}, ${warehouse.country}`}</p>
+                  <p className="warehouse__detail">{`${warehouse.address}, ${warehouse.city}, ${warehouse.country}`}</p>
+                </div>
+                <div className=" warehouse__details warehouse__details--tablet">
+                  <h4 className="warehouse__subheader">WAREHOUSE ADDRESS:</h4>
+                  <p className="warehouse__detail">{`${warehouse.address},`}</p>
+                  <p className="warehouse__detail">{`${warehouse.city}, ${warehouse.country}`}</p>
                 </div>
               </div>
               <div className="warehouse__contact">
@@ -59,7 +64,7 @@ class WarehouseDetails extends Component {
                   <p className="warehouse__detail">{warehouse.contact.name}</p>
                   <p className="warehouse__detail">{warehouse.contact.position}</p>
                 </div>
-                <div className="warehouse__details warehouse__details--addy">
+                <div className="warehouse__details warehouse__details--padded">
                   <h4 className="warehouse__subheader">CONTACT INFORMATION:</h4>
                   <p className="warehouse__detail">{warehouse.contact.phone}</p>
                   <p className="warehouse__detail">{warehouse.contact.email}</p>

@@ -8,22 +8,10 @@ import './AddWarehousePage.scss';
 
 
 class AddWarehousePage extends Component {
-    // state = {
-    //     name: '',
-    //     address: '',
-    //     city: '',
-    //     country: '',
-    //     contactName: '',
-    //     position: '',
-    //     phone: '',
-    //     email: '',
-    //     errors: {},
-    // }
 
     submitHandler = (event) => {
-        event.preventDefault();
 
-        axios
+       return axios
             .post(`${BASE_URL}/warehouses`, {
                 name: event.target.warehouseName.value,
                 address: event.target.address.value,
@@ -35,8 +23,7 @@ class AddWarehousePage extends Component {
                 email: event.target.email.value
             })
             .then(response => {
-                console.log(response)
-                alert("New warehouse added!");
+                return response
                 // history.push('/warehouses');
             })
             .catch(error => {

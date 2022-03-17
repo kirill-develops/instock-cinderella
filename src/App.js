@@ -1,8 +1,8 @@
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import WarehouseList from './components/WarehouseList/WarehouseList'
-import './App.scss';
 import Nav from './components/Nav/Nav';
 import WarehouseDetails from './components/WarehouseDetails/WarehouseDetails.js';
+import './App.scss';
 
 const App = () => {
 

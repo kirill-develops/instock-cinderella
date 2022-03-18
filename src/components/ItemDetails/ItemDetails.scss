@@ -4,30 +4,61 @@
 
 
 .item-details {
-  height: 80vh;
-  width: 100%;
-  position: absolute;
-  top: 8rem;
+  @include cardConfig;
 
-  @include tablet {
-    top: 5.85rem;
-  }
-
-  &__outer {
-    @include padding-horizontal-outer;
-  }
-
-  &__inner {
-    background-color: $color-white;
-    padding-top: calc(2* $mobile-outer-padding);
-    padding-bottom: 1.375rem;
-    border-radius: 3px;
-    @include site-border;
-  }
-
-  &__label {
+  &__title {
     padding-bottom: $mobile-inner-padding;
     @include padding-horizontal-inner;
     @include divider-bottom;
+  }
+
+  &__block {
+    padding-top: $mobile-outer-padding;
+    @include padding-horizontal-inner;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__info {
+    @include font-body-sml;
+    white-space: initial;
+    padding-top: 4px;
+
+    &--main-link {
+      @include link;
+    }
+
+    &--out-stock {
+      margin-top: 4px;
+      padding-top: 0;
+
+      @include tag-out-stock;
+    }
+
+    &--in-stock {
+      margin-top: 4px;
+      padding-top: 0;
+
+      @include tag-in-stock;
+    }
+  }
+
+  &__label {
+    @include font-table-header;
+    padding-bottom: $mobile-outer-padding;
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+
+    @include tablet {
+      padding-right: $mobile-outer-padding;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+    }
   }
 }

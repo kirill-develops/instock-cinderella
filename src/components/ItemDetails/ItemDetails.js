@@ -61,32 +61,32 @@ class ItemDetails extends Component {
       <div className='item-details'>
         <div className='item-details__outer'>
           <div className='item-details__inner'>
-            <h2 className='item-details__label'>
+            <h2 className='item-details__title'>
               {itemName}
             </h2>
 
-            <div className='item__block'>
-              <label className='item__label'>
+            <div className='item-details__block'>
+              <label className='item-details__label'>
                 ITEM DESCRIPTION:
-                <h3 className='item__info--main'>{description} </h3>
+                <h3 className='item-details__info'>{description} </h3>
               </label>
-              <label className='item__label'>
+              <label className='item-details__label'>
                 CATAGORY:
-                <h3 className='item__info'>{category}</h3>
+                <h3 className='item-details__info'>{category}</h3>
               </label>
-              <label className='item__label'>
+              <label className='item-details__label'>
                 STATUS:
-                <h3 className={`item__info 
-            ${status.toLowerCase() === "out of stock" ? "item__info--out-stock" : "item__info--in-stock"}`}
+                <h3 className={`item-details__info 
+            ${status.toLowerCase() === "out of stock" ? "item-details__info--out-stock" : "item-details__info--in-stock"}`}
                 >{status}</h3>
               </label>
-              <label className='item__label'>
+              <label className='item-details__label'>
                 WAREHOUSE:
-                <h3 className='item__info'>{warehouseName}</h3>
+                <h3 className='item-details__info'>{warehouseName}</h3>
               </label>
-              <label className='item__label'>
+              <label className='item-details__label'>
                 QUANTITY:
-                <h3 className='item__info'>{quantity}</h3>
+                <h3 className='item-details__info'>{quantity}</h3>
               </label>
 
             </div>

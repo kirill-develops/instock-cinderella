@@ -2,19 +2,30 @@
 @use "../../styles/partials/mixins" as *;
 
 .add-warehouse {
-    
+    width:90%;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    border-left: 1px solid $color-cloud;
+    border-right: 1px solid $color-cloud;
+
+    &__top-housing {
+        background-color: $color-graphite;
+    }
+
     &__top {
         display: flex;
         padding-left: 1.5rem;
         padding-right: 1.5rem;
+       
     }
 
     &__icon {
         margin-top: 2.5rem;
     }
 
+
     &__title {
-        font-size: 1.75rem;
+        font-size: 1.60rem;
         line-height: 2.25rem;
         margin-top: 2rem;
         margin-bottom: 1.5rem;

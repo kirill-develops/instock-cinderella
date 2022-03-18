@@ -33,17 +33,16 @@ function AddWarehousePage() {
     }
     return (
         <div className='add-warehouse'>
-            {/* <Header /> */}
-            <div className='add-warehouse__top'>
-                <Link to="/warehouses">
-                    <img
-                        className='add-warehouse__icon'
-                        src={backArrow}
-                        alt="back arrow icon"
-                    />
-                </Link>
-                <h1 className='add-warehouse__title'>Add New Warehouse</h1>
-            </div>
+                <div className='add-warehouse__top'>
+                    <Link to="/warehouses">
+                        <img
+                            className='add-warehouse__icon'
+                            src={backArrow}
+                            alt="back arrow icon"
+                        />
+                    </Link>
+                    <h1 className='add-warehouse__title'>Add New Warehouse</h1>
+                </div>
             <NewWarehouseDetails clickHandler={submitHandler} />
         </div>
     )

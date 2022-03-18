@@ -9,21 +9,22 @@ class NewWarehouseDetails extends Component {
 
     submitForm = (event) => {
         event.preventDefault();
-    
-       return this.props.clickHandler(event).then(res => {
-           console.log(res.data)
-           this.setState ({errors: res.data.result.errors})
+
+        return this.props.clickHandler(event).then(res => {
+            console.log(res.data)
+            this.setState({ errors: res.data.result.errors })
         })
     }
     render() {
-    
+
         return (
             <div className='new-warehouse'>
                 <div className='new-warehouse__border-top'></div>
                 <form
                     className='new-warehouse__form'
                     onSubmit={this.submitForm}>
-                    <div className='new-warehouse__form-fields'>
+                    <div className='new-warehouse__housing'>
+                    <div className='new-warehouse__top-form'>
                         <h2 className='new-warehouse__form-title'>Warehouse Details</h2>
                         <label
                             className='new-warehouse__label'
@@ -71,7 +72,7 @@ class NewWarehouseDetails extends Component {
                         {this.state.errors?.country ? <div className='new-warehouse__error'>This field is required</div> : null}
                     </div>
                     <div className='new-warehouse__border-bottom'></div>
-                    <div className='new-warehouse__form-fields'>
+                    <div className='new-warehouse__bottom-form'>
                         <h2 className='new-warehouse__form-title'>Contact Details</h2>
                         <label
                             className='new-warehouse__label'
@@ -118,7 +119,8 @@ class NewWarehouseDetails extends Component {
                             name="email"
                         />
                         {this.state.errors?.email ? <div className='new-warehouse__error'>This field is required</div> : null}
-                    </div>
+                        </div>
+                        </div>
                     <div className='new-warehouse__buttons'>
                         {/* <Link to='/warehouses'> */}
                         <button className='new-warehouse__cancel-button'>Cancel</button>

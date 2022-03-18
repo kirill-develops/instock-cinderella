@@ -1,0 +1,84 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.warehouse-edit {
+  &__headline {
+    @include tablet {
+      display: flex;
+    }
+  }
+  
+  &__title-housing {
+    background-color: $color-background-dark;
+    @include padding-horizontal-outer;
+
+    @include tablet {
+      padding-right: 0;
+      width: auto;
+      flex: 1.2;
+    }
+  }
+
+  &__title {
+    @include padding-horizontal-inner;
+    @include font-header;
+    background-color: $color-white;
+    padding-top: calc(2 * $mobile-outer-padding);
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+
+    @include tablet {
+      border-top-right-radius: 0px;
+      padding-right: 0;
+      padding-bottom: $mobile-inner-padding;
+    }
+  }
+
+  &__subheader-housing {
+    border-top: 1px solid $color-outline-divider-border-tableSort;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+  }
+
+  &__subheader {
+    @include padding-horizontal-inner;
+    @include font-subheader;
+
+    &--contact {
+      padding-left: 0;
+      padding-top: 1rem;
+    }
+  }
+
+  &__form {
+    background-color: $color-background-light;
+    box-shadow: 0px 5px 5px rgba(19, 24, 44, 0.1);
+    @include padding-horizontal-outer;
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+      box-shadow: none;
+      flex-direction: row;
+      padding-left: 0;
+      background-color: $color-background-dark;
+      flex: 1.5;
+    }
+  }
+  &__input-label {
+         @include font-body-sml;
+  }
+  &__field {
+    @include form;
+    @include font-labels-links-buttons;
+  }
+  &__name-housing {
+    background-color: $color-white;
+    @include padding-horizontal-inner;
+    padding-top: $mobile-outer-padding;
+    // padding-bottom: $mobile-outer-padding;
+  }
+}

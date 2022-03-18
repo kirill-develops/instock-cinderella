@@ -6,17 +6,16 @@
   &__headline {
     @include tablet {
       display: flex;
+      flex-direction: column;
     }
   }
-  
+
   &__title-housing {
     background-color: $color-background-dark;
     @include padding-horizontal-outer;
 
     @include tablet {
-      padding-right: 0;
-      width: auto;
-      flex: 1.2;
+      width: 100%;
     }
   }
 
@@ -27,29 +26,39 @@
     padding-top: calc(2 * $mobile-outer-padding);
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
+    padding-bottom: 1rem; 
 
     @include tablet {
       border-top-right-radius: 0px;
       padding-right: 0;
-      padding-bottom: $mobile-inner-padding;
+      border-bottom: 1px solid $color-outline-divider-border-tableSort;
+
     }
   }
 
   &__subheader-housing {
     border-top: 1px solid $color-outline-divider-border-tableSort;
-    margin-right: 1rem;
-    margin-left: 1rem;
-    margin-top: 1.5rem;
-    padding-top: 1rem;
+    // @include padding-horizontal-inner;
+    // margin-top: 1.5rem;
+    // padding-top: 1rem;
+
+    @include tablet {
+      border: none;
+      background-color: $color-white;
+      margin: 0;
+    }
   }
 
   &__subheader {
+    background-color: $color-white;
     @include padding-horizontal-inner;
     @include font-subheader;
+    padding-top: 1rem;
+    @include tablet {
+    }
 
     &--contact {
-      padding-left: 0;
-      padding-top: 1rem;
+      background-color: $color-white;
     }
   }
 
@@ -63,13 +72,34 @@
     @include tablet {
       box-shadow: none;
       flex-direction: row;
-      padding-left: 0;
-      background-color: $color-background-dark;
+      justify-content: center;
+      flex-wrap: wrap; 
+      background-color: $color-background-light;
       flex: 1.5;
+      justify-content: flex-end;
     }
   }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    @include site-border;
+
+    @include tablet {
+      width: 50%;
+    }
+
+    &--border {
+      @include tablet {
+        padding: 0;
+        border-left: 1px solid $color-outline-divider-border-tableSort;
+      }
+    }
+  }
+
   &__input-label {
-         @include font-body-sml;
+    @include font-body-sml;
   }
   &__field {
     @include form;
@@ -79,6 +109,58 @@
     background-color: $color-white;
     @include padding-horizontal-inner;
     padding-top: $mobile-outer-padding;
-    // padding-bottom: $mobile-outer-padding;
+
+    &--bumper {
+      padding-bottom: 2rem;
+    }
+
+    @include tablet {
+      padding-top: 0.5rem;
+    }
+  }
+  &__buttons {
+    display: flex;
+    flex-direction: row; 
+    @include padding-horizontal-outer;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    justify-content: space-between;
+    
+    @include tablet {
+      width: 20rem;
+    }
+
+  }
+  &__cancel {
+    height: 36px;
+    width: 7rem;
+    display: flex;
+    border-radius: 20px;
+    padding-left: $mobile-outer-padding;
+    padding-right: $mobile-outer-padding;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $color-white;
+    color: $color-slate;
+    border: solid 1px $color-outline-divider-border-tableSort;
+    @include font-labels-links-buttons;
+  }
+
+  &__save {
+    height: 36px;
+    width: 7rem;
+    display: inline-block;
+    border-radius: 20px;
+    padding-left: $mobile-outer-padding;
+    padding-right: $mobile-outer-padding;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $color-white;
+    background-color: $color-instock-indigo;
+    border: none;
   }
 }

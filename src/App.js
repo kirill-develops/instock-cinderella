@@ -11,7 +11,7 @@ const App = () => {
     <BrowserRouter>
       <Nav />
       <Switch>
-        <Route path="/warehouses/:id/edit" render={EditWarehouse} />
+        <Route path="/warehouses/:id/edit" component={EditWarehouse} />
         <Route path="/warehouses/:id" exact component={WarehouseDetails} />
         {/* <Route path="/warehouses/add" render={<h1>"Add New Warehouse" Page WIP</h1>} /> */}
         <Route path="/warehouses" exact render={(routerProps) => <WarehouseList {...routerProps} />} />

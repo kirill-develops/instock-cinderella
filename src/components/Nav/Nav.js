@@ -35,7 +35,7 @@ class Nav extends Component {
     return (
       <header className="nav">
         <NavLink to="/" className="nav__logo">
-          <img className="nav__img" src={instockLogo} />
+          <img className="nav__img" src={instockLogo} alt="instock logo"/>
         </NavLink>
         <div className="nav__list">
           <NavLink to="/warehouses" className="nav__link" activeClassName="nav__link--active"> Warehouses

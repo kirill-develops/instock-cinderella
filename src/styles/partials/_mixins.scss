@@ -29,21 +29,6 @@
   }
 }
 
-@mixin margin-horizontal-outer {
-  margin-left: $mobile-outer-padding;
-  margin-right: $mobile-outer-padding;
-
-  @include tablet {
-    margin-left: $tablet-outer-padding;
-    margin-right: $tablet-outer-padding;
-  }
-
-  @include desktop {
-    margin-left: $desktop-outer-padding;
-    margin-right: $desktop-outer-padding;
-  }
-}
-
 @mixin padding-horizontal-inner {
   padding-left: $mobile-inner-padding;
   padding-right: $mobile-inner-padding;
@@ -143,7 +128,6 @@
     line-height: 18px;
   }
 }
-
 
 @mixin form {
   height: 36px;

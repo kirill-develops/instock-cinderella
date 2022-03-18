@@ -31,19 +31,8 @@ class InventoryList extends Component {
     const { id: currentId } = this.props.match.params
     const { id: prevId } = prevProps.match.params
 
-    // if ID's don't match, updates state of activeVideObj, if no ID but previously had a value, go to first video
-    if (!currentId && prevId) {
-      apiUtils.getAllInventory()
-        .then(res => {
-          this.setState({
-            inventoryArr: res.body
-          })
-        })
-        .catch(err => {
-          console.log(err);
-          return errorMessage;
-        })
-    } else if (prevId !== currentId) {
+    // if ID's don't match, updates state of inventoryArr
+    if (prevId !== currentId) {
       apiUtils.getAllInventory()
         .then(res => {
           this.setState({
@@ -99,6 +88,7 @@ class InventoryList extends Component {
           </div>
           <div className='inventory-list__headers-outer'>
             <div className='inventory-list__headers-inner'>
+
               {headers.map((header, i) => {
 
                 return (
@@ -111,6 +101,7 @@ class InventoryList extends Component {
             </div>
           </div>
           <div className='inventory-list__table'>
+
             {inventoryArr
               .map(itemObj => {
 

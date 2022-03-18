@@ -14,13 +14,11 @@ class WarehouseDetails extends Component {
   };
 
 
-
   componentDidMount() {
     const errorMessage = < p > Error fetching data, please try reloading in a few moments</p >
 
     apiUtils.getWarehouseById(this.props.match.params.id)
       .then(res => {
-        console.log(res.data);
         this.setState({ warehouse: res.data });
       }).catch(err => {
         console.log(err);
@@ -35,19 +33,8 @@ class WarehouseDetails extends Component {
     const { id: currentId } = this.props.match.params
     const { id: prevId } = prevProps.match.params
 
-    // if ID's don't match, updates state of activeVideObj, if no ID but previously had a value, go to first video
-    if (!currentId && prevId) {
-      apiUtils.getWarehouseById(this.props.match.params.id)
-        .then(res => {
-          this.setState({
-            warehouse: res.body
-          })
-        })
-        .catch(err => {
-          console.log(err);
-          return errorMessage;
-        })
-    } else if (prevId !== currentId) {
+    // if ID's don't match, updates state of Warehouse
+    if (prevId !== currentId) {
       apiUtils.getWarehouseById(this.props.match.params.id)
         .then(res => {
           this.setState({

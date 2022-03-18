@@ -2,17 +2,14 @@
 @use '../../styles/partials/variables'as *;
 
 .footer {
-  justify-self: flex-end;
 
-  &__inner {
+  min-height: 6rem;
+  padding-top: auto;
+  background-color: $color-background-light;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    min-height: 6rem;
-    padding-top: auto;
-    background-color: $color-background-light;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
 
   @include desktop {
     min-height: 7.125rem;

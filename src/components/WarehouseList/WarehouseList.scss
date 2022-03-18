@@ -67,8 +67,6 @@
       padding-bottom: $mobile-inner-padding;
       flex: 1.5;
     }
-
-    @include desktop {}
   }
 
   &__search {
@@ -136,5 +134,13 @@
     @include padding-horizontal-outer;
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
+
+    @include tablet {
+      padding-bottom: 1.875rem;
+    }
+
+    @include desktop {
+      padding-bottom: 0;
+    }
   }
 }

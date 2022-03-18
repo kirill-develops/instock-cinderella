@@ -195,6 +195,7 @@
   }
 }
 
+
 @mixin form {
   height: 36px;
   width: 100%;
@@ -273,7 +274,7 @@
   align-items: center;
   justify-content: center;
   width: fit-content;
-
+  color: $color-outStock;
 
   @include tablet {
     height: $tag-height-tablet;
@@ -290,6 +291,7 @@
   align-items: center;
   justify-content: center;
   width: fit-content;
+  color: $color-inStock;
 
   @include tablet {
     height: $tag-height-tablet;

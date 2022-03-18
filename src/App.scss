@@ -27,3 +27,12 @@ body {
 //   font-size: $root-font-size;
 //   color: $color-instock-black;
 // }
+html {
+  font-family: $font-stack;
+  font-size: $root-font-size;
+  color: $color-instock-black;
+}
+
+body {
+  height: 100%;
+}

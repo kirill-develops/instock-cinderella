@@ -89,7 +89,7 @@ class WarehouseList extends Component {
                 />
               </div>
               <div className='warehouse-list__cta-housing'>
-                <Link to="/warehouse-list/add" className='warehouse-list__cta'>
+                <Link to="/warehouses/add" className='warehouse-list__cta'>
                   <span className='warehouse-list__cta-text'>
                     Add New Warehouse
                   </span>

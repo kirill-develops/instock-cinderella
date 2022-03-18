@@ -1,28 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './NewWarehouseDetails.scss';
 import { Link } from 'react-router-dom';
+import errorIcon from '../../assets/icons/error-24px.svg';
 
-class NewWarehouseDetails extends Component {
-    state = {
-        errors: {}
-    }
-
-    submitForm = (event) => {
-        event.preventDefault();
-
-        return this.props.clickHandler(event).then(res => {
-            console.log(res.data)
-            this.setState({ errors: res.data.result.errors })
-        })
-    }
-    render() {
+const NewWarehouseDetails = ({clickHandler, name, address, city, country, contactName, position, phone, email, clicked}) => {
 
         return (
             <div className='new-warehouse'>
                 <div className='new-warehouse__border-top'></div>
                 <form
                     className='new-warehouse__form'
-                    onSubmit={this.submitForm}>
+                    onSubmit={clickHandler}>
                     <div className='new-warehouse__housing'>
                     <div className='new-warehouse__top-form'>
                         <h2 className='new-warehouse__form-title'>Warehouse Details</h2>
@@ -32,44 +20,64 @@ class NewWarehouseDetails extends Component {
                             Warehouse Name
                         </label>
                         <input
-                            className="new-warehouse__input-field"
+                                className={`new-warehouse__input-field ${!name && clicked ?"new-warehouse__input-field--error" : ""}`}
                             placeholder="Warehouse Name"
                             name="warehouseName"
                         />
-                        {this.state.errors?.name ? <div className='new-warehouse__error'>This field is required</div> : null}
+                            {!name && clicked ? <div className='new-warehouse__error'>
+                                <img
+                                    src={errorIcon}
+                                    alt="Error icon"
+                                />
+                                This field is required</div> : null}
                         <label
                             className='new-warehouse__label'
                             htmlFor="address">
                             Street Address
                         </label>
                         <input
-                            className="new-warehouse__input-field"
+                            className={`new-warehouse__input-field ${!address && clicked ?"new-warehouse__input-field--error" : ""}`}
                             placeholder="Street Address"
                             name="address"
                         />
-                        {this.state.errors?.address ? <div className='new-warehouse__error'>This field is required</div> : null}
+                            {!address && clicked ? <div className='new-warehouse__error'>
+                            <img
+                                    src={errorIcon}
+                                    alt="Error icon"
+                                />
+                                This field is required</div> : null}
                         <label
                             className='new-warehouse__label'
                             htmlFor="city">
                             City
                         </label>
                         <input
-                            className="new-warehouse__input-field"
+                            className={`new-warehouse__input-field ${!city && clicked ?"new-warehouse__input-field--error" : ""}`}
                             placeholder="City"
                             name="city"
                         />
-                        {this.state.errors?.city ? <div className='new-warehouse__error'>This field is required</div> : null}
+                            {!city && clicked ? <div className='new-warehouse__error'>
+                            <img
+                                    src={errorIcon}
+                                    alt="Error icon"
+                                />
+                                This field is required</div> : null}
                         <label
                             className='new-warehouse__label'
                             htmlFor="country">
                             Country
                         </label>
                         <input
-                            className="new-warehouse__input-field"
+                            className={`new-warehouse__input-field ${!country && clicked ?"new-warehouse__input-field--error" : ""}`}
                             placeholder="Country"
                             name="country"
                         />
-                        {this.state.errors?.country ? <div className='new-warehouse__error'>This field is required</div> : null}
+                            {!country && clicked ? <div className='new-warehouse__error'>
+                            <img
+                                    src={errorIcon}
+                                    alt="Error icon"
+                                />
+                                This field is required</div> : null}
                     </div>
                     <div className='new-warehouse__border-bottom'></div>
                     <div className='new-warehouse__bottom-form'>
@@ -80,45 +88,65 @@ class NewWarehouseDetails extends Component {
                             Contact Name
                         </label>
                         <input
-                            className="new-warehouse__input-field"
+                            className={`new-warehouse__input-field ${!contactName && clicked ?"new-warehouse__input-field--error" : ""}`}
                             placeholder="Contact Name"
                             name="contactName"
                         />
-                        {this.state.errors?.contactName ? <div className='new-warehouse__error'>This field is required</div> : null}
+                            {!contactName && clicked ? <div className='new-warehouse__error'>
+                            <img
+                                    src={errorIcon}
+                                    alt="Error icon"
+                                />
+                                This field is required</div> : null}
                         <label
                             className='new-warehouse__label'
                             htmlFor="position">
                             Position
                         </label>
                         <input
-                            className="new-warehouse__input-field"
+                            className={`new-warehouse__input-field ${!position && clicked ?"new-warehouse__input-field--error" : ""}`}
                             placeholder="Position"
                             name="position"
                         />
-                        {this.state.errors?.position ? <div className='new-warehouse__error'>This field is required</div> : null}
+                            {!position && clicked ? <div className='new-warehouse__error'>
+                            <img
+                                    src={errorIcon}
+                                    alt="Error icon"
+                                />
+                                This field is required</div> : null}
                         <label
                             className='new-warehouse__label'
                             htmlFor="phone">
                             Phone Number
                         </label>
                         <input
-                            className="new-warehouse__input-field"
+                            className={`new-warehouse__input-field ${!phone && clicked ?"new-warehouse__input-field--error" : ""}`}
                             placeholder="Phone Number"
                             name="phone"
                             type='number'
                         />
-                        {this.state.errors?.phone ? <div className='new-warehouse__error'>This field is required</div> : null}
+                            {!phone && clicked ? <div className='new-warehouse__error'>
+                            <img
+                                    src={errorIcon}
+                                    alt="Error icon"
+                                />
+                                This field is required</div> : null}
                         <label
                             className='new-warehouse__label'
                             htmlFor="email">
                             Email
                         </label>
                         <input
-                            className="new-warehouse__input-field"
+                            className={`new-warehouse__input-field ${!email && clicked ?"new-warehouse__input-field--error" : ""}`}
                             placeholder="Email"
                             name="email"
                         />
-                        {this.state.errors?.email ? <div className='new-warehouse__error'>This field is required</div> : null}
+                            {!email && clicked ? <div className='new-warehouse__error'>
+                            <img
+                                    src={errorIcon}
+                                    alt="Error icon"
+                                />
+                                This field is required</div> : null}
                         </div>
                         </div>
                     <div className='new-warehouse__buttons'>
@@ -129,6 +157,5 @@ class NewWarehouseDetails extends Component {
             </div>
         )
     }
-}
 
 export default NewWarehouseDetails

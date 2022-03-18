@@ -80,21 +80,6 @@
   }
 }
 
-@mixin margin-horizontal-outer {
-  margin-left: $mobile-outer-padding;
-  margin-right: $mobile-outer-padding;
-
-  @include tablet {
-    margin-left: $tablet-outer-padding;
-    margin-right: $tablet-outer-padding;
-  }
-
-  @include desktop {
-    margin-left: $desktop-outer-padding;
-    margin-right: $desktop-outer-padding;
-  }
-}
-
 @mixin padding-horizontal-inner {
   padding-left: $mobile-inner-padding;
   padding-right: $mobile-inner-padding;
@@ -194,7 +179,6 @@
     line-height: 18px;
   }
 }
-
 
 @mixin form {
   height: 36px;
@@ -315,4 +299,29 @@
 
 @mixin navLinkActiveStyling {
   $color-white: #FFFFFF;
+}
+
+@mixin cardConfig {
+  // height: 80vh;
+  width: 100%;
+  position: absolute;
+  top: 8rem;
+  padding-bottom: 8rem;
+
+  @include tablet {
+    top: 5.85rem;
+    padding-bottom: 5.85rem;
+  }
+
+  &__outer {
+    @include padding-horizontal-outer;
+  }
+
+  &__inner {
+    background-color: $color-white;
+    padding-top: calc(2* $mobile-outer-padding);
+    padding-bottom: 1.375rem;
+    border-radius: 3px;
+    @include site-border;
+  }
 }

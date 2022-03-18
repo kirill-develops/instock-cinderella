@@ -93,11 +93,11 @@
 
   &__backing {
     @include padding-horizontal-outer;
-    @include divider-top;
     background-color: $color-lightgrey;
     padding: 0;
 
     @include tablet {
+      @include divider-top;
       margin-left: 0;
       margin-right: 0;
     }
@@ -109,7 +109,7 @@
     background-color: $color-white;
 
     @include tablet {
-      padding: 1rem;
+      padding: 1rem 0 1rem 0;
       display: flex;
     }
   }
@@ -121,10 +121,12 @@
     @include tablet {
       border-right: solid 1px $color-outline-divider-border-tableSort;
       padding-right: 4rem;
+      padding-left: 1rem;
     }
 
     @include desktop {
       padding-right: 10rem;
+      padding-left: 1.5rem;
     }
   }
 

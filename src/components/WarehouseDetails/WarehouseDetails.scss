@@ -1,7 +1,7 @@
-@use "../../styles/partials/colors" as *;
-@use "../../styles/partials/mixins" as *;
-@use "../../styles/partials/typography" as *;
-@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/colors"as *;
+@use "../../styles/partials/mixins"as *;
+@use "../../styles/partials/typography"as *;
+@use "../../styles/partials/variables"as *;
 
 
 .warehouse-details {
@@ -16,20 +16,20 @@
 
   &__header {
     background-color: $color-white;
+    @include padding-horizontal-inner;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    padding-top: calc(2* $mobile-outer-padding);
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    height: 4rem;
     font-size: 0.8rem;
-    @include padding-horizontal-inner;
     margin-bottom: 2rem;
-    padding-top: 1rem;
 
     @include tablet {
       margin-bottom: 0;
-      padding-bottom: 1rem;
-      height: 5rem;
+      padding-bottom: $mobile-inner-padding;
     }
   }
 
@@ -43,6 +43,7 @@
 
   &__title {
     margin-right: auto;
+    @include font-header;
   }
 
   &__edit {
@@ -78,8 +79,10 @@
       margin-right: 0.5rem;
     }
   }
+
   &__label {
     display: none;
+
     @include tablet {
       color: $color-white;
       display: flex;
@@ -87,12 +90,11 @@
       padding-right: 1.5rem;
     }
   }
+
   &__backing {
     @include padding-horizontal-outer;
     @include divider-top;
     background-color: $color-lightgrey;
-    margin-left: 1rem;
-    margin-right: 1rem;
     padding: 0;
 
     @include tablet {
@@ -103,9 +105,8 @@
 
   &__information {
     @include padding-horizontal-outer;
-    @include padding-horizontal-inner;
+    @include site-border;
     background-color: $color-white;
-    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 
     @include tablet {
       padding: 1rem;
@@ -114,10 +115,14 @@
   }
 
   &__address {
+
+    @include padding-horizontal-inner;
+
     @include tablet {
       border-right: solid 1px $color-outline-divider-border-tableSort;
       padding-right: 4rem;
     }
+
     @include desktop {
       padding-right: 10rem;
     }
@@ -137,6 +142,7 @@
         display: none;
       }
     }
+
     &--tablet {
       display: none;
 
@@ -144,6 +150,7 @@
         display: flex;
       }
     }
+
     &--padded {
       @include tablet {
         padding-left: 6rem;
@@ -165,12 +172,14 @@
       padding: 0;
     }
   }
+
   &__detail {
     @include font-body-sml;
     line-height: 20px;
   }
 
   &__contact {
+    @include padding-horizontal-inner;
     display: flex;
     flex-direction: row;
     justify-content: space-between;

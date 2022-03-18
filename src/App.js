@@ -1,7 +1,9 @@
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
-import WarehouseList from './components/WarehouseList/WarehouseList'
+
 import Nav from './components/Nav/Nav';
+import WarehouseList from './components/WarehouseList/WarehouseList'
 import WarehouseDetails from './components/WarehouseDetails/WarehouseDetails.js';
+import Footer from './components/Footer/Footer';
 import './App.scss';
 
 const App = () => {
@@ -20,7 +22,7 @@ const App = () => {
         <Route path="/inventory" render={<h1>"All Inventories" Page WIP</h1>} />
         <Redirect from="/" to="/warehouses" />
       </Switch>
-      {/* <Footer /> */}
+      <Footer />
     </BrowserRouter >
   );
 }

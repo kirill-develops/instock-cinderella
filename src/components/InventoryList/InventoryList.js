@@ -3,42 +3,40 @@ import { Link } from 'react-router-dom';
 import apiUtils from '../../utils/apiUtils';
 
 import TableHeader from '../TableHeader/TableHeader';
-import Warehouse from '../Warehouse/Warehouse';
-import './WarehouseList.scss';
+import InventoryListItem from '../InventoryListItem/InventoryListItem';
+import './InventoryList.scss';
 
 
-class WarehouseList extends Component {
+class InventoryList extends Component {
   state = {
-    warehouseArr: [],
+    inventoryArr: [],
   }
-
 
   componentDidMount() {
     const errorMessage = < p > Error fetching data, please try reloading in a few moments</p >
 
-    apiUtils.getAllWarehouses()
+    apiUtils.getAllInventory()
       .then(res => {
-        this.setState({ warehouseArr: res.data });
+        this.setState({ inventoryArr: res.data });
       }).catch(err => {
         console.log(err);
         return errorMessage;
       })
   }
 
-
   componentDidUpdate(prevProps) {
     const errorMessage = < p > Error fetching data, please try reloading in a few moments</p >
 
     // deconstruct current and previous params
-    const { id: currentId } = this.props.match.params;
-    const { id: prevId } = prevProps.match.params;
+    const { id: currentId } = this.props.match.params
+    const { id: prevId } = prevProps.match.params
 
-    // if ID's don't match, updates state of warehouseArr
+    // if ID's don't match, updates state of inventoryArr
     if (prevId !== currentId) {
-      apiUtils.getAllWarehouses()
+      apiUtils.getAllInventory()
         .then(res => {
           this.setState({
-            warehouseArr: res.body
+            inventoryArr: res.body
           })
         })
         .catch(err => {
@@ -55,41 +53,44 @@ class WarehouseList extends Component {
 
   render() {
 
-    const { warehouseArr: warehouses } = this.state;
-    const headers = ["WAREHOUSE",
-      "ADDRESS",
-      "CONTACT NAME",
-      "CONTACT INFORMATION",
+    const { inventoryArr } = this.state;
+    const headers = ["INVENTORY ITEM",
+      "CATEGORY",
+      "STATUS",
+      "QTY",
+      "WAREHOUSE",
       "ACTIONS"]
 
     return (
       <>
-        <div className='warehouse-list'>
-          <div className='warehouse-list__headline'>
-            <div className='warehouse-list__title-housing'>
-              <h1 className='warehouse-list__title'>Warehouses</h1>
+        <div className='inventory-list'>
+          <div className='inventory-list__headline'>
+            <div className='inventory-list__title-housing'>
+              <h1 className='inventory-list__title'>Inventory</h1>
             </div>
 
-            <form className='warehouse-list__form'>
-              <div className='warehouse-list__search-housing'>
+            <form className='inventory-list__form'>
+              <div className='inventory-list__search-housing'>
                 <input type="search"
                   name="search"
                   placeholder="Search"
-                  className="warehouse-list__search"
+                  className="inventory-list__search"
                 />
               </div>
-              <div className='warehouse-list__cta-housing'>
-                <Link to="/warehouses/add" className='warehouse-list__cta'>
-                  <span className='warehouse-list__cta-text'>
-                    Add New Warehouse
+              <div className='inventory-list__cta-housing'>
+                <Link to="/inventory/add" className='inventory-list__cta'>
+                  <span className='inventory-list__cta-text'>
+                    Add New Item
                   </span>
                 </Link>
               </div>
             </form>
           </div>
-          <div className='warehouse-list__headers-outer'>
-            <div className='warehouse-list__headers-inner'>
+          <div className='inventory-list__headers-outer'>
+            <div className='inventory-list__headers-inner'>
+
               {headers.map((header, i) => {
+
                 return (
                   <TableHeader
                     key={i}
@@ -99,14 +100,15 @@ class WarehouseList extends Component {
               })}
             </div>
           </div>
-          <div className='warehouse-list__table'>
-            {warehouses
-              .map(warehouseObj => {
+          <div className='inventory-list__table'>
+
+            {inventoryArr
+              .map(itemObj => {
 
                 return (
-                  <Warehouse
-                    key={warehouseObj.id}
-                    warehouseObj={warehouseObj}
+                  <InventoryListItem
+                    key={itemObj.id}
+                    itemObj={itemObj}
                     handleDelete={this.handleDelete}
                   />
                 )
@@ -118,4 +120,4 @@ class WarehouseList extends Component {
   }
 };
 
-export default WarehouseList;
+export default InventoryList;

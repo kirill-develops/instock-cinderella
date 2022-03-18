@@ -2,7 +2,7 @@
 @use '../../styles/partials/variables'as *;
 @use '../../styles/partials/mixins'as *;
 
-.warehouse-list {
+.inventory-list {
 
   &__headline {
     @include tablet {

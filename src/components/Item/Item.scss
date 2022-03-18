@@ -6,6 +6,12 @@
   background-color: $color-background-light;
   @include padding-horizontal-outer;
 
+  &:last-child>* {
+    border-bottom: none;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+  }
+
   &__inner {
     @include divider-top;
     @include padding-horizontal-inner;

@@ -32,7 +32,9 @@ function AddWarehousePage() {
             });
     }
     return (
-        <div className='add-warehouse'>
+        <div className='background'>
+            {/* <div className='background__top'> */}
+            <div className='add-warehouse'>
                 <div className='add-warehouse__top'>
                     <Link to="/warehouses">
                         <img
@@ -43,7 +45,9 @@ function AddWarehousePage() {
                     </Link>
                     <h1 className='add-warehouse__title'>Add New Warehouse</h1>
                 </div>
-            <NewWarehouseDetails clickHandler={submitHandler} />
+
+                <NewWarehouseDetails clickHandler={submitHandler} />
+            </div>
         </div>
     )
 }

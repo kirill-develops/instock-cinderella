@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './NewWarehouseDetails.scss';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class NewWarehouseDetails extends Component {
     state = {
@@ -122,9 +122,7 @@ class NewWarehouseDetails extends Component {
                         </div>
                         </div>
                     <div className='new-warehouse__buttons'>
-                        {/* <Link to='/warehouses'> */}
-                        <button className='new-warehouse__cancel-button'>Cancel</button>
-                        {/* </Link> */}
+                        <Link to='/warehouses' className='new-warehouse__cancel-button'>Cancel</Link>
                         <button className='new-warehouse__add-button' type='submit'> + Add Warehouse</button>
                     </div>
                 </form>

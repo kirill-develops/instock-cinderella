@@ -1,39 +1,115 @@
 import axios from "axios";
 import React from "react";
 import { Link } from "react-router-dom";
-import { Component } from 'react';
+import { Component } from "react";
 import arrowBack from "../../assets/icons/arrow_back-24px.svg";
 import "../EditWarehouse/EditWarehouse.scss";
 
 const BASE_URL = "http://localhost:8080";
 
 export class EditWarehouse extends Component {
-  
-// The state of this page should load the form fields with the warehouse info of the match.params.
-state = {
-  warehouse: null 
-}
+  // The state of this page should load the form fields with the warehouse info of the match.params.
+  state = {
+    warehouse: null,
+    name: "",
+    address: "",
+    city: "",
+    country: "",
+    contactName: "",
+    position: "",
+    phone: "",
+    email: "",
+  };
 
   componentDidMount() {
+    axios
+      .get(`${BASE_URL}/warehouses/${this.props.match.params.id}`)
+      .then((response) => {
+        const { name, address, city, country, contact } = response.data;
 
-      axios
-        .get(`${BASE_URL}/warehouses/${this.props.match.params.id}`)
-        .then((response) => {
-          this.setState({
-            warehouse: response.data,
-          })
-          console.log(this.state.warehouse)
-
-  })
+        this.setState({
+          warehouse: response.data,
+          name: name,
+          address: address,
+          city: city,
+          country: country,
+          contactName: contact.name,
+          position: contact.position,
+          phone: contact.phone,
+          email: contact.email,
+        });
+      });
   }
 
-    submitHandler = (event) => {
+  // Create logic for a valid WAREHOUSE NAME
+  isNameValid = () => {
+    if (this.state.name.length < 3) {
+      console.log("name");
+      return false;
+    }
+    return true; 
+  };
 
-      // Enter validation before the put request
+  submitHandler = (event) => {
+    event.preventDefault();
+    // Enter validation before the put request
 
+    this.isFormValid = () => {
+
+      this.isNameValid();
+
+      // Create logic for a valid ADDRESS
+      if (this.state.address.length < 5) {
+        console.log("address");
+        return false;
+      }
+
+      // Create logic for a valid CITY
+      if (this.state.city.length < 5) {
+        console.log("city");
+        return false;
+      }
+
+      // Create logic for a valid WAREHOUSE ADDRESS
+      if (this.state.country.length < 3) {
+        console.log("country");
+        return false;
+      }
+
+      // Create logic for a valid CONTACT
+      if (this.state.contactName.length < 5) {
+        console.log("contact");
+        return false;
+      }
+
+      // Create logic for a valid POSITION
+
+      if (this.state.position.length < 5) {
+        console.log("position");
+        return false;
+      }
+
+      // Create logic for a valid PHONE
+
+      if (this.state.phone.length < 9) {
+        console.log("contact");
+        return false;
+      }
+
+      // Create logic for a valid EMAIL
+
+      if (this.state.email.length < 6) {
+        console.log("contact");
+        return false;
+      }
+
+      return true;
+    };
+
+    if (this.isFormValid()) {
       return axios
-        .put(`${BASE_URL}/warehouses/${this.props.match.params.id}`, {
-          name: event.target.name.value, 
+        .put(`${BASE_URL}/warehouses/${this.props.match.params.id}/edit`, {
+          name: event.target.name.value,
           address: event.target.address.value,
           city: event.target.city.value,
           country: event.target.country.value,
@@ -42,83 +118,98 @@ state = {
           phone: event.target.phone.value,
           email: event.target.email.value,
         })
-      }
+        .then(
+          this.props.history.push(`/warehouses/${this.props.match.params.id}`)
+        );
+    } else {
+      alert("Please fill out all form fields");
+    }
+  };
 
-render () {
+  handleChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
 
-  if (!this.state.warehouse) {
-   return <p>Loading...</p>
-  }
-  return (
-
-    <div className="warehouse-edit">
-      <div className="warehouse-edit__headline">
-      {/* <Link to="/warehouses">
+  render() {
+    if (!this.state.warehouse) {
+      return <p>Loading...</p>;
+    }
+    return (
+      <div className="warehouse-edit">
+        <div className="warehouse-edit__headline">
+          {/* <Link to="/warehouses">
                 <img className="warehouse-details__back" src={arrowBack} />
               </Link> */}
-        <div className="warehouse-edit__title-housing">
-          <h1 className="warehouse-edit__title">Edit Warehouse</h1>
-        </div>
-        <form onSubmit={this.submitHandler}className="warehouse-edit__form">
-          <div className="warehouse-edit__card">
-            <div className="warehouse-edit__subheader-housing">
-              <h2 className="warehouse-edit__subheader">Warehouse Details</h2>
-            </div>
-            <div className="warehouse-edit__name-housing">
-              <label className="warehouse-edit__input-label">
-                Warehouse Name
-              </label>
-              <input
-                type="name"
-                name="name"
-                defaultValue={this.state.warehouse.name}
-                className="warehouse-edit__field"
-              />
-            </div>
-            <div className="warehouse-edit__name-housing">
-              <label className="warehouse-edit__input-label">
-                Street Address
-              </label>
-              <input
-                type="name"
-                name="address"
-                defaultValue={this.state.warehouse.address}
-                className="warehouse-edit__field"
-              />
-            </div>
-            <div className="warehouse-edit__name-housing">
-              <label className="warehouse-edit__input-label">City</label>
-              <input
-                type="name"
-                name="city"
-                defaultValue={this.state.warehouse.city}
-                className="warehouse-edit__field"
-              />
-            </div>
-            <div className="warehouse-edit__name-housing warehouse-edit__name-housing--bumper">
-              <label className="warehouse-edit__input-label">Country</label>
-              <input
-                type="name"
-                name="country"
-                defaultValue={this.state.warehouse.country}
-                className="warehouse-edit__field"
-              />
-            </div>
+          <div className="warehouse-edit__title-housing">
+            <h1 className="warehouse-edit__title">Edit Warehouse</h1>
           </div>
-          <div className="warehouse-edit__card warehouse-edit__card--border">
-            <div className="warehouse-edit__subheader-housing">
-              <h2 className="warehouse-edit__subheader warehouse-edit__subheader--contact">
-                Contact Details
-              </h2>
-                </div>
+          <form onSubmit={this.submitHandler} className="warehouse-edit__form">
+            <div className="warehouse-edit__card">
+              <div className="warehouse-edit__subheader-housing">
+                <h2 className="warehouse-edit__subheader">Warehouse Details</h2>
+              </div>
+              <div className="warehouse-edit__name-housing">
+                <label className="warehouse-edit__input-label">
+                  Warehouse Name
+                </label>
+                <input
+                  type="name"
+                  name="name"
+                  defaultValue={this.state.warehouse.name}
+                  onChange={this.handleChange}
+                  className={`warehouse-edit__field ${
+                    this.isNameValid() ? "" : "warehouse-edit__field--error"
+                  }`}
+                />
+              </div>
+              <div className="warehouse-edit__name-housing">
+                <label className="warehouse-edit__input-label">
+                  Street Address
+                </label>
+                <input
+                  type="name"
+                  name="address"
+                  defaultValue={this.state.warehouse.address}
+                  onChange={this.handleChange}
+                  className="warehouse-edit__field"
+                />
+              </div>
+              <div className="warehouse-edit__name-housing">
+                <label className="warehouse-edit__input-label">City</label>
+                <input
+                  type="name"
+                  name="city"
+                  defaultValue={this.state.warehouse.city}
+                  onChange={this.handleChange}
+                  className="warehouse-edit__field"
+                />
+              </div>
+              <div className="warehouse-edit__name-housing warehouse-edit__name-housing--bumper">
+                <label className="warehouse-edit__input-label">Country</label>
+                <input
+                  type="name"
+                  name="country"
+                  defaultValue={this.state.warehouse.country}
+                  onChange={this.handleChange}
+                  className="warehouse-edit__field"
+                />
+              </div>
+            </div>
+            <div className="warehouse-edit__card warehouse-edit__card--border">
+              <div className="warehouse-edit__subheader-housing">
+                <h2 className="warehouse-edit__subheader warehouse-edit__subheader--contact">
+                  Contact Details
+                </h2>
+              </div>
               <div className="warehouse-edit__name-housing">
                 <label className="warehouse-edit__input-label">
                   Contact Name
                 </label>
                 <input
                   type="name"
-                  name="name"
+                  name="contactName"
                   defaultValue={this.state.warehouse.contact.name}
+                  onChange={this.handleChange}
                   className="warehouse-edit__field"
                 />
               </div>
@@ -128,15 +219,19 @@ render () {
                   type="name"
                   name="position"
                   defaultValue={this.state.warehouse.contact.position}
+                  onChange={this.handleChange}
                   className="warehouse-edit__field"
                 />
               </div>
               <div className="warehouse-edit__name-housing">
-                <label className="warehouse-edit__input-label">Phone Number</label>
+                <label className="warehouse-edit__input-label">
+                  Phone Number
+                </label>
                 <input
                   type="name"
                   name="phone"
                   defaultValue={this.state.warehouse.contact.phone}
+                  onChange={this.handleChange}
                   className="warehouse-edit__field"
                 />
               </div>
@@ -146,22 +241,22 @@ render () {
                   type="name"
                   name="email"
                   defaultValue={this.state.warehouse.contact.email}
+                  onChange={this.handleChange}
                   className="warehouse-edit__field"
                 />
               </div>
-          </div>
-                  <div className="warehouse-edit__buttons warehouse-edit__buttons--mobile">
-                      <Link
-                      className="warehouse-edit__cancel"
-                      to="/warehouse:id">Cancel
-                      </Link>
-                    <button className="warehouse-edit__save">Save</button>
-                  </div>
-        </form>
+            </div>
+            <div className="warehouse-edit__buttons warehouse-edit__buttons--mobile">
+              <Link className="warehouse-edit__cancel" to="/warehouse:id">
+                Cancel
+              </Link>
+              <button className="warehouse-edit__save">Save</button>
+            </div>
+          </form>
+        </div>
       </div>
-    </div>
-  );
-}
+    );
+  }
 }
 
 export default EditWarehouse;

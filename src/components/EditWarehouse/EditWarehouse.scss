@@ -104,6 +104,10 @@
   &__field {
     @include form;
     @include font-labels-links-buttons;
+
+    &--error {
+      border: red solid 1px;
+    }
   }
   &__name-housing {
     background-color: $color-white;

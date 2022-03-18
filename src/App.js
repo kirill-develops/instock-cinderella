@@ -2,7 +2,6 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import WarehouseList from './components/WarehouseList/WarehouseList'
 import AddWarehousePage from './pages/AddWarehousePage/AddWarehousePage';
 import Nav from './components/Nav/Nav';
-import WarehouseList from './components/WarehouseList/WarehouseList'
 import WarehouseDetails from './components/WarehouseDetails/WarehouseDetails.js';
 import Footer from './components/Footer/Footer';
 import './App.scss';

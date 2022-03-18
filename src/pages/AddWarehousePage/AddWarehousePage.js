@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import backArrow from '../../assets/icons/arrow_back-24px.svg';
-import NewWarehouseDetails from '../../components/NewWarehouseDetails/NewWarehouseDetails'
+import NewWarehouseDetails from '../../components/NewWarehouseDetails/NewWarehouseDetails';
 import axios from 'axios';
 import { BASE_URL } from '../../utils/api';
 import './AddWarehousePage.scss';

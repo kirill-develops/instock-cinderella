@@ -5,6 +5,7 @@ import NewWarehouseDetails from '../../components/NewWarehouseDetails/NewWarehou
 import axios from 'axios';
 import { BASE_URL } from '../../utils/api';
 import './AddWarehousePage.scss';
+// import validator from 'validator';
 
 
 class AddWarehousePage extends Component {
@@ -21,17 +22,19 @@ class AddWarehousePage extends Component {
     }
 
     // isContactPhoneValid = () => {
-    //     if (this.state.phone.length < 0) {
-    //         return false;
+    //     const phoneFormat = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+    //     if (this.state.phone.match(phoneFormat)) {
+    //         return true;
     //     }
-    //     return true;
+    //     return false;
     // };
 
     // isContactEmailValid = () => {
-    //     if (this.state.email.length < 0) {
-    //         return false;
+    // const emailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    //     if (this.state.email.match(emailFormat)) {
+    //         return true;
     //     }
-    //     return true;
+    //     return false;
     // };
 
     // If all fields are valid return true
@@ -104,7 +107,6 @@ class AddWarehousePage extends Component {
                         phone={this.state.phone}
                         email={this.state.email}
                         clicked={this.state.clicked}
-                    // handleChange={this.handleChange}
                     />
                 </div>
             </div>

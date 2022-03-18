@@ -1,9 +1,13 @@
-@use "../../styles/partials/colors"as *;
-@use "../../styles/partials/mixins"as *;
-@use "../../styles/partials/typography"as *;
-@use "../../styles/partials/variables"as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+
 
 .warehouse-details {
+  padding: 0;
+  background-color: $color-white;
+  border: none;
 
   &__top {
     background-color: $color-background-dark;
@@ -16,12 +20,25 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    height: 6rem;
+    height: 4rem;
     font-size: 0.8rem;
+    @include padding-horizontal-inner;
+    margin-bottom: 2rem;
+    padding-top: 1rem;
+
+    @include tablet {
+      margin-bottom: 0;
+      padding-bottom: 1rem;
+      height: 5rem;
+    }
   }
 
   &__back {
-    @include padding-horizontal-outer;
+    padding-right: 1rem;
+
+    @include tablet {
+      padding-right: 0.5rem;
+    }
   }
 
   &__title {
@@ -29,57 +46,128 @@
   }
 
   &__edit {
+    @include cta;
+    background-color: $color-interact;
     @include padding-horizontal-outer;
+    height: 2rem;
+    width: 2rem;
+
+    @include tablet {
+      height: 36px;
+      width: 5rem;
+      border-radius: 20px;
+      padding-left: $mobile-outer-padding;
+      padding-right: $mobile-outer-padding;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &:hover {
+      background-color: $color-cta-hover;
+    }
   }
 
+  &__icon {
+    width: 1rem;
+    height: 1rem;
+    padding: 0;
+
+    @include tablet {
+      margin-right: 0.5rem;
+    }
+  }
+  &__label {
+    display: none;
+    @include tablet {
+      color: $color-white;
+      display: flex;
+      padding: 0;
+      padding-right: 1.5rem;
+    }
+  }
   &__backing {
     @include padding-horizontal-outer;
     @include divider-top;
     background-color: $color-lightgrey;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    padding: 0;
+
+    @include tablet {
+      margin-left: 0;
+      margin-right: 0;
+    }
   }
 
   &__information {
     @include padding-horizontal-outer;
+    @include padding-horizontal-inner;
     background-color: $color-white;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 
     @include tablet {
+      padding: 1rem;
       display: flex;
-      flex-direction: row;
-      padding-left: 2rem;
-      padding-right: 2rem;
-      padding-bottom: 1rem;
     }
   }
 
   &__address {
-
     @include tablet {
       border-right: solid 1px $color-outline-divider-border-tableSort;
-      margin-top: 1rem;
-      margin-bottom: 1rem;
-      padding-right: 1rem;
+      padding-right: 4rem;
+    }
+    @include desktop {
+      padding-right: 10rem;
     }
   }
 
   &__details {
     display: flex;
     flex-direction: column;
+    line-height: 20px;
 
     @include tablet {
       padding-left: 1rem;
     }
 
+    &--mobile {
+      @include tablet {
+        display: none;
+      }
+    }
+    &--tablet {
+      display: none;
+
+      @include tablet {
+        display: flex;
+      }
+    }
+    &--padded {
+      @include tablet {
+        padding-left: 6rem;
+      }
+
+      @include desktop {
+        padding-left: 8rem;
+      }
+    }
   }
 
   &__subheader {
+    @include font-table-header;
     color: $color-table-header;
-    font-size: 11px;
+    box-sizing: content-box;
     padding-top: 1rem;
-  }
 
+    @include tablet {
+      padding: 0;
+    }
+  }
   &__detail {
-    font-size: 0.8rem;
+    @include font-body-sml;
+    line-height: 20px;
   }
 
   &__contact {
@@ -94,6 +182,12 @@
       justify-content: flex-end;
       padding-top: 0;
       padding-left: 1rem;
+      padding-bottom: 0;
+      margin-right: auto;
+    }
+
+    @include desktop {
+      padding-left: 2rem;
     }
   }
 

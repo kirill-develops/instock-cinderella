@@ -3,8 +3,9 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import Nav from './components/Nav/Nav';
 import WarehouseList from './components/WarehouseList/WarehouseList'
 import WarehouseDetails from './components/WarehouseDetails/WarehouseDetails.js';
+import InventoryList from './components/InventoryList/InventoryList'
 import Footer from './components/Footer/Footer';
-import './App.scss';
+import './styles/App.scss';
 
 const App = () => {
 
@@ -19,7 +20,7 @@ const App = () => {
         <Route path="/inventory/:id/edit" render={<h1>"Edit Specific Inventory" Page WIP</h1>} />
         <Route path="/inventory/:id" render={<h1>"Specific Inventory" Page WIP</h1>} />
         <Route path="/inventory/add" exact render={<h1>"Add New Inventory" Page WIP</h1>} />
-        <Route path="/inventory" render={<h1>"All Inventories" Page WIP</h1>} />
+        <Route path="/inventory" component={InventoryList} />
         <Redirect from="/" to="/warehouses" />
       </Switch>
       <Footer />

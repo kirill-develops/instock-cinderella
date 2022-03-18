@@ -1,5 +1,6 @@
-@use './styles/partials/typography'as *;
-@use './styles/partials/colors'as *;
+@use './partials/typography'as *;
+@use './partials/colors'as *;
+@use './partials/variables'as *;
 
 * {
   margin: 0;
@@ -11,8 +12,14 @@ html {
   font-family: $font-stack;
   font-size: $root-font-size;
   color: $color-instock-black;
+  height: 100%;
 }
 
 body {
+  background-color: $color-background-light;
+  height: 100%;
+}
+
+#root {
   height: 100%;
 }

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import apiUtils from "../../utils/apiUtils";
 
 import TableHeader from "../TableHeader/TableHeader";
 import Item from "../Item/Item";
@@ -13,15 +13,53 @@ class WarehouseDetails extends Component {
     warehouse: null,
   };
 
+
+
   componentDidMount() {
-    axios
-      .get(`http://localhost:8080/warehouses/${this.props.match.params.id}`)
-      .then((response) => {
-        this.setState({
-          warehouse: response.data,
-        });
-      });
-  }
+    const errorMessage = < p > Error fetching data, please try reloading in a few moments</p >
+
+    apiUtils.getWarehouseById(this.props.match.params.id)
+      .then(res => {
+        console.log(res.data);
+        this.setState({ warehouse: res.data });
+      }).catch(err => {
+        console.log(err);
+        return errorMessage;
+      })
+  };
+
+  componentDidUpdate(prevProps) {
+    const errorMessage = < p > Error fetching data, please try reloading in a few moments</p >
+
+    // deconstruct current and previous params
+    const { id: currentId } = this.props.match.params
+    const { id: prevId } = prevProps.match.params
+
+    // if ID's don't match, updates state of activeVideObj, if no ID but previously had a value, go to first video
+    if (!currentId && prevId) {
+      apiUtils.getWarehouseById(this.props.match.params.id)
+        .then(res => {
+          this.setState({
+            warehouse: res.body
+          })
+        })
+        .catch(err => {
+          console.log(err);
+          return errorMessage;
+        })
+    } else if (prevId !== currentId) {
+      apiUtils.getWarehouseById(this.props.match.params.id)
+        .then(res => {
+          this.setState({
+            warehouse: res.body
+          })
+        })
+        .catch(err => {
+          console.log(err);
+          return errorMessage;
+        })
+    }
+  };
 
   handleDelete = (id) => {
 

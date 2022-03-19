@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import Nav from './components/Nav/Nav';
 import WarehouseList from './components/WarehouseList/WarehouseList';
 import WarehouseDetails from './components/WarehouseDetails/WarehouseDetails.js';
+import EditWarehouse from './components/EditWarehouse/EditWarehouse';
 import InventoryList from './components/InventoryList/InventoryList';
 import ItemDetails from './components/ItemDetails/ItemDetails';
 import Footer from './components/Footer/Footer';
@@ -14,7 +15,7 @@ const App = () => {
     <BrowserRouter>
       <Nav />
       <Switch>
-        <Route path="/warehouses/:id/edit" render={<h1>"Edit Specific Warehouse" Page WIP</h1>} />
+        <Route path="/warehouses/:id/edit" component={EditWarehouse } />
         <Route path="/warehouses/add" exact render={<h1>"Add New Warehouse" Page WIP</h1>} />
         <Route path="/warehouses/:id" component={WarehouseDetails} />
         <Route path="/warehouses" exact render={(routerProps) => <WarehouseList {...routerProps} />} />

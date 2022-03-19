@@ -1,0 +1,106 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/colors" as *;
+
+.inventory {
+  @include cardConfig;
+  
+
+  &__title {
+    padding-bottom: $mobile-inner-padding;
+    @include padding-horizontal-inner;
+    @include divider-bottom;
+    // border: solid 1px green;
+  }
+
+  &__section {
+      display: flex; 
+      flex-direction: column;
+  }
+
+  &__card {
+    @include padding-horizontal-inner;
+    width: 100%;
+
+    @include tablet {
+        margin-top: 1rem;
+    }
+
+    &--divider {
+        @include divider-left;
+
+    }
+  }
+
+  &__subheader {
+    // border: solid 1px red;
+    @include font-subheader;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  &__form {
+      @include tablet {
+          display: flex; 
+          justify-content: center; 
+      }
+  }
+
+  &__name--housing {
+  }
+
+  &__label {
+    @include font-labels-links-buttons;
+
+  }
+
+  &__item {
+    @include form;
+  }
+
+  &__description {
+    @include form;
+    height: 8rem;
+
+    @include tablet {
+        height: 8rem;
+    }
+  }
+
+  &__block {
+      padding-top: 1rem;
+  }
+
+  &__dropdown {
+    @include form;
+  }
+
+  &__stockpile {
+    // border: solid 1px purple;
+    display: flex;
+    // justify-content: flex-start;
+    align-items: baseline;
+  }
+
+  &__availability {
+    // border: solid 1px turquoise;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__details {
+    display: flex;
+    justify-content: space-between;
+    // border: solid 1px green;
+  }
+
+  &__status {
+  }
+
+  &__radio {
+  }
+
+  &__instock {
+      
+  }
+}

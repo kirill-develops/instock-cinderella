@@ -193,6 +193,10 @@
   border-top: 1px solid $color-outline-divider-border-tableSort;
 }
 
+@mixin divider-left {
+  border-left: 1px solid $color-outline-divider-border-tableSort;
+}
+
 @mixin site-border {
   box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
 }

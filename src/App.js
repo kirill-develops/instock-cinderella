@@ -3,6 +3,7 @@ import WarehouseList from './components/WarehouseList/WarehouseList'
 import AddWarehousePage from './pages/AddWarehousePage/AddWarehousePage';
 import Nav from './components/Nav/Nav';
 import WarehouseDetails from './components/WarehouseDetails/WarehouseDetails.js';
+import EditWarehouse from './components/EditWarehouse/EditWarehouse';
 import InventoryList from './components/InventoryList/InventoryList';
 import ItemDetails from './components/ItemDetails/ItemDetails';
 import Footer from './components/Footer/Footer';
@@ -14,8 +15,9 @@ const App = () => {
     <BrowserRouter>
       <Nav />
       <Switch>
-        {/* <Route path="/warehouses/:id/edit" render={<h1>"Edit Specific Warehouse" Page WIP</h1>} /> */}
+        {<Route path="/warehouses/:id/edit" render={<h1>"Edit Specific Warehouse" Page WIP</h1>} />}
         <Route path="/warehouses/add" component={AddWarehousePage} />
+        <Route path="/warehouses/:id/edit" component={EditWarehouse } />
         <Route path="/warehouses/:id" component={WarehouseDetails} />
         <Route path="/warehouses" exact render={(routerProps) => <WarehouseList {...routerProps} />} />
         {/* <Route path="/inventory/:id/edit" render={<h1>"Edit Specific Inventory" Page WIP</h1>} /> */}

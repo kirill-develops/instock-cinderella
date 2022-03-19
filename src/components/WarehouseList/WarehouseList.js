@@ -63,13 +63,10 @@ class WarehouseList extends Component {
       "ACTIONS"]
 
     return (
-      <>
-        <div className='warehouse-list'>
+      <div className='warehouse-list'>
+        <div className='warehouse-list__inner'>
           <div className='warehouse-list__headline'>
-            <div className='warehouse-list__title-housing'>
-              <h1 className='warehouse-list__title'>Warehouses</h1>
-            </div>
-
+            <h1 className='warehouse-list__title'>Warehouses</h1>
             <form className='warehouse-list__form'>
               <div className='warehouse-list__search-housing'>
                 <input type="search"
@@ -87,17 +84,15 @@ class WarehouseList extends Component {
               </div>
             </form>
           </div>
-          <div className='warehouse-list__headers-outer'>
-            <div className='warehouse-list__headers-inner'>
-              {headers.map((header, i) => {
-                return (
-                  <TableHeader
-                    key={i}
-                    header={header}
-                  />
-                )
-              })}
-            </div>
+          <div className='warehouse-list__headers'>
+            {headers.map((header, i) => {
+              return (
+                <TableHeader
+                  key={i}
+                  header={header}
+                />
+              )
+            })}
           </div>
           <div className='warehouse-list__table'>
             {warehouses
@@ -113,7 +108,7 @@ class WarehouseList extends Component {
               })}
           </div>
         </div>
-      </>
+      </div>
     )
   }
 };

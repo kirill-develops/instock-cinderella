@@ -60,6 +60,7 @@
 }
 
 @mixin font-header {
+  font-weight: 600;
   font-size: 28px;
   line-height: 36px;
 
@@ -70,6 +71,7 @@
 }
 
 @mixin font-subheader {
+  font-weight: 600;
   font-size: 20px;
   line-height: 28px;
 
@@ -80,6 +82,7 @@
 }
 
 @mixin font-labels-links-buttons {
+  font-weight: 600;
   font-size: 13px;
   line-height: 20px;
 
@@ -90,16 +93,20 @@
 }
 
 @mixin font-table-header {
+  color: $color-table-header;
+  font-weight: 600;
   font-size: 11px;
   line-height: 16px;
 
   @include tablet {
-    font-size: 11px;
+    font-size: 12px;
     line-height: 18px;
   }
 }
 
 @mixin font-body-lrg {
+  color: $color-instock-black;
+  font-weight: 400;
   font-size: 15px;
   line-height: 26px;
 
@@ -110,6 +117,8 @@
 }
 
 @mixin font-body-med {
+  color: $color-instock-black;
+  font-weight: 400;
   font-size: 13px;
   line-height: 20px;
 
@@ -120,6 +129,8 @@
 }
 
 @mixin font-body-sml {
+  color: $color-instock-black;
+  font-weight: 400;
   font-size: 11px;
   line-height: 16px;
 
@@ -169,6 +180,12 @@
   }
 }
 
+@mixin cta-text {
+  display: list-item;
+  list-style-type: "+";
+  padding-inline-start: 4px;
+}
+
 @mixin link {
   color: $color-instock-indigo;
   text-decoration: none;
@@ -177,12 +194,6 @@
     text-decoration: underline;
     cursor: pointer;
   }
-}
-
-@mixin cta-text {
-  display: list-item;
-  list-style-type: "+";
-  padding-inline-start: 4px;
 }
 
 @mixin divider-bottom {
@@ -198,16 +209,17 @@
 }
 
 @mixin tag-out-stock {
+  @include font-labels-links-buttons;
   height: $tag-height-mobile;
   padding-left: 8px;
   padding-right: 8px;
   border-radius: 20px;
+  color: $color-outStock;
   background-color: rgba(201, 69, 21, 0.07);
   display: flex;
   align-items: center;
   justify-content: center;
   width: fit-content;
-  color: $color-outStock;
 
   @include tablet {
     height: $tag-height-tablet;
@@ -215,16 +227,17 @@
 }
 
 @mixin tag-in-stock {
+  @include font-labels-links-buttons;
   height: $tag-height-mobile;
   padding-left: 8px;
   padding-right: 8px;
   border-radius: 20px;
+  color: $color-inStock;
   background-color: rgba(21, 132, 99, 0.07);
   display: flex;
   align-items: center;
   justify-content: center;
   width: fit-content;
-  color: $color-inStock;
 
   @include tablet {
     height: $tag-height-tablet;
@@ -251,26 +264,32 @@
 }
 
 @mixin cardConfig {
-  // height: 80vh;
   width: 100%;
-  position: absolute;
-  top: 8rem;
-  padding-bottom: 8rem;
-
-  @include tablet {
-    top: 5.85rem;
-    padding-bottom: 5.85rem;
-  }
-
-  &__outer {
-    @include padding-horizontal-outer;
-  }
+  @include padding-horizontal-outer;
 
   &__inner {
+    transform: translatey(-4rem);
     background-color: $color-white;
     padding-top: calc(2* $mobile-outer-padding);
-    padding-bottom: 1.375rem;
     border-radius: 3px;
     @include site-border;
+    margin-bottom: -4rem;
+
+    @include tablet {
+      transform: translatey(-5.75rem);
+      margin-bottom: -5.75rem;
+    }
+  }
+}
+
+@mixin tabletHeaders {
+  display: none;
+
+  @include tablet {
+    background-color: $color-background-light;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
   }
 }

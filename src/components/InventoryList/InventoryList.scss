@@ -3,6 +3,7 @@
 @use '../../styles/partials/mixins'as *;
 
 .inventory-list {
+  @include cardConfig;
 
   &__headline {
     @include tablet {
@@ -10,45 +11,24 @@
     }
   }
 
-  &__title-housing {
-    background-color: $color-background-dark;
-    @include padding-horizontal-outer;
-
-    @include tablet {
-      padding-right: 0;
-      width: auto;
-      flex: 1.2;
-    }
-  }
-
   &__title {
     @include padding-horizontal-inner;
     @include font-header;
-    background-color: $color-white;
-    padding-top: calc(2* $mobile-outer-padding);
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
 
     @include tablet {
-      border-top-right-radius: 0px;
+      flex: 1.2;
       padding-right: 0;
       padding-bottom: $mobile-inner-padding;
     }
   }
 
   &__form {
-    background-color: $color-background-light;
-    box-shadow: 0px 5px 5px rgba(19, 24, 44, 0.1);
-    @include padding-horizontal-outer;
     display: flex;
     flex-direction: column;
 
-
     @include tablet {
-      box-shadow: none;
       flex-direction: row;
       padding-left: 0;
-      background-color: $color-background-dark;
       flex: 1.5;
     }
   }
@@ -60,9 +40,7 @@
     padding-bottom: $mobile-outer-padding;
 
     @include tablet {
-      @include site-border;
-      box-shadow: none;
-      padding-top: $tablet-outer-padding;
+      padding-top: 0;
       padding-right: 0;
       padding-bottom: $mobile-inner-padding;
       flex: 1.5;
@@ -84,13 +62,9 @@
     padding-bottom: $mobile-outer-padding;
 
     @include tablet {
-      @include site-border;
-      padding-top: $tablet-outer-padding;
       padding-bottom: $mobile-inner-padding;
       padding-left: $mobile-inner-padding;
-      border-top-right-radius: 3px;
       flex: 1;
-      box-shadow: none;
     }
   }
 
@@ -106,41 +80,7 @@
     white-space: nowrap;
   }
 
-  &__headers-outer {
-    display: none;
-
-    @include tablet {
-      background-color: $color-background-light;
-      @include padding-horizontal-outer;
-      display: block;
-    }
-  }
-
-  &__headers-inner {
-    display: none;
-
-    @include tablet {
-      background-color: $color-background-light;
-      @include site-border;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-    }
-  }
-
-  &__table {
-    background-color: $color-background-light;
-    @include padding-horizontal-outer;
-    border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px;
-
-    @include tablet {
-      padding-bottom: 1.875rem;
-    }
-
-    @include desktop {
-      padding-bottom: 0;
-    }
+  &__headers {
+    @include tabletHeaders;
   }
 }

@@ -27,7 +27,10 @@
     }
 
     &--divider {
-        @include divider-left;
+
+        @include tablet {   
+            @include divider-left;
+        }
 
     }
   }

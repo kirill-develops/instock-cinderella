@@ -77,12 +77,12 @@ class WarehouseDetails extends Component {
                 <img className="warehouse-details__back" src={arrowBack} />
               </Link>
               <h1 className="warehouse-details__title">{warehouse.name}</h1>
-              <div className="warehouse-details__edit">
                 <Link to={`/warehouses/${warehouse.id}/edit`}>
+              <div className="warehouse-details__edit">
                   <img className="warehouse-details__icon" src={editIcon}></img>
-                </Link>
-                <p className="warehouse-details__label">Edit</p>
+                  <p className="warehouse-details__label">Edit</p>
               </div>
+                </Link>
             </div>
           </div>
           <div className="warehouse-details__backing">

@@ -9,6 +9,7 @@ const BASE_URL = "http://localhost:8080";
 
 export class EditWarehouse extends Component {
   // The state of this page should load the form fields with the warehouse info of the match.params.
+  
   state = {
     warehouse: null,
     name: "",

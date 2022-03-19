@@ -1,0 +1,123 @@
+import './AddInventoryItem.scss';
+import React from 'react'
+import { Link } from 'react-router-dom';
+import backArrow from '../../assets/icons/arrow_back-24px.svg';
+
+function AddInventoryItem() {
+
+    // Axios POST call on submit
+
+    return (
+        <div className='background'>
+            <div className='add-inventory'>
+                <div className='add-inventory__top'>
+                    <Link to="/inventory">
+                        <img
+                            className='add-inventory__icon'
+                            src={backArrow}
+                            alt="back arrow icon"
+                        />
+                    </Link>
+                    <h1 className='add-inventory__title'>Add New Inventory Item</h1>
+                </div>
+                <div className='add-inventory__border-top'></div>
+                <form className='add-inventory__form'>
+                    <div className='add-inventory__housing'>
+                        <div className='add-inventory__top-form'>
+                            <h2 className='add-inventory__form-title'>Item Details</h2>
+                            <label
+                                className='add-inventory__label'
+                                htmlFor="itemName">
+                                Item Name
+                            </label>
+                            <input
+                                className="add-inventory__input-field "
+                                placeholder="Item Name"
+                                name="itemName"
+                            />
+                            <label
+                                className='add-inventory__label'
+                                htmlFor="description">
+                                Description
+                            </label>
+                            <textarea
+                                className="add-inventory__input-field "
+                                placeholder="Please enter a brief item description..."
+                                name="description"
+                            >
+                            </textarea>
+                            {/* needs to populate from the inventory json list - category is required */}
+                            <label
+                                className='add-inventory__label'
+                                htmlFor="category">
+                                Category
+                            </label>
+                            <select className="add-inventory__dropdown">
+                                <option>Dynamic Category List Here</option>
+                                <option>1</option>
+                            </select>
+                        </div>
+                        <div className='add-inventory__border-bottom'></div>
+                        <div className='add-inventory__bottom-form'>
+                            <h2 className='add-inventory__form-title'>Item Availability</h2>
+
+                            <h4
+                                className='add-inventory__label'>
+                                Status
+                            </h4>
+                            <input
+                                className="add-inventory__radio"
+                                type="radio"
+                                name="instock"
+                                value="inStock"
+                            ></input>
+                            <label
+                                className='add-inventory__radio-label'
+                                htmlFor="instock">
+                                In Stock
+                            </label>
+                            <input
+                                className="add-inventory__radio"
+                                type="radio"
+                                name="outstock"
+                                value="outStock"
+                            ></input>
+                            <label
+                                className='add-inventory__radio-label'
+                                htmlFor="outstock">
+                                Out of Stock
+                            </label>
+                            {/* needs to be dynamic */}
+                            <label
+                                className='add-inventory__label'
+                                htmlFor="quantity">
+                                Quantity
+                            </label>
+                            <input
+                                className="add-inventory__input-field "
+                                placeholder="0"
+                                name="quantity"
+                            />
+                            {/* needs to populate from the warehouse json - warehouse names are required */}
+                            <label
+                                className='add-inventory__label'
+                                htmlFor="warehouse">
+                                Warehouse
+                            </label>
+                            <select className="add-inventory__dropdown">
+                                <option>Dynamic Warehouse List Here</option>
+                                <option>1</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div className='add-inventory__buttons'>
+                        <Link to='/inventory' className='add-inventory__cancel-button'>Cancel</Link>
+                        <button className='add-inventory__add-button' type='submit'> + Add Item</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    )
+}
+
+export default AddInventoryItem

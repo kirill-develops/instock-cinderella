@@ -1,0 +1,193 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.warehouse-edit {
+  @include cardConfig;   
+  
+
+  &__headline {
+    @include tablet {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__box {
+    display: flex; 
+    align-items: baseline;
+
+    @include tablet {
+      border-bottom: solid 1px $color-outline-divider-border-tableSort;
+      padding-bottom: .2rem;
+    }
+  }
+
+  &__back {
+    padding-left: 1rem;
+  }
+
+  &__inner {
+    padding-bottom: 0;
+  }
+
+  &__title-housing {
+    background-color: $color-background-dark;
+
+    @include tablet {
+      width: 100%;
+    }
+  }
+
+  &__title {
+    @include padding-horizontal-inner;
+    @include font-header;
+    background-color: $color-white;
+    font-size: 1.5rem; 
+    padding-top: 1rem;
+    padding-bottom: 1rem; 
+    padding-left: .5rem;
+
+    @include tablet {
+      border-top-right-radius: 0px;
+      padding-right: 0;
+      padding-top: 0;
+    
+    }
+  }
+
+  &__subheader-housing {
+    border-top: 1px solid $color-outline-divider-border-tableSort;
+
+
+    @include tablet {
+      border: none;
+      background-color: $color-white;
+      margin: 0;
+    }
+  }
+
+  &__subheader {
+    background-color: $color-white;
+    @include padding-horizontal-inner;
+    @include font-subheader;
+    padding-top: 1rem;
+    @include tablet {
+    }
+
+    &--contact {
+      background-color: $color-white;
+    }
+  }
+
+  &__form {
+    background-color: $color-background-light;
+    box-shadow: 0px 5px 5px rgba(19, 24, 44, 0.1);
+
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+      box-shadow: none;
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap; 
+      background-color: $color-background-light;
+      flex: 1.5;
+      justify-content: flex-end;
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    @include site-border;
+
+    @include tablet {
+      width: 50%;
+    }
+
+    &--border {
+      @include tablet {
+        padding: 0;
+        border-left: 1px solid $color-outline-divider-border-tableSort;
+      }
+    }
+  }
+
+  &__input-label {
+    @include font-body-sml;
+  }
+  &__field {
+    @include form;
+    @include font-labels-links-buttons;
+
+    &--error {
+      border: solid 1px $color-outStock;
+    }
+  }
+  &__name-housing {
+    background-color: $color-white;
+    @include padding-horizontal-inner;
+    padding-top: $mobile-outer-padding;
+
+    &--bumper {
+      padding-bottom: 2rem;
+    }
+
+    @include tablet {
+      padding-top: 0.5rem;
+    }
+  }
+  &__buttons {
+    display: flex;
+    flex-direction: row; 
+    @include padding-horizontal-outer;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    justify-content: space-between;
+    
+    @include tablet {
+      width: 20rem;
+    }
+
+    @include desktop {
+      width: 25rem; 
+      padding-right: 2rem;
+    }
+
+  }
+  &__cancel {
+    height: 36px;
+    width: 7rem;
+    display: flex;
+    border-radius: 20px;
+    padding-left: $mobile-outer-padding;
+    padding-right: $mobile-outer-padding;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $color-white;
+    color: $color-slate;
+    border: solid 1px $color-outline-divider-border-tableSort;
+    @include font-labels-links-buttons;
+  }
+
+  &__save {
+    height: 36px;
+    width: 7rem;
+    display: inline-block;
+    border-radius: 20px;
+    padding-left: $mobile-outer-padding;
+    padding-right: $mobile-outer-padding;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $color-white;
+    background-color: $color-instock-indigo;
+    border: none;
+  }
+}

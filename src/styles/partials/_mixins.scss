@@ -1,6 +1,9 @@
 @use 'variables'as *;
-@use 'typography'as *;
 @use 'colors'as *;
+@use 'typography'as *;
+// @use 'variables'as *;
+// @use 'typography'as *;
+// @use 'colors'as *;
 
 @mixin tablet {
   @media (min-width: $tablet-breakpoint) {
@@ -9,6 +12,55 @@
 }
 
 @mixin desktop {
+  @media (min-width: $desktop-breakpoint) {
+    @content;
+  }
+}
+
+@mixin primary-cta-default {
+  height: 2.25rem;
+  width: 100%;
+  border-radius: 1.25rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: $color-instock-indigo;
+  color: $color-white;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: $font-stack;
+}
+
+@mixin secondary-cta-default {
+  height: 2.25rem;
+  width: 100%;
+  border-radius: 1.25rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: $color-white;
+  color: $color-slate;
+  border: 1px solid $color-cloud;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: $font-stack;
+}
+
+@mixin delete-cta-default {
+  height: 2.25rem;
+  width: 100%;
+  border-radius: 1.25rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: $color-red;
+  color: $color-white;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: $font-stack;
+
   @media (min-width: $desktop-breakpoint) {
     @content;
   }
@@ -221,6 +273,7 @@
   align-items: center;
   justify-content: center;
   width: fit-content;
+  white-space: nowrap;
 
   @include tablet {
     height: $tag-height-tablet;
@@ -239,6 +292,7 @@
   align-items: center;
   justify-content: center;
   width: fit-content;
+  white-space: nowrap;
 
   @include tablet {
     height: $tag-height-tablet;

@@ -9,9 +9,11 @@ import editIcon from "../../assets/icons/edit-24px-white.svg";
 import './WarehouseDetails.scss';
 
 class WarehouseDetails extends Component {
+
   state = {
-    warehouse: null,
-  };
+    warehouse: null
+  }
+  
 
 
   componentDidMount() {

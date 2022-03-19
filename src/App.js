@@ -19,9 +19,9 @@ const App = () => {
         <Route path="/warehouses/:id/edit" component={EditWarehouse} />
         <Route path="/warehouses/:id" exact component={WarehouseDetails} />
         <Route path="/warehouses" exact render={(routerProps) => <WarehouseList {...routerProps} />} />
-        {/* <Route path="/inventory/:id/edit" render={<h1>"Edit Specific Inventory" Page WIP</h1>} /> */}
+        <Route path="/inventory/:id/edit" render={() => <h1>"Edit Specific Inventory" Page WIP</h1>} />
         <Route path="/inventory/:id" component={ItemDetails} />
-        {/* <Route path="/inventory/add" exact render={<h1>"Add New Inventory" Page WIP</h1>} /> */}
+        <Route path="/inventory/add" exact render={() => <h1>"Add New Inventory" Page WIP</h1>} />
         <Route path="/inventory" exact component={InventoryList} />
         <Redirect from="/" to="/warehouses" />
       </Switch>

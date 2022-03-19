@@ -11,17 +11,13 @@
   background-color: $color-white;
 
   @include tablet {
-    border-top: none;
     @include divider-bottom;
+    border-top: none;
     padding-bottom: 0;
   }
 
   &:hover {
     background-color: rgba(46, 102, 230, 0.07);
-  }
-
-  &:first-child {
-    box-shadow: 0px 5px 5px rgba(19, 24, 44, 0.1);
   }
 
   &:last-child {
@@ -67,6 +63,42 @@
       align-items: flex-start;
       justify-content: center;
     }
+
+    &--main {
+      @extend .warehouse__label;
+
+      @include tablet {
+        order: 1;
+        flex: 0.8;
+      }
+    }
+
+    &--addy {
+      @extend .warehouse__label;
+
+      @include tablet {
+        order: 2;
+        flex: 1;
+      }
+    }
+
+    &--contact {
+      @extend .warehouse__label;
+
+      @include tablet {
+        order: 3;
+        flex: 0.9;
+      }
+    }
+
+    &--details {
+      @extend .warehouse__label;
+
+      @include tablet {
+        order: 4;
+        flex: 1.1;
+      }
+    }
   }
 
   &__actions-block {
@@ -77,6 +109,7 @@
     justify-content: space-between;
 
     @include tablet {
+      order: 5;
       flex: 0.5;
       width: fit-content;
       justify-content: flex-end;

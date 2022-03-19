@@ -154,6 +154,7 @@
   }
 
   &::placeholder {
+    @include font-body-med;
     color: $color-placeholder;
   }
 }

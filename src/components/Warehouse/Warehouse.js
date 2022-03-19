@@ -12,21 +12,21 @@ const Warehouse = ({ warehouseObj, handleDelete }) => {
   return (
     <div className='warehouse'>
       <div className='warehouse__block'>
-        <label className='warehouse__label'>
+        <label className='warehouse__label--main'>
           WAREHOUSE
           < Link to={`/warehouses/${id}`} className='warehouse__info--main-link'>
             <h3 className='warehouse__info--main'>{warehouseName} &gt;</h3>
           </ Link>
         </label>
-        <label className='warehouse__label'>
+        <label className='warehouse__label--contact'>
           CONTACT NAME
           <h3 className='warehouse__info'>{contact.name}</h3>
         </label>
-        <label className='warehouse__label'>
+        <label className='warehouse__label--addy'>
           ADDRESS
           <h3 className='warehouse__info'>{address}, {city}, {country}</h3>
         </label>
-        <label className='warehouse__label'>
+        <label className='warehouse__label--details'>
           CONTACT INFORMATION
           <h3 className='warehouse__info'>{contact.phone}</h3>
           <h3 className='warehouse__info'>{contact.email}</h3>

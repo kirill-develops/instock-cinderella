@@ -56,11 +56,16 @@ class WarehouseList extends Component {
   render() {
 
     const { warehouseArr: warehouses } = this.state;
-    const headers = ["WAREHOUSE",
-      "ADDRESS",
-      "CONTACT NAME",
-      "CONTACT INFORMATION",
-      "ACTIONS"]
+    const headers = [{
+      header: "WAREHOUSE", flex: 0.8
+    }, {
+      header: "ADDRESS", flex: 1
+    }, {
+      header: "CONTACT NAME", flex: 0.9
+    }, {
+      header: "CONTACT INFORMATION", flex: 1.1
+    },
+    { header: "ACTIONS", flex: 0.5 }]
 
     return (
       <div className='warehouse-list'>

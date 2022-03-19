@@ -63,31 +63,33 @@ class ItemDetails extends Component {
           <h2 className='item-details__title'>
             {itemName}
           </h2>
-
           <div className='item-details__block'>
-            <label className='item-details__label'>
-              ITEM DESCRIPTION:
-              <h3 className='item-details__info'>{description} </h3>
-            </label>
-            <label className='item-details__label'>
-              CATAGORY:
-              <h3 className='item-details__info'>{category}</h3>
-            </label>
-            <label className='item-details__label'>
-              STATUS:
-              <h3 className={`item-details__info 
+            <div className='item-details__highlights'>
+              <label className='item-details__label--description'>
+                ITEM DESCRIPTION:
+                <h3 className='item-details__info'>{description} </h3>
+              </label>
+              <label className='item-details__label--category'>
+                CATEGORY:
+                <h3 className='item-details__info'>{category}</h3>
+              </label>
+            </div>
+            <div className='item-details__more-info'>
+              <label className='item-details__label--status'>
+                STATUS:
+                <h3 className={`item-details__info 
             ${status.toLowerCase() === "out of stock" ? "item-details__info--out-stock" : "item-details__info--in-stock"}`}
-              >{status}</h3>
-            </label>
-            <label className='item-details__label'>
-              WAREHOUSE:
-              <h3 className='item-details__info'>{warehouseName}</h3>
-            </label>
-            <label className='item-details__label'>
-              QUANTITY:
-              <h3 className='item-details__info'>{quantity}</h3>
-            </label>
-
+                >{status}</h3>
+              </label>
+              <label className='item-details__label--qty'>
+                QUANTITY:
+                <h3 className='item-details__info'>{quantity}</h3>
+              </label>
+              <label className='item-details__label--warehouse'>
+                WAREHOUSE:
+                <h3 className='item-details__info'>{warehouseName}</h3>
+              </label>
+            </div>
           </div>
         </div>
       </div>

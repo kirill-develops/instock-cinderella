@@ -54,12 +54,23 @@ class InventoryList extends Component {
   render() {
 
     const { inventoryArr } = this.state;
-    const headers = ["INVENTORY ITEM",
-      "CATEGORY",
-      "STATUS",
-      "QTY",
-      "WAREHOUSE",
-      "ACTIONS"]
+    const headers = [
+      {
+        header: "INVENTORY ITEM", flex: 1
+      },
+      {
+        header: "CATEGORY", flex: 0.8
+      },
+      {
+        header: "STATUS", flex: 0.9
+      },
+      {
+        header: "QTY", flex: 0.6
+      },
+      {
+        header: "WAREHOUSE", flex: 0.8
+      },
+      { header: "ACTIONS", flex: 0.5 }]
 
     return (
 

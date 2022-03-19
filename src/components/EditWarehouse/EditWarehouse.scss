@@ -3,6 +3,9 @@
 @use "../../styles/partials/mixins" as *;
 
 .warehouse-edit {
+  @include cardConfig;   
+  
+
   &__headline {
     @include tablet {
       display: flex;
@@ -10,9 +13,26 @@
     }
   }
 
+  &__box {
+    display: flex; 
+    align-items: baseline;
+
+    @include tablet {
+      border-bottom: solid 1px $color-outline-divider-border-tableSort;
+      padding-bottom: .2rem;
+    }
+  }
+
+  &__back {
+    padding-left: 1rem;
+  }
+
+  &__inner {
+    padding-bottom: 0;
+  }
+
   &__title-housing {
     background-color: $color-background-dark;
-    @include padding-horizontal-outer;
 
     @include tablet {
       width: 100%;
@@ -23,24 +43,22 @@
     @include padding-horizontal-inner;
     @include font-header;
     background-color: $color-white;
-    padding-top: calc(2 * $mobile-outer-padding);
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
+    font-size: 1.5rem; 
+    padding-top: 1rem;
     padding-bottom: 1rem; 
+    padding-left: .5rem;
 
     @include tablet {
       border-top-right-radius: 0px;
       padding-right: 0;
-      border-bottom: 1px solid $color-outline-divider-border-tableSort;
-
+      padding-top: 0;
+    
     }
   }
 
   &__subheader-housing {
     border-top: 1px solid $color-outline-divider-border-tableSort;
-    // @include padding-horizontal-inner;
-    // margin-top: 1.5rem;
-    // padding-top: 1rem;
+
 
     @include tablet {
       border: none;
@@ -65,7 +83,7 @@
   &__form {
     background-color: $color-background-light;
     box-shadow: 0px 5px 5px rgba(19, 24, 44, 0.1);
-    @include padding-horizontal-outer;
+
     display: flex;
     flex-direction: column;
 
@@ -106,7 +124,7 @@
     @include font-labels-links-buttons;
 
     &--error {
-      border: red solid 1px;
+      border: solid 1px $color-outStock;
     }
   }
   &__name-housing {
@@ -132,6 +150,11 @@
     
     @include tablet {
       width: 20rem;
+    }
+
+    @include desktop {
+      width: 25rem; 
+      padding-right: 2rem;
     }
 
   }

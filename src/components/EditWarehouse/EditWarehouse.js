@@ -47,7 +47,70 @@ export class EditWarehouse extends Component {
       console.log("name");
       return false;
     }
-    return true; 
+    return true;
+  };
+
+  // Create logic for a valid ADDRESS
+  isAddressValid = () => {
+    if (this.state.address.length < 5) {
+      console.log("address");
+      return false;
+    }
+    return true;
+  };
+
+  // Create logic for a valid CITY
+  isCityValid() {
+    if (this.state.city.length < 5) {
+      console.log("city");
+      return false;
+    }
+    return true;
+  }
+
+  // Create logic for a valid COUNTRY
+  isCountryValid = () => {
+    if (this.state.country.length < 3) {
+      console.log("country");
+      return false;
+    }
+    return true;
+  };
+
+  // Create logic for a valid CONTACT
+  isContactNameValid = () => {
+    if (this.state.contactName.length < 5) {
+      console.log("contact");
+      return false;
+    }
+    return true;
+  };
+
+  // Create logic for a valid POSITION
+  isPositionValid = () => {
+    if (this.state.position.length < 5) {
+      console.log("position");
+      return false;
+    }
+    return true;
+  };
+
+  // Create logic for a valid PHONE
+  isPhoneValid = () => {
+    if (this.state.phone.length < 9) {
+      console.log("contact");
+      return false;
+    }
+    return true;
+  };
+
+  // Create logic for a valid EMAIL
+  isEmailValid = () => {
+    if (this.state.email.length < 6) {
+      console.log("contact");
+      return false;
+    }
+    return true;
   };
 
   submitHandler = (event) => {
@@ -55,55 +118,14 @@ export class EditWarehouse extends Component {
     // Enter validation before the put request
 
     this.isFormValid = () => {
-
       this.isNameValid();
-
-      // Create logic for a valid ADDRESS
-      if (this.state.address.length < 5) {
-        console.log("address");
-        return false;
-      }
-
-      // Create logic for a valid CITY
-      if (this.state.city.length < 5) {
-        console.log("city");
-        return false;
-      }
-
-      // Create logic for a valid WAREHOUSE ADDRESS
-      if (this.state.country.length < 3) {
-        console.log("country");
-        return false;
-      }
-
-      // Create logic for a valid CONTACT
-      if (this.state.contactName.length < 5) {
-        console.log("contact");
-        return false;
-      }
-
-      // Create logic for a valid POSITION
-
-      if (this.state.position.length < 5) {
-        console.log("position");
-        return false;
-      }
-
-      // Create logic for a valid PHONE
-
-      if (this.state.phone.length < 9) {
-        console.log("contact");
-        return false;
-      }
-
-      // Create logic for a valid EMAIL
-
-      if (this.state.email.length < 6) {
-        console.log("contact");
-        return false;
-      }
-
-      return true;
+      this.isAddressValid();
+      this.isCityValid();
+      this.isCountryValid();
+      this.isContactName();
+      this.isPositionValid();
+      this.isPhoneValid();
+      this.isEmailValid();
     };
 
     if (this.isFormValid()) {
@@ -136,123 +158,156 @@ export class EditWarehouse extends Component {
     }
     return (
       <div className="warehouse-edit">
-        <div className="warehouse-edit__headline">
-          {/* <Link to="/warehouses">
-                <img className="warehouse-details__back" src={arrowBack} />
-              </Link> */}
-          <div className="warehouse-edit__title-housing">
-            <h1 className="warehouse-edit__title">Edit Warehouse</h1>
-          </div>
-          <form onSubmit={this.submitHandler} className="warehouse-edit__form">
-            <div className="warehouse-edit__card">
-              <div className="warehouse-edit__subheader-housing">
-                <h2 className="warehouse-edit__subheader">Warehouse Details</h2>
-              </div>
-              <div className="warehouse-edit__name-housing">
-                <label className="warehouse-edit__input-label">
-                  Warehouse Name
-                </label>
-                <input
-                  type="name"
-                  name="name"
-                  defaultValue={this.state.warehouse.name}
-                  onChange={this.handleChange}
-                  className={`warehouse-edit__field ${
-                    this.isNameValid() ? "" : "warehouse-edit__field--error"
-                  }`}
-                />
-              </div>
-              <div className="warehouse-edit__name-housing">
-                <label className="warehouse-edit__input-label">
-                  Street Address
-                </label>
-                <input
-                  type="name"
-                  name="address"
-                  defaultValue={this.state.warehouse.address}
-                  onChange={this.handleChange}
-                  className="warehouse-edit__field"
-                />
-              </div>
-              <div className="warehouse-edit__name-housing">
-                <label className="warehouse-edit__input-label">City</label>
-                <input
-                  type="name"
-                  name="city"
-                  defaultValue={this.state.warehouse.city}
-                  onChange={this.handleChange}
-                  className="warehouse-edit__field"
-                />
-              </div>
-              <div className="warehouse-edit__name-housing warehouse-edit__name-housing--bumper">
-                <label className="warehouse-edit__input-label">Country</label>
-                <input
-                  type="name"
-                  name="country"
-                  defaultValue={this.state.warehouse.country}
-                  onChange={this.handleChange}
-                  className="warehouse-edit__field"
-                />
-              </div>
-            </div>
-            <div className="warehouse-edit__card warehouse-edit__card--border">
-              <div className="warehouse-edit__subheader-housing">
-                <h2 className="warehouse-edit__subheader warehouse-edit__subheader--contact">
-                  Contact Details
-                </h2>
-              </div>
-              <div className="warehouse-edit__name-housing">
-                <label className="warehouse-edit__input-label">
-                  Contact Name
-                </label>
-                <input
-                  type="name"
-                  name="contactName"
-                  defaultValue={this.state.warehouse.contact.name}
-                  onChange={this.handleChange}
-                  className="warehouse-edit__field"
-                />
-              </div>
-              <div className="warehouse-edit__name-housing">
-                <label className="warehouse-edit__input-label">Position</label>
-                <input
-                  type="name"
-                  name="position"
-                  defaultValue={this.state.warehouse.contact.position}
-                  onChange={this.handleChange}
-                  className="warehouse-edit__field"
-                />
-              </div>
-              <div className="warehouse-edit__name-housing">
-                <label className="warehouse-edit__input-label">
-                  Phone Number
-                </label>
-                <input
-                  type="name"
-                  name="phone"
-                  defaultValue={this.state.warehouse.contact.phone}
-                  onChange={this.handleChange}
-                  className="warehouse-edit__field"
-                />
-              </div>
-              <div className="warehouse-edit__name-housing warehouse-edit__name-housing--bumper">
-                <label className="warehouse-edit__input-label">Email</label>
-                <input
-                  type="name"
-                  name="email"
-                  defaultValue={this.state.warehouse.contact.email}
-                  onChange={this.handleChange}
-                  className="warehouse-edit__field"
-                />
-              </div>
-            </div>
-            <div className="warehouse-edit__buttons warehouse-edit__buttons--mobile">
-              <Link className="warehouse-edit__cancel" to="/warehouse:id">
-                Cancel
+        <div className="warehouse-edit__outer">
+          <div className="warehouse-edit__inner">
+            <div className="warehouse-edit__headline">
+              <div className="warehouse-edit__box">
+              <Link to="/warehouses">
+                <img className="warehouse-edit__back" src={arrowBack} />
               </Link>
-              <button className="warehouse-edit__save">Save</button>
+              <div className="warehouse-edit__title-housing">
+                <h1 className="warehouse-edit__title">Edit Warehouse</h1>
+              </div>
+              </div>
+              <form
+                onSubmit={this.submitHandler}
+                className="warehouse-edit__form"
+              >
+                <div className="warehouse-edit__card">
+                  <div className="warehouse-edit__subheader-housing">
+                    <h2 className="warehouse-edit__subheader">
+                      Warehouse Details
+                    </h2>
+                  </div>
+                  <div className="warehouse-edit__name-housing">
+                    <label className="warehouse-edit__input-label">
+                      Warehouse Name
+                    </label>
+                    <input
+                      type="name"
+                      name="name"
+                      defaultValue={this.state.warehouse.name}
+                      onChange={this.handleChange}
+                      className={`warehouse-edit__field ${
+                        this.isNameValid() ? "" : "warehouse-edit__field--error"
+                      }`}
+                    />
+                  </div>
+                  <div className="warehouse-edit__name-housing">
+                    <label className="warehouse-edit__input-label">
+                      Street Address
+                    </label>
+                    <input
+                      type="name"
+                      name="address"
+                      defaultValue={this.state.warehouse.address}
+                      onChange={this.handleChange}
+                      className={`warehouse-edit__field ${
+                        this.isAddressValid()
+                          ? ""
+                          : "warehouse-edit__field--error"
+                      }`}
+                    />
+                  </div>
+                  <div className="warehouse-edit__name-housing">
+                    <label className="warehouse-edit__input-label">City</label>
+                    <input
+                      type="name"
+                      name="city"
+                      defaultValue={this.state.warehouse.city}
+                      onChange={this.handleChange}
+                      className={`warehouse-edit__field ${
+                        this.isCityValid() ? "" : "warehouse-edit__field--error"
+                      }`}
+                    />
+                  </div>
+                  <div className="warehouse-edit__name-housing warehouse-edit__name-housing--bumper">
+                    <label className="warehouse-edit__input-label">
+                      Country
+                    </label>
+                    <input
+                      type="name"
+                      name="country"
+                      defaultValue={this.state.warehouse.country}
+                      onChange={this.handleChange}
+                      className={`warehouse-edit__field ${
+                        this.isCountryValid()
+                          ? ""
+                          : "warehouse-edit__field--error"
+                      }`}
+                    />
+                  </div>
+                </div>
+                <div className="warehouse-edit__card warehouse-edit__card--border">
+                  <div className="warehouse-edit__subheader-housing">
+                    <h2 className="warehouse-edit__subheader warehouse-edit__subheader--contact">
+                      Contact Details
+                    </h2>
+                  </div>
+                  <div className="warehouse-edit__name-housing">
+                    <label className="warehouse-edit__input-label">
+                      Contact Name
+                    </label>
+                    <input
+                      type="name"
+                      name="contactName"
+                      defaultValue={this.state.warehouse.contact.name}
+                      onChange={this.handleChange}
+                      className={`warehouse-edit__field ${
+                        this.isContactNameValid()
+                          ? ""
+                          : "warehouse-edit__field--error"
+                      }`}
+                    />
+                  </div>
+                  <div className="warehouse-edit__name-housing">
+                    <label className="warehouse-edit__input-label">
+                      Position
+                    </label>
+                    <input
+                      type="name"
+                      name="position"
+                      defaultValue={this.state.warehouse.contact.position}
+                      onChange={this.handleChange}
+                      className={`warehouse-edit__field ${
+                        this.isPositionValid()
+                          ? ""
+                          : "warehouse-edit__field--error"
+                      }`}
+                    />
+                  </div>
+                  <div className="warehouse-edit__name-housing">
+                    <label className="warehouse-edit__input-label">
+                      Phone Number
+                    </label>
+                    <input
+                      type="name"
+                      name="phone"
+                      defaultValue={this.state.warehouse.contact.phone}
+                      onChange={this.handleChange}
+                      className="warehouse-edit__field"
+                    />
+                  </div>
+                  <div className="warehouse-edit__name-housing warehouse-edit__name-housing--bumper">
+                    <label className="warehouse-edit__input-label">Email</label>
+                    <input
+                      type="name"
+                      name="email"
+                      defaultValue={this.state.warehouse.contact.email}
+                      onChange={this.handleChange}
+                      className="warehouse-edit__field"
+                    />
+                  </div>
+                </div>
+                <div className="warehouse-edit__buttons warehouse-edit__buttons--mobile">
+                  <Link className="warehouse-edit__cancel" to="/warehouse:id">
+                    Cancel
+                  </Link>
+                  <button className="warehouse-edit__save">Save</button>
+                </div>
+              </form>
             </div>
-          </form>
+          </div>
         </div>
       </div>
     );

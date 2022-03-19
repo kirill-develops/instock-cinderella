@@ -126,7 +126,16 @@
   &__icon {
     height: $icon-height;
 
+    &--delete {
+      @extend .warehouse__icon;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
     &--edit {
+      @extend .warehouse__icon;
 
       @include tablet {
         padding-left: $mobile-outer-padding;

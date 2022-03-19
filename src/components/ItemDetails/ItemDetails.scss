@@ -33,6 +33,7 @@
     @include tablet {
       width: 50%;
       border-right: 1px solid $color-outline-divider-border-tableSort;
+      padding-bottom: 0;
     }
   }
 

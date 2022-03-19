@@ -24,11 +24,11 @@ const App = () => {
           <Route path="/inventory/add" exact render={<h1>"Add New Inventory" Page WIP</h1>} />
           <Route path="/inventory" exact component={InventoryList} />
           <Redirect from="/" to="/warehouses" />
-        </Switch>
+        </ Switch>
       </div>
       <Footer />
-    </BrowserRouter >
+    </ BrowserRouter>
   );
-}
+};
 
 export default App;

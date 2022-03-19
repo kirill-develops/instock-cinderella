@@ -159,7 +159,16 @@
   &__icon {
     height: $icon-height;
 
+    &--delete {
+      @extend .list-item__icon;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
     &--edit {
+      @extend .list-item__icon;
 
       @include tablet {
         padding-left: $mobile-outer-padding;

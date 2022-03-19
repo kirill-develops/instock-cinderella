@@ -32,7 +32,7 @@ const Warehouse = ({ warehouseObj, handleDelete }) => {
           <h3 className='warehouse__info'>{contact.email}</h3>
         </label>
         <div className='warehouse__actions-block'>
-          <img onClick={handleDelete} src={DeleteIco} alt="delete icon" className='warehouse__icon' />
+          <img onClick={handleDelete} src={DeleteIco} alt="delete icon" className='warehouse__icon--delete' />
           < Link to={`/warehouses/${id}/edit`} className="warehouse__link">
             <img src={EditIco} alt="edit icon" className='warehouse__icon--edit' />
           </Link>

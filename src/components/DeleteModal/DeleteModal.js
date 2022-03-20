@@ -3,11 +3,11 @@ import React from 'react';
 import closeIco from '../../assets/icons/close-24px.svg'
 import './DeleteModal.scss'
 
-const DeleteModal = ({ toDeleteId, toDeleteName, closingStatement, handleCancel, handleConfirm }) => {
+const DeleteModal = ({ toDeleteId, toDeleteName, toDeleteType, closingStatement, handleCancel, handleConfirm }) => {
   return (
     <div className='delete-modal'>
       <h2 className='delete-modal__header'>
-        {`Delete ${toDeleteName} warehouse?`}
+        {`Delete ${toDeleteName} ${toDeleteType}?`}
       </h2>
       <p className='delete-modal__body'>
         {`Please confirm that you’d like to delete the ${toDeleteName} ${closingStatement}. You won’t be able to undo this action.`}

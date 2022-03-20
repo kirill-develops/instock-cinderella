@@ -4,28 +4,29 @@ import apiUtils from '../../utils/apiUtils';
 
 import TableHeader from '../TableHeader/TableHeader';
 import InventoryListItem from '../InventoryListItem/InventoryListItem';
+import DeleteModal from '../DeleteModal/DeleteModal';
 import './InventoryList.scss';
 
-
+const errorMessage = < p > Error fetching data, please try reloading in a few moments</p >
 class InventoryList extends Component {
   state = {
     inventoryArr: [],
+    toDeleteId: "",
+    toDeleteName: ""
   }
 
   componentDidMount() {
-    const errorMessage = < p > Error fetching data, please try reloading in a few moments</p >
 
     apiUtils.getAllInventory()
       .then(res => {
         this.setState({ inventoryArr: res.data });
       }).catch(err => {
-        console.log(err);
+        console.error(err);
         return errorMessage;
       })
   }
 
   componentDidUpdate(prevProps) {
-    const errorMessage = < p > Error fetching data, please try reloading in a few moments</p >
 
     // deconstruct current and previous params
     const { id: currentId } = this.props.match.params
@@ -46,8 +47,29 @@ class InventoryList extends Component {
     }
   };
 
-  handleDelete = (id) => {
+  handleDelete = (id, itemName) => {
+    this.setState({ toDeleteId: id, toDeleteName: itemName });
+  }
 
+  resetDelete = () => {
+    this.setState({ toDeleteId: "", toDeleteName: "" })
+  }
+
+  handleConfirm = (id) => {
+    apiUtils.deleteInventory(id)
+      .then(() => {
+        apiUtils.getAllInventory()
+          .then(res => {
+            this.setState({ inventoryArr: res.data });
+          }).catch(err => {
+            console.error(err);
+            return errorMessage;
+          })
+      }).catch(err => {
+
+        console.error(err);
+        return errorMessage;
+      })
   }
 
 
@@ -119,6 +141,16 @@ class InventoryList extends Component {
                 />
               )
             })}
+        </div>
+        <div className={this.state.toDeleteId ? "inventory-list__delete" : "inventory-list__delete--hidden"}>
+          < DeleteModal
+            toDeleteId={this.state.toDeleteId}
+            toDeleteName={this.state.toDeleteName}
+            toDeleteType="inventory item"
+            handleCancel={this.resetDelete}
+            handleConfirm={this.handleConfirm}
+            closingStatement={'from the inventory list'}
+          />
         </div>
       </div>
     )

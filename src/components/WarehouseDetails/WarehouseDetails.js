@@ -77,6 +77,9 @@ class WarehouseDetails extends Component {
     return (
       <>
         <div className="warehouse-details">
+          <div className="warehouse-details__inner">
+          
+
           <div className="warehouse-details__top">
             <div className="warehouse-details__header">
               <Link to="/warehouses">
@@ -139,6 +142,7 @@ class WarehouseDetails extends Component {
                 />
               )
             })}
+        </div>
         </div>
       </>
     );

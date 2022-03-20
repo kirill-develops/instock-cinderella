@@ -1,0 +1,251 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/typography" as *;
+
+.inventory {
+  @include cardConfig;
+
+
+  &__inner {
+    padding-bottom: 0;
+  }
+
+  &__title {
+    padding-bottom: $mobile-inner-padding;
+    @include padding-horizontal-inner;
+    padding-left: .5rem;
+  }
+
+  &__box {
+    display: flex; 
+    align-items: baseline;
+    border-bottom: solid 1px $color-outline-divider-border-tableSort;
+
+    @include tablet {
+      padding-bottom: .2rem;
+    }
+  }
+
+  &__back {
+    padding-left: 1rem;
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__card {
+    @include padding-horizontal-inner;
+    width: 100%;
+
+    @include tablet {
+      margin-top: 1rem;
+      width: 50%;
+    }
+
+    &--divider {
+      margin-top: 1.5rem;
+      border-top: solid 1px $color-outline-divider-border-tableSort;
+      @include tablet {
+        @include divider-left;
+        border-top: none; 
+        margin-top: 1rem;
+      }
+    }
+  }
+
+  &__subheader {
+    // border: solid 1px red;
+    @include font-subheader;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  &__form {
+    @include tablet {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  }
+
+  &__name--housing {
+  }
+
+  &__label {
+    @include font-labels-links-buttons;
+  }
+
+  &__item {
+    @include form;
+    &:focus {
+      border-color: $color-instock-indigo;
+    }
+    
+    &--error {
+      border: solid 1px $color-outStock;
+    }
+  }
+
+  &__alert {
+    display: flex; 
+    align-items: center;
+    padding-top: .25rem;
+    background-color: $color-white;
+    padding-left: 1.5rem;
+  }
+
+  &__bang {
+    height: 1rem;
+    width: 1rem;
+    margin-right: .5rem; 
+  
+  }
+
+  &__required {
+    font-size: .8rem;
+    color: $color-red;
+  }
+
+
+  &__description {
+    @include form;
+    height: 8rem;
+    resize: none;
+    padding-top: 1rem;
+    font-family: $font-stack;
+    @include font-body-med;
+    &--error {
+      border: solid 1px $color-outStock;
+    }
+
+    
+    @include tablet {
+      height: 8rem;
+    }
+  }
+  &__dropdown {
+    appearance: none;
+    border: none; 
+    background-image:
+      linear-gradient(45deg, transparent 50%, gray 50%),
+      linear-gradient(135deg, gray 50%, transparent 50%),
+      linear-gradient(to right, #ccc, #ccc);
+    background-position:
+      calc(100% - 20px) calc(1em + 2px),
+      calc(100% - 15px) calc(1em + 2px),
+      calc(100% - 2.5em) 0.5em;
+    background-size:
+      5px 5px,
+      5px 5px,
+      1px 1.5em;
+    background-repeat: no-repeat;
+  }
+
+  &__block {
+    padding-top: .75rem;
+
+    @include tablet {
+      padding-top: 1.5rem;
+    }
+  }
+
+  &__dropdown {
+    @include form;
+  }
+
+  &__stockpile {
+    display: flex;
+    align-items: baseline;
+    &--push {
+      padding-right: 1rem;
+    }
+  }
+
+  &__availability {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__details {
+    display: flex;
+    justify-content: space-between;
+
+  }
+
+  &__status {
+  }
+
+  &__radio {
+    margin-right: .5rem;
+
+    &--none {
+      display: none; 
+    }
+  }
+
+  &__stock {
+    @include font-labels-links-buttons;
+  }
+  &__buttons {
+    display: flex;
+    flex-direction: row; 
+    @include padding-horizontal-outer;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    margin-top: 1rem;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    justify-content: space-between;
+    background-color: $color-lightgrey;
+    @include tablet {
+      width: 100%;
+      justify-content: flex-end;
+
+    }
+
+    @include desktop {
+      width: 25rem; 
+      padding-right: 2rem;
+    }
+
+  }
+  &__cancel {
+    height: 36px;
+    width: 7rem;
+    display: flex;
+    border-radius: 20px;
+    padding-left: $mobile-outer-padding;
+    padding-right: $mobile-outer-padding;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $color-white;
+    color: $color-slate;
+    border: solid 1px $color-outline-divider-border-tableSort;
+    @include font-labels-links-buttons;
+
+    @include tablet {
+      margin-right: 1rem;
+    }
+  }
+
+  &__save {
+    height: 36px;
+    width: 7rem;
+    display: inline-block;
+    border-radius: 20px;
+    padding-left: $mobile-outer-padding;
+    padding-right: $mobile-outer-padding;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $color-white;
+    background-color: $color-instock-indigo;
+    border: none;
+  }
+}

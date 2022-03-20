@@ -8,11 +8,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 8rem;
+  min-height: 8rem;
   background-color: $color-graphite;
 
   @include tablet {
-    height: 6rem;
+    min-height: 6rem;
     flex-direction: row;
     justify-content: space-between;
   }
@@ -75,10 +75,10 @@
 
   &__housing {
     background-color: $color-background-dark;
-    height: 12.25rem;
+    min-height: 12.25rem;
 
     @include tablet {
-      height: 11.624rem;
+      min-height: 11.624rem;
     }
   }
 }

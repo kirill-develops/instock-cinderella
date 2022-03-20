@@ -34,7 +34,7 @@ const Item = ({ itemObj, handleDelete }) => {
             <h3 className='item__info'>{quantity}</h3>
           </label>
           <div className='item__actions-block'>
-            <img onClick={handleDelete} src={DeleteIco} alt="delete icon" className='item__icon' />
+            <img onClick={handleDelete} src={DeleteIco} alt="delete icon" className='item__icon--delete' />
             < Link to={`/inventory/${id}/edit`} className="item__link">
               <img src={EditIco} alt="edit icon" className='item__icon--edit' />
             </Link>

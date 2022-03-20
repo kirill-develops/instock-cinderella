@@ -54,21 +54,30 @@ class InventoryList extends Component {
   render() {
 
     const { inventoryArr } = this.state;
-    const headers = ["INVENTORY ITEM",
-      "CATEGORY",
-      "STATUS",
-      "QTY",
-      "WAREHOUSE",
-      "ACTIONS"]
+    const headers = [
+      {
+        header: "INVENTORY ITEM", flex: 1
+      },
+      {
+        header: "CATEGORY", flex: 0.8
+      },
+      {
+        header: "STATUS", flex: 0.9
+      },
+      {
+        header: "QTY", flex: 0.6
+      },
+      {
+        header: "WAREHOUSE", flex: 0.8
+      },
+      { header: "ACTIONS", flex: 0.5 }]
 
     return (
-      <>
-        <div className='inventory-list'>
-          <div className='inventory-list__headline'>
-            <div className='inventory-list__title-housing'>
-              <h1 className='inventory-list__title'>Inventory</h1>
-            </div>
 
+      <div className='inventory-list'>
+        <div className='inventory-list__inner'>
+          <div className='inventory-list__headline'>
+            <h1 className='inventory-list__title'>Inventory</h1>
             <form className='inventory-list__form'>
               <div className='inventory-list__search-housing'>
                 <input type="search"
@@ -86,36 +95,32 @@ class InventoryList extends Component {
               </div>
             </form>
           </div>
-          <div className='inventory-list__headers-outer'>
-            <div className='inventory-list__headers-inner'>
+          <div className='inventory-list__headers'>
 
-              {headers.map((header, i) => {
+            {headers.map((header, i) => {
 
-                return (
-                  <TableHeader
-                    key={i}
-                    header={header}
-                  />
-                )
-              })}
-            </div>
+              return (
+                <TableHeader
+                  key={i}
+                  header={header}
+                />
+              )
+            })}
           </div>
-          <div className='inventory-list__table'>
 
-            {inventoryArr
-              .map(itemObj => {
+          {inventoryArr
+            .map(itemObj => {
 
-                return (
-                  <InventoryListItem
-                    key={itemObj.id}
-                    itemObj={itemObj}
-                    handleDelete={this.handleDelete}
-                  />
-                )
-              })}
-          </div>
+              return (
+                <InventoryListItem
+                  key={itemObj.id}
+                  itemObj={itemObj}
+                  handleDelete={this.handleDelete}
+                />
+              )
+            })}
         </div>
-      </>
+      </div>
     )
   }
 };

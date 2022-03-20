@@ -13,7 +13,7 @@ class WarehouseDetails extends Component {
   state = {
     warehouse: null
   }
-  
+
 
 
   componentDidMount() {
@@ -62,11 +62,17 @@ class WarehouseDetails extends Component {
     }
 
     const { inventory } = warehouse;
-    const headers = ["INVENTORY ITEM",
-      "STATUS",
-      "CATAGORY",
-      "QUANTITY",
-      "ACTIONS"]
+
+    const headers = [{
+      header: "INVENTORY ITEM", flex: 1
+    }, {
+      header: "STATUS", flex: 1
+    }, {
+      header: "CATEGORY", flex: 1
+    }, {
+      header: "QUANTITY", flex: 1
+    },
+    { header: "ACTIONS", flex: 0.5 }]
 
     return (
       <>
@@ -80,12 +86,12 @@ class WarehouseDetails extends Component {
                 <img className="warehouse-details__back" src={arrowBack} />
               </Link>
               <h1 className="warehouse-details__title">{warehouse.name}</h1>
-                <Link to={`/warehouses/${warehouse.id}/edit`}>
-              <div className="warehouse-details__edit">
+              <Link to={`/warehouses/${warehouse.id}/edit`}>
+                <div className="warehouse-details__edit">
                   <img className="warehouse-details__icon" src={editIcon}></img>
                   <p className="warehouse-details__label">Edit</p>
-              </div>
-                </Link>
+                </div>
+              </Link>
             </div>
           </div>
           <div className="warehouse-details__backing">

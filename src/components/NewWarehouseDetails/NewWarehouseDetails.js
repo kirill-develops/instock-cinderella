@@ -3,15 +3,15 @@ import './NewWarehouseDetails.scss';
 import { Link } from 'react-router-dom';
 import errorIcon from '../../assets/icons/error-24px.svg';
 
-const NewWarehouseDetails = ({clickHandler, name, address, city, country, contactName, position, phone, email, clicked}) => {
+const NewWarehouseDetails = ({ submitHandler, handleChange, name, address, city, country, contactName, position, phone, email, clicked }) => {
 
-        return (
-            <div className='new-warehouse'>
-                <div className='new-warehouse__border-top'></div>
-                <form
-                    className='new-warehouse__form'
-                    onSubmit={clickHandler}>
-                    <div className='new-warehouse__housing'>
+    return (
+        <div className='new-warehouse'>
+            <div className='new-warehouse__border-top'></div>
+            <form
+                className='new-warehouse__form'
+                onSubmit={submitHandler}>
+                <div className='new-warehouse__housing'>
                     <div className='new-warehouse__top-form'>
                         <h2 className='new-warehouse__form-title'>Warehouse Details</h2>
                         <label
@@ -20,64 +20,72 @@ const NewWarehouseDetails = ({clickHandler, name, address, city, country, contac
                             Warehouse Name
                         </label>
                         <input
-                                className={`new-warehouse__input-field ${!name && clicked ?"new-warehouse__input-field--error" : ""}`}
+                            className={`new-warehouse__input-field ${!name && clicked ? "new-warehouse__input-field--error" : ""}`}
+                            onChange={handleChange}
                             placeholder="Warehouse Name"
                             name="warehouseName"
                         />
-                            {!name && clicked ? <div className='new-warehouse__error'>
-                                <img
-                                    src={errorIcon}
-                                    alt="Error icon"
-                                />
-                                This field is required</div> : null}
+                        {!name && clicked ? <div className='new-warehouse__error'>
+                            <img
+                                className='new-warehouse__img'
+                                src={errorIcon}
+                                alt="Error icon"
+                            />
+                            This field is required</div> : null}
                         <label
                             className='new-warehouse__label'
                             htmlFor="address">
                             Street Address
                         </label>
                         <input
-                            className={`new-warehouse__input-field ${!address && clicked ?"new-warehouse__input-field--error" : ""}`}
+                            className={`new-warehouse__input-field ${!address && clicked ? "new-warehouse__input-field--error" : ""}`}
+                            onChange={handleChange}
                             placeholder="Street Address"
                             name="address"
                         />
-                            {!address && clicked ? <div className='new-warehouse__error'>
+                        {!address && clicked ? <div className='new-warehouse__error'>
                             <img
-                                    src={errorIcon}
-                                    alt="Error icon"
-                                />
-                                This field is required</div> : null}
+                                className='new-warehouse__img'
+                                src={errorIcon}
+                                alt="Error icon"
+                            />
+                            This field is required</div> : null}
                         <label
                             className='new-warehouse__label'
                             htmlFor="city">
                             City
                         </label>
                         <input
-                            className={`new-warehouse__input-field ${!city && clicked ?"new-warehouse__input-field--error" : ""}`}
+                            className={`new-warehouse__input-field ${!city && clicked ? "new-warehouse__input-field--error" : ""}`}
+                            onChange={handleChange}
                             placeholder="City"
                             name="city"
                         />
-                            {!city && clicked ? <div className='new-warehouse__error'>
+                        {!city && clicked ? <div className='new-warehouse__error'>
                             <img
-                                    src={errorIcon}
-                                    alt="Error icon"
-                                />
-                                This field is required</div> : null}
+                                className='new-warehouse__img'
+                                src={errorIcon}
+                                alt="Error icon"
+                            />
+                            This field is required</div> : null}
                         <label
                             className='new-warehouse__label'
                             htmlFor="country">
                             Country
                         </label>
                         <input
-                            className={`new-warehouse__input-field ${!country && clicked ?"new-warehouse__input-field--error" : ""}`}
+                            className={`new-warehouse__input-field ${!country && clicked ? "new-warehouse__input-field--error" : ""}`}
+                            onChange={handleChange}
                             placeholder="Country"
                             name="country"
                         />
-                            {!country && clicked ? <div className='new-warehouse__error'>
+                        {!country && clicked ? <div className='new-warehouse__error'>
                             <img
-                                    src={errorIcon}
-                                    alt="Error icon"
-                                />
-                                This field is required</div> : null}
+                                className='new-warehouse__img'
+                                src={errorIcon}
+                                alt="Error icon"
+                            />
+                            This field is required</div> : null}
                     </div>
                     <div className='new-warehouse__border-bottom'></div>
                     <div className='new-warehouse__bottom-form'>
@@ -88,74 +96,82 @@ const NewWarehouseDetails = ({clickHandler, name, address, city, country, contac
                             Contact Name
                         </label>
                         <input
-                            className={`new-warehouse__input-field ${!contactName && clicked ?"new-warehouse__input-field--error" : ""}`}
+                            className={`new-warehouse__input-field ${!contactName && clicked ? "new-warehouse__input-field--error" : ""}`}
+                            onChange={handleChange}
                             placeholder="Contact Name"
                             name="contactName"
                         />
-                            {!contactName && clicked ? <div className='new-warehouse__error'>
+                        {!contactName && clicked ? <div className='new-warehouse__error'>
                             <img
-                                    src={errorIcon}
-                                    alt="Error icon"
-                                />
-                                This field is required</div> : null}
+                                className='new-warehouse__img'
+                                src={errorIcon}
+                                alt="Error icon"
+                            />
+                            This field is required</div> : null}
                         <label
                             className='new-warehouse__label'
                             htmlFor="position">
                             Position
                         </label>
                         <input
-                            className={`new-warehouse__input-field ${!position && clicked ?"new-warehouse__input-field--error" : ""}`}
+                            className={`new-warehouse__input-field ${!position && clicked ? "new-warehouse__input-field--error" : ""}`}
+                            onChange={handleChange}
                             placeholder="Position"
                             name="position"
                         />
-                            {!position && clicked ? <div className='new-warehouse__error'>
+                        {!position && clicked ? <div className='new-warehouse__error'>
                             <img
-                                    src={errorIcon}
-                                    alt="Error icon"
-                                />
-                                This field is required</div> : null}
+                                className='new-warehouse__img'
+                                src={errorIcon}
+                                alt="Error icon"
+                            />
+                            This field is required</div> : null}
                         <label
                             className='new-warehouse__label'
                             htmlFor="phone">
                             Phone Number
                         </label>
                         <input
-                            className={`new-warehouse__input-field ${!phone && clicked ?"new-warehouse__input-field--error" : ""}`}
+                            className={`new-warehouse__input-field ${!phone && clicked ? "new-warehouse__input-field--error" : ""}`}
+                            onChange={handleChange}
                             placeholder="Phone Number"
                             name="phone"
                             type='number'
                         />
-                            {!phone && clicked ? <div className='new-warehouse__error'>
+                        {!phone && clicked ? <div className='new-warehouse__error'>
                             <img
-                                    src={errorIcon}
-                                    alt="Error icon"
-                                />
-                                This field is required</div> : null}
+                                className='new-warehouse__img'
+                                src={errorIcon}
+                                alt="Error icon"
+                            />
+                            Please enter a valid phone number</div> : null}
                         <label
                             className='new-warehouse__label'
                             htmlFor="email">
                             Email
                         </label>
                         <input
-                            className={`new-warehouse__input-field ${!email && clicked ?"new-warehouse__input-field--error" : ""}`}
+                            className={`new-warehouse__input-field ${!email && clicked ? "new-warehouse__input-field--error" : ""}`}
+                            onChange={handleChange}
                             placeholder="Email"
                             name="email"
                         />
-                            {!email && clicked ? <div className='new-warehouse__error'>
+                        {!email && clicked ? <div className='new-warehouse__error'>
                             <img
-                                    src={errorIcon}
-                                    alt="Error icon"
-                                />
-                                This field is required</div> : null}
-                        </div>
-                        </div>
-                    <div className='new-warehouse__buttons'>
-                        <Link to='/warehouses' className='new-warehouse__cancel-button'>Cancel</Link>
-                        <button className='new-warehouse__add-button' type='submit'> + Add Warehouse</button>
+                                className='new-warehouse__img'
+                                src={errorIcon}
+                                alt="Error icon"
+                            />
+                            Please enter a valid email address</div> : null}
                     </div>
-                </form>
-            </div>
-        )
-    }
+                </div>
+                <div className='new-warehouse__buttons'>
+                    <Link to='/warehouses' className='new-warehouse__cancel-button'>Cancel</Link>
+                    <button className='new-warehouse__add-button' type='submit'> + Add Warehouse</button>
+                </div>
+            </form>
+        </div>
+    )
+}
 
 export default NewWarehouseDetails

@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component, StrictMode } from 'react';
 import { Link } from 'react-router-dom';
 import backArrow from '../../assets/icons/arrow_back-24px.svg';
 import NewWarehouseDetails from '../../components/NewWarehouseDetails/NewWarehouseDetails';
 import axios from 'axios';
 import { BASE_URL } from '../../utils/api';
 import './AddWarehousePage.scss';
-// import validator from 'validator';
+import validator from 'validator';
 
 
 class AddWarehousePage extends Component {
@@ -21,34 +21,31 @@ class AddWarehousePage extends Component {
         clicked: false
     }
 
-    // isContactPhoneValid = () => {
-    //     const phoneFormat = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
-    //     if (this.state.phone.match(phoneFormat)) {
-    //         return true;
-    //     }
-    //     return false;
-    // };
-
-    // isContactEmailValid = () => {
-    // const emailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    //     if (this.state.email.match(emailFormat)) {
-    //         return true;
-    //     }
-    //     return false;
-    // };
+    // Create a change handler for all inputs
+    handleChange = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value,
+        });
+    };
 
     // If all fields are valid return true
     isUploadValid = () => {
         if (this.state.name === "" || this.state.address === "" || this.state.city === "" || this.state.country === "" || this.state.contactName === "" || this.state.position === "" || this.state.phone === "" || this.state.email === "") {
             return false;
         }
-    
-        // if (!this.isContactPhoneValid()) {
-        //     return false;
-        // }
-        // if (!this.isContactEmailValid()) {
-        //     return false;
-        // }
+
+        const isEmailValid = validator.isEmail(this.state.email);
+        if (!isEmailValid) {
+            return false;
+        }
+
+        const options = {StrictMode: true}
+
+        const isPhoneValid = validator.isMobilePhone(this.state.phone, ['en-CA'], options);
+        console.log(isPhoneValid);
+        if (!isPhoneValid) {
+            return false;
+        }
         return true;
     };
 
@@ -76,7 +73,7 @@ class AddWarehousePage extends Component {
                     console.log(error);
                 });
         } else {
-            this.setState ({clicked: true})
+            this.setState({ clicked: true })
         }
     }
 
@@ -84,7 +81,7 @@ class AddWarehousePage extends Component {
         return (
             <div className='background'>
                 {/* <div className='background__outer'> */}
-                   {/* <div className='background__inner'> */}
+                {/* <div className='background__inner'> */}
                 <div className='add-warehouse'>
                     <div className='add-warehouse__top'>
                         <Link to="/warehouses">
@@ -97,7 +94,8 @@ class AddWarehousePage extends Component {
                         <h1 className='add-warehouse__title'>Add New Warehouse</h1>
                     </div>
                     <NewWarehouseDetails
-                        clickHandler={this.submitHandler}
+                        submitHandler={this.submitHandler}
+                        handleChange={this.handleChange}
                         name={this.state.name}
                         address={this.state.address}
                         city={this.state.city}

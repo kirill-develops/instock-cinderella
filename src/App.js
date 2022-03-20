@@ -9,6 +9,7 @@ import ItemDetails from './components/ItemDetails/ItemDetails';
 import InventoryList from './components/InventoryList/InventoryList';
 import Footer from './components/Footer/Footer';
 import './styles/App.scss';
+import AddInventoryItem from './components/AddInventoryItem/AddInventoryItem';
 
 const App = () => {
 
@@ -20,9 +21,9 @@ const App = () => {
         <Route path="/warehouses/:id/edit" component={EditWarehouse} />
         <Route path="/warehouses/:id" exact component={WarehouseDetails} />
         <Route path="/warehouses" exact component={WarehouseList} />
+        <Route path="/inventory/add" component={AddInventoryItem} />
         <Route path="/inventory/:id/edit" render={() => <h1>"Edit Specific Inventory" Page WIP</h1>} />
         <Route path="/inventory/:id" component={ItemDetails} />
-        <Route path="/inventory/add" exact render={() => <h1>"Add New Inventory" Page WIP</h1>} />
         <Route path="/inventory" exact component={InventoryList} />
         <Redirect from="/" to="/warehouses" />
       </Switch>

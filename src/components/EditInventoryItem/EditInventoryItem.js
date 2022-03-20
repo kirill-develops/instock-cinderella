@@ -3,6 +3,7 @@ import "./EditInventoryItem.scss";
 import { Component } from "react";
 import { Link } from "react-router-dom";
 import arrowBack from "../../assets/icons/arrow_back-24px.svg";
+import errorIcon from "../../assets/icons/error-24px.svg"
 import axios from "axios";
 
 const BASE_URL = "http://localhost:8080";
@@ -16,7 +17,7 @@ export class EditInventoryItem extends Component {
     description: "",
     status: "",
     warehouseName: "",
-    quantity: Number,
+    quantity:  Number  || Boolean,
   };
 
   // The state of this page should load the form fields with the inventory info from match.params
@@ -66,7 +67,7 @@ export class EditInventoryItem extends Component {
 
   // Create logic for ITEM NAME
   isItemNameValid = () => {
-    if (this.state.itemName.length < 3) {
+    if (this.state.itemName.length < 1) {
       console.log("itemName");
       return false;
     }
@@ -96,11 +97,18 @@ export class EditInventoryItem extends Component {
         return false; 
       }
     };
-
+  
     if (isEditValid()) {
-      // console.log(this.props.match.params.id);
+      
+      if (event.target.quantity.value < 1) {
+        event.target.status = "Out of Stock";
+      }
+      if ( event.target.status === "Out of Stock") {
+        event.target.quantity = 0;
+      }
       console.log(event.target.quantity.value)
-       axios
+      console.log(event.target.status.value)
+            axios
         .put(`${BASE_URL}/inventory/${this.props.match.params.id}/edit`, {
           "warehouseName": event.target.warehouseName.value,
           "itemName": event.target.itemName.value,
@@ -110,6 +118,7 @@ export class EditInventoryItem extends Component {
           "quantity": event.target.quantity.value
         })
         .then(
+          
           this.props.history.push(`/inventory/${this.props.match.params.id}`)
         );
     } else {
@@ -141,9 +150,9 @@ export class EditInventoryItem extends Component {
                   <div className="inventory__name--housing">
                     <label className="inventory__label">Item Name</label>
                     <input
-                      type="name"
+                      type="text"
                       name="itemName"
-                      placeholder="name"
+                      placeholder="Item Name"
                       onChange={this.handleChange}
                       defaultValue={this.state.inventoryItem.itemName}
                       className={`inventory__item ${
@@ -151,16 +160,35 @@ export class EditInventoryItem extends Component {
                       }`}
                     />
                   </div>
+                    {!this.isItemNameValid() ? 
+                      <div className="inventory__alert">
+                      <img className="inventory__bang" src={errorIcon} alt="error exlaimation sign"/>
+                    <p className="inventory__required">This field is required</p>
+                    </div>
+                     :
+                     null
+                     }
                   <div className="inventory__block">
                     <label className="inventory__label">Description</label>
                     <textarea
                       type="description"
                       name="description"
+                      placeholder="Please enter item description"
                       onChange={this.handleChange}
                       defaultValue={this.state.inventoryItem.description}
-                      className="inventory__description"
+                      className={`inventory__description ${
+                        this.isDescriptionValid() ? "" : "inventory__description--error"
+                      }`}
                     ></textarea>
                   </div>
+                  {!this.isDescriptionValid() ? 
+                      <div className="inventory__alert">
+                      <img className="inventory__bang" src={errorIcon} alt="error exlaimation sign"/>
+                    <p className="inventory__required">This field is required</p>
+                    </div>
+                     :
+                     null
+                     }
                   <div className="inventory__block">
                     <label className="inventory__label">Category</label>
                     <select
@@ -177,7 +205,7 @@ export class EditInventoryItem extends Component {
                     </select>
                   </div>
                 </div>
-
+                <div className="inventory__divider"></div>
                 <div className="inventory__card inventory__card--divider">
                   <h3 className="inventory__subheader">Item Availability</h3>
                   <div className="inventory__availability">
@@ -192,13 +220,13 @@ export class EditInventoryItem extends Component {
                           id="instock"
                           name="status"
                           value="In Stock"
-                          for="instock"
+                          htmlFor="instock"
                         ></input>
-                        <label className="inventory__instock" htmlFor="instock">
+                        <label className="inventory__stock" htmlFor="instock">
                           In Stock
                         </label>
                       </div>
-                      <div className="inventory__stockpile">
+                      <div className="inventory__stockpile inventory__stockpile--push">
                         <input 
                           checked = {this.state.status === "Out of Stock" ? "checked" : ""}
                           onChange={this.handleChange}
@@ -207,9 +235,9 @@ export class EditInventoryItem extends Component {
                           id="outstock"
                           name="status"
                           value="Out of Stock"
-                          for="outstock"
+                          htmlFor="outstock"
                         ></input>
-                        <label className="inventory__outstock" HtmlFor="outstock">
+                        <label className="inventory__stock" htmlFor="outstock">
                           Out of stock
                         </label>
                       </div>

@@ -1,6 +1,7 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/colors" as *;
+@use "../../styles/partials/typography" as *;
 
 .inventory {
   @include cardConfig;
@@ -41,11 +42,16 @@
 
     @include tablet {
       margin-top: 1rem;
+      width: 50%;
     }
 
     &--divider {
+      margin-top: 1.5rem;
+      border-top: solid 1px $color-outline-divider-border-tableSort;
       @include tablet {
         @include divider-left;
+        border-top: none; 
+        margin-top: 1rem;
       }
     }
   }
@@ -61,6 +67,7 @@
     @include tablet {
       display: flex;
       justify-content: center;
+      flex-wrap: wrap;
     }
   }
 
@@ -73,19 +80,46 @@
 
   &__item {
     @include form;
+    &:focus {
+      border-color: $color-instock-indigo;
+    }
     
     &--error {
       border: solid 1px $color-outStock;
     }
   }
 
+  &__alert {
+    display: flex; 
+    align-items: center;
+    padding-top: .25rem;
+    
+  }
+
+  &__bang {
+    height: 1rem;
+    width: 1rem;
+    margin-right: .5rem; 
+  
+  }
+
+  &__required {
+    font-size: .8rem;
+    color: $color-red;
+  }
+
+
   &__description {
     @include form;
     height: 8rem;
     resize: none;
+    padding-top: 1rem;
+    font-family: $font-stack;
+    @include font-body-med;
+    &--error {
+      border: solid 1px $color-outStock;
+    }
 
-    
-    
     
     @include tablet {
       height: 8rem;
@@ -110,7 +144,11 @@
   }
 
   &__block {
-    padding-top: 1rem;
+    padding-top: .75rem;
+
+    @include tablet {
+      padding-top: 1.5rem;
+    }
   }
 
   &__dropdown {
@@ -118,14 +156,14 @@
   }
 
   &__stockpile {
-    // border: solid 1px purple;
     display: flex;
-    // justify-content: flex-start;
     align-items: baseline;
+    &--push {
+      padding-right: 1rem;
+    }
   }
 
   &__availability {
-    // border: solid 1px turquoise;
     display: flex;
     flex-direction: column;
   }
@@ -133,20 +171,22 @@
   &__details {
     display: flex;
     justify-content: space-between;
-    // border: solid 1px green;
+
   }
 
   &__status {
   }
 
   &__radio {
+    margin-right: .5rem;
 
     &--none {
       display: none; 
     }
   }
 
-  &__instock {
+  &__stock {
+    @include font-labels-links-buttons;
   }
   &__buttons {
     display: flex;
@@ -160,7 +200,9 @@
     justify-content: space-between;
     background-color: $color-lightgrey;
     @include tablet {
-      width: 20rem;
+      width: 100%;
+      justify-content: flex-end;
+
     }
 
     @include desktop {
@@ -184,6 +226,10 @@
     color: $color-slate;
     border: solid 1px $color-outline-divider-border-tableSort;
     @include font-labels-links-buttons;
+
+    @include tablet {
+      margin-right: 1rem;
+    }
   }
 
   &__save {

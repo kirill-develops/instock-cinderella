@@ -27,7 +27,7 @@ export class EditWarehouse extends Component {
       .get(`${BASE_URL}/warehouses/${this.props.match.params.id}`)
       .then((response) => {
         const { name, address, city, country, contact } = response.data;
-
+        
         this.setState({
           warehouse: response.data,
           name: name,
@@ -44,6 +44,7 @@ export class EditWarehouse extends Component {
 
   // Create logic for a valid WAREHOUSE NAME
   isNameValid = () => {
+   
     if (this.state.name.length < 3) {
       console.log("name");
       return false;
@@ -115,21 +116,36 @@ export class EditWarehouse extends Component {
   };
 
   submitHandler = (event) => {
+    // console.log(this.state.name.length)
+    // console.log(this.state.address.length)
+    // console.log(this.state.city.length)
+    // console.log(this.state.country.length)
+    // console.log(this.state.contactName.length)
+    // console.log(this.state.position.length)
+    // console.log(this.state.phone.length)
+    // console.log(this.state.email.length)
+
     event.preventDefault();
     // Enter validation before the put request
 
-    this.isFormValid = () => {
-      this.isNameValid();
-      this.isAddressValid();
-      this.isCityValid();
-      this.isCountryValid();
-      this.isContactName();
-      this.isPositionValid();
-      this.isPhoneValid();
-      this.isEmailValid();
-    };
+  const isFormValid = () => {
+    if (
+      this.isNameValid() &&
+      this.isAddressValid() &&
+      this.isCityValid() && 
+      this.isCountryValid() && 
+      this.isContactNameValid() && 
+      this.isPositionValid() && 
+      this.isPhoneValid() && 
+      this.isEmailValid() 
+    ) {
+      return true;
+    } else {
+      return false; 
+    }
+    }
 
-    if (this.isFormValid()) {
+    if (isFormValid()) {
       return axios
         .put(`${BASE_URL}/warehouses/${this.props.match.params.id}/edit`, {
           name: event.target.name.value,

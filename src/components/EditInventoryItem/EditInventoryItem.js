@@ -59,7 +59,7 @@ export class EditInventoryItem extends Component {
   // Create a change handler to change the state as the user changes the categories
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
-    console.log(this.state.status)
+    // console.log(this.state.status)
   };
 
   // Enter validation before the put request
@@ -86,23 +86,25 @@ export class EditInventoryItem extends Component {
   submitHandler = (event) => {
     event.preventDefault();
     
-    this.isEditValid = () => {
-      this.isItemNameValid();
-      this.isDescriptionValid();
-      console.log("test");
-      return true; 
+    const isEditValid = () => {
+      if ( 
+        this.isItemNameValid() &&
+        this.isDescriptionValid()
+      ) {
+        return true; 
+      } else {
+        return false; 
+      }
     };
 
-    if (this.isEditValid()) {
-      console.log(event.target.category.value);
+    if (isEditValid()) {
       return axios
         .put(`${BASE_URL}/inventory/${this.props.match.params.id}/edit`, {
           itemName: event.target.itemName.value,
           description: event.target.description.value,
           category: event.target.category.value,
           status: event.target.status,
-          quantitiy: event.target.quantity.value,
-         
+          quantity: event.target.quantity,
         })
         .then(
           this.props.history.push(`/inventory/${this.props.match.params.id}`)
@@ -216,7 +218,6 @@ export class EditInventoryItem extends Component {
                       <input
                         type="quantity"
                         name="quantity"
-                        placeholder=""
                         onChange={this.handleChange}
                         defaultValue={this.state.inventoryItem.quantity}
                         className="inventory__item"
@@ -249,7 +250,6 @@ export class EditInventoryItem extends Component {
             Cancel
           </Link>
           <button
-            type="submit"
             className="inventory__save"
           >
             Save

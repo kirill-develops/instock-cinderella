@@ -16,27 +16,37 @@ const InventoryList = ({ itemObj, handleDelete }) => {
       <div className='list-item__inner'>
         <div className='list-item__block'>
           <label className='list-item__label--main'>
-            INVENTORY ITEM
+            <span className='list-item__label--txt'>
+              INVENTORY ITEM
+            </span>
             < Link to={`/inventory/${id}`} className='list-item__info--main-link'>
               <h3 className='list-item__info--main'>{itemName} &gt;</h3>
             </ Link>
           </label>
           <label className='list-item__label--status'>
-            STATUS
+            <span className='list-item__label--txt'>
+              STATUS
+            </span>
             <h3 className={`list-item__info 
             ${status.toLowerCase() === "out of stock" ? "list-item__info--out-stock" : "list-item__info--in-stock"}`}
             >{status.toUpperCase()}</h3>
           </label>
           <label className='list-item__label--category'>
-            CATEGORY
+            <span className='list-item__label--txt'>
+              CATEGORY
+            </span>
             <h3 className='list-item__info'>{category}</h3>
           </label>
           <label className='list-item__label--qty'>
-            QTY
+            <span className='list-item__label--txt'>
+              QTY
+            </span>
             <h3 className='list-item__info'>{quantity}</h3>
           </label>
           <label className='list-item__label--warehouse'>
-            WAREHOUSE
+            <span className='list-item__label--txt'>
+              WAREHOUSE
+            </span>
             <h3 className='list-item__info'>{warehouseName}</h3>
           </label>
           <div className='list-item__actions-block'>

@@ -14,23 +14,31 @@ const Item = ({ itemObj, handleDelete }) => {
       <div className='item__inner'>
         <div className='item__block'>
           <label className='item__label item__label--main'>
-            INVENTORY ITEM
+            <span className='item__label--txt'>
+              INVENTORY ITEM
+            </span>
             < Link to={`/inventory/${id}`} className='item__info--main-link'>
               <h3 className='item__info--main'>{itemName} &gt;</h3>
             </ Link>
           </label>
           <label className='item__label item__label--status'>
-            STATUS
+            <span className='item__label--txt'>
+              STATUS
+            </span>
             <h3 className={`item__info 
             ${status.toLowerCase() === "out of stock" ? "item__info--out-stock" : "item__info--in-stock"}`}
             >{status.toUpperCase()}</h3>
           </label>
           <label className='item__label item__label--category'>
-            CATEGORY
+            <span className='item__label--txt'>
+              CATEGORY
+            </span>
             <h3 className='item__info'>{category}</h3>
           </label>
           <label className='item__label item__label--qty'>
-            QTY
+            <span className='item__label--txt'>
+              QTY
+            </span>
             <h3 className='item__info'>{quantity}</h3>
           </label>
           <div className='item__actions-block'>

@@ -13,21 +13,29 @@ const WarehouseListItem = ({ warehouseObj, handleDelete }) => {
     <div className='warehouse-list-item'>
       <div className='warehouse-list-item__block'>
         <label className='warehouse-list-item__label--main'>
-          WAREHOUSE
+          <span className='warehouse-list-item__label--txt'>
+            WAREHOUSE
+          </span>
           < Link to={`/warehouses/${id}`} className='warehouse-list-item__info--main-link'>
             <h3 className='warehouse-list-item__info--main'>{warehouseName} &gt;</h3>
           </ Link>
         </label>
         <label className='warehouse-list-item__label--contact'>
-          CONTACT NAME
+          <span className='warehouse-list-item__label--txt'>
+            CONTACT NAME
+          </span>
           <h3 className='warehouse-list-item__info'>{contact.name}</h3>
         </label>
         <label className='warehouse-list-item__label--addy'>
-          ADDRESS
+          <span className='warehouse-list-item__label--txt'>
+            ADDRESS
+          </span>
           <h3 className='warehouse-list-item__info'>{address}, {city}, {country}</h3>
         </label>
         <label className='warehouse-list-item__label--details'>
-          CONTACT INFORMATION
+          <span className='warehouse-list-item__label--txt'>
+            CONTACT INFORMATION
+          </span>
           <h3 className='warehouse-list-item__info'>{contact.phone}</h3>
           <h3 className='warehouse-list-item__info'>{contact.email}</h3>
         </label>

@@ -6,16 +6,31 @@ import { BASE_URL } from '../../utils/api';
 import axios from 'axios';
 
 class AddInventoryItem extends Component {
-    // state = {
-    //     warehouseName: "",
-    //     itemName: "",
-    //     description: "",
-    //     category: "",
-    //     quantity: "",
-    //     clicked: false
-    // }
+    state = {
+        warehouseName: "",
+        itemName: "",
+        description: "",
+        category: "",
+        status: "",
+        quantity: "",
+        clicked: false
+    }
 
-    // Axios POST call on submit
+    // Create a change handler for all inputs
+    handleChange = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value,
+        });
+    };
+
+    isInStock = () => {
+        if (this.state.status === "In Stock") {
+          return true;
+        }
+        return false;
+      }
+
+    // Click handler for Axios POST call on form submission
     submitHandler = (event) => {
         event.preventDefault();
 
@@ -91,11 +106,11 @@ class AddInventoryItem extends Component {
                                     name='category'
                                 >
                                     <option value="">Please select</option>
-                                    <option value = "Electronics">Electronics</option>
-                                    <option value = "Gear">Gear</option>
-                                    <option value = "Apparel">Apparel</option>
-                                    <option value = "Accessories">Accessories</option>
-                                    <option value = "Health">Health</option>
+                                    <option value="Electronics">Electronics</option>
+                                    <option value="Gear">Gear</option>
+                                    <option value="Apparel">Apparel</option>
+                                    <option value="Accessories">Accessories</option>
+                                    <option value="Health">Health</option>
                                 </select>
                             </div>
                             <div className='add-inventory__border-bottom'></div>
@@ -110,6 +125,7 @@ class AddInventoryItem extends Component {
                                     className="add-inventory__radio"
                                     type="radio"
                                     name="status"
+                                    onClick={this.handleChange}
                                     value="In Stock"
                                 ></input>
                                 <label
@@ -121,6 +137,7 @@ class AddInventoryItem extends Component {
                                     className="add-inventory__radio"
                                     type="radio"
                                     name="status"
+                                    onClick={this.handleChange}
                                     value="Out of Stock"
                                 ></input>
                                 <label
@@ -128,17 +145,19 @@ class AddInventoryItem extends Component {
                                     htmlFor="outstock">
                                     Out of Stock
                                 </label>
-                                {/* needs to be dynamic, will not be visible if item is OOS */}
-                                <label
-                                    className='add-inventory__label'
-                                    htmlFor="quantity">
-                                    Quantity
-                                </label>
-                                <input
-                                    className="add-inventory__input-field "
-                                    placeholder="0"
-                                    name="quantity"
-                                />
+                                {/* The quantity field is dynamic and will not be visible if item is OOS */}
+                                {this.isInStock() ? <div>
+                                    <label
+                                        className='add-inventory__label'
+                                        htmlFor="quantity">
+                                        Quantity
+                                    </label>
+                                    <input
+                                        className="add-inventory__input-field "
+                                        placeholder="0"
+                                        name="quantity"
+                                    />
+                                </div> : null}
                                 {/* needs to populate from the warehouse json - warehouse names are required */}
                                 <label
                                     className='add-inventory__label'
@@ -146,15 +165,15 @@ class AddInventoryItem extends Component {
                                     Warehouse
                                 </label>
                                 <select className="add-inventory__dropdown" name='warehouse'>
-                                <option value="">Please select</option>
-                                    <option value = "Manhattan">Manhattan</option>
-                                    <option value = "Washington">Washington</option>
-                                    <option value = "Jersey">Jersey</option>
-                                    <option value = "San Fran">San Fran</option>
-                                    <option value = "Santa Monica">Santa Monica</option>
-                                    <option value = "Seattle">Seattle</option>
-                                    <option value = "Miami">Miami</option>
-                                    <option value = "Boston">Boston</option>
+                                    <option value="">Please select</option>
+                                    <option value="Manhattan">Manhattan</option>
+                                    <option value="Washington">Washington</option>
+                                    <option value="Jersey">Jersey</option>
+                                    <option value="San Fran">San Fran</option>
+                                    <option value="Santa Monica">Santa Monica</option>
+                                    <option value="Seattle">Seattle</option>
+                                    <option value="Miami">Miami</option>
+                                    <option value="Boston">Boston</option>
                                 </select>
                             </div>
                         </div>

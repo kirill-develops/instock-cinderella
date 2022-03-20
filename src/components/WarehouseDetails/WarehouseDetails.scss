@@ -5,9 +5,11 @@
 
 
 .warehouse-details {
-  padding: 0;
-  background-color: $color-white;
-  border: none;
+  // padding: 0;
+  // background-color: $color-white;
+  // border: none;
+  @include cardConfig; 
+
 
   &__top {
     background-color: $color-background-dark;

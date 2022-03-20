@@ -13,15 +13,13 @@
 
   &__top {
     background-color: $color-background-dark;
-    @include padding-horizontal-outer;
+    // @include padding-horizontal-outer;
   }
 
   &__header {
     background-color: $color-white;
     @include padding-horizontal-inner;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-    padding-top: calc(2* $mobile-outer-padding);
+
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -51,7 +49,7 @@
   &__edit {
     @include cta;
     background-color: $color-interact;
-    @include padding-horizontal-outer;
+    // @include padding-horizontal-outer;
     height: 2rem;
     width: 2rem;
  
@@ -95,20 +93,17 @@
   }
 
   &__backing {
-    @include padding-horizontal-outer;
+    @include divider-top;
     background-color: $color-lightgrey;
     padding: 0;
 
     @include tablet {
-      @include divider-top;
       margin-left: 0;
       margin-right: 0;
     }
   }
 
   &__information {
-    @include padding-horizontal-outer;
-    @include site-border;
     background-color: $color-white;
 
     @include tablet {
@@ -205,15 +200,15 @@
     }
   }
 
-  &__headers-outer {
-    display: none;
+  // &__headers-outer {
+  //   display: none;
 
-    @include tablet {
-      background-color: $color-background-light;
-      @include padding-horizontal-outer;
-      display: block;
-    }
-  }
+  //   @include tablet {
+  //     background-color: $color-background-light;
+  //     // @include padding-horizontal-outer;
+  //     display: block;
+  //   }
+  // }
 
   &__headers-inner {
     display: none;
@@ -230,7 +225,7 @@
   &__buttons {
     display: flex;
     flex-direction: row; 
-    @include padding-horizontal-outer;
+    // @include padding-horizontal-outer;
     padding-bottom: 1rem;
     padding-top: 1rem;
     justify-content: space-between;

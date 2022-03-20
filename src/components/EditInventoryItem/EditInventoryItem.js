@@ -24,7 +24,7 @@ export class EditInventoryItem extends Component {
     axios
       .get(`${BASE_URL}/inventory/${this.props.match.params.id}`)
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         const {
           itemName,
           description,
@@ -98,13 +98,16 @@ export class EditInventoryItem extends Component {
     };
 
     if (isEditValid()) {
-      return axios
+      // console.log(this.props.match.params.id);
+      console.log(event.target.quantity.value)
+       axios
         .put(`${BASE_URL}/inventory/${this.props.match.params.id}/edit`, {
-          itemName: event.target.itemName.value,
-          description: event.target.description.value,
-          category: event.target.category.value,
-          status: event.target.status,
-          quantity: event.target.quantity,
+          "warehouseName": event.target.warehouseName.value,
+          "itemName": event.target.itemName.value,
+          "description": event.target.description.value,
+          "category": event.target.category.value,
+          "status": event.target.status.value,
+          "quantity": event.target.quantity.value
         })
         .then(
           this.props.history.push(`/inventory/${this.props.match.params.id}`)
@@ -246,7 +249,7 @@ export class EditInventoryItem extends Component {
                   </div>
                 </div>
         <div className="inventory__buttons inventory__buttons--mobile">
-          <Link className="inventory__cancel" to="/inventory:id">
+          <Link className="inventory__cancel" to="/inventory:id/">
             Cancel
           </Link>
           <button

@@ -102,7 +102,6 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    @include site-border;
 
     @include tablet {
       width: 50%;
@@ -117,11 +116,13 @@
   }
 
   &__input-label {
-    @include font-body-sml;
+    @include font-labels-links-buttons;
   }
+
   &__field {
     @include form;
-    @include font-labels-links-buttons;
+    @include font-body-med;
+    color: $color-placeholder; 
 
     &--error {
       border: solid 1px $color-outStock;
@@ -147,6 +148,7 @@
     padding-bottom: 1rem;
     padding-top: 1rem;
     justify-content: space-between;
+    
     
     @include tablet {
       width: 20rem;

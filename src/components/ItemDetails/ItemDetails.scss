@@ -29,7 +29,7 @@
   }
 
   &__button-edit {
-    @include cta;
+    @include primary-cta-default;
     padding: 6px;
     width: 36px;
     background-color: $color-interact;

@@ -47,7 +47,7 @@
   }
 
   &__edit {
-    @include cta;
+    @include primary-cta-default;
     background-color: $color-interact;
     @include padding-horizontal-outer;
     height: 2rem;

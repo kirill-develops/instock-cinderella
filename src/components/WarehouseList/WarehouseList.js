@@ -3,13 +3,16 @@ import { Link } from 'react-router-dom';
 import apiUtils from '../../utils/apiUtils';
 
 import TableHeader from '../TableHeader/TableHeader';
-import Warehouse from '../Warehouse/Warehouse';
+import WarehouseListItem from '../WarehouseListItem/WarehouseListItem';
+import WarehouseDelete from '../WarehouseDelete/WarehouseDelete';
 import './WarehouseList.scss';
 
 
 class WarehouseList extends Component {
   state = {
     warehouseArr: [],
+    toDeleteId: "",
+    toDeleteName: ""
   }
 
 
@@ -48,7 +51,12 @@ class WarehouseList extends Component {
     }
   };
 
-  handleDelete = (id) => {
+  handleDelete = (id, warehouseName) => {
+    this.setState({ toDeleteId: id, toDeleteName: warehouseName });
+    console.log(this.state.toDeleteId);
+  }
+
+  handleConfirm = () => {
 
   }
 
@@ -68,52 +76,60 @@ class WarehouseList extends Component {
     { header: "ACTIONS", flex: 0.5 }]
 
     return (
-      <div className='warehouse-list'>
-        <div className='warehouse-list__inner'>
-          <div className='warehouse-list__headline'>
-            <h1 className='warehouse-list__title'>Warehouses</h1>
-            <form className='warehouse-list__form'>
-              <div className='warehouse-list__search-housing'>
-                <input type="search"
-                  name="search"
-                  placeholder="Search"
-                  className="warehouse-list__search"
-                />
-              </div>
-              <div className='warehouse-list__cta-housing'>
-                <Link to="/warehouses/add" className='warehouse-list__cta'>
-                  <span className='warehouse-list__cta-text'>
-                    Add New Warehouse
-                  </span>
-                </Link>
-              </div>
-            </form>
-          </div>
-          <div className='warehouse-list__headers'>
-            {headers.map((header, i) => {
-              return (
-                <TableHeader
-                  key={i}
-                  header={header}
-                />
-              )
-            })}
-          </div>
-          <div className='warehouse-list__table'>
-            {warehouses
-              .map(warehouseObj => {
-
+      <>
+        <div className='warehouse-list'>
+          <div className='warehouse-list__inner'>
+            <div className='warehouse-list__headline'>
+              <h1 className='warehouse-list__title'>Warehouses</h1>
+              <form className='warehouse-list__form'>
+                <div className='warehouse-list__search-housing'>
+                  <input type="search"
+                    name="search"
+                    placeholder="Search"
+                    className="warehouse-list__search"
+                  />
+                </div>
+                <div className='warehouse-list__cta-housing'>
+                  <Link to="/warehouses/add" className='warehouse-list__cta'>
+                    <span className='warehouse-list__cta-text'>
+                      Add New Warehouse
+                    </span>
+                  </Link>
+                </div>
+              </form>
+            </div>
+            <div className='warehouse-list__headers'>
+              {headers.map((header, i) => {
                 return (
-                  <Warehouse
-                    key={warehouseObj.id}
-                    warehouseObj={warehouseObj}
-                    handleDelete={this.handleDelete}
+                  <TableHeader
+                    key={i}
+                    header={header}
                   />
                 )
               })}
+            </div>
+            <div className='warehouse-list__table'>
+              {warehouses
+                .map(warehouseObj => {
+
+                  return (
+                    <WarehouseListItem
+                      key={warehouseObj.id}
+                      warehouseObj={warehouseObj}
+                      handleDelete={this.handleDelete}
+                    />
+                  )
+                })}
+            </div>
           </div>
         </div>
-      </div>
+        <div className={this.state.toDeleteId ? "warehouse-list__delete" : "warehouse-list__delete--hidden"}>
+          < WarehouseDelete
+            handleConfirm={this.handleConfirm}
+            toDeleteName={this.state.toDeleteName}
+          />
+        </div>
+      </>
     )
   }
 };

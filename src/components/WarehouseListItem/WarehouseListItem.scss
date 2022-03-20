@@ -2,7 +2,7 @@
 @use '../../styles/partials/variables'as*;
 @use '../../styles/partials/colors'as*;
 
-.warehouse {
+.warehouse-list-item {
   @include divider-top;
   @include padding-horizontal-inner;
   @include site-border;
@@ -65,7 +65,7 @@
     }
 
     &--main {
-      @extend .warehouse__label;
+      @extend .warehouse-list-item__label;
 
       @include tablet {
         order: 1;
@@ -74,7 +74,7 @@
     }
 
     &--addy {
-      @extend .warehouse__label;
+      @extend .warehouse-list-item__label;
 
       @include tablet {
         order: 2;
@@ -83,7 +83,7 @@
     }
 
     &--contact {
-      @extend .warehouse__label;
+      @extend .warehouse-list-item__label;
 
       @include tablet {
         order: 3;
@@ -92,7 +92,7 @@
     }
 
     &--details {
-      @extend .warehouse__label;
+      @extend .warehouse-list-item__label;
 
       @include tablet {
         order: 4;
@@ -127,7 +127,7 @@
     height: $icon-height;
 
     &--delete {
-      @extend .warehouse__icon;
+      @extend .warehouse-list-item__icon;
 
       &:hover {
         cursor: pointer;
@@ -135,7 +135,7 @@
     }
 
     &--edit {
-      @extend .warehouse__icon;
+      @extend .warehouse-list-item__icon;
 
       @include tablet {
         padding-left: $mobile-outer-padding;

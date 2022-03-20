@@ -102,22 +102,15 @@ export class EditWarehouse extends Component {
   // Create logic for a valid PHONE
   isPhoneValid = () => {
     const options = { StrictMode: true };
-    const isPhoneValid = validator.isMobilePhone(
-      this.state.phone,
-      ["en-CA"],
-      options
-    );
-    console.log(isPhoneValid);
+    const isPhoneValid = validator.isMobilePhone(this.state.phone, ["en-CA"], options);
   };
 
   // Create logic for a valid EMAIL
   isEmailValid = () => {
     const options = { StrictMode: true };
-    const isEmailValid = validator.isEmail(
-      this.state.email,
-      ["en-CA"],
-      options
-    );
+    const isEmailValid = validator.isEmail(this.state.email, ["en-CA"], options
+);
+
   };
 
   submitHandler = (event) => {
@@ -125,6 +118,14 @@ export class EditWarehouse extends Component {
     // Enter validation before the put request
 
     const isFormValid = () => {
+      // console.log(this.isNameValid())
+      // console.log(this.isAddressValid())
+      // console.log(this.isCityValid())
+      // console.log(this.isCountryValid())
+      // console.log(this.isContactNameValid())
+      // console.log(this.isPositionValid())
+      // console.log(this.isPhoneValid())
+      // console.log(this.isEmailValid())
       if (
         this.isNameValid() &&
         this.isAddressValid() &&
@@ -132,8 +133,8 @@ export class EditWarehouse extends Component {
         this.isCountryValid() &&
         this.isContactNameValid() &&
         this.isPositionValid() &&
-        this.isPhoneValid() &&
-        this.isEmailValid()
+        !this.isPhoneValid() &&
+        !this.isEmailValid()
       ) {
         return true;
       } else {
@@ -141,7 +142,7 @@ export class EditWarehouse extends Component {
       }
     };
 
-    if (isFormValid()) {
+    if (isFormValid()) {      
       return axios
         .put(`${BASE_URL}/warehouses/${this.props.match.params.id}/edit`, {
           name: event.target.name.value,

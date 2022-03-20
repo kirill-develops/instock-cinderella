@@ -150,7 +150,37 @@
         border-radius: 1.25rem;
         padding-left: 1rem;
         padding-right: 1rem;
-        margin-bottom: 0.25rem;
+        margin-bottom: 1rem;
+        color: $color-slate;
+
+        &:focus {
+            border: 1px solid $color-instock-indigo;
+        }
+
+        &--error{
+            border: 1px solid $color-red;
+        }
+
+        @include tablet {
+            margin-bottom: 1.5rem;
+        }
+
+        @include desktop {
+            margin-bottom: 2.5rem;
+        }
+    }
+
+    &__description-field {
+        border: 1px solid $color-cloud;
+        width: 100%;
+        height: 7.5rem;
+        border-radius: 1.25rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        margin-bottom: 1rem;
+        resize: none;
+        font-family: $font-stack;
+        color: $color-slate;
 
         &:focus {
             border: 1px solid $color-instock-indigo;
@@ -171,6 +201,40 @@
 
     &__dropdown {
         @include form;
+        // background-color: $color-white;
+        color: $color-slate;
+        appearance: none;
+        border: $color-slate;
+        background-image:
+        linear-gradient(45deg, transparent 50%, gray 50%),
+        linear-gradient(135deg, gray 50%, transparent 50%),
+        linear-gradient(to right, #ccc, #ccc);
+        background-position:
+        calc(100% - 20px) calc(1em + 2px),
+        calc(100% - 15px) calc(1em + 2px),
+        calc(100% - 2.5em) 0.5em;
+        background-size:
+        5px 5px,
+        5px 5px,
+        1px 1.5em;
+        background-repeat: no-repeat;
+    }
+
+    &__radio-housing {
+        display: flex;
+        justify-content: flex-start;
+        margin-bottom: 1rem;
+    }
+
+    &__radio-set {
+        width: 50%;
+    }
+
+    &__radio-label {
+        padding-left: 0.5rem;
+        color: $color-slate;
+        font-size: 0.813rem;
+        line-height: 1.25rem;
     }
 
     &__buttons {
@@ -232,6 +296,7 @@
     &__error {
         color: $color-red;
         font-size: 0.75rem;
+
     }
 
 }

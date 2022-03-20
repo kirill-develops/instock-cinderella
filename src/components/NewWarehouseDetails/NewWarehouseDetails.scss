@@ -44,7 +44,7 @@
     }
 
     &__top-form{
-        padding: 0 1.5rem 1.5rem;
+        padding: 0 1.5rem 0.5rem;
         display: flex;
         flex-direction: column;
         width: 100%;
@@ -60,7 +60,7 @@
     }
 
     &__bottom-form {
-        padding: 0 1.5rem 1.5rem;
+        padding: 0 1.5rem 0.5rem;
         display: flex;
         flex-direction: column;
         width: 100%;
@@ -91,9 +91,11 @@
         border-radius: 1.25rem;
         padding-left: 1rem;
         padding-right: 1rem;
-        margin-bottom: 0.25rem;
+        margin-bottom: 1rem;
+        color: $color-slate;
 
         &:focus {
+            outline: none;
             border: 1px solid $color-instock-indigo;
         }
 
@@ -169,5 +171,9 @@
     &__error {
         color: $color-red;
         font-size: 0.75rem;
+    }
+
+    &__img {
+        height:1rem;
     }
 }

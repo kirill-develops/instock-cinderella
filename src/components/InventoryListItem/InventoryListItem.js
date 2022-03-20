@@ -25,7 +25,7 @@ const InventoryList = ({ itemObj, handleDelete }) => {
             STATUS
             <h3 className={`list-item__info 
             ${status.toLowerCase() === "out of stock" ? "list-item__info--out-stock" : "list-item__info--in-stock"}`}
-            >{status}</h3>
+            >{status.toUpperCase()}</h3>
           </label>
           <label className='list-item__label--category'>
             CATEGORY

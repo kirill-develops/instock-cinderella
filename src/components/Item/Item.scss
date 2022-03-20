@@ -7,6 +7,13 @@
 
   &:last-child>* {
     border-bottom: none;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+  }
+
+  &:last-child {
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
   }
 
   &__inner {
@@ -85,9 +92,26 @@
       align-items: flex-start;
       justify-content: center;
     }
+
+    &--main {
+      order: 1
+    }
+
+    &--status {
+      order: 3
+    }
+
+    &--category {
+      order: 2
+    }
+
+    &--qty {
+      order: 4
+    }
   }
 
   &__actions-block {
+    order: 5;
     width: 100%;
     padding-right: $mobile-inner-padding;
     display: flex;

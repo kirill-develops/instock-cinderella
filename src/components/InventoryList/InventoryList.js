@@ -60,7 +60,7 @@ class InventoryList extends Component {
       .then(() => {
         apiUtils.getAllInventory()
           .then(res => {
-            this.setState({ inventoryArr: res.data });
+            this.setState({ inventoryArr: res.data, toDeleteId: "" });
           }).catch(err => {
             console.error(err);
             return errorMessage;
@@ -104,7 +104,7 @@ class InventoryList extends Component {
               <div className='inventory-list__search-housing'>
                 <input type="search"
                   name="search"
-                  placeholder="Search"
+                  placeholder="Search..."
                   className="inventory-list__search"
                 />
               </div>

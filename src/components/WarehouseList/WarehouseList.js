@@ -104,7 +104,7 @@ class WarehouseList extends Component {
                 <div className='warehouse-list__search-housing'>
                   <input type="search"
                     name="search"
-                    placeholder="Search"
+                    placeholder="Search..."
                     className="warehouse-list__search"
                   />
                 </div>

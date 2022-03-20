@@ -123,11 +123,45 @@
     @include form;
     @include font-body-med;
     color: $color-placeholder; 
+    margin-top: .25rem;
+    &:focus {
+      border-color: $color-instock-indigo;
+    }
 
     &--error {
       border: solid 1px $color-outStock;
     }
   }
+
+  &__alert {
+    display: flex; 
+    align-items: center;
+    padding-top: .25rem;
+    background-color: $color-white;
+    padding-left: 2rem;
+    
+    &--adjustment {
+      padding-left: 0;
+    }
+  }
+
+  &__bang {
+    height: 1rem;
+    width: 1rem;
+    margin-right: .5rem; 
+  
+  }
+
+  &__required {
+    font-size: .8rem;
+    color: $color-red;
+  }
+
+
+
+
+
+
   &__name-housing {
     background-color: $color-white;
     @include padding-horizontal-inner;

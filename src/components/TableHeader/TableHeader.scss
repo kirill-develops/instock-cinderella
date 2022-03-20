@@ -4,18 +4,21 @@
 
 
 .header {
-  flex: 1;
-  display: inline-flex;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  align-items: center;
-  padding-right: $mobile-outer-padding;
-  width: 50%;
+  display: none;
+
+  @include tablet {
+    flex: 1;
+    display: inline-flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    padding-right: $mobile-outer-padding;
+    width: 50%;
+  }
 
   &__label {
     @include font-table-header;
     white-space: nowrap;
-    color: $color-table-header;
     padding-top: 11px;
     padding-bottom: 11px;
   }

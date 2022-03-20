@@ -56,20 +56,22 @@ class WarehouseList extends Component {
   render() {
 
     const { warehouseArr: warehouses } = this.state;
-    const headers = ["WAREHOUSE",
-      "ADDRESS",
-      "CONTACT NAME",
-      "CONTACT INFORMATION",
-      "ACTIONS"]
+    const headers = [{
+      header: "WAREHOUSE", flex: 0.8
+    }, {
+      header: "ADDRESS", flex: 1
+    }, {
+      header: "CONTACT NAME", flex: 0.9
+    }, {
+      header: "CONTACT INFORMATION", flex: 1.1
+    },
+    { header: "ACTIONS", flex: 0.5 }]
 
     return (
-      <>
-        <div className='warehouse-list'>
+      <div className='warehouse-list'>
+        <div className='warehouse-list__inner'>
           <div className='warehouse-list__headline'>
-            <div className='warehouse-list__title-housing'>
-              <h1 className='warehouse-list__title'>Warehouses</h1>
-            </div>
-
+            <h1 className='warehouse-list__title'>Warehouses</h1>
             <form className='warehouse-list__form'>
               <div className='warehouse-list__search-housing'>
                 <input type="search"
@@ -87,17 +89,15 @@ class WarehouseList extends Component {
               </div>
             </form>
           </div>
-          <div className='warehouse-list__headers-outer'>
-            <div className='warehouse-list__headers-inner'>
-              {headers.map((header, i) => {
-                return (
-                  <TableHeader
-                    key={i}
-                    header={header}
-                  />
-                )
-              })}
-            </div>
+          <div className='warehouse-list__headers'>
+            {headers.map((header, i) => {
+              return (
+                <TableHeader
+                  key={i}
+                  header={header}
+                />
+              )
+            })}
           </div>
           <div className='warehouse-list__table'>
             {warehouses
@@ -113,7 +113,7 @@ class WarehouseList extends Component {
               })}
           </div>
         </div>
-      </>
+      </div>
     )
   }
 };

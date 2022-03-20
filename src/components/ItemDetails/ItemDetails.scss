@@ -6,28 +6,105 @@
 .item-details {
   @include cardConfig;
 
-  &__title {
+  &__headline {
     padding-bottom: $mobile-inner-padding;
     @include padding-horizontal-inner;
     @include divider-bottom;
+    display: flex;
+    align-items: center;
+  }
+
+  &__title {
+    @include font-header;
+    width: 100%;
+    padding-left: 12px;
+  }
+
+  &__button-back {
+    height: $icon-height;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__button-edit {
+    @include cta;
+    padding: 6px;
+    width: 36px;
+    background-color: $color-interact;
+    padding-left: $mobile-outer-padding;
+    padding-right: $mobile-outer-padding;
+    color: $color-white;
+
+    @include tablet {
+      width: fit-content;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__button-txt {
+    display: none;
+
+    @include tablet {
+      display: inline-block;
+      padding-left: 3.5px;
+    }
+  }
+
+  &__icon {
+    aspect-ratio: 1;
+    height: 15px;
   }
 
   &__block {
     padding-top: $mobile-outer-padding;
+    padding-bottom: $mobile-outer-padding;
     @include padding-horizontal-inner;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
+
+    @include tablet {
+      padding-top: $mobile-inner-padding;
+      padding-bottom: $mobile-inner-padding;
+      flex-direction: row;
+    }
+  }
+
+  &__highlights {
+    padding-bottom: 8px;
+
+    @include tablet {
+      width: 50%;
+      border-right: 1px solid $color-outline-divider-border-tableSort;
+      padding-bottom: 0;
+    }
+  }
+
+  &__more-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: baseline;
+
+    @include tablet {
+      padding-left: $desktop-inner-padding;
+      width: 50%;
+    }
+
+    @include desktop {
+      padding-left: $desktop-inner-padding;
+    }
   }
 
   &__info {
-    @include font-body-sml;
+    @include font-body-med;
     white-space: initial;
     padding-top: 4px;
-
-    &--main-link {
-      @include link;
-    }
 
     &--out-stock {
       margin-top: 4px;
@@ -54,11 +131,63 @@
 
     @include tablet {
       padding-right: $mobile-outer-padding;
-      flex: 1;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       justify-content: center;
+    }
+
+    &--description {
+      @extend .item-details__label;
+      width: 100%;
+
+      @include tablet {
+        padding-right: $mobile-inner-padding;
+      }
+
+      @include desktop {
+        padding-right: $desktop-inner-padding;
+      }
+    }
+
+    &--category {
+      @extend .item-details__label;
+      width: 100%;
+
+      @include tablet {
+        padding-right: $mobile-inner-padding;
+      }
+
+      @include desktop {
+        padding-right: $desktop-inner-padding;
+      }
+    }
+
+    &--status {
+      @extend .item-details__label;
+      width: 50%;
+
+      @include tablet {
+        padding-right: 0;
+      }
+    }
+
+    &--qty {
+      @extend .item-details__label;
+      width: 50%;
+
+      @include tablet {
+        padding-right: 0;
+      }
+    }
+
+    &--warehouse {
+      @extend .item-details__label;
+      width: 100%;
+
+      @include tablet {
+        padding-right: 0;
+      }
     }
   }
 }

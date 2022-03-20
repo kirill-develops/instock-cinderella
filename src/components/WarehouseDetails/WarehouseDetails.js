@@ -6,12 +6,17 @@ import TableHeader from "../TableHeader/TableHeader";
 import Item from "../Item/Item";
 import arrowBack from "../../assets/icons/arrow_back-24px.svg";
 import editIcon from "../../assets/icons/edit-24px-white.svg";
+import DeleteModal from '../DeleteModal/DeleteModal';
 import './WarehouseDetails.scss';
+
+const errorMessage = < p > Error fetching data, please try reloading in a few moments</p >;
 
 class WarehouseDetails extends Component {
 
   state = {
-    warehouse: null
+    warehouse: null,
+    toDeleteId: "",
+    toDeleteName: ""
   }
 
 
@@ -50,8 +55,29 @@ class WarehouseDetails extends Component {
     }
   };
 
-  handleDelete = (id) => {
+  handleDelete = (id, itemName) => {
+    this.setState({ toDeleteId: id, toDeleteName: itemName });
+  }
 
+  resetDelete = () => {
+    this.setState({ toDeleteId: "", toDeleteName: "" })
+  }
+
+  handleConfirm = (id) => {
+    apiUtils.deleteInventory(id)
+      .then(() => {
+        apiUtils.getWarehouseById(this.props.match.params.id)
+          .then(res => {
+            this.setState({ warehouse: res.data, toDeleteId: "" });
+          }).catch(err => {
+            console.log(err);
+            return errorMessage;
+          })
+      }).catch(err => {
+
+        console.error(err);
+        return errorMessage;
+      })
   }
 
   render() {
@@ -139,10 +165,21 @@ class WarehouseDetails extends Component {
                   <Item
                     key={item.id}
                     itemObj={item}
+                    handleDelete={this.handleDelete}
                   />
                 )
               })}
           </div>
+        </div>
+        <div className={this.state.toDeleteId ? "inventory-list__delete" : "inventory-list__delete--hidden"}>
+          < DeleteModal
+            toDeleteId={this.state.toDeleteId}
+            toDeleteName={this.state.toDeleteName}
+            toDeleteType="inventory item"
+            handleCancel={this.resetDelete}
+            handleConfirm={this.handleConfirm}
+            closingStatement={'from the inventory list'}
+          />
         </div>
       </>
     );

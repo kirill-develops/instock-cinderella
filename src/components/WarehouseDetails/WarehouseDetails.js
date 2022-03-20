@@ -62,11 +62,17 @@ class WarehouseDetails extends Component {
     }
 
     const { inventory } = warehouse;
-    const headers = ["INVENTORY ITEM",
-      "STATUS",
-      "CATAGORY",
-      "QUANTITY",
-      "ACTIONS"]
+
+    const headers = [{
+      header: "INVENTORY ITEM", flex: 1
+    }, {
+      header: "STATUS", flex: 1
+    }, {
+      header: "CATEGORY", flex: 1
+    }, {
+      header: "QUANTITY", flex: 1
+    },
+    { header: "ACTIONS", flex: 0.5 }]
 
     return (
       <>

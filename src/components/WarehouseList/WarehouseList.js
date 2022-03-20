@@ -4,10 +4,10 @@ import apiUtils from '../../utils/apiUtils';
 
 import TableHeader from '../TableHeader/TableHeader';
 import WarehouseListItem from '../WarehouseListItem/WarehouseListItem';
-import WarehouseDelete from '../WarehouseDelete/WarehouseDelete';
+import DeleteModal from '../DeleteModal/DeleteModal';
 import './WarehouseList.scss';
 
-
+const errorMessage = < p > Error fetching data, please try reloading in a few moments</p >
 class WarehouseList extends Component {
   state = {
     warehouseArr: [],
@@ -17,20 +17,18 @@ class WarehouseList extends Component {
 
 
   componentDidMount() {
-    const errorMessage = < p > Error fetching data, please try reloading in a few moments</p >
 
     apiUtils.getAllWarehouses()
       .then(res => {
         this.setState({ warehouseArr: res.data });
       }).catch(err => {
-        console.log(err);
+        console.error(err);
         return errorMessage;
       })
   }
 
 
   componentDidUpdate(prevProps) {
-    const errorMessage = < p > Error fetching data, please try reloading in a few moments</p >
 
     // deconstruct current and previous params
     const { id: currentId } = this.props.match.params;
@@ -45,7 +43,7 @@ class WarehouseList extends Component {
           })
         })
         .catch(err => {
-          console.log(err);
+          console.error(err);
           return errorMessage;
         })
     }
@@ -53,11 +51,32 @@ class WarehouseList extends Component {
 
   handleDelete = (id, warehouseName) => {
     this.setState({ toDeleteId: id, toDeleteName: warehouseName });
-    console.log(this.state.toDeleteId);
   }
 
-  handleConfirm = () => {
+  resetDelete = () => {
+    this.setState({ toDeleteId: "", toDeleteName: "" })
+  }
 
+  handleConfirm = (id) => {
+
+    apiUtils.deleteWarehouse(id)
+      .then(res => {
+
+        apiUtils.getAllWarehouses()
+          .then(res => {
+
+            this.setState({ warehouseArr: res.data });
+            this.resetDelete();
+          }).catch(err => {
+
+            console.error(err);
+            return errorMessage;
+          })
+      }).catch(err => {
+
+        console.error(err);
+        return errorMessage;
+      })
   }
 
 
@@ -124,9 +143,12 @@ class WarehouseList extends Component {
           </div>
         </div>
         <div className={this.state.toDeleteId ? "warehouse-list__delete" : "warehouse-list__delete--hidden"}>
-          < WarehouseDelete
-            handleConfirm={this.handleConfirm}
+          < DeleteModal
+            toDeleteId={this.state.toDeleteId}
             toDeleteName={this.state.toDeleteName}
+            handleCancel={this.resetDelete}
+            handleConfirm={this.handleConfirm}
+            closingStatement={'from the list of warehouses'}
           />
         </div>
       </>

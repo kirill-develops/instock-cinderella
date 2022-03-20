@@ -1,0 +1,80 @@
+@use '../../styles/partials/colors'as*;
+@use '../../styles/partials/variables'as*;
+@use '../../styles/partials/mixins'as*;
+
+.delete-modal {
+  background-color: $color-white;
+  @include padding-delete-inner;
+  height: 100vh;
+  position: relative;
+
+  @include tablet {
+    max-width: 42rem;
+    height: fit-content;
+    margin: 11.563rem auto auto;
+    border-radius: 3px;
+    @include site-border;
+  }
+
+  &__header {
+    @include font-header;
+    padding-bottom: $mobile-outer-padding;
+  }
+
+  &__body {
+    @include font-body-lrg;
+    padding-bottom: $tablet-inner-padding;
+  }
+
+  &__buttons-block {
+    display: flex;
+    flex-wrap: nowrap;
+    position: fixed;
+    bottom: $mobile-inner-padding;
+    width: calc(100% - (2 * $mobile-outer-padding));
+
+    @include tablet {
+      position: initial;
+      justify-content: flex-end;
+      width: 100%;
+    }
+  }
+
+  &__button-housing {
+    width: 100%;
+
+    @include tablet {
+      width: fit-content;
+    }
+
+    &:nth-child(n) {
+      padding-right: 8px;
+    }
+
+    &:nth-child(2n) {
+      padding-left: 8px;
+    }
+  }
+
+  &__button {
+    &--cancel {
+      @include secondary-cta-default;
+    }
+
+    &--delete {
+      @include delete-cta-default;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    right: 21px;
+    top: 21px;
+    aspect-ratio: 1;
+    height: 14px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

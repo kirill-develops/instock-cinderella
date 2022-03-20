@@ -69,7 +69,7 @@
   }
 
   &__cta {
-    @include cta;
+    @include primary-cta-default;
     @include font-labels-links-buttons;
     background-color: $color-interact;
   }

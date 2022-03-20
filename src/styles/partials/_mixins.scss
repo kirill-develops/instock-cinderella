@@ -340,3 +340,18 @@
     width: 100%;
   }
 }
+
+@mixin deleteHousing {
+  display: block;
+  position: fixed;
+  overflow: auto;
+  top: 0;
+  left: 0;
+  background-color: rgba(19, 24, 44, 0.7);
+  height: 100%;
+  width: 100%;
+
+  &--hidden {
+    display: none;
+  }
+}

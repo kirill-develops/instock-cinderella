@@ -40,7 +40,7 @@ const InventoryList = ({ itemObj, handleDelete }) => {
             <h3 className='list-item__info'>{warehouseName}</h3>
           </label>
           <div className='list-item__actions-block'>
-            <img onClick={handleDelete} src={DeleteIco} alt="delete icon" className='list-item__icon--delete' />
+            <img onClick={() => handleDelete(id, itemName)} src={DeleteIco} alt="delete icon" className='list-item__icon--delete' />
             < Link to={`/inventory/${id}/edit`} className="list-item__link">
               <img src={EditIco} alt="edit icon" className='list-item__icon--edit' />
             </Link>

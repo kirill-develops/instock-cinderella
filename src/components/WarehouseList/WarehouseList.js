@@ -146,6 +146,7 @@ class WarehouseList extends Component {
           < DeleteModal
             toDeleteId={this.state.toDeleteId}
             toDeleteName={this.state.toDeleteName}
+            toDeleteType="warehouse"
             handleCancel={this.resetDelete}
             handleConfirm={this.handleConfirm}
             closingStatement={'from the list of warehouses'}

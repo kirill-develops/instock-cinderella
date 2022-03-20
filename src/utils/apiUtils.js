@@ -29,6 +29,7 @@ const apiUtils = {
   deleteWarehouse: (warehouseId) => axios.delete(`${BASE_URL}/warehouses/${warehouseId}/`),
   getAllInventory: () => axios(getAllInventoryReq),
   getInventoryById: (itemId) => axios.get(`${BASE_URL}/inventory/${itemId}`),
+  deleteInventory: (itemId) => axios.delete(`${BASE_URL}/inventory/${itemId}/`)
 }
 
 

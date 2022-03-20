@@ -5,31 +5,28 @@
 
 
 .warehouse-details {
-  padding: 0;
-  background-color: $color-white;
-  border: none;
+  @include cardConfig; 
+
 
   &__top {
     background-color: $color-background-dark;
-    @include padding-horizontal-outer;
   }
 
   &__header {
     background-color: $color-white;
+    padding-bottom: 1rem;
     @include padding-horizontal-inner;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-    padding-top: calc(2* $mobile-outer-padding);
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
     font-size: 0.8rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 
     @include tablet {
       margin-bottom: 0;
       padding-bottom: $mobile-inner-padding;
+      padding-bottom: 1.2rem;
     }
   }
 
@@ -49,9 +46,10 @@
   &__edit {
     @include primary-cta-default;
     background-color: $color-interact;
-    @include padding-horizontal-outer;
     height: 2rem;
     width: 2rem;
+    
+ 
 
     @include tablet {
       height: 36px;
@@ -74,8 +72,10 @@
     width: 1rem;
     height: 1rem;
     padding: 0;
+    
 
     @include tablet {
+      margin-left: 1rem;
       margin-right: 0.5rem;
     }
   }
@@ -84,6 +84,9 @@
     display: none;
 
     @include tablet {
+      
+      text-decoration: underline;
+      text-decoration-color: $color-instock-indigo;
       color: $color-white;
       display: flex;
       padding: 0;
@@ -92,20 +95,17 @@
   }
 
   &__backing {
-    @include padding-horizontal-outer;
+    @include divider-top;
     background-color: $color-lightgrey;
     padding: 0;
 
     @include tablet {
-      @include divider-top;
       margin-left: 0;
       margin-right: 0;
     }
   }
 
   &__information {
-    @include padding-horizontal-outer;
-    @include site-border;
     background-color: $color-white;
 
     @include tablet {
@@ -202,15 +202,15 @@
     }
   }
 
-  &__headers-outer {
-    display: none;
+  // &__headers-outer {
+  //   display: none;
 
-    @include tablet {
-      background-color: $color-background-light;
-      @include padding-horizontal-outer;
-      display: block;
-    }
-  }
+  //   @include tablet {
+  //     background-color: $color-background-light;
+  //     // @include padding-horizontal-outer;
+  //     display: block;
+  //   }
+  // }
 
   &__headers-inner {
     display: none;
@@ -223,5 +223,55 @@
       align-items: center;
       width: 100%;
     }
+  }
+  &__buttons {
+    display: flex;
+    flex-direction: row; 
+    // @include padding-horizontal-outer;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    justify-content: space-between;
+    
+    @include tablet {
+      width: 20rem;
+    }
+
+    @include desktop {
+      width: 25rem; 
+      padding-right: 2rem;
+    }
+
+  }
+  &__cancel {
+    height: 36px;
+    width: 7rem;
+    display: flex;
+    border-radius: 20px;
+    padding-left: $mobile-outer-padding;
+    padding-right: $mobile-outer-padding;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $color-white;
+    color: $color-slate;
+    border: solid 1px $color-outline-divider-border-tableSort;
+    @include font-labels-links-buttons;
+  }
+
+  &__save {
+    height: 36px;
+    width: 7rem;
+    display: inline-block;
+    border-radius: 20px;
+    padding-left: $mobile-outer-padding;
+    padding-right: $mobile-outer-padding;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $color-white;
+    background-color: $color-instock-indigo;
+    border: none;
   }
 }

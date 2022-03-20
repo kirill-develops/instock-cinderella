@@ -109,7 +109,7 @@ class InventoryList extends Component {
                 />
               </div>
               <div className='inventory-list__cta-housing'>
-                <Link to="/inventory/add" className='inventory-list__cta'>
+                <Link to="/inventory/add/" className='inventory-list__cta'>
                   <span className='inventory-list__cta-text'>
                     Add New Item
                   </span>

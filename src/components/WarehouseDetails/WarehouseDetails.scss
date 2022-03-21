@@ -5,7 +5,7 @@
 
 
 .warehouse-details {
-  @include cardConfig; 
+  @include cardConfig;
 
 
   &__top {
@@ -48,8 +48,8 @@
     background-color: $color-interact;
     height: 2rem;
     width: 2rem;
-    
- 
+
+
 
     @include tablet {
       height: 36px;
@@ -72,7 +72,7 @@
     width: 1rem;
     height: 1rem;
     padding: 0;
-    
+
 
     @include tablet {
       margin-left: 1rem;
@@ -84,7 +84,7 @@
     display: none;
 
     @include tablet {
-      
+
       text-decoration: underline;
       text-decoration-color: $color-instock-indigo;
       color: $color-white;
@@ -202,16 +202,6 @@
     }
   }
 
-  // &__headers-outer {
-  //   display: none;
-
-  //   @include tablet {
-  //     background-color: $color-background-light;
-  //     // @include padding-horizontal-outer;
-  //     display: block;
-  //   }
-  // }
-
   &__headers-inner {
     display: none;
 
@@ -224,24 +214,25 @@
       width: 100%;
     }
   }
+
   &__buttons {
     display: flex;
-    flex-direction: row; 
-    // @include padding-horizontal-outer;
+    flex-direction: row;
     padding-bottom: 1rem;
     padding-top: 1rem;
     justify-content: space-between;
-    
+
     @include tablet {
       width: 20rem;
     }
 
     @include desktop {
-      width: 25rem; 
+      width: 25rem;
       padding-right: 2rem;
     }
 
   }
+
   &__cancel {
     height: 36px;
     width: 7rem;

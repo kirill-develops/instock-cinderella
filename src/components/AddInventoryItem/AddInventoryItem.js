@@ -43,7 +43,6 @@ class AddInventoryItem extends Component {
         event.preventDefault();
 
         if (this.isAddItemValid()) {
-            // this.setState({ clicked: true })
             axios
                 .post(`${BASE_URL}/inventory`, {
                     warehouseName: event.target.warehouse.value,

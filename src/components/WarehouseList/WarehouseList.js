@@ -87,8 +87,8 @@ class WarehouseList extends Component {
 
   handleSort = (header) => {
     // WIP
-    // console.log(header, { ...this.state.warehouseArr });
 
+    // Still not understanding why my .sort() statement isn't sorting, will be coming for assistance soon. cheers
     if (header.objKey === 'name' && this.state.sortClick.name) {
       const sortedWarehouseArr = this.state.warehouseArr;
       sortedWarehouseArr.sort((a, b) => b.name.toLowerCase() - a.name.toLowerCase());

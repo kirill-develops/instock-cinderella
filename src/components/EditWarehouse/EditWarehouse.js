@@ -48,7 +48,6 @@ export class EditWarehouse extends Component {
   // Create logic for a valid WAREHOUSE NAME
   isNameValid = () => {
     if (this.state.name.length < 3) {
-      // console.log("name");
       return false;
     }
     return true;
@@ -57,7 +56,6 @@ export class EditWarehouse extends Component {
   // Create logic for a valid ADDRESS
   isAddressValid = () => {
     if (this.state.address.length < 5) {
-      // console.log("address");
       return false;
     }
     return true;
@@ -66,7 +64,6 @@ export class EditWarehouse extends Component {
   // Create logic for a valid CITY
   isCityValid() {
     if (this.state.city.length < 5) {
-      // console.log("city");
       return false;
     }
     return true;
@@ -109,7 +106,7 @@ export class EditWarehouse extends Component {
   isEmailValid = () => {
     const options = { StrictMode: true };
     return validator.isEmail(this.state.email, ["en-CA"], options
-);
+    );
 
   };
 
@@ -142,7 +139,7 @@ export class EditWarehouse extends Component {
       }
     };
 
-    if (isFormValid()) {      
+    if (isFormValid()) {
       return axios
         .put(`${BASE_URL}/warehouses/${this.props.match.params.id}/edit`, {
           name: event.target.name.value,
@@ -176,7 +173,7 @@ export class EditWarehouse extends Component {
           <div className="warehouse-edit__inner">
             <div className="warehouse-edit__headline">
               <div className="warehouse-edit__box">
-                  <img onClick={() => this.props.history.goBack()} className="warehouse-edit__back" src={arrowBack} />
+                <img onClick={() => this.props.history.goBack()} className="warehouse-edit__back" src={arrowBack} />
                 <div className="warehouse-edit__title-housing">
                   <h1 className="warehouse-edit__title">Edit Warehouse</h1>
                 </div>
@@ -201,9 +198,8 @@ export class EditWarehouse extends Component {
                       autoComplete="off"
                       defaultValue={this.state.warehouse.name}
                       onChange={this.handleChange}
-                      className={`warehouse-edit__field ${
-                        this.isNameValid() ? "" : "warehouse-edit__field--error"
-                      }`}
+                      className={`warehouse-edit__field ${this.isNameValid() ? "" : "warehouse-edit__field--error"
+                        }`}
                     />
                   </div>
                   {!this.isNameValid() ? (
@@ -228,11 +224,10 @@ export class EditWarehouse extends Component {
                       autoComplete="off"
                       defaultValue={this.state.warehouse.address}
                       onChange={this.handleChange}
-                      className={`warehouse-edit__field ${
-                        this.isAddressValid()
+                      className={`warehouse-edit__field ${this.isAddressValid()
                           ? ""
                           : "warehouse-edit__field--error"
-                      }`}
+                        }`}
                     />
                   </div>
                   {!this.isAddressValid() ? (
@@ -255,9 +250,8 @@ export class EditWarehouse extends Component {
                       autoComplete="off"
                       defaultValue={this.state.warehouse.city}
                       onChange={this.handleChange}
-                      className={`warehouse-edit__field ${
-                        this.isCityValid() ? "" : "warehouse-edit__field--error"
-                      }`}
+                      className={`warehouse-edit__field ${this.isCityValid() ? "" : "warehouse-edit__field--error"
+                        }`}
                     />
                   </div>
                   {!this.isCityValid() ? (
@@ -282,11 +276,10 @@ export class EditWarehouse extends Component {
                       autoComplete="off"
                       defaultValue={this.state.warehouse.country}
                       onChange={this.handleChange}
-                      className={`warehouse-edit__field ${
-                        this.isCountryValid()
+                      className={`warehouse-edit__field ${this.isCountryValid()
                           ? ""
                           : "warehouse-edit__field--error"
-                      }`}
+                        }`}
                     />
                     {!this.isCountryValid() ? (
                       <div className="warehouse-edit__alert warehouse-edit__alert--adjustment">
@@ -318,11 +311,10 @@ export class EditWarehouse extends Component {
                       autoComplete="off"
                       defaultValue={this.state.warehouse.contact.name}
                       onChange={this.handleChange}
-                      className={`warehouse-edit__field ${
-                        this.isContactNameValid()
+                      className={`warehouse-edit__field ${this.isContactNameValid()
                           ? ""
                           : "warehouse-edit__field--error"
-                      }`}
+                        }`}
                     />
                   </div>
                   {!this.isContactNameValid() ? (
@@ -347,11 +339,10 @@ export class EditWarehouse extends Component {
                       autoComplete="off"
                       defaultValue={this.state.warehouse.contact.position}
                       onChange={this.handleChange}
-                      className={`warehouse-edit__field ${
-                        this.isPositionValid()
+                      className={`warehouse-edit__field ${this.isPositionValid()
                           ? ""
                           : "warehouse-edit__field--error"
-                      }`}
+                        }`}
                     />
                   </div>
                   {!this.isPositionValid() ? (
@@ -376,11 +367,10 @@ export class EditWarehouse extends Component {
                       autoComplete="off"
                       defaultValue={this.state.warehouse.contact.phone}
                       onChange={this.handleChange}
-                      className={`warehouse-edit__field ${
-                        this.isPhoneValid()
+                      className={`warehouse-edit__field ${this.isPhoneValid()
                           ? ""
                           : "warehouse-edit__field--error"
-                      }`}
+                        }`}
                     />
                   </div>
                   {!this.isPhoneValid() ? (
@@ -403,11 +393,10 @@ export class EditWarehouse extends Component {
                       autoComplete="off"
                       defaultValue={this.state.warehouse.contact.email}
                       onChange={this.handleChange}
-                      className={`warehouse-edit__field ${
-                        this.isEmailValid()
+                      className={`warehouse-edit__field ${this.isEmailValid()
                           ? ""
                           : "warehouse-edit__field--error"
-                      }`}
+                        }`}
                     />
                     {!this.isEmailValid() ? (
                       <div className="warehouse-edit__alert warehouse-edit__alert--adjustment">
@@ -424,7 +413,7 @@ export class EditWarehouse extends Component {
                   </div>
                 </div>
                 <div className="warehouse-edit__buttons warehouse-edit__buttons--mobile">
-                <p className="warehouse-edit__cancel" onClick={() => this.props.history.goBack()}>Cancel</p>
+                  <p className="warehouse-edit__cancel" onClick={() => this.props.history.goBack()}>Cancel</p>
                   <button className="warehouse-edit__save">Save</button>
                 </div>
               </form>

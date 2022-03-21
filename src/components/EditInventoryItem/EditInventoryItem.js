@@ -25,7 +25,6 @@ export class EditInventoryItem extends Component {
     axios
       .get(`${BASE_URL}/inventory/${this.props.match.params.id}`)
       .then((response) => {
-        // console.log(response.data);
         const {
           itemName,
           description,
@@ -60,7 +59,6 @@ export class EditInventoryItem extends Component {
   // Create a change handler to change the state as the user changes the categories
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
-    // console.log(this.state.status)
   };
 
   // Enter validation before the put request
@@ -91,21 +89,21 @@ export class EditInventoryItem extends Component {
       if (!this.isItemNameValid() && !this.isDescriptionValid()) {
         return false;
       }
-      
+
       if (event.target.status.value.toLowerCase() === "out of stock") {
         this.setState({ quantity: 0 });
 
-          return true; 
+        return true;
       } else if (
         event.target.status.value === "In Stock" &&
         event.target.quantity.value === 0
-        ) {
+      ) {
         return false;
       } else {
-    
+
         this.setState({ quantity: event.target.quantity.value });
-      } 
-      return true; 
+      }
+      return true;
     };
 
     if (isEditValid()) {
@@ -158,9 +156,8 @@ export class EditInventoryItem extends Component {
                       autoComplete="off"
                       onChange={this.handleChange}
                       defaultValue={this.state.inventoryItem.itemName}
-                      className={`inventory__item ${
-                        this.isItemNameValid() ? "" : "inventory__item--error"
-                      }`}
+                      className={`inventory__item ${this.isItemNameValid() ? "" : "inventory__item--error"
+                        }`}
                     />
                   </div>
                   {!this.isItemNameValid() ? (
@@ -183,13 +180,11 @@ export class EditInventoryItem extends Component {
                       placeholder="Please enter item description"
                       autoComplete="off"
                       onChange={this.handleChange}
-                      // defaultValue={"+1 "}
                       defaultValue={this.state.inventoryItem.description}
-                      className={`inventory__description ${
-                        this.isDescriptionValid()
-                          ? ""
-                          : "inventory__description--error"
-                      }`}
+                      className={`inventory__description ${this.isDescriptionValid()
+                        ? ""
+                        : "inventory__description--error"
+                        }`}
                     ></textarea>
                   </div>
                   {!this.isDescriptionValid() ? (

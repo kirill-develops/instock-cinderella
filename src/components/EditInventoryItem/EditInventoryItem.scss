@@ -1,7 +1,7 @@
-@use "../../styles/partials/mixins" as *;
-@use "../../styles/partials/variables" as *;
-@use "../../styles/partials/colors" as *;
-@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/mixins"as *;
+@use "../../styles/partials/variables"as *;
+@use "../../styles/partials/colors"as *;
+@use "../../styles/partials/typography"as *;
 
 .inventory {
   @include cardConfig;
@@ -18,7 +18,7 @@
   }
 
   &__box {
-    display: flex; 
+    display: flex;
     align-items: baseline;
     border-bottom: solid 1px $color-outline-divider-border-tableSort;
 
@@ -48,16 +48,16 @@
     &--divider {
       margin-top: 1.5rem;
       border-top: solid 1px $color-outline-divider-border-tableSort;
+
       @include tablet {
         @include divider-left;
-        border-top: none; 
+        border-top: none;
         margin-top: 1rem;
       }
     }
   }
 
   &__subheader {
-    // border: solid 1px red;
     @include font-subheader;
     padding-top: 1rem;
     padding-bottom: 1rem;
@@ -71,8 +71,7 @@
     }
   }
 
-  &__name--housing {
-  }
+  &__name--housing {}
 
   &__label {
     @include font-labels-links-buttons;
@@ -80,17 +79,18 @@
 
   &__item {
     @include form;
+
     &:focus {
       border-color: $color-instock-indigo;
     }
-    
+
     &--error {
       border: solid 1px $color-outStock;
     }
   }
 
   &__alert {
-    display: flex; 
+    display: flex;
     align-items: center;
     padding-top: .25rem;
     background-color: $color-white;
@@ -100,8 +100,8 @@
   &__bang {
     height: 1rem;
     width: 1rem;
-    margin-right: .5rem; 
-  
+    margin-right: .5rem;
+
   }
 
   &__required {
@@ -117,18 +117,20 @@
     padding-top: 1rem;
     font-family: $font-stack;
     @include font-body-med;
+
     &--error {
       border: solid 1px $color-outStock;
     }
 
-    
+
     @include tablet {
       height: 8rem;
     }
   }
+
   &__dropdown {
     appearance: none;
-    border: none; 
+    border: none;
     background-image:
       linear-gradient(45deg, transparent 50%, gray 50%),
       linear-gradient(135deg, gray 50%, transparent 50%),
@@ -159,6 +161,7 @@
   &__stockpile {
     display: flex;
     align-items: baseline;
+
     &--push {
       padding-right: 1rem;
     }
@@ -175,23 +178,23 @@
 
   }
 
-  &__status {
-  }
+  &__status {}
 
   &__radio {
     margin-right: .5rem;
 
     &--none {
-      display: none; 
+      display: none;
     }
   }
 
   &__stock {
     @include font-labels-links-buttons;
   }
+
   &__buttons {
     display: flex;
-    flex-direction: row; 
+    flex-direction: row;
     @include padding-horizontal-outer;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
@@ -200,6 +203,7 @@
     padding-top: 1rem;
     justify-content: space-between;
     background-color: $color-lightgrey;
+
     @include tablet {
       width: 100%;
       justify-content: flex-end;
@@ -207,11 +211,12 @@
     }
 
     @include desktop {
-      width: 25rem; 
+      width: 25rem;
       padding-right: 2rem;
     }
 
   }
+
   &__cancel {
     height: 36px;
     width: 7rem;

@@ -49,7 +49,6 @@
 
   &__label {
     @include font-table-header;
-    // display: inline-block;
     width: 50%;
     padding-right: $mobile-totalHorizontal-padding;
     padding-bottom: $mobile-outer-padding;

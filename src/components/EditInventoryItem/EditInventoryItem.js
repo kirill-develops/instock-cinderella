@@ -19,7 +19,7 @@ export class EditInventoryItem extends Component {
     status: "",
     warehouseName: "",
     quantity: 0,
-    warehouseArr: []
+    warehouseArr: [],
   };
 
   // The state of this page should load the form fields with the inventory info from match.params
@@ -37,12 +37,11 @@ export class EditInventoryItem extends Component {
           warehouseName,
         } = response.data;
 
-        apiUtils.getAllWarehouses()
-        .then((response) => {
+        apiUtils.getAllWarehouses().then((response) => {
           this.setState({
-            warehouseArr: response.data
-          })
-        })
+            warehouseArr: response.data,
+          });
+        });
 
         this.setState({
           inventoryItem: response.data,
@@ -100,15 +99,15 @@ export class EditInventoryItem extends Component {
       if (!this.isItemNameValid() && !this.isDescriptionValid()) {
         return false;
       }
-      
-      // Unexpectedly, setState won't work. Cannot change quantity to 0 when out of stock is selected. 
+
+      // Unexpectedly, setState won't work. Cannot change quantity to 0 when out of stock is selected.
       if (event.target.status.value.toLowerCase() === "out of stock") {
-            console.log('test')
-       this.setState({
-        quantity: 0
-       })
-      } 
-      return true; 
+        console.log("test");
+        this.setState({
+          quantity: 0,
+        });
+      }
+      return true;
     };
 
     if (isEditValid()) {
@@ -145,8 +144,12 @@ export class EditInventoryItem extends Component {
       <div className="inventory">
         <div className="inventory__outer">
           <div className="inventory__inner">
-            <div className="inventory__box">   
-                <img onClick={() => this.props.history.goBack()} className="inventory__back" src={arrowBack} />
+            <div className="inventory__box">
+              <img
+                onClick={() => this.props.history.goBack()}
+                className="inventory__back"
+                src={arrowBack}
+              />
               <h2 className="inventory__title">Edit Inventory Item</h2>
             </div>
             <div className="inventory__section">
@@ -288,15 +291,24 @@ export class EditInventoryItem extends Component {
                         onChange={this.handleChange}
                         className="inventory__dropdown"
                       >
-                        {this.state.warehouseArr.map(warehouseObject => {
-                          return <option value={warehouseObject.name}>{warehouseObject.name}</option>
+                        {this.state.warehouseArr.map((warehouseObject) => {
+                          return (
+                            <option value={warehouseObject.name}>
+                              {warehouseObject.name}
+                            </option>
+                          );
                         })}
                       </select>
                     </div>
                   </div>
                 </div>
-                <div className="inventory__buttons inventory__buttons--mobile"> 
-               <a className="inventory__cancel" onClick={() => this.props.history.goBack()}>Cancel</a> 
+                <div className="inventory__buttons inventory__buttons--mobile">
+                  <a
+                    className="inventory__cancel"
+                    onClick={() => this.props.history.goBack()}
+                  >
+                    Cancel
+                  </a>
                   <button className="inventory__save">Save</button>
                 </div>
               </form>

@@ -102,13 +102,13 @@ export class EditWarehouse extends Component {
   // Create logic for a valid PHONE
   isPhoneValid = () => {
     const options = { StrictMode: true };
-    const isPhoneValid = validator.isMobilePhone(this.state.phone, ["en-CA"], options);
+    return validator.isMobilePhone(this.state.phone, ["en-CA"], options);
   };
 
   // Create logic for a valid EMAIL
   isEmailValid = () => {
     const options = { StrictMode: true };
-    const isEmailValid = validator.isEmail(this.state.email, ["en-CA"], options
+    return validator.isEmail(this.state.email, ["en-CA"], options
 );
 
   };
@@ -133,8 +133,8 @@ export class EditWarehouse extends Component {
         this.isCountryValid() &&
         this.isContactNameValid() &&
         this.isPositionValid() &&
-        !this.isPhoneValid() &&
-        !this.isEmailValid()
+        this.isPhoneValid() &&
+        this.isEmailValid()
       ) {
         return true;
       } else {
@@ -176,9 +176,7 @@ export class EditWarehouse extends Component {
           <div className="warehouse-edit__inner">
             <div className="warehouse-edit__headline">
               <div className="warehouse-edit__box">
-                <Link to="/warehouses">
-                  <img className="warehouse-edit__back" src={arrowBack} />
-                </Link>
+                  <img onClick={() => this.props.history.goBack()} className="warehouse-edit__back" src={arrowBack} />
                 <div className="warehouse-edit__title-housing">
                   <h1 className="warehouse-edit__title">Edit Warehouse</h1>
                 </div>
@@ -426,9 +424,7 @@ export class EditWarehouse extends Component {
                   </div>
                 </div>
                 <div className="warehouse-edit__buttons warehouse-edit__buttons--mobile">
-                  <Link className="warehouse-edit__cancel" to="/warehouse:id">
-                    Cancel
-                  </Link>
+                <p className="warehouse-edit__cancel" onClick={() => this.props.history.goBack()}>Cancel</p>
                   <button className="warehouse-edit__save">Save</button>
                 </div>
               </form>

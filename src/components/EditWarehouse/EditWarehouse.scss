@@ -1,0 +1,239 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.warehouse-edit {
+  @include cardConfig;   
+  
+
+  &__headline {
+    @include tablet {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__box {
+    display: flex; 
+    align-items: baseline;
+
+    @include tablet {
+      border-bottom: solid 1px $color-outline-divider-border-tableSort;
+      padding-bottom: .2rem;
+    }
+  }
+
+  &__back {
+    padding-left: 1rem;
+
+    @include tablet {
+      padding: 0;
+      margin-left: 2rem;
+    }
+  }
+
+  &__inner {
+    padding-bottom: 0;
+  }
+
+  &__title-housing {
+    background-color: $color-background-dark;
+
+    @include tablet {
+      width: 100%;
+    }
+  }
+
+  &__title {
+    @include padding-horizontal-inner;
+    @include font-header;
+    background-color: $color-white;
+    font-size: 1.5rem; 
+    padding-top: 1rem;
+    padding-bottom: 1rem; 
+    padding-left: .5rem;
+
+    @include tablet {
+      border-top-right-radius: 0px;
+      padding-right: 0;
+      padding-top: 0;
+      padding-left: 1rem;
+    
+    }
+  }
+
+  &__subheader-housing {
+    border-top: 1px solid $color-outline-divider-border-tableSort;
+
+
+    @include tablet {
+      border: none;
+      background-color: $color-white;
+      margin: 0;
+    }
+  }
+
+  &__subheader {
+    background-color: $color-white;
+    @include padding-horizontal-inner;
+    @include font-subheader;
+    padding-top: 1rem;
+    @include tablet {
+
+      @include tablet {
+        padding-top: .5rem;
+        padding-bottom: 1rem;
+      }
+    }
+
+    &--contact {
+      background-color: $color-white;
+    }
+  }
+
+  &__form {
+    background-color: $color-background-light;
+    box-shadow: 0px 5px 5px rgba(19, 24, 44, 0.1);
+
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+      
+      box-shadow: none;
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap;
+      flex: 1.5;
+      justify-content: flex-end;
+      background-color: $color-white;
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: $color-white;
+
+    @include tablet {
+      width: 50%;
+      margin-top: 1rem;
+      height: 100%;
+      margin-bottom: 1.5rem;
+    }
+
+    &--border {
+      @include tablet {
+        padding: 0;
+        border-left: 1px solid $color-outline-divider-border-tableSort;
+      }
+    }
+  }
+
+  &__input-label {
+    @include font-labels-links-buttons;
+  }
+
+  &__field {
+    @include form;
+    @include font-body-med;
+    color: $color-placeholder; 
+    margin-top: .25rem;
+    &:focus {
+      border-color: $color-instock-indigo;
+    }
+
+    &--error {
+      border: solid 1px $color-outStock;
+    }
+  }
+
+  &__alert {
+    display: flex; 
+    align-items: center;
+    padding-top: .25rem;
+    background-color: $color-white;
+    padding-left: 2rem;
+    
+    &--adjustment {
+      padding-left: 0;
+    }
+  }
+
+  &__bang {
+    height: 1rem;
+    width: 1rem;
+    margin-right: .5rem; 
+  
+  }
+
+  &__required {
+    font-size: .8rem;
+    color: $color-red;
+  }
+
+  &__name-housing {
+    background-color: $color-white;
+    @include padding-horizontal-inner;
+    padding-top: $mobile-outer-padding;
+
+    &--bumper {
+      padding-bottom: 1rem;
+
+      @include tablet {
+        padding-bottom: 0;
+      }
+    }
+
+    @include tablet {
+      padding-top: 0.5rem;
+      margin-bottom: .5rem;
+    }
+  }
+  &__buttons {
+    display: flex;
+    flex-direction: row; 
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+
+    @include tablet {
+      display: flex; 
+      justify-content: flex-end;
+      background-color: $color-background-light;
+      width: 100%;
+      margin: 0;
+    }
+
+    @include desktop {
+     margin: 0;
+    }
+
+  }
+  &__cancel {
+    @include font-labels-links-buttons;
+    @include secondary-cta-default;
+    margin-right: 1rem;
+    padding: 0;
+
+    @include tablet {
+      width: 5rem;
+    }
+  }
+
+  &__save {
+    @include primary-cta-default;
+    @include cta-text;
+    padding: 0;
+    @include tablet {
+      width: 5rem;
+      margin-right: 2rem;
+    }
+    
+    @include desktop {
+      margin-right: 2.5rem;
+    }
+  }
+}

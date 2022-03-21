@@ -1,0 +1,84 @@
+@use "../../styles/partials/colors"as *;
+@use "../../styles/partials/mixins"as *;
+@use "../../styles/partials/typography"as *;
+@use "../../styles/partials/variables"as *;
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 8rem;
+  background-color: $color-graphite;
+
+  @include tablet {
+    min-height: 6rem;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  @include desktop {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 6rem;
+    padding-right: 6rem;
+    border: none;
+  }
+
+  &__logo {
+    justify-content: center;
+
+    @include tablet {
+      padding-left: 2rem;
+    }
+  }
+
+  &__img {
+    height: 1.75rem;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-top: 1rem;
+
+    @include tablet {
+      margin-top: 0;
+      width: 14rem;
+      padding-right: 2rem;
+      justify-content: space-between;
+    }
+
+    @include desktop {
+      margin-left: auto;
+      max-width: 15rem;
+    }
+  }
+
+  &__link {
+    @include navLinkStyling;
+    width: 8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    &--active {
+      color: $color-white;
+      background-color: $color-instock-black;
+      border-radius: 20px;
+      text-align: center;
+    }
+  }
+
+  &__housing {
+    background-color: $color-background-dark;
+    min-height: 12.25rem;
+
+    @include tablet {
+      min-height: 11.624rem;
+    }
+  }
+}

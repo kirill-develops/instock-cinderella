@@ -1,0 +1,149 @@
+@use '../../styles/partials/mixins'as*;
+@use '../../styles/partials/variables'as*;
+@use '../../styles/partials/colors'as*;
+
+.warehouse-list-item {
+  @include divider-top;
+  @include padding-horizontal-inner;
+  @include site-border;
+  padding-bottom: 1.68rem;
+  padding-right: 0;
+  background-color: $color-white;
+
+  @include tablet {
+    @include divider-bottom;
+    border-top: none;
+    padding-bottom: 0;
+  }
+
+  &:hover {
+    background-color: rgba(46, 102, 230, 0.07);
+  }
+
+  &:last-child {
+    border-bottom: none;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+  }
+
+  &__block {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-top: $mobile-outer-padding;
+    width: 100%;
+  }
+
+  &__info {
+    @include font-body-med;
+    white-space: initial;
+
+    &--main {
+      color: $color-instock-indigo;
+    }
+
+    &--main-link {
+      @include link;
+    }
+  }
+
+  &__label {
+    @include font-table-header;
+    width: 50%;
+    padding-right: $mobile-totalHorizontal-padding;
+    padding-bottom: $mobile-outer-padding;
+    white-space: nowrap;
+
+    @include tablet {
+      padding-right: $mobile-outer-padding;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+
+      &--txt {
+        display: none;
+      }
+    }
+
+    &--main {
+      @extend .warehouse-list-item__label;
+
+      @include tablet {
+        order: 1;
+        flex: 0.8;
+      }
+    }
+
+    &--addy {
+      @extend .warehouse-list-item__label;
+
+      @include tablet {
+        order: 2;
+        flex: 1;
+      }
+    }
+
+    &--contact {
+      @extend .warehouse-list-item__label;
+
+      @include tablet {
+        order: 3;
+        flex: 0.9;
+      }
+    }
+
+    &--details {
+      @extend .warehouse-list-item__label;
+
+      @include tablet {
+        order: 4;
+        flex: 1.1;
+      }
+    }
+  }
+
+  &__actions-block {
+    width: 100%;
+    padding-right: $mobile-inner-padding;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include tablet {
+      order: 5;
+      flex: 0.5;
+      width: fit-content;
+      justify-content: flex-end;
+      align-items: center;
+      padding-right: 0;
+      padding-bottom: $mobile-outer-padding;
+    }
+  }
+
+  &__link {
+    height: $icon-height;
+
+    @include tablet {
+      margin-left: $mobile-outer-padding;
+    }
+
+  }
+
+  &__icon {
+    height: $icon-height;
+
+    &--delete {
+      @extend .warehouse-list-item__icon;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    &--edit {
+      @extend .warehouse-list-item__icon;
+    }
+  }
+}

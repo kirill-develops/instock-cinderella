@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
-function App() {
+import Nav from './components/Nav/Nav';
+import AddWarehousePage from './pages/AddWarehousePage/AddWarehousePage';
+import EditWarehouse from './components/EditWarehouse/EditWarehouse';
+import WarehouseDetails from './components/WarehouseDetails/WarehouseDetails.js';
+import WarehouseList from './components/WarehouseList/WarehouseList'
+import EditInventoryItem from './components/EditInventoryItem/EditInventoryItem.js';
+import ItemDetails from './components/ItemDetails/ItemDetails';
+import InventoryList from './components/InventoryList/InventoryList';
+import Footer from './components/Footer/Footer';
+import './styles/App.scss';
+import AddInventoryItem from './components/AddInventoryItem/AddInventoryItem';
+
+const App = () => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter >
+      <Nav />
+      <Switch>
+        <Route path="/warehouses/add" component={AddWarehousePage} />
+        <Route path="/warehouses/:id/edit" component={EditWarehouse} />
+        <Route path="/warehouses/:id" exact component={WarehouseDetails} />
+        <Route path="/warehouses" exact component={WarehouseList} />
+        <Route path="/inventory/add" component={AddInventoryItem} />
+        <Route path="/inventory/:id/edit" component={EditInventoryItem} />
+        <Route path="/inventory/:id" component={ItemDetails} />
+        <Route path="/inventory" exact component={InventoryList} />
+        <Redirect from="/" to="/warehouses" />
+      </Switch>
+      <Footer />
+    </ BrowserRouter>
   );
-}
+};
 
 export default App;

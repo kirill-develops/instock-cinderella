@@ -1,0 +1,358 @@
+@use 'variables'as *;
+@use 'colors'as *;
+@use 'typography'as *;
+
+@mixin tablet {
+  @media (min-width: $tablet-breakpoint) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $desktop-breakpoint) {
+    @content;
+  }
+}
+
+@mixin padding-horizontal-outer {
+  padding-left: $mobile-outer-padding;
+  padding-right: $mobile-outer-padding;
+
+  @include tablet {
+    padding-left: $tablet-outer-padding;
+    padding-right: $tablet-outer-padding;
+  }
+
+  @include desktop {
+    padding-left: $desktop-outer-padding;
+    padding-right: $desktop-outer-padding;
+  }
+}
+
+@mixin padding-horizontal-inner {
+  padding-left: $mobile-inner-padding;
+  padding-right: $mobile-inner-padding;
+
+  @include tablet {
+    padding-left: $tablet-inner-padding;
+    padding-right: $tablet-inner-padding;
+  }
+
+  @include desktop {
+    padding-left: $desktop-inner-padding;
+    padding-right: $desktop-inner-padding;
+  }
+}
+
+@mixin padding-horizontal-total {
+  padding-left: $mobile-totalHorizontal-padding;
+  padding-right: $mobile-totalHorizontal-padding;
+
+  @include tablet {
+    padding-left: $tablet-totalHorizontal-padding;
+    padding-right: $tablet-totalHorizontal-padding;
+  }
+
+  @include desktop {
+    padding-left: $desktop-totalHorizontal-padding;
+    padding-right: $desktop-totalHorizontal-padding;
+  }
+}
+
+@mixin padding-delete-inner {
+  padding: 3.75rem $mobile-outer-padding $mobile-inner-padding $mobile-outer-padding;
+
+  @include tablet {
+    padding: 2.5rem 4rem;
+  }
+}
+
+@mixin font-header {
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 36px;
+
+  @include tablet {
+    font-size: 32px;
+    line-height: 40px;
+  }
+}
+
+@mixin font-subheader {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 28px;
+
+  @include tablet {
+    font-size: 24px;
+    line-height: 32px;
+  }
+}
+
+@mixin font-labels-links-buttons {
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 20px;
+
+  @include tablet {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
+
+@mixin font-table-header {
+  color: $color-table-header;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 16px;
+
+  @include tablet {
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
+
+@mixin font-body-lrg {
+  color: $color-instock-black;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 26px;
+
+  @include tablet {
+    font-size: 16px;
+    line-height: 28px;
+  }
+}
+
+@mixin font-body-med {
+  color: $color-instock-black;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 20px;
+
+  @include tablet {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
+
+@mixin font-body-sml {
+  color: $color-instock-black;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 16px;
+
+  @include tablet {
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
+
+@mixin form {
+  height: 36px;
+  width: 100%;
+  padding-left: $mobile-outer-padding;
+  padding-right: $mobile-outer-padding;
+  border-radius: 20px;
+  outline: none;
+  border: 1px solid $color-outline-divider-border-tableSort;
+
+  @include tablet {
+    height: 38px;
+  }
+
+  &::placeholder {
+    @include font-body-med;
+    color: $color-placeholder;
+  }
+}
+
+@mixin primary-cta-default {
+  height: 2.25rem;
+  width: 100%;
+  border-radius: 1.25rem;
+  @include font-labels-links-buttons;
+  padding-left: $mobile-outer-padding;
+  padding-right: $mobile-outer-padding;
+  background-color: $color-instock-indigo;
+  color: $color-white;
+  text-decoration: none;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include tablet {
+    height: 38px;
+    width: fit-content;
+  }
+
+  &:hover {
+    background-color: $color-cta-hover;
+    cursor: pointer;
+  }
+}
+
+@mixin secondary-cta-default {
+  @include primary-cta-default;
+  background-color: $color-white;
+  color: $color-slate;
+  border: 1px solid $color-cloud;
+
+  &:hover {
+    background-color: $color-white;
+    color: $color-interact;
+    border-color: $color-interact;
+    cursor: pointer;
+  }
+}
+
+@mixin delete-cta-default {
+  @include primary-cta-default;
+  background-color: $color-red;
+  color: $color-white;
+
+  &:hover {
+    background-color: $color-cta-hover;
+    cursor: pointer;
+  }
+
+}
+
+
+@mixin cta-text {
+  display: list-item;
+  list-style-type: "+";
+  padding-inline-start: 4px;
+}
+
+@mixin link {
+  @include font-labels-links-buttons;
+  color: $color-instock-indigo;
+  text-decoration: none;
+  padding-right: 4px;
+
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+@mixin divider-bottom {
+  border-bottom: 1px solid $color-outline-divider-border-tableSort;
+}
+
+@mixin divider-top {
+  border-top: 1px solid $color-outline-divider-border-tableSort;
+}
+
+@mixin divider-left {
+  border-left: 1px solid $color-outline-divider-border-tableSort;
+}
+
+@mixin site-border {
+  box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+}
+
+@mixin tag-out-stock {
+  @include font-labels-links-buttons;
+  height: $tag-height-mobile;
+  padding-left: 8px;
+  padding-right: 8px;
+  border-radius: 20px;
+  color: $color-outStock;
+  background-color: rgba(201, 69, 21, 0.07);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  white-space: nowrap;
+
+  @include tablet {
+    height: $tag-height-tablet;
+  }
+}
+
+@mixin tag-in-stock {
+  @include font-labels-links-buttons;
+  height: $tag-height-mobile;
+  padding-left: 8px;
+  padding-right: 8px;
+  border-radius: 20px;
+  color: $color-inStock;
+  background-color: rgba(21, 132, 99, 0.07);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  white-space: nowrap;
+
+  @include tablet {
+    height: $tag-height-tablet;
+  }
+}
+
+@mixin navLinkStyling {
+  font-family: $font-stack;
+  color: $color-cloud;
+  text-decoration: none;
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
+  height: 2rem;
+  width: 8rem;
+  border-radius: 20px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+@mixin navLinkActiveStyling {
+  $color-white: #FFFFFF;
+}
+
+@mixin cardConfig {
+  width: 100%;
+  @include padding-horizontal-outer;
+
+  &__inner {
+    transform: translatey(-4rem);
+    background-color: $color-white;
+    padding-top: calc(2* $mobile-outer-padding);
+    border-radius: 3px;
+    @include site-border;
+    margin-bottom: -4rem;
+
+    @include tablet {
+      transform: translatey(-5.75rem);
+      margin-bottom: -5.75rem;
+    }
+  }
+}
+
+@mixin tabletHeaders {
+  display: none;
+
+  @include tablet {
+    background-color: $color-background-light;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+}
+
+@mixin deleteHousing {
+  display: block;
+  position: fixed;
+  overflow: auto;
+  top: 0;
+  left: 0;
+  background-color: rgba(19, 24, 44, 0.7);
+  height: 100%;
+  width: 100%;
+
+  &--hidden {
+    display: none;
+  }
+}

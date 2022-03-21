@@ -72,6 +72,7 @@ class InventoryList extends Component {
       })
   }
 
+  handleSort = () => { }
 
   render() {
 
@@ -125,6 +126,7 @@ class InventoryList extends Component {
                 <TableHeader
                   key={i}
                   header={header}
+                  handleSort={this.handleSort}
                 />
               )
             })}

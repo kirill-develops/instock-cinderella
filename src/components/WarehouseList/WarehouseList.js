@@ -86,6 +86,7 @@ class WarehouseList extends Component {
   }
 
   handleSort = (header) => {
+    // WIP
     // console.log(header, { ...this.state.warehouseArr });
 
     if (header.objKey === 'name' && this.state.sortClick.name) {

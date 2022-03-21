@@ -54,6 +54,10 @@ class WarehouseDetails extends Component {
 
   }
 
+  handleSort = () => {
+    // WIP
+  }
+
   render() {
     const { warehouse } = this.state;
 
@@ -78,71 +82,69 @@ class WarehouseDetails extends Component {
       <>
         <div className="warehouse-details">
           <div className="warehouse-details__inner">
-          
-
-          <div className="warehouse-details__top">
-            <div className="warehouse-details__header">
-              <Link to="/warehouses">
-                <img className="warehouse-details__back" src={arrowBack} />
-              </Link>
-              <h1 className="warehouse-details__title">{warehouse.name}</h1>
-              <Link to={`/warehouses/${warehouse.id}/edit`}>
-                <div className="warehouse-details__edit">
-                  <img className="warehouse-details__icon" src={editIcon}></img>
-                  <p className="warehouse-details__label">Edit</p>
-                </div>
-              </Link>
-            </div>
-          </div>
-          <div className="warehouse-details__backing">
-            <div className="warehouse-details__information">
-              <div className="warehouse-details__address">
-                <div className="warehouse-details__details warehouse-details__details--mobile">
-                  <h4 className="warehouse-details__subheader">WAREHOUSE ADDRESS:</h4>
-                  <p className="warehouse-details__detail">{`${warehouse.address}, ${warehouse.city}, ${warehouse.country}`}</p>
-                </div>
-                <div className=" warehouse-details__details warehouse-details__details--tablet">
-                  <h4 className="warehouse-details__subheader">WAREHOUSE ADDRESS:</h4>
-                  <p className="warehouse-details__detail">{`${warehouse.address},`}</p>
-                  <p className="warehouse-details__detail">{`${warehouse.city}, ${warehouse.country}`}</p>
-                </div>
-              </div>
-              <div className="warehouse-details__contact">
-                <div className="warehouse-details__details">
-                  <h4 className="warehouse-details__subheader">CONTACT NAME:</h4>
-                  <p className="warehouse-details__detail">{warehouse.contact.name}</p>
-                  <p className="warehouse-details__detail">{warehouse.contact.position}</p>
-                </div>
-                <div className="warehouse-details__details warehouse-details__details--padded">
-                  <h4 className="warehouse-details__subheader">CONTACT INFORMATION:</h4>
-                  <p className="warehouse-details__detail">{warehouse.contact.phone}</p>
-                  <p className="warehouse-details__detail">{warehouse.contact.email}</p>
-                </div>
+            <div className="warehouse-details__top">
+              <div className="warehouse-details__header">
+                <Link to="/warehouses">
+                  <img className="warehouse-details__back" src={arrowBack} />
+                </Link>
+                <h1 className="warehouse-details__title">{warehouse.name}</h1>
+                <Link to={`/warehouses/${warehouse.id}/edit`}>
+                  <div className="warehouse-details__edit">
+                    <img className="warehouse-details__icon" src={editIcon}></img>
+                    <p className="warehouse-details__label">Edit</p>
+                  </div>
+                </Link>
               </div>
             </div>
-          </div>
-          <div className='warehouse-details__headers-outer'>
-            <div className='warehouse-details__headers-inner'>
-              {headers.map((header, i) => {
+            <div className="warehouse-details__backing">
+              <div className="warehouse-details__information">
+                <div className="warehouse-details__address">
+                  <div className="warehouse-details__details warehouse-details__details--mobile">
+                    <h4 className="warehouse-details__subheader">WAREHOUSE ADDRESS:</h4>
+                    <p className="warehouse-details__detail">{`${warehouse.address}, ${warehouse.city}, ${warehouse.country}`}</p>
+                  </div>
+                  <div className=" warehouse-details__details warehouse-details__details--tablet">
+                    <h4 className="warehouse-details__subheader">WAREHOUSE ADDRESS:</h4>
+                    <p className="warehouse-details__detail">{`${warehouse.address},`}</p>
+                    <p className="warehouse-details__detail">{`${warehouse.city}, ${warehouse.country}`}</p>
+                  </div>
+                </div>
+                <div className="warehouse-details__contact">
+                  <div className="warehouse-details__details">
+                    <h4 className="warehouse-details__subheader">CONTACT NAME:</h4>
+                    <p className="warehouse-details__detail">{warehouse.contact.name}</p>
+                    <p className="warehouse-details__detail">{warehouse.contact.position}</p>
+                  </div>
+                  <div className="warehouse-details__details warehouse-details__details--padded">
+                    <h4 className="warehouse-details__subheader">CONTACT INFORMATION:</h4>
+                    <p className="warehouse-details__detail">{warehouse.contact.phone}</p>
+                    <p className="warehouse-details__detail">{warehouse.contact.email}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className='warehouse-details__headers-outer'>
+              <div className='warehouse-details__headers-inner'>
+                {headers.map((header, i) => {
+                  return (
+                    <TableHeader
+                      key={i}
+                      handleSort={this.handleSort}
+                    />
+                  )
+                })}
+              </div>
+            </div>
+            {inventory
+              .map(item => {
                 return (
-                  <TableHeader
-                    key={i}
-                    header={header}
+                  <Item
+                    key={item.id}
+                    itemObj={item}
                   />
                 )
               })}
-            </div>
           </div>
-          {inventory
-            .map(item => {
-              return (
-                <Item
-                  key={item.id}
-                  itemObj={item}
-                />
-              )
-            })}
-        </div>
         </div>
       </>
     );

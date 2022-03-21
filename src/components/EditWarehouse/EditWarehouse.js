@@ -48,7 +48,6 @@ export class EditWarehouse extends Component {
   // Create logic for a valid WAREHOUSE NAME
   isNameValid = () => {
     if (this.state.name.length < 3) {
-      // console.log("name");
       return false;
     }
     return true;
@@ -57,7 +56,6 @@ export class EditWarehouse extends Component {
   // Create logic for a valid ADDRESS
   isAddressValid = () => {
     if (this.state.address.length < 5) {
-      // console.log("address");
       return false;
     }
     return true;
@@ -66,7 +64,6 @@ export class EditWarehouse extends Component {
   // Create logic for a valid CITY
   isCityValid() {
     if (this.state.city.length < 5) {
-      // console.log("city");
       return false;
     }
     return true;
@@ -75,7 +72,6 @@ export class EditWarehouse extends Component {
   // Create logic for a valid COUNTRY
   isCountryValid = () => {
     if (this.state.country.length < 3) {
-      // console.log("country");
       return false;
     }
     return true;
@@ -84,7 +80,6 @@ export class EditWarehouse extends Component {
   // Create logic for a valid CONTACT
   isContactNameValid = () => {
     if (this.state.contactName.length < 5) {
-      // console.log("contact");
       return false;
     }
     return true;
@@ -93,7 +88,6 @@ export class EditWarehouse extends Component {
   // Create logic for a valid POSITION
   isPositionValid = () => {
     if (this.state.position.length < 5) {
-      // console.log("position");
       return false;
     }
     return true;
@@ -118,14 +112,6 @@ export class EditWarehouse extends Component {
     // Enter validation before the put request
 
     const isFormValid = () => {
-      // console.log(this.isNameValid())
-      // console.log(this.isAddressValid())
-      // console.log(this.isCityValid())
-      // console.log(this.isCountryValid())
-      // console.log(this.isContactNameValid())
-      // console.log(this.isPositionValid())
-      // console.log(this.isPhoneValid())
-      // console.log(this.isEmailValid())
       if (
         this.isNameValid() &&
         this.isAddressValid() &&
@@ -176,7 +162,7 @@ export class EditWarehouse extends Component {
           <div className="warehouse-edit__inner">
             <div className="warehouse-edit__headline">
               <div className="warehouse-edit__box">
-                  <img onClick={() => this.props.history.goBack()} className="warehouse-edit__back" src={arrowBack} />
+                  <img onClick={() => this.props.history.goBack()} className="warehouse-edit__back" src={arrowBack} alt="back arrow icon" />
                 <div className="warehouse-edit__title-housing">
                   <h1 className="warehouse-edit__title">Edit Warehouse</h1>
                 </div>

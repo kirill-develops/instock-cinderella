@@ -78,13 +78,9 @@ class WarehouseDetails extends Component {
       <>
         <div className="warehouse-details">
           <div className="warehouse-details__inner">
-          
-
           <div className="warehouse-details__top">
             <div className="warehouse-details__header">
-              <Link to="/warehouses">
-                <img className="warehouse-details__back" src={arrowBack} />
-              </Link>
+                <img className="warehouse-details__back" src={arrowBack} onClick={() => this.props.history.goBack()} />
               <h1 className="warehouse-details__title">{warehouse.name}</h1>
               <Link to={`/warehouses/${warehouse.id}/edit`}>
                 <div className="warehouse-details__edit">

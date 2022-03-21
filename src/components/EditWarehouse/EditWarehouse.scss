@@ -25,6 +25,11 @@
 
   &__back {
     padding-left: 1rem;
+
+    @include tablet {
+      padding: 0;
+      margin-left: 2rem;
+    }
   }
 
   &__inner {
@@ -52,6 +57,7 @@
       border-top-right-radius: 0px;
       padding-right: 0;
       padding-top: 0;
+      padding-left: 1rem;
     
     }
   }
@@ -73,6 +79,11 @@
     @include font-subheader;
     padding-top: 1rem;
     @include tablet {
+
+      @include tablet {
+        padding-top: .5rem;
+        padding-bottom: 1rem;
+      }
     }
 
     &--contact {
@@ -88,13 +99,14 @@
     flex-direction: column;
 
     @include tablet {
+      
       box-shadow: none;
       flex-direction: row;
       justify-content: center;
-      flex-wrap: wrap; 
-      background-color: $color-background-light;
+      flex-wrap: wrap;
       flex: 1.5;
       justify-content: flex-end;
+      background-color: $color-white;
     }
   }
 
@@ -102,9 +114,13 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    background-color: $color-white;
 
     @include tablet {
       width: 50%;
+      margin-top: 1rem;
+      height: 100%;
+      margin-bottom: 1.5rem;
     }
 
     &--border {
@@ -168,62 +184,59 @@
     padding-top: $mobile-outer-padding;
 
     &--bumper {
-      padding-bottom: 2rem;
+      padding-bottom: 1rem;
+
+      @include tablet {
+        padding-bottom: 0;
+      }
     }
 
     @include tablet {
       padding-top: 0.5rem;
+      margin-bottom: .5rem;
     }
   }
   &__buttons {
     display: flex;
     flex-direction: row; 
-    @include padding-horizontal-outer;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
     padding-bottom: 1rem;
     padding-top: 1rem;
-    justify-content: space-between;
-    
-    
+
     @include tablet {
-      width: 20rem;
+      display: flex; 
+      justify-content: flex-end;
+      background-color: $color-background-light;
+      width: 100%;
     }
 
     @include desktop {
-      width: 25rem; 
-      padding-right: 2rem;
+     margin: 0;
     }
 
   }
   &__cancel {
-    height: 36px;
-    width: 7rem;
-    display: flex;
-    border-radius: 20px;
-    padding-left: $mobile-outer-padding;
-    padding-right: $mobile-outer-padding;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: $color-white;
-    color: $color-slate;
-    border: solid 1px $color-outline-divider-border-tableSort;
     @include font-labels-links-buttons;
+    @include secondary-cta-default;
+    margin-right: 1rem;
+    padding: 0;
+
+    @include tablet {
+      width: 5rem;
+    }
   }
 
   &__save {
-    height: 36px;
-    width: 7rem;
-    display: inline-block;
-    border-radius: 20px;
-    padding-left: $mobile-outer-padding;
-    padding-right: $mobile-outer-padding;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: $color-white;
-    background-color: $color-instock-indigo;
-    border: none;
+    @include primary-cta-default;
+    @include cta-text;
+    padding: 0;
+    @include tablet {
+      width: 5rem
+    }
+    
+    @include desktop {
+      margin-right: 2.5rem;
+    }
   }
 }

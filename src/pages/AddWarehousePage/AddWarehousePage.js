@@ -1,4 +1,4 @@
-import React, { Component, StrictMode } from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import backArrow from '../../assets/icons/arrow_back-24px.svg';
 import NewWarehouseDetails from '../../components/NewWarehouseDetails/NewWarehouseDetails';
@@ -42,7 +42,6 @@ class AddWarehousePage extends Component {
         const options = {StrictMode: true}
 
         const isPhoneValid = validator.isMobilePhone(this.state.phone, ['en-CA'], options);
-        console.log(isPhoneValid);
         if (!isPhoneValid) {
             return false;
         }
@@ -56,17 +55,16 @@ class AddWarehousePage extends Component {
 
             axios
                 .post(`${BASE_URL}/warehouses`, {
-                    name: event.target.warehouseName.value,
-                    address: event.target.address.value,
-                    city: event.target.city.value,
-                    country: event.target.country.value,
-                    contactName: event.target.contactName.value,
-                    position: event.target.position.value,
-                    phone: event.target.phone.value,
-                    email: event.target.email.value
+                    name: this.state.name,
+                    address: this.state.address,
+                    city: this.state.city,
+                    country: this.state.country,
+                    contactName: this.state.contactName,
+                    position: this.state.position,
+                    phone: this.state.phone,
+                    email: this.state.email
                 })
                 .then(response => {
-                    console.log(response)
                     this.props.history.push('/warehouses');
                 })
                 .catch(error => {
@@ -80,8 +78,6 @@ class AddWarehousePage extends Component {
     render() {
         return (
             <div className='background'>
-                {/* <div className='background__outer'> */}
-                {/* <div className='background__inner'> */}
                 <div className='add-warehouse'>
                     <div className='add-warehouse__top'>
                         <Link to="/warehouses">
@@ -108,8 +104,6 @@ class AddWarehousePage extends Component {
                     />
                 </div>
             </div>
-            //     {/* // </div> */}
-            // {/* // </div> */}
         )
     }
 }

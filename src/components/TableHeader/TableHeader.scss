@@ -25,7 +25,11 @@
 
   &__icon {
     height: 14px;
-    padding-left: 8.94px;
+    margin-left: 8.94px;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   &:first-child {

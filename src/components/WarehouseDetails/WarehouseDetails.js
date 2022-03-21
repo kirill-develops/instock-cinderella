@@ -20,7 +20,6 @@ class WarehouseDetails extends Component {
   }
 
 
-
   componentDidMount() {
     const errorMessage = < p > Error fetching data, please try reloading in a few moments</p >
 
@@ -80,6 +79,10 @@ class WarehouseDetails extends Component {
       })
   }
 
+  handleSort = () => {
+    // WIP
+  }
+
   render() {
     const { warehouse } = this.state;
 
@@ -104,8 +107,6 @@ class WarehouseDetails extends Component {
       <>
         <div className="warehouse-details">
           <div className="warehouse-details__inner">
-
-
             <div className="warehouse-details__top">
               <div className="warehouse-details__header">
                 <Link to="/warehouses">
@@ -154,6 +155,7 @@ class WarehouseDetails extends Component {
                     <TableHeader
                       key={i}
                       header={header}
+                      handleSort={this.handleSort}
                     />
                   )
                 })}
@@ -170,7 +172,7 @@ class WarehouseDetails extends Component {
                 )
               })}
           </div>
-        </div>
+        </div >
         <div className={this.state.toDeleteId ? "inventory-list__delete" : "inventory-list__delete--hidden"}>
           < DeleteModal
             toDeleteId={this.state.toDeleteId}

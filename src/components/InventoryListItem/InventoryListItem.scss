@@ -158,6 +158,10 @@
 
   &__link {
     height: $icon-height;
+
+    @include tablet {
+      margin-left: $mobile-outer-padding;
+    }
   }
 
   &__icon {
@@ -173,10 +177,6 @@
 
     &--edit {
       @extend .list-item__icon;
-
-      @include tablet {
-        padding-left: $mobile-outer-padding;
-      }
     }
   }
 }

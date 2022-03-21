@@ -1,7 +1,7 @@
-@use "../../styles/partials/mixins" as *;
-@use "../../styles/partials/variables" as *;
-@use "../../styles/partials/colors" as *;
-@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/mixins"as *;
+@use "../../styles/partials/variables"as *;
+@use "../../styles/partials/colors"as *;
+@use "../../styles/partials/typography"as *;
 
 .inventory {
   @include cardConfig;
@@ -57,6 +57,7 @@
     &--divider {
       margin-top: 1.5rem;
       border-top: solid 1px $color-outline-divider-border-tableSort;
+
       @include tablet {
         @include divider-left;
         margin-top: 2rem;
@@ -66,7 +67,6 @@
   }
 
   &__subheader {
-    // border: solid 1px red;
     @include font-subheader;
     padding-top: 1rem;
     padding-bottom: 1rem;
@@ -78,14 +78,12 @@
   }
 
   &__form {
+
     @include tablet {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
     }
-  }
-
-  &__name--housing {
   }
 
   &__label {
@@ -94,6 +92,7 @@
 
   &__item {
     @include form;
+
     &:focus {
       border-color: $color-instock-indigo;
     }
@@ -128,9 +127,11 @@
     padding-top: 1rem;
     font-family: $font-stack;
     @include font-body-med;
+
     &:focus {
       border-color: $color-instock-indigo;
     }
+
     &--error {
       border: solid 1px $color-outStock;
     }
@@ -139,6 +140,7 @@
       height: 8rem;
     }
   }
+
   &__dropdown {
     appearance: none;
     border: none;
@@ -166,6 +168,7 @@
   &__stockpile {
     display: flex;
     align-items: baseline;
+
     &--push {
       padding-right: 1rem;
     }
@@ -183,9 +186,6 @@
     @include tablet {
       width: 15rem;
     }
-  }
-
-  &__status {
   }
 
   &__radio {
@@ -211,6 +211,7 @@
     padding-top: 1rem;
     justify-content: space-between;
     background-color: $color-lightgrey;
+
     @include tablet {
       width: 100%;
       justify-content: flex-end;
@@ -221,6 +222,7 @@
       padding-right: 3rem;
     }
   }
+
   &__cancel {
     @include secondary-cta-default;
     @include font-labels-links-buttons;

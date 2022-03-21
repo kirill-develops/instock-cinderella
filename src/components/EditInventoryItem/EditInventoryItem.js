@@ -157,9 +157,8 @@ export class EditInventoryItem extends Component {
                       autoComplete="off"
                       onChange={this.handleChange}
                       defaultValue={this.state.inventoryItem.itemName}
-                      className={`inventory__item ${
-                        this.isItemNameValid() ? "" : "inventory__item--error"
-                      }`}
+                      className={`inventory__item ${this.isItemNameValid() ? "" : "inventory__item--error"
+                        }`}
                     />
                   </div>
                   {!this.isItemNameValid() ? (
@@ -183,11 +182,10 @@ export class EditInventoryItem extends Component {
                       autoComplete="off"
                       onChange={this.handleChange}
                       defaultValue={this.state.inventoryItem.description}
-                      className={`inventory__description ${
-                        this.isDescriptionValid()
-                          ? ""
-                          : "inventory__description--error"
-                      }`}
+                      className={`inventory__description ${this.isDescriptionValid()
+                        ? ""
+                        : "inventory__description--error"
+                        }`}
                     ></textarea>
                   </div>
                   {!this.isDescriptionValid() ? (

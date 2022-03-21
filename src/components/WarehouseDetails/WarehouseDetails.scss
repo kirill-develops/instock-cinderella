@@ -1,7 +1,7 @@
-@use "../../styles/partials/colors" as *;
-@use "../../styles/partials/mixins" as *;
-@use "../../styles/partials/typography" as *;
-@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/colors"as *;
+@use "../../styles/partials/mixins"as *;
+@use "../../styles/partials/typography"as *;
+@use "../../styles/partials/variables"as *;
 
 .warehouse-details {
   @include cardConfig;
@@ -58,6 +58,7 @@
       align-items: center;
       justify-content: center;
     }
+
     &:hover {
       background-color: $color-cta-hover;
     }
@@ -206,6 +207,7 @@
       width: 100%;
     }
   }
+
   &__buttons {
     display: flex;
     flex-direction: row;
@@ -222,6 +224,7 @@
       padding-right: 2rem;
     }
   }
+
   &__cancel {
     height: 36px;
     width: 7rem;

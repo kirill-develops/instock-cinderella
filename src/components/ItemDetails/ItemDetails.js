@@ -92,7 +92,7 @@ class ItemDetails extends Component {
                 STATUS:
                 <h3 className={`item-details__info 
             ${status.toLowerCase() === "out of stock" ? "item-details__info--out-stock" : "item-details__info--in-stock"}`}
-                >{status}</h3>
+                >{status.toUpperCase()}</h3>
               </label>
               <label className='item-details__label--qty'>
                 QUANTITY:

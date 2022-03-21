@@ -12,7 +12,13 @@ class WarehouseList extends Component {
   state = {
     warehouseArr: [],
     toDeleteId: "",
-    toDeleteName: ""
+    toDeleteName: "",
+    sortClick: {
+      name: false,
+      address: false,
+      contactName: false,
+      phone: false
+    }
   }
 
   componentDidMount() {
@@ -78,18 +84,68 @@ class WarehouseList extends Component {
       })
   }
 
+  handleSort = (header) => {
+    // WIP
+
+    // Still not understanding why my .sort() statement isn't sorting, will be coming for assistance soon. cheers
+    if (header.objKey === 'name' && this.state.sortClick.name) {
+      const sortedWarehouseArr = this.state.warehouseArr;
+      sortedWarehouseArr.sort((a, b) => b.name.toLowerCase() - a.name.toLowerCase());
+      const oppClick = !this.state.sortClick.name;
+      this.setState({ sortClick: { name: oppClick }, warehouseArr: sortedWarehouseArr });
+
+      console.log(sortedWarehouseArr, oppClick);
+    }
+    else if (header.objKey === 'name' && !this.state.sortClick.name) {
+      const sortedWarehouseArr = this.state.warehouseArr;
+      sortedWarehouseArr.sort((a, b) => a.name.toLowerCase() - b.name.toLowerCase());
+      const oppClick = !this.state.sortClick.name;
+      this.setState({ sortClick: { name: oppClick }, warehouseArr: sortedWarehouseArr });
+
+      console.log(sortedWarehouseArr, oppClick);
+    }
+
+    if (header.objKey === 'address' && this.state.sortClick.address) {
+      const sortedWarehouseArr = this.state.warehouseArr.sort((a, b) => b.address - a.address);
+      console.log(sortedWarehouseArr);
+    }
+    else if (header.objKey === 'address' && !this.state.sortClick.address) {
+      const sortedWarehouseArr = this.state.warehouseArr.sort((a, b) => a.address - b.address);
+      console.log(sortedWarehouseArr);
+    }
+
+    if (header.objKey === 'contact.name' && this.state.sortClick.contactName) {
+      const sortedWarehouseArr = this.state.warehouseArr.sort((a, b) => b.contact.name - a.contact.name);
+      console.log(sortedWarehouseArr);
+    }
+    else if (header.objKey === 'contact.name' && !this.state.sortClick.contactName) {
+      const sortedWarehouseArr = this.state.warehouseArr.sort((a, b) => a.contact.name - b.contact.name);
+      console.log(sortedWarehouseArr);
+    }
+
+    if (header.objKey === 'contact.phone' && this.state.sortClick.phone) {
+      const sortedWarehouseArr = this.state.warehouseArr.sort((a, b) => b.contact.phone - a.contact.phone);
+      console.log(sortedWarehouseArr);
+    }
+    else if (header.objKey === 'contact.phone' && !this.state.sortClick.phone) {
+      const sortedWarehouseArr = this.state.warehouseArr.sort((a, b) => a.contact.phone - b.contact.phone);
+      console.log(sortedWarehouseArr);
+    }
+
+  }
+
 
   render() {
 
     const { warehouseArr: warehouses } = this.state;
     const headers = [{
-      header: "WAREHOUSE", flex: 0.8
+      header: "WAREHOUSE", flex: 0.8, objKey: "name"
     }, {
-      header: "ADDRESS", flex: 1
+      header: "ADDRESS", flex: 1, objKey: "address"
     }, {
-      header: "CONTACT NAME", flex: 0.9
+      header: "CONTACT NAME", flex: 0.9, objKey: "contact.name"
     }, {
-      header: "CONTACT INFORMATION", flex: 1.1
+      header: "CONTACT INFORMATION", flex: 1.1, objKey: "contact.phone"
     },
     { header: "ACTIONS", flex: 0.5 }]
 
@@ -103,7 +159,7 @@ class WarehouseList extends Component {
                 <div className='warehouse-list__search-housing'>
                   <input type="search"
                     name="search"
-                    placeholder="Search"
+                    placeholder="Search..."
                     className="warehouse-list__search"
                   />
                 </div>
@@ -122,6 +178,7 @@ class WarehouseList extends Component {
                   <TableHeader
                     key={i}
                     header={header}
+                    handleSort={this.handleSort}
                   />
                 )
               })}

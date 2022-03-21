@@ -1,4 +1,4 @@
-@use "./styles/partials/typography" as *;
+@use "./styles/partials/typography"as *;
 @use './styles/partials/colors'as *;
 
 * {
@@ -6,27 +6,13 @@
 }
 
 body {
-   font-family: $font-stack;
-   margin: 0; 
-   padding: 0;
-   box-sizing: border-box;
+  font-family: $font-stack;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 
 }
 
-// @use './styles/partials/typography'as *;
-
-
-// * {
-//   margin: 0;
-//   box-sizing: border-box;
-//   transition: 0.5s;
-// }
-
-// html {
-//   font-family: $font-stack;
-//   font-size: $root-font-size;
-//   color: $color-instock-black;
-// }
 html {
   font-family: $font-stack;
   font-size: $root-font-size;

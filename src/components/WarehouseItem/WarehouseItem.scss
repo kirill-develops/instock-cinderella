@@ -2,11 +2,18 @@
 @use '../../styles/partials/variables'as*;
 @use '../../styles/partials/colors'as*;
 
-.item {
+.warehouse-item {
   background-color: $color-background-light;
 
   &:last-child>* {
     border-bottom: none;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+  }
+
+  &:last-child {
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
   }
 
   &__inner {
@@ -84,10 +91,31 @@
       flex-direction: column;
       align-items: flex-start;
       justify-content: center;
+
+      &--txt {
+        display: none;
+      }
+    }
+
+    &--main {
+      order: 1
+    }
+
+    &--status {
+      order: 3
+    }
+
+    &--category {
+      order: 2
+    }
+
+    &--qty {
+      order: 4
     }
   }
 
   &__actions-block {
+    order: 5;
     width: 100%;
     padding-right: $mobile-inner-padding;
     display: flex;
@@ -106,13 +134,17 @@
 
   &__link {
     height: $icon-height;
+
+    @include tablet {
+      margin-left: $mobile-outer-padding;
+    }
   }
 
   &__icon {
     height: $icon-height;
 
     &--delete {
-      @extend .item__icon;
+      @extend .warehouse-item__icon;
 
       &:hover {
         cursor: pointer;
@@ -120,11 +152,7 @@
     }
 
     &--edit {
-      @extend .item__icon;
-
-      @include tablet {
-        padding-left: $mobile-outer-padding;
-      }
+      @extend .warehouse-item__icon;
     }
   }
 }

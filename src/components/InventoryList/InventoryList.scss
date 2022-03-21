@@ -64,7 +64,6 @@
     @include tablet {
       padding-bottom: $mobile-inner-padding;
       padding-left: $mobile-inner-padding;
-      flex: 1;
     }
   }
 
@@ -72,6 +71,10 @@
     @include primary-cta-default;
     @include font-labels-links-buttons;
     background-color: $color-interact;
+
+    @include tablet {
+      width: 100%;
+    }
   }
 
   &__cta-text {

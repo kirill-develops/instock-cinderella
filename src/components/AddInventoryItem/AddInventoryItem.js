@@ -52,14 +52,6 @@ class AddInventoryItem extends Component {
         event.preventDefault();
 
         if (this.isAddItemValid()) {
-        
-            // Leaving code below for future reference and to discuss with an Educator to understand why this didn't work
-            // To validate the quantity field - if the quantity is 0, the item's status should be OOS 
-            // if (this.state.quantity == "0") {
-            //    this.setState({ status: "Out of Stock" });
-            //     console.log(this.state.status);
-            // }
-
             axios
                 .post(`${BASE_URL}/inventory`, {
                     warehouseName: this.state.warehouse,

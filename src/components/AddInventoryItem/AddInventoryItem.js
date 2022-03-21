@@ -8,12 +8,12 @@ import errorIcon from '../../assets/icons/error-24px.svg';
 
 class AddInventoryItem extends Component {
     state = {
-        warehouseName: "",
+        warehouse: "",
         itemName: "",
         description: "",
         category: "",
         status: "",
-        quantity: "",
+        quantity: "0",
         clicked: false
     }
 
@@ -32,7 +32,9 @@ class AddInventoryItem extends Component {
     }
 
     isAddItemValid = () => {
-        if (this.state.warehouseName === "" || this.state.itemName === "" || this.state.description === "" || this.state.category === "" || this.state.status === "") {
+        if (this.state.warehouse === "" || this.state.itemName === "" || this.state.description === "" || this.state.category === "" || this.state.status === "") {
+            return false;
+        } if (!this.state.description.length > 10) {
             return false;
         }
         return true
@@ -46,12 +48,12 @@ class AddInventoryItem extends Component {
             // this.setState({ clicked: true })
             axios
                 .post(`${BASE_URL}/inventory`, {
-                    warehouseName: event.target.warehouse.value,
-                    itemName: event.target.itemName.value,
-                    description: event.target.description.value,
-                    category: event.target.category.value,
-                    status: event.target.status.value,
-                    quantity: event.target.quantity.value,
+                    warehouseName: this.state.warehouse,
+                    itemName: this.state.itemName,
+                    description: this.state.description,
+                    category: this.state.category,
+                    status: this.state.status,
+                    quantity: this.state.quantity
                 })
                 .then(response => {
                     console.log(response)
@@ -70,7 +72,7 @@ class AddInventoryItem extends Component {
             <div className='background'>
                 <div className='add-inventory'>
                     <div className='add-inventory__top'>
-                        <Link to="/inventory">
+                        <Link to='/inventory'>
                             <img
                                 className='add-inventory__icon'
                                 src={backArrow}
@@ -100,10 +102,12 @@ class AddInventoryItem extends Component {
                                 />
                                 {!this.state.itemName && this.state.clicked ? <div className='add-inventory__error'>
                                     <img
+                                        className='add-inventory__img'
                                         src={errorIcon}
                                         alt="Error icon"
                                     />
-                                    This field is required</div> : null}
+                                    <span className='add-inventory__text'>This field is required</span>
+                                </div> : null}
                                 <label
                                     className='add-inventory__label'
                                     htmlFor="description">
@@ -118,10 +122,12 @@ class AddInventoryItem extends Component {
                                 </textarea>
                                 {!this.state.description && this.state.clicked ? <div className='add-inventory__error'>
                                     <img
+                                        className='add-inventory__img'
                                         src={errorIcon}
                                         alt="Error icon"
                                     />
-                                    This field is required</div> : null}
+                                    <span className='add-inventory__text'>This field is required</span>
+                                </div> : null}
                                 {/* needs to populate from the inventory json list - category is required */}
                                 <label
                                     className='add-inventory__label'
@@ -142,10 +148,11 @@ class AddInventoryItem extends Component {
                                 </select>
                                 {!this.state.category && this.state.clicked ? <div className='add-inventory__error'>
                                     <img
+                                        className='add-inventory__img'
                                         src={errorIcon}
                                         alt="Error icon"
                                     />
-                                    This field is required</div> : null}
+                                    <span className='add-inventory__text'>This field is required</span></div> : null}
                             </div>
                             <div className='add-inventory__border-bottom'></div>
                             <div className='add-inventory__bottom-form'>
@@ -187,10 +194,11 @@ class AddInventoryItem extends Component {
                                 </div>
                                 {!this.state.status && this.state.clicked ? <div className='add-inventory__error'>
                                     <img
+                                        className='add-inventory__img'
                                         src={errorIcon}
                                         alt="Error icon"
                                     />
-                                    This field is required</div> : null}
+                                    <span className='add-inventory__text'>This field is required</span></div> : null}
                                 {/* The quantity field is dynamic and will not be visible if item is OOS */}
                                 {this.isInStock() ? <div>
                                     <label
@@ -212,7 +220,7 @@ class AddInventoryItem extends Component {
                                     Warehouse
                                 </label>
                                 <select
-                                    className={`add-inventory__dropdown ${!this.state.warehouseName && this.state.clicked ? "add-inventory__dropdown--error" : ""}`}
+                                    className={`add-inventory__dropdown ${!this.state.warehouse && this.state.clicked ? "add-inventory__dropdown--error" : ""}`}
                                     name='warehouse'
                                     onChange={this.handleChange}
                                 >
@@ -226,12 +234,13 @@ class AddInventoryItem extends Component {
                                     <option value="Miami">Miami</option>
                                     <option value="Boston">Boston</option>
                                 </select>
-                                {!this.state.warehouseName && this.state.clicked ? <div className='add-inventory__error'>
+                                {!this.state.warehouse && this.state.clicked ? <div className='add-inventory__error'>
                                     <img
+                                        className='add-inventory__img'
                                         src={errorIcon}
                                         alt="Error icon"
                                     />
-                                    This field is required</div> : null}
+                                    <span className='add-inventory__text'>This field is required</span></div> : null}
                             </div>
                         </div>
                         <div className='add-inventory__buttons'>

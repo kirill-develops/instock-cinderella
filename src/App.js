@@ -22,8 +22,8 @@ const App = () => {
         <Route path="/warehouses/:id/edit" component={EditWarehouse} />
         <Route path="/warehouses/:id" exact component={WarehouseDetails} />
         <Route path="/warehouses" exact component={WarehouseList} />
-        <Route path="/inventory/:id/edit" component={EditInventoryItem} />
         <Route path="/inventory/add" component={AddInventoryItem} />
+        <Route path="/inventory/:id/edit" component={EditInventoryItem} />
         <Route path="/inventory/:id" component={ItemDetails} />
         <Route path="/inventory" exact component={InventoryList} />
         <Redirect from="/" to="/warehouses" />

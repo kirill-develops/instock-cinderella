@@ -162,7 +162,7 @@ export class EditWarehouse extends Component {
           <div className="warehouse-edit__inner">
             <div className="warehouse-edit__headline">
               <div className="warehouse-edit__box">
-                  <img onClick={() => this.props.history.goBack()} className="warehouse-edit__back" src={arrowBack} />
+                  <img onClick={() => this.props.history.goBack()} className="warehouse-edit__back" src={arrowBack} alt="back arrow icon" />
                 <div className="warehouse-edit__title-housing">
                   <h1 className="warehouse-edit__title">Edit Warehouse</h1>
                 </div>

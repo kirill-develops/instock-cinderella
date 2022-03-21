@@ -118,14 +118,6 @@ export class EditWarehouse extends Component {
     // Enter validation before the put request
 
     const isFormValid = () => {
-      // console.log(this.isNameValid())
-      // console.log(this.isAddressValid())
-      // console.log(this.isCityValid())
-      // console.log(this.isCountryValid())
-      // console.log(this.isContactNameValid())
-      // console.log(this.isPositionValid())
-      // console.log(this.isPhoneValid())
-      // console.log(this.isEmailValid())
       if (
         this.isNameValid() &&
         this.isAddressValid() &&

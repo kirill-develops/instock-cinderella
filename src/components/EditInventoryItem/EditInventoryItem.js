@@ -27,7 +27,6 @@ export class EditInventoryItem extends Component {
     axios
       .get(`${BASE_URL}/inventory/${this.props.match.params.id}`)
       .then((response) => {
-        // console.log(response.data);
         const {
           itemName,
           description,
@@ -132,8 +131,6 @@ export class EditInventoryItem extends Component {
       alert("Please fill out all form fields");
     }
   };
-
-  // When save button is clicked, congregate all inventory details into one object.
 
   render() {
     if (!this.state.inventoryItem) {

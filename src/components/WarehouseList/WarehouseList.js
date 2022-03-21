@@ -15,7 +15,6 @@ class WarehouseList extends Component {
     toDeleteName: ""
   }
 
-
   componentDidMount() {
 
     apiUtils.getAllWarehouses()

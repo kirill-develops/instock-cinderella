@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import arrowBack from "../../assets/icons/arrow_back-24px.svg";
 import errorIcon from "../../assets/icons/error-24px.svg";
 import axios from "axios";
+import apiUtils from "../../utils/apiUtils";
 
 const BASE_URL = "http://localhost:8080";
 
@@ -17,7 +18,8 @@ export class EditInventoryItem extends Component {
     description: "",
     status: "",
     warehouseName: "",
-    quantity: null,
+    quantity: 0,
+    warehouseArr: []
   };
 
   // The state of this page should load the form fields with the inventory info from match.params
@@ -34,6 +36,13 @@ export class EditInventoryItem extends Component {
           status,
           warehouseName,
         } = response.data;
+
+        apiUtils.getAllWarehouses()
+        .then((response) => {
+          this.setState({
+            warehouseArr: response.data
+          })
+        })
 
         this.setState({
           inventoryItem: response.data,
@@ -92,20 +101,12 @@ export class EditInventoryItem extends Component {
         return false;
       }
       
+      // Unexpectedly, setState won't work. Cannot change quantity to 0 when out of stock is selected. 
       if (event.target.status.value.toLowerCase() === "out of stock") {
-        this.setState({ quantity: 0 });
-
-        console.log(this.state.quantity)
-        console.log('test')
-          return true; 
-      } else if (
-        event.target.status.value === "In Stock" &&
-        event.target.quantity.value === 0
-        ) {
-        return false;
-      } else {
-    
-        this.setState({ quantity: event.target.quantity.value });
+            console.log('test')
+       this.setState({
+        quantity: 0
+       })
       } 
       return true; 
     };
@@ -287,13 +288,9 @@ export class EditInventoryItem extends Component {
                         onChange={this.handleChange}
                         className="inventory__dropdown"
                       >
-                        <option value="Manhattan">Manhattan</option>
-                        <option value="Washington">Washington</option>
-                        <option value="Jersey">Jersey</option>
-                        <option value="San Dran">San Fran</option>
-                        <option value="Santa Monica">Santa Monica</option>
-                        <option value="Seattle">Seattle</option>
-                        <option value="Miami">Miami</option>
+                        {this.state.warehouseArr.map(warehouseObject => {
+                          return <option value={warehouseObject.name}>{warehouseObject.name}</option>
+                        })}
                       </select>
                     </div>
                   </div>

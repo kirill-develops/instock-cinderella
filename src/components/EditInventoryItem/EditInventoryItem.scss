@@ -6,7 +6,6 @@
 .inventory {
   @include cardConfig;
 
-
   &__inner {
     padding-bottom: 0;
   }
@@ -14,7 +13,12 @@
   &__title {
     padding-bottom: $mobile-inner-padding;
     @include padding-horizontal-inner;
-    padding-left: .5rem;
+    @include font-header;
+    padding-left: 0.5rem;
+
+    @include tablet {
+      padding-left: 0.5rem;
+    }
   }
 
   &__box {
@@ -23,12 +27,16 @@
     border-bottom: solid 1px $color-outline-divider-border-tableSort;
 
     @include tablet {
-      padding-bottom: .2rem;
+      padding-bottom: 0.2rem;
     }
   }
 
   &__back {
-    padding-left: 1rem;
+    margin-left: 1rem;
+
+    @include tablet {
+      margin-left: 2rem;
+    }
   }
 
   &__section {
@@ -41,7 +49,8 @@
     width: 100%;
 
     @include tablet {
-      margin-top: 1rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
       width: 50%;
     }
 
@@ -51,8 +60,8 @@
 
       @include tablet {
         @include divider-left;
+        margin-top: 2rem;
         border-top: none;
-        margin-top: 1rem;
       }
     }
   }
@@ -61,17 +70,21 @@
     @include font-subheader;
     padding-top: 1rem;
     padding-bottom: 1rem;
+
+    @include tablet {
+      padding-top: 0rem;
+      padding-bottom: 2rem;
+    }
   }
 
   &__form {
+
     @include tablet {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
     }
   }
-
-  &__name--housing {}
 
   &__label {
     @include font-labels-links-buttons;
@@ -92,23 +105,20 @@
   &__alert {
     display: flex;
     align-items: center;
-    padding-top: .25rem;
+    padding-top: 0.25rem;
     background-color: $color-white;
-    padding-left: 1.5rem;
   }
 
   &__bang {
     height: 1rem;
     width: 1rem;
-    margin-right: .5rem;
-
+    margin-right: 0.5rem;
   }
 
   &__required {
-    font-size: .8rem;
+    font-size: 0.8rem;
     color: $color-red;
   }
-
 
   &__description {
     @include form;
@@ -118,10 +128,13 @@
     font-family: $font-stack;
     @include font-body-med;
 
+    &:focus {
+      border-color: $color-instock-indigo;
+    }
+
     &--error {
       border: solid 1px $color-outStock;
     }
-
 
     @include tablet {
       height: 8rem;
@@ -131,23 +144,17 @@
   &__dropdown {
     appearance: none;
     border: none;
-    background-image:
-      linear-gradient(45deg, transparent 50%, gray 50%),
+    background-image: linear-gradient(45deg, transparent 50%, gray 50%),
       linear-gradient(135deg, gray 50%, transparent 50%),
       linear-gradient(to right, #ccc, #ccc);
-    background-position:
-      calc(100% - 20px) calc(1em + 2px),
-      calc(100% - 15px) calc(1em + 2px),
-      calc(100% - 2.5em) 0.5em;
-    background-size:
-      5px 5px,
-      5px 5px,
-      1px 1.5em;
+    background-position: calc(100% - 20px) calc(1em + 2px),
+      calc(100% - 15px) calc(1em + 2px), calc(100% - 2.5em) 0.5em;
+    background-size: 5px 5px, 5px 5px, 1px 1.5em;
     background-repeat: no-repeat;
   }
 
   &__block {
-    padding-top: .75rem;
+    padding-top: 0.75rem;
 
     @include tablet {
       padding-top: 1.5rem;
@@ -176,12 +183,13 @@
     display: flex;
     justify-content: space-between;
 
+    @include tablet {
+      width: 15rem;
+    }
   }
 
-  &__status {}
-
   &__radio {
-    margin-right: .5rem;
+    margin-right: 0.5rem;
 
     &--none {
       display: none;
@@ -189,7 +197,7 @@
   }
 
   &__stock {
-    @include font-labels-links-buttons;
+    @include font-body-med;
   }
 
   &__buttons {
@@ -207,50 +215,21 @@
     @include tablet {
       width: 100%;
       justify-content: flex-end;
-
     }
 
     @include desktop {
-      width: 25rem;
-      padding-right: 2rem;
+      width: 100%;
+      padding-right: 3rem;
     }
-
   }
 
   &__cancel {
-    height: 36px;
-    width: 7rem;
-    display: flex;
-    border-radius: 20px;
-    padding-left: $mobile-outer-padding;
-    padding-right: $mobile-outer-padding;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: $color-white;
-    color: $color-slate;
-    border: solid 1px $color-outline-divider-border-tableSort;
+    @include secondary-cta-default;
     @include font-labels-links-buttons;
-
-    @include tablet {
-      margin-right: 1rem;
-    }
+    margin-right: 1rem;
   }
 
   &__save {
-    height: 36px;
-    width: 7rem;
-    display: inline-block;
-    border-radius: 20px;
-    padding-left: $mobile-outer-padding;
-    padding-right: $mobile-outer-padding;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: $color-white;
-    background-color: $color-instock-indigo;
-    border: none;
+    @include primary-cta-default;
   }
 }

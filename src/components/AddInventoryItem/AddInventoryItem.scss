@@ -5,7 +5,6 @@
 .background {
     width: 100%;
     box-sizing: border-box;
-    position: absolute;
     top: 8rem;
     display: flex;
     justify-content: center;
@@ -23,6 +22,7 @@
     border-right: 1px solid $color-cloud;
     background-color: $color-white;
     border-radius: 3px;
+    @include site-border;
 
     @include tablet {
         width: 90%;
@@ -48,7 +48,7 @@
     }
 
     &__icon {
-        margin-top: 2.5rem;
+        margin-top: 0.75rem;
     }
 
 
@@ -109,12 +109,12 @@
         width: 100%;
 
         @include tablet {
-            padding: 0 2rem 0.5rem;
+            padding: 0 2rem 1.5rem;
             width: 50%;
         }
 
         @include desktop {
-            padding: 0 2.5rem 0.5rem;
+            padding: 0 2.5rem 2rem;
         }
     }
 
@@ -126,8 +126,12 @@
 
         @include tablet {
             width: 50%;
-            padding: 0 2rem 0.5rem;
+            padding: 0 2rem 1.5rem;
             border-left: 1px solid $color-cloud;
+        }
+
+        @include desktop {
+            padding: 0 2.5rem 2rem;
         }
     }
 
@@ -136,10 +140,15 @@
         font-weight: 600;
         color: $color-instock-black;
         margin-bottom: 0.25rem;
+        margin-top: 1rem;
 
         @include tablet {
             font-size: 0.875rem;
             line-height: 1.375rem;
+        }
+
+        @include desktop {
+            margin-top: 1.5rem;
         }
     }
 
@@ -150,23 +159,16 @@
         border-radius: 1.25rem;
         padding-left: 1rem;
         padding-right: 1rem;
-        margin-bottom: 1rem;
         color: $color-slate;
+        outline:none;
 
         &:focus {
+            outline: none;
             border: 1px solid $color-instock-indigo;
         }
 
         &--error {
             border: 1px solid $color-red;
-        }
-
-        @include tablet {
-            margin-bottom: 1.5rem;
-        }
-
-        @include desktop {
-            margin-bottom: 2.5rem;
         }
     }
 
@@ -175,14 +177,16 @@
         width: 100%;
         height: 7.5rem;
         border-radius: 1.25rem;
+        padding-top: 0.5rem;
         padding-left: 1rem;
         padding-right: 1rem;
-        margin-bottom: 1rem;
         resize: none;
         font-family: $font-stack;
         color: $color-slate;
+        outline: none;
 
         &:focus {
+            outline: none;
             border: 1px solid $color-instock-indigo;
         }
 
@@ -190,20 +194,12 @@
             border: 1px solid $color-red;
         }
 
-        @include tablet {
-            margin-bottom: 1.5rem;
-        }
-
-        @include desktop {
-            margin-bottom: 2.5rem;
-        }
     }
 
     &__dropdown {
         @include form;
         color: $color-slate;
         appearance: none;
-        border: $color-slate;
         background-image:
             linear-gradient(45deg, transparent 50%, gray 50%),
             linear-gradient(135deg, gray 50%, transparent 50%),
@@ -256,7 +252,7 @@
         @include secondary-cta-default;
         text-decoration: none;
         width: 48%;
-        height: 0.10rem;
+        height: 2.25rem;
         margin-left: 1.5rem;
         margin-right: 1rem;
         font-family: $font-stack;
@@ -295,7 +291,15 @@
     &__error {
         color: $color-red;
         font-size: 0.75rem;
+        display: flex;
+    }
 
+    &__img {
+        height: 1rem;
+    }
+
+    &__text {
+        padding-left: 0.25rem;
     }
 
 }

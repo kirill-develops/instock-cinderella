@@ -2,15 +2,16 @@
 @use "../../styles/partials/mixins" as *;
 
 .background {
-    // background-color: $color-lightgrey;
     width: 100%;
-    top: 8rem;
+    transform:translateY(-4rem);
+    margin-bottom: -4rem;
     display: flex;
     justify-content: center;
     border-radius: 3px;
     
     @include tablet {
-        top: 5.85rem;
+        transform:translateY(-5.75rem);
+        margin-bottom: -5.75rem;
     }
 
 }
@@ -50,7 +51,7 @@
     }
 
     &__icon {
-        margin-top: 2.5rem;
+        margin-top: 0.75rem;
     }
 
 

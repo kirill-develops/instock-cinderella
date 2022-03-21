@@ -21,7 +21,6 @@ class WarehouseList extends Component {
     }
   }
 
-
   componentDidMount() {
 
     apiUtils.getAllWarehouses()

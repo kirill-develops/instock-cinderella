@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import apiUtils from "../../utils/apiUtils";
 
 import TableHeader from "../TableHeader/TableHeader";
-import Item from "../Item/Item";
+import WarehouseItem from "../WarehouseItem/WarehouseItem";
 import arrowBack from "../../assets/icons/arrow_back-24px.svg";
 import editIcon from "../../assets/icons/edit-24px-white.svg";
 import DeleteModal from '../DeleteModal/DeleteModal';
@@ -164,7 +164,7 @@ class WarehouseDetails extends Component {
             {inventory
               .map(item => {
                 return (
-                  <Item
+                  <WarehouseItem
                     key={item.id}
                     itemObj={item}
                     handleDelete={this.handleDelete}

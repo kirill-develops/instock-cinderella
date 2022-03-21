@@ -2,7 +2,7 @@
 @use '../../styles/partials/variables'as*;
 @use '../../styles/partials/colors'as*;
 
-.item {
+.warehouse-item {
   background-color: $color-background-light;
 
   &:last-child>* {
@@ -144,7 +144,7 @@
     height: $icon-height;
 
     &--delete {
-      @extend .item__icon;
+      @extend .warehouse-item__icon;
 
       &:hover {
         cursor: pointer;
@@ -152,7 +152,7 @@
     }
 
     &--edit {
-      @extend .item__icon;
+      @extend .warehouse-item__icon;
     }
   }
 }

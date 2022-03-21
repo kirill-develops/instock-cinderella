@@ -173,11 +173,6 @@
     color: $color-red;
   }
 
-
-
-
-
-
   &__name-housing {
     background-color: $color-white;
     @include padding-horizontal-inner;
@@ -209,6 +204,7 @@
       justify-content: flex-end;
       background-color: $color-background-light;
       width: 100%;
+      margin: 0;
     }
 
     @include desktop {
@@ -232,11 +228,12 @@
     @include cta-text;
     padding: 0;
     @include tablet {
-      width: 5rem
+      width: 5rem;
+      margin-right: 2rem;
     }
     
     @include desktop {
-      margin-right: 1rem;
+      margin-right: 2.5rem;
     }
   }
 }

@@ -4,12 +4,11 @@
 .background {
     // background-color: $color-lightgrey;
     width: 100%;
-    position: absolute;
     top: 8rem;
     display: flex;
     justify-content: center;
+    border-radius: 3px;
     
-
     @include tablet {
         top: 5.85rem;
     }
@@ -20,8 +19,6 @@
     width:91%;
     margin-left: 1rem;
     margin-right: 1rem;
-    border-left: 1px solid $color-cloud;
-    border-right: 1px solid $color-cloud;
     background-color: $color-white;
     border-radius: 3px;
 

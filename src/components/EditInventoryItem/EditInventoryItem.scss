@@ -14,7 +14,12 @@
   &__title {
     padding-bottom: $mobile-inner-padding;
     @include padding-horizontal-inner;
+    @include font-header;
     padding-left: .5rem;
+
+    @include tablet {
+      padding-left: .5rem;
+    }
   }
 
   &__box {
@@ -28,7 +33,11 @@
   }
 
   &__back {
-    padding-left: 1rem;
+    margin-left: 1rem;
+
+    @include tablet {
+      margin-left: 2rem;
+    }
   }
 
   &__section {
@@ -41,8 +50,10 @@
     width: 100%;
 
     @include tablet {
-      margin-top: 1rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
       width: 50%;
+      
     }
 
     &--divider {
@@ -50,8 +61,8 @@
       border-top: solid 1px $color-outline-divider-border-tableSort;
       @include tablet {
         @include divider-left;
+        margin-top: 2rem;
         border-top: none; 
-        margin-top: 1rem;
       }
     }
   }
@@ -61,6 +72,11 @@
     @include font-subheader;
     padding-top: 1rem;
     padding-bottom: 1rem;
+
+    @include tablet {
+      padding-top: 0rem;
+      padding-bottom: 2rem;
+    }
   }
 
   &__form {
@@ -94,7 +110,6 @@
     align-items: center;
     padding-top: .25rem;
     background-color: $color-white;
-    padding-left: 1.5rem;
   }
 
   &__bang {
@@ -173,6 +188,9 @@
     display: flex;
     justify-content: space-between;
 
+    @include tablet {
+      width: 15rem;
+    }
   }
 
   &__status {
@@ -187,8 +205,9 @@
   }
 
   &__stock {
-    @include font-labels-links-buttons;
+    @include font-body-med;
   }
+
   &__buttons {
     display: flex;
     flex-direction: row; 
@@ -203,49 +222,21 @@
     @include tablet {
       width: 100%;
       justify-content: flex-end;
-
     }
 
     @include desktop {
-      width: 25rem; 
-      padding-right: 2rem;
+      width: 100%;
+      padding-right: 3rem;
     }
 
   }
   &__cancel {
-    height: 36px;
-    width: 7rem;
-    display: flex;
-    border-radius: 20px;
-    padding-left: $mobile-outer-padding;
-    padding-right: $mobile-outer-padding;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: $color-white;
-    color: $color-slate;
-    border: solid 1px $color-outline-divider-border-tableSort;
+    @include secondary-cta-default;
     @include font-labels-links-buttons;
-
-    @include tablet {
-      margin-right: 1rem;
-    }
+    margin-right: 1rem;
   }
 
   &__save {
-    height: 36px;
-    width: 7rem;
-    display: inline-block;
-    border-radius: 20px;
-    padding-left: $mobile-outer-padding;
-    padding-right: $mobile-outer-padding;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: $color-white;
-    background-color: $color-instock-indigo;
-    border: none;
+   @include primary-cta-default;
   }
 }

@@ -144,10 +144,8 @@ export class EditInventoryItem extends Component {
       <div className="inventory">
         <div className="inventory__outer">
           <div className="inventory__inner">
-            <div className="inventory__box">
-              <Link to="/inventory">
-                <img className="inventory__back" src={arrowBack} />
-              </Link>
+            <div className="inventory__box">   
+                <img onClick={() => this.props.history.goBack()} className="inventory__back" src={arrowBack} />
               <h2 className="inventory__title">Edit Inventory Item</h2>
             </div>
             <div className="inventory__section">
@@ -188,7 +186,6 @@ export class EditInventoryItem extends Component {
                       placeholder="Please enter item description"
                       autoComplete="off"
                       onChange={this.handleChange}
-                      // defaultValue={"+1 "}
                       defaultValue={this.state.inventoryItem.description}
                       className={`inventory__description ${
                         this.isDescriptionValid()
@@ -301,10 +298,8 @@ export class EditInventoryItem extends Component {
                     </div>
                   </div>
                 </div>
-                <div className="inventory__buttons inventory__buttons--mobile">
-                  <Link className="inventory__cancel" to="/inventory:id/">
-                    Cancel
-                  </Link>
+                <div className="inventory__buttons inventory__buttons--mobile"> 
+               <a className="inventory__cancel" onClick={() => this.props.history.goBack()}>Cancel</a> 
                   <button className="inventory__save">Save</button>
                 </div>
               </form>

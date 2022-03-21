@@ -95,8 +95,6 @@ export class EditInventoryItem extends Component {
       if (event.target.status.value.toLowerCase() === "out of stock") {
         this.setState({ quantity: 0 });
 
-        console.log(this.state.quantity)
-        console.log('test')
           return true; 
       } else if (
         event.target.status.value === "In Stock" &&
@@ -111,10 +109,7 @@ export class EditInventoryItem extends Component {
     };
 
     if (isEditValid()) {
-      // if (event.target.quantity.value < 1) {
-      //   event.target.status = "Out of Stock";
-      // }
-      // console.log(event.target.quantity.value)
+
       console.log(this.state.quantity);
       axios
         .put(`${BASE_URL}/inventory/${this.props.match.params.id}/edit`, {

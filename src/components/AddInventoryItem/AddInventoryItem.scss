@@ -5,7 +5,6 @@
 .background {
     width: 100%;
     box-sizing: border-box;
-    position: absolute;
     top: 8rem;
     display: flex;
     justify-content: center;
@@ -23,6 +22,7 @@
     border-right: 1px solid $color-cloud;
     background-color: $color-white;
     border-radius: 3px;
+    @include site-border;
 
     @include tablet {
         width: 90%;
@@ -48,7 +48,7 @@
     }
 
     &__icon {
-        margin-top: 2.5rem;
+        margin-top: 0.75rem;
     }
 
 
@@ -159,23 +159,16 @@
         border-radius: 1.25rem;
         padding-left: 1rem;
         padding-right: 1rem;
-        // margin-bottom: 1rem;
         color: $color-slate;
+        outline:none;
 
         &:focus {
+            outline: none;
             border: 1px solid $color-instock-indigo;
         }
 
         &--error{
             border: 1px solid $color-red;
-        }
-
-        @include tablet {
-            // margin-bottom: 1.5rem;
-        }
-
-        @include desktop {
-            // margin-bottom: 2.5rem;
         }
     }
 
@@ -187,12 +180,13 @@
         padding-top: 0.5rem;
         padding-left: 1rem;
         padding-right: 1rem;
-        // margin-bottom: 1rem;
         resize: none;
         font-family: $font-stack;
         color: $color-slate;
+        outline: none;
 
         &:focus {
+            outline: none;
             border: 1px solid $color-instock-indigo;
         }
 
@@ -200,13 +194,6 @@
             border: 1px solid $color-red;
         }
 
-        @include tablet {
-            // margin-bottom: 1.5rem;
-        }
-
-        @include desktop {
-            // margin-bottom: 2.5rem;
-        }
     }
 
     &__dropdown {

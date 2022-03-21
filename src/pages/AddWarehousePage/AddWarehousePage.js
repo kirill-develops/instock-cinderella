@@ -1,5 +1,4 @@
-import React, { Component, StrictMode } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react';
 import backArrow from '../../assets/icons/arrow_back-24px.svg';
 import NewWarehouseDetails from '../../components/NewWarehouseDetails/NewWarehouseDetails';
 import axios from 'axios';
@@ -39,7 +38,7 @@ class AddWarehousePage extends Component {
             return false;
         }
 
-        const options = {StrictMode: true}
+        const options = { StrictMode: true }
 
         const isPhoneValid = validator.isMobilePhone(this.state.phone, ['en-CA'], options);
         console.log(isPhoneValid);
@@ -80,17 +79,13 @@ class AddWarehousePage extends Component {
     render() {
         return (
             <div className='background'>
-                {/* <div className='background__outer'> */}
-                {/* <div className='background__inner'> */}
                 <div className='add-warehouse'>
                     <div className='add-warehouse__top'>
-                        <Link to="/warehouses">
-                            <img
-                                className='add-warehouse__icon'
-                                src={backArrow}
-                                alt="back arrow icon"
-                            />
-                        </Link>
+                        <img onClick={() => this.props.history.goBack()}
+                            className='add-warehouse__icon'
+                            src={backArrow}
+                            alt="back arrow icon"
+                        />
                         <h1 className='add-warehouse__title'>Add New Warehouse</h1>
                     </div>
                     <NewWarehouseDetails
@@ -108,8 +103,6 @@ class AddWarehousePage extends Component {
                     />
                 </div>
             </div>
-            //     {/* // </div> */}
-            // {/* // </div> */}
         )
     }
 }

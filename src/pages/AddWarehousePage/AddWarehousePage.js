@@ -41,7 +41,6 @@ class AddWarehousePage extends Component {
         const options = { StrictMode: true }
 
         const isPhoneValid = validator.isMobilePhone(this.state.phone, ['en-CA'], options);
-        console.log(isPhoneValid);
         if (!isPhoneValid) {
             return false;
         }
@@ -55,17 +54,16 @@ class AddWarehousePage extends Component {
 
             axios
                 .post(`${BASE_URL}/warehouses`, {
-                    name: event.target.warehouseName.value,
-                    address: event.target.address.value,
-                    city: event.target.city.value,
-                    country: event.target.country.value,
-                    contactName: event.target.contactName.value,
-                    position: event.target.position.value,
-                    phone: event.target.phone.value,
-                    email: event.target.email.value
+                    name: this.state.name,
+                    address: this.state.address,
+                    city: this.state.city,
+                    country: this.state.country,
+                    contactName: this.state.contactName,
+                    position: this.state.position,
+                    phone: this.state.phone,
+                    email: this.state.email
                 })
                 .then(response => {
-                    console.log(response)
                     this.props.history.push('/warehouses');
                 })
                 .catch(error => {

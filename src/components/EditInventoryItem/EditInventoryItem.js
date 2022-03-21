@@ -15,7 +15,6 @@ export class EditInventoryItem extends Component {
     itemName: "",
     description: "",
     category: "",
-    description: "",
     status: "",
     warehouseName: "",
     quantity: 0,
@@ -67,7 +66,6 @@ export class EditInventoryItem extends Component {
   // Create a change handler to change the state as the user changes the categories
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
-    // console.log(this.state.status)
   };
 
   // Enter validation before the put request
@@ -93,7 +91,6 @@ export class EditInventoryItem extends Component {
   // On submit, make a PUT axios call and target the value of the form fields
   submitHandler = (event) => {
     event.preventDefault();
-
     const isEditValid = () => {
       if (!this.isItemNameValid() && !this.isDescriptionValid()) {
         return false;
@@ -146,6 +143,7 @@ export class EditInventoryItem extends Component {
                 onClick={() => this.props.history.goBack()}
                 className="inventory__back"
                 src={arrowBack}
+                alt="back button"
               />
               <h2 className="inventory__title">Edit Inventory Item</h2>
             </div>

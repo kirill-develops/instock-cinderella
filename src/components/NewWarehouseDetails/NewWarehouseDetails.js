@@ -23,7 +23,7 @@ const NewWarehouseDetails = ({ submitHandler, handleChange, name, address, city,
                             className={`new-warehouse__input-field ${!name && clicked ? "new-warehouse__input-field--error" : ""}`}
                             onChange={handleChange}
                             placeholder="Warehouse Name"
-                            name="warehouseName"
+                            name="name"
                         />
                         {!name && clicked ? <div className='new-warehouse__error'>
                             <img
@@ -31,7 +31,8 @@ const NewWarehouseDetails = ({ submitHandler, handleChange, name, address, city,
                                 src={errorIcon}
                                 alt="Error icon"
                             />
-                            This field is required</div> : null}
+                            This field is required
+                        </div> : null}
                         <label
                             className='new-warehouse__label'
                             htmlFor="address">

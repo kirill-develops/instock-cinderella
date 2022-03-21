@@ -5,6 +5,7 @@
 .new-warehouse {
     max-width: 100%;
     box-sizing: border-box;
+    @include site-border;
 
     &__form {
         display: flex;
@@ -34,7 +35,7 @@
 
     &__form-title {
         font-size: 1.25rem;
-        margin-top: 1rem;
+        // margin-top: 1rem;
         margin-bottom: 1rem;
 
         @include tablet {
@@ -44,14 +45,17 @@
     }
 
     &__top-form{
-        padding: 0 1.5rem 0.5rem;
+        padding: 0 1.5rem 0;
         display: flex;
         flex-direction: column;
         width: 100%;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
 
         @include tablet {
-            padding: 0 2rem 0.5rem;
+            padding: 0 2rem 0;
             width: 50%;
+            margin-bottom: 2rem;
         }
 
         @include desktop {
@@ -60,14 +64,17 @@
     }
 
     &__bottom-form {
-        padding: 0 1.5rem 0.5rem;
+        padding: 0 1.5rem 0;
         display: flex;
         flex-direction: column;
         width: 100%;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
 
         @include tablet {
             width: 50%;
-            padding: 0 2rem 0.5rem;
+            padding: 0 2rem 0;
+            margin-bottom: 2rem;;
             border-left: 1px solid $color-cloud;
         }
     }
@@ -77,10 +84,16 @@
         font-weight: 600;
         color: $color-instock-black;
         margin-bottom: 0.25rem;
+        margin-top: 1rem;
 
         @include tablet {
+            margin-top: 1.5rem;
             font-size: 0.875rem;
             line-height: 1.375rem;
+        }
+
+        @include desktop {
+            margin-top: 2.5rem;
         }
     }
 
@@ -91,8 +104,8 @@
         border-radius: 1.25rem;
         padding-left: 1rem;
         padding-right: 1rem;
-        margin-bottom: 1rem;
         color: $color-slate;
+        margin-bottom: 0.25rem;
 
         &:focus {
             outline: none;
@@ -103,13 +116,6 @@
             border: 1px solid $color-red;
         }
 
-        @include tablet {
-            margin-bottom: 1.5rem;
-        }
-
-        @include desktop {
-            margin-bottom: 2.5rem;
-        }
     }
 
     &__buttons {
@@ -131,8 +137,8 @@
     &__cancel-button {
         @include secondary-cta-default;
         text-decoration: none;
-        width: 48%;
-        height: 0.10rem;
+        width: 40%;
+        height: 2.25rem;
         margin-left: 1.5rem;
         margin-right: 1rem;
         font-family: $font-stack;
@@ -144,14 +150,14 @@
         }
 
         @include desktop {
-            width: 10%;
+            width: fit-content;
         }
 
     }
 
     &__add-button {
         @include primary-cta-default;
-        width: 48%;
+        width: 46%;
         margin-right: 1.5rem;
         font-family: $font-stack;
 
@@ -160,20 +166,23 @@
         }
 
         @include tablet {
-            width: 20%;
+            width: fit-content;
         }
 
         @include desktop {
-            width: 12%;
+            width: fit-content;
         }
     }
 
     &__error {
         color: $color-red;
         font-size: 0.75rem;
+        display: flex;
+        align-items: center;
     }
 
     &__img {
         height:1rem;
     }
+
 }

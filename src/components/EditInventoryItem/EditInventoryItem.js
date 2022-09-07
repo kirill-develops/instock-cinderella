@@ -1,13 +1,12 @@
 import React from "react";
 import "./EditInventoryItem.scss";
 import { Component } from "react";
-import { Link } from "react-router-dom";
 import arrowBack from "../../assets/icons/arrow_back-24px.svg";
 import errorIcon from "../../assets/icons/error-24px.svg";
 import axios from "axios";
 import apiUtils from "../../utils/apiUtils";
 
-const BASE_URL = "http://localhost:8080";
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 export class EditInventoryItem extends Component {
   state = {

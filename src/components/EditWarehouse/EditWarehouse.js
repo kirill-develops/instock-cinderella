@@ -1,6 +1,5 @@
 import axios from "axios";
 import React from "react";
-import { Link } from "react-router-dom";
 import { Component } from "react";
 import arrowBack from "../../assets/icons/arrow_back-24px.svg";
 import errorIcon from "../../assets/icons/error-24px.svg";
@@ -8,7 +7,7 @@ import "../EditWarehouse/EditWarehouse.scss";
 import validator from "validator";
 import isEmail from "validator/lib/isEmail";
 
-const BASE_URL = "http://localhost:8080";
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 export class EditWarehouse extends Component {
   // The state of this page should load the form fields with the warehouse info of the match.params.

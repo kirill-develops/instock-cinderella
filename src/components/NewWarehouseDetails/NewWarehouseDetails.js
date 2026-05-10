@@ -3,7 +3,13 @@ import './NewWarehouseDetails.scss';
 import { Link } from 'react-router-dom';
 import errorIcon from '../../assets/icons/error-24px.svg';
 
-const NewWarehouseDetails = ({ submitHandler, handleChange, name, address, city, country, contactName, position, phone, email, clicked }) => {
+const NewWarehouseDetails = ({
+  submitHandler,
+  handleChange,
+  clicked,
+  validation,
+}) => {
+  const fieldValidity = validation || {};
 
   return (
     <div className='new-warehouse'>
@@ -20,12 +26,12 @@ const NewWarehouseDetails = ({ submitHandler, handleChange, name, address, city,
               Warehouse Name
             </label>
             <input
-              className={`new-warehouse__input-field ${!name && clicked ? "new-warehouse__input-field--error" : ""}`}
+              className={`new-warehouse__input-field ${clicked && !fieldValidity.name ? "new-warehouse__input-field--error" : ""}`}
               onChange={handleChange}
               placeholder="Warehouse Name"
               name="name"
             />
-            {!name && clicked ? <div className='new-warehouse__error'>
+            {clicked && !fieldValidity.name ? <div className='new-warehouse__error'>
               <img
                 className='new-warehouse__img'
                 src={errorIcon}
@@ -39,12 +45,12 @@ const NewWarehouseDetails = ({ submitHandler, handleChange, name, address, city,
               Street Address
             </label>
             <input
-              className={`new-warehouse__input-field ${!address && clicked ? "new-warehouse__input-field--error" : ""}`}
+              className={`new-warehouse__input-field ${clicked && !fieldValidity.address ? "new-warehouse__input-field--error" : ""}`}
               onChange={handleChange}
               placeholder="Street Address"
               name="address"
             />
-            {!address && clicked ? <div className='new-warehouse__error'>
+            {clicked && !fieldValidity.address ? <div className='new-warehouse__error'>
               <img
                 className='new-warehouse__img'
                 src={errorIcon}
@@ -57,12 +63,12 @@ const NewWarehouseDetails = ({ submitHandler, handleChange, name, address, city,
               City
             </label>
             <input
-              className={`new-warehouse__input-field ${!city && clicked ? "new-warehouse__input-field--error" : ""}`}
+              className={`new-warehouse__input-field ${clicked && !fieldValidity.city ? "new-warehouse__input-field--error" : ""}`}
               onChange={handleChange}
               placeholder="City"
               name="city"
             />
-            {!city && clicked ? <div className='new-warehouse__error'>
+            {clicked && !fieldValidity.city ? <div className='new-warehouse__error'>
               <img
                 className='new-warehouse__img'
                 src={errorIcon}
@@ -75,12 +81,12 @@ const NewWarehouseDetails = ({ submitHandler, handleChange, name, address, city,
               Country
             </label>
             <input
-              className={`new-warehouse__input-field ${!country && clicked ? "new-warehouse__input-field--error" : ""}`}
+              className={`new-warehouse__input-field ${clicked && !fieldValidity.country ? "new-warehouse__input-field--error" : ""}`}
               onChange={handleChange}
               placeholder="Country"
               name="country"
             />
-            {!country && clicked ? <div className='new-warehouse__error'>
+            {clicked && !fieldValidity.country ? <div className='new-warehouse__error'>
               <img
                 className='new-warehouse__img'
                 src={errorIcon}
@@ -97,12 +103,12 @@ const NewWarehouseDetails = ({ submitHandler, handleChange, name, address, city,
               Contact Name
             </label>
             <input
-              className={`new-warehouse__input-field ${!contactName && clicked ? "new-warehouse__input-field--error" : ""}`}
+              className={`new-warehouse__input-field ${clicked && !fieldValidity.contactName ? "new-warehouse__input-field--error" : ""}`}
               onChange={handleChange}
               placeholder="Contact Name"
               name="contactName"
             />
-            {!contactName && clicked ? <div className='new-warehouse__error'>
+            {clicked && !fieldValidity.contactName ? <div className='new-warehouse__error'>
               <img
                 className='new-warehouse__img'
                 src={errorIcon}
@@ -115,12 +121,12 @@ const NewWarehouseDetails = ({ submitHandler, handleChange, name, address, city,
               Position
             </label>
             <input
-              className={`new-warehouse__input-field ${!position && clicked ? "new-warehouse__input-field--error" : ""}`}
+              className={`new-warehouse__input-field ${clicked && !fieldValidity.position ? "new-warehouse__input-field--error" : ""}`}
               onChange={handleChange}
               placeholder="Position"
               name="position"
             />
-            {!position && clicked ? <div className='new-warehouse__error'>
+            {clicked && !fieldValidity.position ? <div className='new-warehouse__error'>
               <img
                 className='new-warehouse__img'
                 src={errorIcon}
@@ -133,13 +139,13 @@ const NewWarehouseDetails = ({ submitHandler, handleChange, name, address, city,
               Phone Number
             </label>
             <input
-              className={`new-warehouse__input-field ${!phone && clicked ? "new-warehouse__input-field--error" : ""}`}
+              className={`new-warehouse__input-field ${clicked && !fieldValidity.phone ? "new-warehouse__input-field--error" : ""}`}
               onChange={handleChange}
               placeholder="Phone Number"
               name="phone"
-              type='number'
+              type='tel'
             />
-            {!phone && clicked ? <div className='new-warehouse__error'>
+            {clicked && !fieldValidity.phone ? <div className='new-warehouse__error'>
               <img
                 className='new-warehouse__img'
                 src={errorIcon}
@@ -152,12 +158,12 @@ const NewWarehouseDetails = ({ submitHandler, handleChange, name, address, city,
               Email
             </label>
             <input
-              className={`new-warehouse__input-field ${!email && clicked ? "new-warehouse__input-field--error" : ""}`}
+              className={`new-warehouse__input-field ${clicked && !fieldValidity.email ? "new-warehouse__input-field--error" : ""}`}
               onChange={handleChange}
               placeholder="Email"
               name="email"
             />
-            {!email && clicked ? <div className='new-warehouse__error'>
+            {clicked && !fieldValidity.email ? <div className='new-warehouse__error'>
               <img
                 className='new-warehouse__img'
                 src={errorIcon}

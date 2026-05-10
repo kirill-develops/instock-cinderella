@@ -1,36 +1,35 @@
 import axios from "axios";
 
-const BASE_URL = process.env.REACT_APP_BASE_URL;
+const getBaseUrl = () => {
+   const baseUrl =
+      process.env.REACT_APP_BASE_URL ||
+      process.env.REACT_APP_BASE_URL_DEV ||
+      process.env.REACT_APP_BASE_URL_PROD ||
+      "http://localhost:8080";
 
+   return baseUrl.trim().replace(/\/+$/, "");
+};
 
-const getAllWarehouseReq = {
-  baseURL: BASE_URL,
-  method: 'get',
-  url: '/warehouses',
-}
-
-const getAllInventoryReq = {
-  baseURL: BASE_URL,
-  method: 'get',
-  url: '/inventory',
-}
+const apiClient = axios.create({
+   baseURL: getBaseUrl(),
+});
 
 const apiUtils = {
-  getAllWarehouses: () => axios(getAllWarehouseReq),
-  getWarehouseById: (warehouseId) => axios.get(`${BASE_URL}/warehouses/${warehouseId}`),
-  addWarehouse: (title, description, yourWarehouseDetails) => axios.post(`${BASE_URL}/warehouses/`, {
-    'title': title,
-    'description': description,
-    'yourWarehouseDetails': yourWarehouseDetails
-  }),
-  updateWarehouse: (warehouseId, warehouseObj) => axios.put(`${BASE_URL}/warehouses/${warehouseId}/`, {
-    'warehouseObj': warehouseObj
-  }),
-  deleteWarehouse: (warehouseId) => axios.delete(`${BASE_URL}/warehouses/${warehouseId}/`),
-  getAllInventory: () => axios(getAllInventoryReq),
-  getInventoryById: (itemId) => axios.get(`${BASE_URL}/inventory/${itemId}`),
-  deleteInventory: (itemId) => axios.delete(`${BASE_URL}/inventory/${itemId}/`)
-}
+   getAllWarehouses: () => apiClient.get("/warehouses"),
+   getWarehouseById: (warehouseId) =>
+      apiClient.get(`/warehouses/${warehouseId}`),
+   addWarehouse: (warehouseObj) => apiClient.post("/warehouses", warehouseObj),
+   updateWarehouse: (warehouseId, warehouseObj) =>
+      apiClient.put(`/warehouses/${warehouseId}`, warehouseObj),
+   deleteWarehouse: (warehouseId) =>
+      apiClient.delete(`/warehouses/${warehouseId}`),
 
+   getAllInventory: () => apiClient.get("/inventory"),
+   getInventoryById: (itemId) => apiClient.get(`/inventory/${itemId}`),
+   addInventory: (itemObj) => apiClient.post("/inventory", itemObj),
+   updateInventory: (itemId, itemObj) =>
+      apiClient.put(`/inventory/${itemId}`, itemObj),
+   deleteInventory: (itemId) => apiClient.delete(`/inventory/${itemId}`),
+};
 
 export default apiUtils;

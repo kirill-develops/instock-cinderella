@@ -1,108 +1,91 @@
-import React, { Component } from 'react';
-import backArrow from '../../assets/icons/arrow_back-24px.svg';
-import NewWarehouseDetails from '../../components/NewWarehouseDetails/NewWarehouseDetails';
-import axios from 'axios';
-import { BASE_URL } from '../../utils/api';
-import './AddWarehousePage.scss';
-import validator from 'validator';
-
+import React, { Component } from "react";
+import backArrow from "../../assets/icons/arrow_back-24px.svg";
+import NewWarehouseDetails from "../../components/NewWarehouseDetails/NewWarehouseDetails";
+import "./AddWarehousePage.scss";
+import apiUtils from "../../utils/apiUtils";
+import {
+   getWarehouseFieldValidity,
+   getWarehousePayload,
+   isWarehouseFormValid,
+} from "../../utils/warehouseFormUtils";
+import { getRequestErrorMessage } from "../../utils/requestUtils";
 
 class AddWarehousePage extends Component {
-    state = {
-        name: "",
-        address: "",
-        city: "",
-        country: "",
-        contactName: "",
-        position: "",
-        phone: "",
-        email: "",
-        clicked: false
-    }
+   state = {
+      name: "",
+      address: "",
+      city: "",
+      country: "",
+      contactName: "",
+      position: "",
+      phone: "",
+      email: "",
+      clicked: false,
+      apiError: "",
+   };
 
-    // Create a change handler for all inputs
-    handleChange = (e) => {
-        this.setState({
-            [e.target.name]: e.target.value,
-        });
-    };
+   handleApiError = (err, fallbackMessage) => {
+      this.setState({ apiError: getRequestErrorMessage(err, fallbackMessage) });
+   };
 
-    // If all fields are valid return true
-    isUploadValid = () => {
-        if (this.state.name === "" || this.state.address === "" || this.state.city === "" || this.state.country === "" || this.state.contactName === "" || this.state.position === "" || this.state.phone === "" || this.state.email === "") {
-            return false;
-        }
+   // Create a change handler for all inputs
+   handleChange = (e) => {
+      this.setState({
+         [e.target.name]: e.target.value,
+      });
+   };
 
-        const isEmailValid = validator.isEmail(this.state.email);
-        if (!isEmailValid) {
-            return false;
-        }
+   getFormValues = () => getWarehousePayload(this.state);
 
-        const options = { StrictMode: true }
+   submitHandler = (event) => {
+      event.preventDefault();
+      this.setState({ apiError: "" });
 
-        const isPhoneValid = validator.isMobilePhone(this.state.phone, ['en-CA'], options);
-        if (!isPhoneValid) {
-            return false;
-        }
-        return true;
-    };
+      const warehouseDetails = this.getFormValues();
+      if (isWarehouseFormValid(warehouseDetails)) {
+         apiUtils
+            .addWarehouse(warehouseDetails)
+            .then((_res) => {
+               this.props.history.push("/warehouses");
+            })
+            .catch((error) => {
+               this.handleApiError(error, "Unable to create warehouse.");
+            });
+      } else {
+         this.setState({ clicked: true });
+      }
+   };
 
-    submitHandler = (event) => {
-        event.preventDefault();
+   render() {
+      const validation = getWarehouseFieldValidity(this.getFormValues());
 
-        if (this.isUploadValid()) {
-
-            axios
-                .post(`${BASE_URL}/warehouses`, {
-                    name: this.state.name,
-                    address: this.state.address,
-                    city: this.state.city,
-                    country: this.state.country,
-                    contactName: this.state.contactName,
-                    position: this.state.position,
-                    phone: this.state.phone,
-                    email: this.state.email
-                })
-                .then(response => {
-                    this.props.history.push('/warehouses');
-                })
-                .catch(error => {
-                    console.log(error);
-                });
-        } else {
-            this.setState({ clicked: true })
-        }
-    }
-
-    render() {
-        return (
-            <div className='background'>
-                <div className='add-warehouse'>
-                    <div className='add-warehouse__top'>
-                        <img onClick={() => this.props.history.goBack()}
-                            className='add-warehouse__icon'
-                            src={backArrow}
-                            alt="back arrow icon"
-                        />
-                        <h1 className='add-warehouse__title'>Add New Warehouse</h1>
-                    </div>
-                    <NewWarehouseDetails
-                        submitHandler={this.submitHandler}
-                        handleChange={this.handleChange}
-                        name={this.state.name}
-                        address={this.state.address}
-                        city={this.state.city}
-                        country={this.state.country}
-                        contactName={this.state.contactName}
-                        position={this.state.position}
-                        phone={this.state.phone}
-                        email={this.state.email}
-                        clicked={this.state.clicked}
-                    />
-                </div>
+      return (
+         <div className="background">
+            <div className="add-warehouse">
+               <div className="add-warehouse__top">
+                  <img
+                     onClick={() => this.props.history.goBack()}
+                     className="add-warehouse__icon"
+                     src={backArrow}
+                     alt="back arrow icon"
+                  />
+                  <h1 className="add-warehouse__title">Add New Warehouse</h1>
+               </div>
+               {this.state.apiError ? (
+                  <p className="new-warehouse__required">
+                     {this.state.apiError}
+                  </p>
+               ) : null}
+               <NewWarehouseDetails
+                  submitHandler={this.submitHandler}
+                  handleChange={this.handleChange}
+                  clicked={this.state.clicked}
+                  validation={validation}
+               />
             </div>
-        )
-    }
+         </div>
+      );
+   }
 }
 
-export default AddWarehousePage
+export default AddWarehousePage;

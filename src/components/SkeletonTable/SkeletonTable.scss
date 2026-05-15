@@ -1,0 +1,45 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.skeleton-table {
+   width: 100%;
+
+   &__row {
+      display: flex;
+      align-items: center;
+      gap: $mobile-inner-padding;
+      padding: $mobile-inner-padding $mobile-outer-padding;
+      border-bottom: 1px solid $color-cloud; // swap for your divider token
+
+      @include tablet {
+         gap: $tablet-inner-padding;
+         padding: $mobile-inner-padding $tablet-outer-padding;
+      }
+   }
+
+   &__cell {
+      flex: 1;
+      height: 1rem;
+      border-radius: 0.25rem;
+      background: linear-gradient(
+         90deg,
+         $color-cloud 20%,
+         // swap for your lightest neutral
+         $color-white 50%,
+         $color-cloud 80%
+      );
+      background-size: 220% 100%;
+      animation: skeleton-shimmer 1.2s ease-in-out infinite;
+   }
+}
+
+@keyframes skeleton-shimmer {
+   0% {
+      background-position: 100% 0;
+   }
+
+   100% {
+      background-position: -100% 0;
+   }
+}

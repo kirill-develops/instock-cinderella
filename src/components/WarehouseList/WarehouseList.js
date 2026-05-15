@@ -7,9 +7,11 @@ import TableHeader from "../TableHeader/TableHeader";
 import WarehouseListItem from "../WarehouseListItem/WarehouseListItem";
 import DeleteModal from "../DeleteModal/DeleteModal";
 import "./WarehouseList.scss";
+import SkeletonTable from "../SkeletonTable/SkeletonTable";
 
 class WarehouseList extends Component {
    state = {
+      isLoading: true,
       warehouseArr: [],
       toDeleteId: "",
       toDeleteName: "",
@@ -37,6 +39,9 @@ class WarehouseList extends Component {
          })
          .catch((err) => {
             this.handleApiError(err);
+         })
+         .finally(() => {
+            this.setState({ isLoading: false });
          });
    }
 
@@ -210,13 +215,21 @@ class WarehouseList extends Component {
                      ))}
                   </div>
                   <div className="warehouse-list__table">
-                     {warehouses.map((warehouseObj) => (
-                        <WarehouseListItem
-                           key={warehouseObj.id}
-                           warehouseObj={warehouseObj}
-                           handleDelete={this.handleDelete}
+                     {this.state.isLoading ? (
+                        <SkeletonTable
+                           rows={6}
+                           columns={5}
+                           flexWeights={[0.8, 1, 0.9, 1.1, 0.5]}
                         />
-                     ))}
+                     ) : (
+                        warehouses.map((warehouseObj) => (
+                           <WarehouseListItem
+                              key={warehouseObj.id}
+                              warehouseObj={warehouseObj}
+                              handleDelete={this.handleDelete}
+                           />
+                        ))
+                     )}
                   </div>
                </div>
             </div>

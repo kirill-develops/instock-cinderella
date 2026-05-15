@@ -7,9 +7,11 @@ import TableHeader from "../TableHeader/TableHeader";
 import InventoryListItem from "../InventoryListItem/InventoryListItem";
 import DeleteModal from "../DeleteModal/DeleteModal";
 import "./InventoryList.scss";
+import SkeletonTable from "../SkeletonTable/SkeletonTable";
 
 class InventoryList extends Component {
    state = {
+      isLoading: true,
       inventoryArr: [],
       toDeleteId: "",
       toDeleteName: "",
@@ -37,6 +39,9 @@ class InventoryList extends Component {
          })
          .catch((err) => {
             this.handleApiError(err);
+         })
+         .finally(() => {
+            this.setState({ isLoading: false });
          });
    }
 
@@ -194,14 +199,21 @@ class InventoryList extends Component {
                      />
                   ))}
                </div>
-
-               {inventoryArr.map((itemObj) => (
-                  <InventoryListItem
-                     key={itemObj.id}
-                     itemObj={itemObj}
-                     handleDelete={this.handleDelete}
+               {this.state.isLoading ? (
+                  <SkeletonTable
+                     rows={6}
+                     columns={6}
+                     flexWeights={[1, 0.8, 0.9, 0.6, 0.8, 0.5]}
                   />
-               ))}
+               ) : (
+                  inventoryArr.map((itemObj) => (
+                     <InventoryListItem
+                        key={itemObj.id}
+                        itemObj={itemObj}
+                        handleDelete={this.handleDelete}
+                     />
+                  ))
+               )}
             </div>
             <div
                className={

@@ -1,12 +1,13 @@
 import React from "react";
 import apiUtils from "../utils/apiUtils";
-import TableHeader from "../components/TableHeader/TableHeader";
+import TableHeaders from "../components/TableHeaders/TableHeaders";
 import InventoryListItem from "../components/ListRow/InventoryListItem/InventoryListItem";
 import DeleteModal from "../components/DeleteModal/DeleteModal";
 import SkeletonTable from "../components/SkeletonTable/SkeletonTable";
 import ListPageBase from "../utils/ListPageBase";
-import "../styles/listPages.scss";
 import PageHeader from "../components/PageHeader/PageHeader";
+import Error from "../components/Error/Error";
+import "../styles/listPages.scss";
 
 const WAREHOUSE_PAGE_HEADERS = [
    {
@@ -29,7 +30,7 @@ const WAREHOUSE_PAGE_HEADERS = [
       flex: 0.6,
       key: "quantity",
    },
-   { name: "ACTIONS", flex: 0.5 },
+   { name: "ACTIONS", flex: 0.5, key: "actions" },
 ];
 class WarehousePage extends ListPageBase {
    constructor(props) {
@@ -39,7 +40,7 @@ class WarehousePage extends ListPageBase {
          warehouse: null,
          toDeleteId: "",
          toDeleteName: "",
-         apiError: "",
+         apiError: "TEST ERROR MESSAGE",
          sortConfig: { key: "", isAscending: true },
       };
    }
@@ -56,6 +57,8 @@ class WarehousePage extends ListPageBase {
       const { warehouse, isLoading, apiError, toDeleteId, toDeleteName } =
          this.state;
 
+      console.log(apiError);
+
       return (
          <>
             <div className="warehouse-page">
@@ -67,9 +70,7 @@ class WarehousePage extends ListPageBase {
                         warehouse ? `/warehouses/${warehouse.id}/edit` : null
                      }
                   />
-                  {apiError && (
-                     <p className="warehouse-page__error">{apiError}</p>
-                  )}
+                  <Error apiError={apiError} />
                   {warehouse && (
                      <div className="warehouse-page__info-panel">
                         <div className="warehouse-page__info-body">
@@ -116,16 +117,13 @@ class WarehousePage extends ListPageBase {
                      </div>
                   )}
                   {/* <div className="warehouse-page__headers-outer"> */}
-                  <div className="warehouse-page__headers">
-                     {WAREHOUSE_PAGE_HEADERS.map((header, i) => (
-                        <TableHeader
-                           key={i}
-                           header={header}
-                           handleSort={this.handleSort}
-                        />
-                     ))}
-                     {/* </div> */}
-                  </div>
+                  {
+                     <TableHeaders
+                        headers={WAREHOUSE_PAGE_HEADERS}
+                        handleSort={this.handleSort}
+                     />
+                  }
+                  {/* </div> */}
                   {isLoading ? (
                      <SkeletonTable
                         rows={6}
@@ -137,29 +135,21 @@ class WarehousePage extends ListPageBase {
                         <InventoryListItem
                            key={item.id}
                            itemObj={item}
-                           toggleModal={this.toggleModal}
+                           onDelete={this.toggleModal}
                            isWarehouseView
                         />
                      ))
                   )}
                </div>
             </div>
-            <div
-               className={
-                  toDeleteId
-                     ? "warehouse-page__delete"
-                     : "warehouse-page__delete--hidden"
-               }
-            >
-               <DeleteModal
-                  toDeleteId={toDeleteId}
-                  toDeleteName={toDeleteName}
-                  toDeleteType="inventory item"
-                  handleCancel={this.resetDelete}
-                  handleConfirm={this.handleConfirm}
-                  closingStatement="from the inventory list"
-               />
-            </div>
+            <DeleteModal
+               toDeleteId={toDeleteId}
+               toDeleteName={toDeleteName}
+               toDeleteType="inventory item"
+               handleCancel={this.resetDelete}
+               handleConfirm={this.handleConfirm}
+               closingStatement="from the inventory list"
+            />
          </>
       );
    }

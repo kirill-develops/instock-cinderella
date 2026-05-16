@@ -2,6 +2,11 @@
 @use '../../styles/partials/variables'as*;
 @use '../../styles/partials/mixins'as*;
 
+.delete-modal-wrapper {
+      @include deleteHousing;
+
+}
+
 .delete-modal {
   background-color: $color-white;
   @include padding-delete-inner;

@@ -1,69 +1,20 @@
 @use "../styles/partials/colors" as *;
 @use "../styles/partials/variables" as *;
 @use "../styles/partials/mixins" as *;
-@use "../styles/partials/pageList" as *;
 
 // ─── Warehouses Page ──────────────────────────────────────────────────────────
 .warehouses {
-   @include pageList("../../assets/icons/search-24px.svg");
+   @include cardConfig;
 }
 
 // ─── Inventory Page ───────────────────────────────────────────────────────────
 .inventory {
-   @include pageList("../../assets/icons/search-24px.svg");
+   @include cardConfig;
 }
 
 // ─── Warehouse Page (single warehouse detail) ─────────────────────────────────
 .warehouse-page {
-   @include pageBase; // gets cardConfig, __title, __headers, __error, __delete
-
-   &__back-btn {
-      @include button-icon-wrapper;
-      margin-right: 1rem;
-
-      @include tablet {
-         margin-right: 0.5rem;
-      }
-   }
-
-   &__headers {
-      @include tabletHeaders;
-      background-color: $color-white;
-   }
-
-   &__edit-btn {
-      @include primary-cta-default;
-      height: 2rem;
-      width: 2rem;
-      cursor: pointer;
-
-      @include tablet {
-         height: 36px;
-         width: 5rem;
-      }
-   }
-
-   &__edit-icon {
-      width: 1rem;
-      height: 1rem;
-
-      @include tablet {
-         margin-left: 1rem;
-         margin-right: 0.5rem;
-      }
-   }
-
-   &__edit-label {
-      display: none;
-
-      @include tablet {
-         display: flex;
-         color: $color-white;
-         text-decoration: underline;
-         text-decoration-color: $color-instock-indigo;
-         padding-right: 1.5rem;
-      }
-   }
+   @include cardConfig;
 
    // info panel — unique to this page
    &__info-panel {

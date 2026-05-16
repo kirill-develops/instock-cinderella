@@ -4,11 +4,11 @@ import Nav from "./components/Nav/Nav";
 import AddWarehousePage from "./components/AddWarehousePage/AddWarehousePage";
 import EditWarehousePage from "./components/EditWarehouse/EditWarehouse";
 import WarehousePage from "./Pages/WarehousePage";
-import WarehousesPage from "./Pages/Warehouses";
+import WarehousesPage from "./Pages/WarehousesPage";
 import AddInventoryItemPage from "./components/AddInventoryItem/AddInventoryItem";
 import EditInventoryItemPage from "./components/EditInventoryItem/EditInventoryItem";
 import InventoryItemPage from "./Pages/InventoryItemPage";
-import InventoryPage from "./Pages/Inventory";
+import InventoryPage from "./Pages/InventoryPage";
 import Footer from "./components/Footer/Footer";
 import "./styles/App.scss";
 

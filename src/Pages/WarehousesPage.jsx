@@ -1,11 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import apiUtils from "../utils/apiUtils";
 import ListPageBase from "../utils/ListPageBase";
-import TableHeader from "../components/TableHeader/TableHeader";
+import TableHeaders from "../components/TableHeaders/TableHeaders";
 import WarehouseListItem from "../components/ListRow/WarehouseListItem/WarehouseListItem";
 import DeleteModal from "../components/DeleteModal/DeleteModal";
 import SkeletonTable from "../components/SkeletonTable/SkeletonTable";
+import ListHeader from "../components/ListHeader/ListHeader";
+import Error from "../components/Error/Error";
 import "../styles/listPages.scss";
 
 const WAREHOUSE_HEADERS = [
@@ -13,7 +14,7 @@ const WAREHOUSE_HEADERS = [
    { name: "ADDRESS", flex: 1, key: "address" },
    { name: "CONTACT NAME", flex: 0.9, key: "contact.name" },
    { name: "CONTACT INFORMATION", flex: 1.1, key: "contact.email" },
-   { name: "ACTIONS", flex: 0.5 },
+   { name: "ACTIONS", flex: 0.5, key: "actions" },
 ];
 
 class Warehouses extends ListPageBase {
@@ -49,38 +50,19 @@ class Warehouses extends ListPageBase {
          <>
             <div className="warehouses">
                <div className="warehouses__inner">
-                  <div className="warehouses__headline">
-                     <h1 className="warehouses__title">Warehouses</h1>
-                     <div className="warehouses__form">
-                        <div className="warehouses__search-housing">
-                           <input
-                              type="search"
-                              name="search"
-                              placeholder="Search..."
-                              className="warehouses__search"
-                           />
-                        </div>
-                        <div className="warehouses__cta-housing">
-                           <Link
-                              to="/warehouses/add"
-                              className="warehouses__cta"
-                           >
-                              <span className="warehouses__cta-text">
-                                 Add New Warehouse
-                              </span>
-                           </Link>
-                        </div>
-                     </div>
-                  </div>
-                  {apiError && <p className="warehouses__error">{apiError}</p>}
+                  <ListHeader
+                     title={"Warehouses"}
+                     ctaRoute="/warehouses/add"
+                     ctaText="Add New Warehouse"
+                  />
+                  <Error apiError={apiError} />
                   <div className="warehouses__headers">
-                     {WAREHOUSE_HEADERS.map((header, i) => (
-                        <TableHeader
-                           key={i}
-                           header={header}
+                     {
+                        <TableHeaders
+                           headers={WAREHOUSE_HEADERS}
                            handleSort={this.handleSort}
                         />
-                     ))}
+                     }
                   </div>
                   {isLoading ? (
                      <SkeletonTable
@@ -93,28 +75,20 @@ class Warehouses extends ListPageBase {
                         <WarehouseListItem
                            key={warehouseObj.id}
                            warehouseObj={warehouseObj}
-                           toggleModal={this.toggleModal}
+                           onDelete={this.toggleModal}
                         />
                      ))
                   )}
                </div>
             </div>
-            <div
-               className={
-                  toDeleteId
-                     ? "warehouses__delete"
-                     : "warehouses__delete--hidden"
-               }
-            >
-               <DeleteModal
-                  toDeleteId={toDeleteId}
-                  toDeleteName={toDeleteName}
-                  toDeleteType="warehouse"
-                  handleCancel={this.resetDelete}
-                  handleConfirm={this.handleConfirm}
-                  closingStatement="from the list of warehouses"
-               />
-            </div>
+            <DeleteModal
+               toDeleteId={toDeleteId}
+               toDeleteName={toDeleteName}
+               toDeleteType="warehouse"
+               handleCancel={this.resetDelete}
+               handleConfirm={this.handleConfirm}
+               closingStatement="from the list of warehouses"
+            />
          </>
       );
    }

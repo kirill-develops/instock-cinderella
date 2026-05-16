@@ -2,38 +2,13 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/colors" as *;
 
-@mixin pageBase {
+$search-icon-path: "../../assets/icons/search-24px.svg";
+
+.list-header {
    @include cardConfig;
-
-   &__title {
-      @include font-header;
-      @include padding-horizontal-inner;
-      background-color: $color-white;
-
-      @include tablet {
-         padding-right: 0;
-         padding-bottom: $mobile-inner-padding;
-      }
+   @include tablet {
+      display: flex;
    }
-
-   &__headers {
-      @include tabletHeaders;
-   }
-
-   &__error {
-      @include padding-horizontal-inner;
-      color: $color-red;
-      @include font-body-med;
-   }
-
-   &__delete {
-      @include deleteHousing;
-   }
-}
-
-// ─── Page List Layout (WarehouseList + InventoryList) ───────────────────────
-@mixin pageList($search-icon-path) {
-   @include pageBase;
 
    &__title {
       @include tablet {
@@ -41,13 +16,7 @@
       }
    }
 
-   &__headline {
-      @include tablet {
-         display: flex;
-      }
-   }
-
-   &__form {
+   &__actions {
       display: flex;
       flex-direction: column;
 
@@ -59,16 +28,17 @@
    }
 
    &__search-housing {
-      background-color: $color-white;
       @include padding-horizontal-inner;
       padding-top: $mobile-outer-padding;
       padding-bottom: $mobile-outer-padding;
+      background-color: $color-white;
 
       @include tablet {
+         min-width: 10rem;
          padding-top: 0;
          padding-right: 0;
          padding-bottom: $mobile-inner-padding;
-         flex: 1.5;
+         flex: 1.5 1 auto;
       }
    }
 
@@ -82,9 +52,9 @@
    }
 
    &__cta-housing {
-      background-color: $color-white;
       @include padding-horizontal-inner;
       padding-bottom: $mobile-outer-padding;
+      background-color: $color-white;
 
       @include tablet {
          width: fit-content;

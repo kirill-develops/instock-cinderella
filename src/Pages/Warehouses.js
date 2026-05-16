@@ -28,6 +28,7 @@ class Warehouses extends ListPageBase {
          sortConfig: { key: "", isAscending: true },
       };
    }
+
    fetchData = () => apiUtils.getAllWarehouses().then((r) => r.data);
    getDataArray = (state) => state.warehouseArr;
    setDataArray = (arr) => ({ warehouseArr: arr });
@@ -39,8 +40,6 @@ class Warehouses extends ListPageBase {
       if (key === "contact.email") return obj.contact?.email || "";
       return obj[key] || "";
    };
-
-   state = { ...super.state, warehouseArr: [] };
 
    render() {
       const { warehouseArr, isLoading, apiError, toDeleteId, toDeleteName } =

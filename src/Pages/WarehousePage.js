@@ -49,34 +49,12 @@ class WarehousePage extends ListPageBase {
    }
 
    fetchData = (id) => apiUtils.getWarehouseById(id).then((r) => r.data);
+   setData = (warehouse) => ({ warehouse });
    getDataArray = (state) => state.warehouse?.inventory || [];
    setDataArray = (arr, prevState) => ({
       warehouse: { ...prevState.warehouse, inventory: arr },
    });
    performDelete = (id) => apiUtils.deleteInventory(id);
-
-   state = { ...super.state, warehouse: null };
-
-   // fetchData returns the whole warehouse object, not an array
-   // override loadData to set warehouse directly
-   loadData = () => {
-      const { id } = this.props.match.params;
-      this.setState({ isLoading: true, apiError: "" });
-
-      this.fetchData(id)
-         .then((warehouse) => {
-            this.setState({ warehouse, isLoading: false });
-         })
-         .catch((err) => {
-            this.setState({
-               apiError: getRequestErrorMessage(
-                  err,
-                  "Error fetching warehouse data.",
-               ),
-               isLoading: false,
-            });
-         });
-   };
 
    render() {
       const { warehouse, isLoading, apiError, toDeleteId, toDeleteName } =

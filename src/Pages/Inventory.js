@@ -35,8 +35,6 @@ class Inventory extends ListPageBase {
    setDataArray = (arr) => ({ inventoryArr: arr });
    performDelete = (id) => apiUtils.deleteInventory(id);
 
-   state = { ...super.state, inventoryArr: [] };
-
    render() {
       const { inventoryArr, isLoading, apiError, toDeleteId, toDeleteName } =
          this.state;

@@ -1,0 +1,40 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/listItem" as *;
+
+.list-row {
+   @include listItemBase;
+
+   &__inner {
+      @include listItemInner;
+   }
+
+   &__label {
+      &--main {
+         @include tablet {
+            order: 1;
+            &-warehouse {
+               flex: 0.8;
+            }
+
+            &-inventory {
+               flex: 1;
+            }
+         }
+      }
+   }
+   &__actions-block {
+      @include tablet {
+         flex: 0.5;
+
+         &-inventory {
+            order: 6;
+         }
+
+         &-warehouse {
+            order: 5;
+         }
+      }
+   }
+}

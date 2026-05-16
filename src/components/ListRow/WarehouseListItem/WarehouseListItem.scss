@@ -1,0 +1,29 @@
+@use "../../../styles/partials/mixins" as *;
+@use "../../../styles/partials/variables" as *;
+@use "../../../styles/partials/colors" as *;
+@use "../../../styles/partials/listItem" as *;
+
+.warehouse-item {
+   &__label {
+      &--addy {
+         @include tablet {
+            order: 2;
+            flex: 1;
+         }
+      }
+
+      &--contact {
+         @include tablet {
+            order: 3;
+            flex: 0.9;
+         }
+      }
+
+      &--details {
+         @include tablet {
+            order: 4;
+            flex: 1.1;
+         }
+      }
+   }
+}

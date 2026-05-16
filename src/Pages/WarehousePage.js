@@ -3,11 +3,10 @@ import { Link } from "react-router-dom";
 import apiUtils from "../utils/apiUtils";
 
 import TableHeader from "../components/TableHeader/TableHeader";
-import InventoryListItem from "../components/InventoryListItem/InventoryListItem";
+import InventoryListItem from "../components/ListRow/InventoryListItem/InventoryListItem";
 import arrowBack from "../assets/icons/arrow_back-24px.svg";
 import editIcon from "../assets/icons/edit-24px-white.svg";
 import DeleteModal from "../components/DeleteModal/DeleteModal";
-import { getRequestErrorMessage } from "../utils/requestUtils";
 import SkeletonTable from "../components/SkeletonTable/SkeletonTable";
 import ListPageBase from "../utils/ListPageBase";
 import "../styles/listPages.scss";

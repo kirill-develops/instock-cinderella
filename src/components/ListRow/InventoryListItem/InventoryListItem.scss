@@ -1,0 +1,36 @@
+@use "../../../styles/partials/mixins" as *;
+@use "../../../styles/partials/variables" as *;
+@use "../../../styles/partials/colors" as *;
+@use "../../../styles/partials/listItem" as *;
+
+.list-row {
+   &__label {
+      &--category {
+         @include tablet {
+            flex: 0.8;
+            order: 2;
+         }
+      }
+
+      &--status {
+         @include tablet {
+            flex: 0.9;
+            order: 3;
+         }
+      }
+
+      &--qty {
+         @include tablet {
+            flex: 0.6;
+            order: 4;
+         }
+      }
+
+      &--warehouse {
+         @include tablet {
+            flex: 0.8;
+            order: 5;
+         }
+      }
+   }
+}

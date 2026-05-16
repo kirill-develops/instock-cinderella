@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import apiUtils from "../utils/apiUtils";
 import ListPageBase from "../utils/ListPageBase";
 import TableHeader from "../components/TableHeader/TableHeader";
-import InventoryListItem from "../components/InventoryListItem/InventoryListItem";
+import InventoryListItem from "../components/ListRow/InventoryListItem/InventoryListItem";
 import DeleteModal from "../components/DeleteModal/DeleteModal";
 import SkeletonTable from "../components/SkeletonTable/SkeletonTable";
 import "../styles/listPages.scss";

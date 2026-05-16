@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import backArrow from "../../assets/icons/arrow_back-24px.svg";
 import NewWarehouseDetails from "../../components/NewWarehouseDetails/NewWarehouseDetails";
 import "./AddWarehousePage.scss";
 import apiUtils from "../../utils/apiUtils";
@@ -9,6 +8,7 @@ import {
    isWarehouseFormValid,
 } from "../../utils/warehouseFormUtils";
 import { getRequestErrorMessage } from "../../utils/requestUtils";
+import PageHeader from "../PageHeader/PageHeader";
 
 class AddWarehousePage extends Component {
    state = {
@@ -62,15 +62,10 @@ class AddWarehousePage extends Component {
       return (
          <div className="background">
             <div className="add-warehouse">
-               <div className="add-warehouse__top">
-                  <img
-                     onClick={() => this.props.history.goBack()}
-                     className="add-warehouse__icon"
-                     src={backArrow}
-                     alt="back arrow icon"
-                  />
-                  <h1 className="add-warehouse__title">Add New Warehouse</h1>
-               </div>
+               <PageHeader
+                  title={"Add New Warehouse"}
+                  onBack={() => this.props.history.goBack()}
+               />
                {this.state.apiError ? (
                   <p className="new-warehouse__required">
                      {this.state.apiError}

@@ -36,35 +36,6 @@
         margin-right: 8.125rem;
     }
 
-    &__top {
-        display: flex;
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
-
-        @include tablet {
-            padding-left: 2.25rem;
-        }
-
-    }
-
-    &__icon {
-        margin-top: 0.75rem;
-    }
-
-
-    &__title {
-        font-size: 1.60rem;
-        line-height: 2.25rem;
-        margin-top: 2rem;
-        margin-bottom: 1.5rem;
-        margin-left: 0.25rem;
-
-        @include tablet {
-            font-size: 2rem;
-            margin-bottom: 1.313rem;
-        }
-    }
-
     &__form {
         display: flex;
         flex-direction: column;

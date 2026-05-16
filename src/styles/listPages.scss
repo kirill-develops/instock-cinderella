@@ -26,33 +26,9 @@
       }
    }
 
-   &__headline {
-      align-items: center;
-      background-color: $color-white;
-      display: flex;
-      flex-direction: row;
-      font-size: 0.8rem;
-      justify-content: space-around;
-      padding-bottom: 1rem;
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
-
-      @include tablet {
-         margin-bottom: 0px;
-         padding-bottom: 1.2rem;
-         padding-left: 2rem;
-         padding-right: 2rem;
-      }
-   }
-
    &__headers {
       @include tabletHeaders;
       background-color: $color-white;
-   }
-
-   &__title {
-      margin-right: auto;
-      padding: 0;
    }
 
    &__edit-btn {

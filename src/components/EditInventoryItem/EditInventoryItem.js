@@ -1,7 +1,6 @@
 import React from "react";
 import "./EditInventoryItem.scss";
 import { Component } from "react";
-import arrowBack from "../../assets/icons/arrow_back-24px.svg";
 import errorIcon from "../../assets/icons/error-24px.svg";
 import apiUtils from "../../utils/apiUtils";
 import {
@@ -10,6 +9,7 @@ import {
    isInventoryFormValid,
 } from "../../utils/inventoryFormUtils";
 import { getRequestErrorMessage } from "../../utils/requestUtils";
+import PageHeader from "../PageHeader/PageHeader";
 
 export class EditInventoryItem extends Component {
    state = {
@@ -113,17 +113,10 @@ export class EditInventoryItem extends Component {
          <div className="edit-inventory">
             <div className="edit-inventory__outer">
                <div className="edit-inventory__inner">
-                  <div className="edit-inventory__box">
-                     <img
-                        onClick={() => this.props.history.goBack()}
-                        className="edit-inventory__back"
-                        src={arrowBack}
-                        alt="back button"
-                     />
-                     <h2 className="edit-inventory__title">
-                        Edit Inventory Item
-                     </h2>
-                  </div>
+                  <PageHeader
+                     title={`Edit Inventory Item: ${this.state.inventoryItem.itemName}`}
+                     onBack={() => this.props.history.goBack()}
+                  />
                   {this.state.apiError ? (
                      <p className="edit-inventory__required">
                         {this.state.apiError}

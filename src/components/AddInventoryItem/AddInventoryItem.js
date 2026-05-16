@@ -1,7 +1,6 @@
 import "./AddInventoryItem.scss";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import backArrow from "../../assets/icons/arrow_back-24px.svg";
 import errorIcon from "../../assets/icons/error-24px.svg";
 import apiUtils from "../../utils/apiUtils";
 import {
@@ -10,6 +9,7 @@ import {
    isInventoryFormValid,
 } from "../../utils/inventoryFormUtils";
 import { getRequestErrorMessage } from "../../utils/requestUtils";
+import PageHeader from "../PageHeader/PageHeader";
 
 class AddInventoryItem extends Component {
    state = {
@@ -86,17 +86,10 @@ class AddInventoryItem extends Component {
       return (
          <div className="background">
             <div className="add-inventory">
-               <div className="add-inventory__top">
-                  <img
-                     onClick={() => this.props.history.goBack()}
-                     className="add-inventory__icon"
-                     src={backArrow}
-                     alt="back arrow icon"
-                  />
-                  <h1 className="add-inventory__title">
-                     Add New Inventory Item
-                  </h1>
-               </div>
+               <PageHeader
+                  title={"Add New Inventory Item"}
+                  onBack={() => this.props.history.goBack()}
+               />
                {this.state.apiError ? (
                   <p className="add-inventory__text">{this.state.apiError}</p>
                ) : null}

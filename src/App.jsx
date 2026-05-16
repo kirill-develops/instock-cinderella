@@ -2,14 +2,14 @@ import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
 import Nav from "./components/Nav/Nav";
 import AddWarehousePage from "./components/AddWarehousePage/AddWarehousePage";
-import EditWarehouse from "./components/EditWarehouse/EditWarehouse";
-import WarehousePage from "./Pages/WarehousePage.js";
-import Warehouses from "./Pages/Warehouses.js";
-import EditInventoryItem from "./components/EditInventoryItem/EditInventoryItem.js";
-import ItemDetails from "./components/ItemDetails/ItemDetails";
-import Inventory from "./Pages/Inventory.js";
+import EditWarehousePage from "./components/EditWarehouse/EditWarehouse";
+import WarehousePage from "./Pages/WarehousePage";
+import WarehousesPage from "./Pages/Warehouses";
+import AddInventoryItemPage from "./components/AddInventoryItem/AddInventoryItem";
+import EditInventoryItemPage from "./components/EditInventoryItem/EditInventoryItem";
+import InventoryItemPage from "./Pages/InventoryItemPage";
+import InventoryPage from "./Pages/Inventory";
 import Footer from "./components/Footer/Footer";
-import AddInventoryItem from "./components/AddInventoryItem/AddInventoryItem";
 import "./styles/App.scss";
 
 const App = () => {
@@ -23,7 +23,7 @@ const App = () => {
             />
             <Route
                path="/warehouses/:id/edit"
-               component={EditWarehouse}
+               component={EditWarehousePage}
             />
             <Route
                path="/warehouses/:id"
@@ -33,24 +33,24 @@ const App = () => {
             <Route
                path="/warehouses"
                exact
-               component={Warehouses}
+               component={WarehousesPage}
             />
             <Route
                path="/inventory/add"
-               component={AddInventoryItem}
+               component={AddInventoryItemPage}
             />
             <Route
                path="/inventory/:id/edit"
-               component={EditInventoryItem}
+               component={EditInventoryItemPage}
             />
             <Route
                path="/inventory/:id"
-               component={ItemDetails}
+               component={InventoryItemPage}
             />
             <Route
                path="/inventory"
                exact
-               component={Inventory}
+               component={InventoryPage}
             />
             <Redirect
                from="/"

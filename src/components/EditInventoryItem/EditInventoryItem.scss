@@ -10,35 +10,6 @@
       padding-bottom: 0;
    }
 
-   &__title {
-      padding-bottom: $mobile-inner-padding;
-      @include padding-horizontal-inner;
-      @include font-header;
-      padding-left: 0.5rem;
-
-      @include tablet {
-         padding-left: 0.5rem;
-      }
-   }
-
-   &__box {
-      display: flex;
-      align-items: baseline;
-      border-bottom: solid 1px $color-outline-divider-border-tableSort;
-
-      @include tablet {
-         padding-bottom: 0.2rem;
-      }
-   }
-
-   &__back {
-      margin-left: 1rem;
-
-      @include tablet {
-         margin-left: 2rem;
-      }
-   }
-
    &__section {
       display: flex;
       flex-direction: column;

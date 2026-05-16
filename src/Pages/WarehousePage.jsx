@@ -1,15 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import apiUtils from "../utils/apiUtils";
-
 import TableHeader from "../components/TableHeader/TableHeader";
 import InventoryListItem from "../components/ListRow/InventoryListItem/InventoryListItem";
-import arrowBack from "../assets/icons/arrow_back-24px.svg";
-import editIcon from "../assets/icons/edit-24px-white.svg";
 import DeleteModal from "../components/DeleteModal/DeleteModal";
 import SkeletonTable from "../components/SkeletonTable/SkeletonTable";
 import ListPageBase from "../utils/ListPageBase";
 import "../styles/listPages.scss";
+import PageHeader from "../components/PageHeader/PageHeader";
 
 const WAREHOUSE_PAGE_HEADERS = [
    {
@@ -63,31 +60,13 @@ class WarehousePage extends ListPageBase {
          <>
             <div className="warehouse-page">
                <div className="warehouse-page__inner">
-                  <div className="warehouse-page__headline">
-                     <button
-                        onClick={() => this.props.history.goBack()}
-                        className="warehouse-page__back-btn"
-                        aria-label={`Go Back`}
-                     >
-                        <img
-                           src={arrowBack}
-                           alt=""
-                        />
-                     </button>
-                     <h1 className="warehouse-page__title">
-                        {warehouse?.name}
-                     </h1>
-                     <Link to={`/warehouses/${warehouse?.id}/edit`}>
-                        <div className="warehouse-page__edit-btn">
-                           <img
-                              className="warehouse-page__edit-icon"
-                              src={editIcon}
-                              alt="Edit warehouse"
-                           />
-                           <p className="warehouse-page__edit-label">Edit</p>
-                        </div>
-                     </Link>
-                  </div>
+                  <PageHeader
+                     title={warehouse?.name}
+                     onBack={() => this.props.history.goBack()}
+                     editRoute={
+                        warehouse ? `/warehouses/${warehouse.id}/edit` : null
+                     }
+                  />
                   {apiError && (
                      <p className="warehouse-page__error">{apiError}</p>
                   )}

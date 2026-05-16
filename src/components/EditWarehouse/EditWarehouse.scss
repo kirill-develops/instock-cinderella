@@ -3,12 +3,6 @@
 @use "../../styles/partials/mixins" as *;
 
 .warehouse-edit {
-   @include cardConfig;
-
-   &__inner {
-      padding-bottom: 0;
-   }
-
    &__subheader-housing {
       border-top: 1px solid $color-outline-divider-border-tableSort;
 
@@ -135,47 +129,27 @@
       }
    }
    &__buttons {
+      @include padding-horizontal-inner;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
       display: flex;
       flex-direction: row;
-      margin-left: 1.5rem;
-      margin-right: 1.5rem;
-      padding-bottom: 1rem;
-      padding-top: 1rem;
+      gap: 1rem;
+      background-color: $color-background-light;
 
       @include tablet {
-         display: flex;
-         justify-content: flex-end;
-         background-color: $color-background-light;
          width: 100%;
-         margin: 0;
-      }
-
-      @include desktop {
-         margin: 0;
+         justify-content: flex-end;
       }
    }
+
    &__cancel {
       @include font-labels-links-buttons;
       @include secondary-cta-default;
-      margin-right: 1rem;
-      padding: 0;
-
-      @include tablet {
-         width: 5rem;
-      }
    }
 
    &__save {
       @include primary-cta-default;
       @include cta-text;
-      padding: 0;
-      @include tablet {
-         width: 5rem;
-         margin-right: 2rem;
-      }
-
-      @include desktop {
-         margin-right: 2.5rem;
-      }
    }
 }

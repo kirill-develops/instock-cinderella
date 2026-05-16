@@ -11,52 +11,55 @@ import InventoryItemPage from "./Pages/InventoryItemPage";
 import InventoryPage from "./Pages/InventoryPage";
 import Footer from "./components/Footer/Footer";
 import "./styles/App.scss";
+import PageLayout from "./components/PageLayout/PageLayout";
 
 const App = () => {
    return (
       <BrowserRouter>
          <Nav />
-         <Switch>
-            <Route
-               path="/warehouses/add"
-               component={AddWarehousePage}
-            />
-            <Route
-               path="/warehouses/:id/edit"
-               component={EditWarehousePage}
-            />
-            <Route
-               path="/warehouses/:id"
-               exact
-               component={WarehousePage}
-            />
-            <Route
-               path="/warehouses"
-               exact
-               component={WarehousesPage}
-            />
-            <Route
-               path="/inventory/add"
-               component={AddInventoryItemPage}
-            />
-            <Route
-               path="/inventory/:id/edit"
-               component={EditInventoryItemPage}
-            />
-            <Route
-               path="/inventory/:id"
-               component={InventoryItemPage}
-            />
-            <Route
-               path="/inventory"
-               exact
-               component={InventoryPage}
-            />
-            <Redirect
-               from="/"
-               to="/warehouses"
-            />
-         </Switch>
+         <PageLayout>
+            <Switch>
+               <Route
+                  path="/warehouses/add"
+                  component={AddWarehousePage}
+               />
+               <Route
+                  path="/warehouses/:id/edit"
+                  component={EditWarehousePage}
+               />
+               <Route
+                  path="/warehouses/:id"
+                  exact
+                  component={WarehousePage}
+               />
+               <Route
+                  path="/warehouses"
+                  exact
+                  component={WarehousesPage}
+               />
+               <Route
+                  path="/inventory/add"
+                  component={AddInventoryItemPage}
+               />
+               <Route
+                  path="/inventory/:id/edit"
+                  component={EditInventoryItemPage}
+               />
+               <Route
+                  path="/inventory/:id"
+                  component={InventoryItemPage}
+               />
+               <Route
+                  path="/inventory"
+                  exact
+                  component={InventoryPage}
+               />
+               <Redirect
+                  from="/"
+                  to="/warehouses"
+               />
+            </Switch>
+         </PageLayout>
          <Footer />
       </BrowserRouter>
    );

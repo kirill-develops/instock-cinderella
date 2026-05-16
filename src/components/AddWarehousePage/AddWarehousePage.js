@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import NewWarehouseDetails from "../../components/NewWarehouseDetails/NewWarehouseDetails";
-import "./AddWarehousePage.scss";
 import apiUtils from "../../utils/apiUtils";
 import {
    getWarehouseFieldValidity,
@@ -9,6 +8,7 @@ import {
 } from "../../utils/warehouseFormUtils";
 import { getRequestErrorMessage } from "../../utils/requestUtils";
 import PageHeader from "../PageHeader/PageHeader";
+import Error from "../Error/Error";
 
 class AddWarehousePage extends Component {
    state = {
@@ -60,25 +60,19 @@ class AddWarehousePage extends Component {
       const validation = getWarehouseFieldValidity(this.getFormValues());
 
       return (
-         <div className="background">
-            <div className="add-warehouse">
-               <PageHeader
-                  title={"Add New Warehouse"}
-                  onBack={() => this.props.history.goBack()}
-               />
-               {this.state.apiError ? (
-                  <p className="new-warehouse__required">
-                     {this.state.apiError}
-                  </p>
-               ) : null}
-               <NewWarehouseDetails
-                  submitHandler={this.submitHandler}
-                  handleChange={this.handleChange}
-                  clicked={this.state.clicked}
-                  validation={validation}
-               />
-            </div>
-         </div>
+         <>
+            <PageHeader
+               title={"Add New Warehouse"}
+               onBack={() => this.props.history.goBack()}
+            />
+            <Error apiError={this.state.apiError} />
+            <NewWarehouseDetails
+               submitHandler={this.submitHandler}
+               handleChange={this.handleChange}
+               clicked={this.state.clicked}
+               validation={validation}
+            />
+         </>
       );
    }
 }

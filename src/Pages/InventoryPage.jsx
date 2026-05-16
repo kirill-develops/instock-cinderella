@@ -42,37 +42,33 @@ class Inventory extends ListPageBase {
 
       return (
          <>
-            <div className="inventory">
-               <div className="inventory__inner">
-                  <ListHeader
-                     title={"Inventory"}
-                     ctaRoute="/inventory/add"
-                     ctaText="Add New Item"
+            <ListHeader
+               title={"Inventory"}
+               ctaRoute="/inventory/add"
+               ctaText="Add New Item"
+            />
+            <Error apiError={apiError} />
+            {
+               <TableHeaders
+                  headers={INVENTORY_HEADERS}
+                  handleSort={this.handleSort}
+               />
+            }
+            {isLoading ? (
+               <SkeletonTable
+                  rows={6}
+                  columns={6}
+                  flexWeights={[1, 0.8, 0.9, 0.6, 0.8, 0.5]}
+               />
+            ) : (
+               inventoryArr.map((itemObj) => (
+                  <InventoryListItem
+                     key={itemObj.id}
+                     itemObj={itemObj}
+                     onDelete={this.toggleModal}
                   />
-                  <Error apiError={apiError} />
-                  {
-                     <TableHeaders
-                        headers={INVENTORY_HEADERS}
-                        handleSort={this.handleSort}
-                     />
-                  }
-                  {isLoading ? (
-                     <SkeletonTable
-                        rows={6}
-                        columns={6}
-                        flexWeights={[1, 0.8, 0.9, 0.6, 0.8, 0.5]}
-                     />
-                  ) : (
-                     inventoryArr.map((itemObj) => (
-                        <InventoryListItem
-                           key={itemObj.id}
-                           itemObj={itemObj}
-                           onDelete={this.toggleModal}
-                        />
-                     ))
-                  )}
-               </div>
-            </div>
+               ))
+            )}
             <DeleteModal
                toDeleteId={toDeleteId}
                toDeleteName={toDeleteName}

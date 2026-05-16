@@ -3,7 +3,6 @@
 @use "../../styles/partials/colors" as *;
 
 .item-details {
-   @include cardConfig;
    &__block {
       padding-top: $mobile-outer-padding;
       padding-bottom: $mobile-outer-padding;

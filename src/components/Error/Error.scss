@@ -1,7 +1,8 @@
 @use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
 
 .page-error {
    @include padding-horizontal-inner;
-   color: $color-red;
    @include font-body-med;
+   color: $color-red;
 }

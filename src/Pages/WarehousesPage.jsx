@@ -48,39 +48,35 @@ class Warehouses extends ListPageBase {
 
       return (
          <>
-            <div className="warehouses">
-               <div className="warehouses__inner">
-                  <ListHeader
-                     title={"Warehouses"}
-                     ctaRoute="/warehouses/add"
-                     ctaText="Add New Warehouse"
+            <ListHeader
+               title={"Warehouses"}
+               ctaRoute="/warehouses/add"
+               ctaText="Add New Warehouse"
+            />
+            <Error apiError={apiError} />
+            <div className="warehouses__headers">
+               {
+                  <TableHeaders
+                     headers={WAREHOUSE_HEADERS}
+                     handleSort={this.handleSort}
                   />
-                  <Error apiError={apiError} />
-                  <div className="warehouses__headers">
-                     {
-                        <TableHeaders
-                           headers={WAREHOUSE_HEADERS}
-                           handleSort={this.handleSort}
-                        />
-                     }
-                  </div>
-                  {isLoading ? (
-                     <SkeletonTable
-                        rows={6}
-                        columns={5}
-                        flexWeights={[0.8, 1, 0.9, 1.1, 0.5]}
-                     />
-                  ) : (
-                     warehouseArr.map((warehouseObj) => (
-                        <WarehouseListItem
-                           key={warehouseObj.id}
-                           warehouseObj={warehouseObj}
-                           onDelete={this.toggleModal}
-                        />
-                     ))
-                  )}
-               </div>
+               }
             </div>
+            {isLoading ? (
+               <SkeletonTable
+                  rows={6}
+                  columns={5}
+                  flexWeights={[0.8, 1, 0.9, 1.1, 0.5]}
+               />
+            ) : (
+               warehouseArr.map((warehouseObj) => (
+                  <WarehouseListItem
+                     key={warehouseObj.id}
+                     warehouseObj={warehouseObj}
+                     onDelete={this.toggleModal}
+                  />
+               ))
+            )}
             <DeleteModal
                toDeleteId={toDeleteId}
                toDeleteName={toDeleteName}

@@ -10,6 +10,7 @@ import {
 } from "../../utils/warehouseFormUtils";
 import { getRequestErrorMessage } from "../../utils/requestUtils";
 import PageHeader from "../PageHeader/PageHeader";
+import Error from "../Error/Error";
 
 export class EditWarehouse extends Component {
    // The state of this page should load the form fields with the warehouse info of the match.params.
@@ -103,283 +104,275 @@ export class EditWarehouse extends Component {
       }
       const validation = getWarehouseFieldValidity(this.getFormValues());
       return (
-         <div className="warehouse-edit">
-            <div className="warehouse-edit__outer">
-               <div className="warehouse-edit__inner">
-                  <PageHeader
-                     title={`Edit Warehouse: ${this.state.warehouse.name}`}
-                     onBack={() => this.props.history.goBack()}
-                  />
-                  {this.state.apiError ? (
-                     <p className="warehouse-edit__required">
-                        {this.state.apiError}
+         <>
+            <div className="warehouse-edit__inner">
+               <PageHeader
+                  title={`Edit Warehouse: ${this.state.warehouse.name}`}
+                  onBack={() => this.props.history.goBack()}
+               />
+               <Error apiError={this.state.apiError} />
+               <form
+                  onSubmit={this.submitHandler}
+                  className="warehouse-edit__form"
+               >
+                  <div className="warehouse-edit__card">
+                     <div className="warehouse-edit__subheader-housing">
+                        <h2 className="warehouse-edit__subheader">
+                           Warehouse Details
+                        </h2>
+                     </div>
+                     <div className="warehouse-edit__name-housing">
+                        <label className="warehouse-edit__input-label">
+                           Warehouse Name
+                        </label>
+                        <input
+                           type="name"
+                           name="name"
+                           autoComplete="off"
+                           defaultValue={this.state.warehouse.name}
+                           onChange={this.handleChange}
+                           className={`warehouse-edit__field ${
+                              validation.name
+                                 ? ""
+                                 : "warehouse-edit__field--error"
+                           }`}
+                        />
+                     </div>
+                     {!validation.name ? (
+                        <div className="warehouse-edit__alert">
+                           <img
+                              className="warehouse-edit__bang"
+                              src={errorIcon}
+                              alt="error exlaimation sign"
+                           />
+                           <p className="warehouse-edit__required">
+                              This field is required
+                           </p>
+                        </div>
+                     ) : null}
+                     <div className="warehouse-edit__name-housing">
+                        <label className="warehouse-edit__input-label">
+                           Street Address
+                        </label>
+                        <input
+                           type="name"
+                           name="address"
+                           autoComplete="off"
+                           defaultValue={this.state.warehouse.address}
+                           onChange={this.handleChange}
+                           className={`warehouse-edit__field ${
+                              validation.address
+                                 ? ""
+                                 : "warehouse-edit__field--error"
+                           }`}
+                        />
+                     </div>
+                     {!validation.address ? (
+                        <div className="warehouse-edit__alert">
+                           <img
+                              className="warehouse-edit__bang"
+                              src={errorIcon}
+                              alt="error exlaimation sign"
+                           />
+                           <p className="warehouse-edit__required">
+                              This field is required
+                           </p>
+                        </div>
+                     ) : null}
+                     <div className="warehouse-edit__name-housing">
+                        <label className="warehouse-edit__input-label">
+                           City
+                        </label>
+                        <input
+                           type="name"
+                           name="city"
+                           autoComplete="off"
+                           defaultValue={this.state.warehouse.city}
+                           onChange={this.handleChange}
+                           className={`warehouse-edit__field ${
+                              validation.city
+                                 ? ""
+                                 : "warehouse-edit__field--error"
+                           }`}
+                        />
+                     </div>
+                     {!validation.city ? (
+                        <div className="warehouse-edit__alert">
+                           <img
+                              className="warehouse-edit__bang"
+                              src={errorIcon}
+                              alt="error exlaimation sign"
+                           />
+                           <p className="warehouse-edit__required">
+                              This field is required
+                           </p>
+                        </div>
+                     ) : null}
+                     <div className="warehouse-edit__name-housing warehouse-edit__name-housing--bumper">
+                        <label className="warehouse-edit__input-label">
+                           Country
+                        </label>
+                        <input
+                           type="name"
+                           name="country"
+                           autoComplete="off"
+                           defaultValue={this.state.warehouse.country}
+                           onChange={this.handleChange}
+                           className={`warehouse-edit__field ${
+                              validation.country
+                                 ? ""
+                                 : "warehouse-edit__field--error"
+                           }`}
+                        />
+                        {!validation.country ? (
+                           <div className="warehouse-edit__alert warehouse-edit__alert--adjustment">
+                              <img
+                                 className="warehouse-edit__bang"
+                                 src={errorIcon}
+                                 alt="error exlaimation sign"
+                              />
+                              <p className="warehouse-edit__required">
+                                 This field is required
+                              </p>
+                           </div>
+                        ) : null}
+                     </div>
+                  </div>
+                  <div className="warehouse-edit__card warehouse-edit__card--border">
+                     <div className="warehouse-edit__subheader-housing">
+                        <h2 className="warehouse-edit__subheader warehouse-edit__subheader--contact">
+                           Contact Details
+                        </h2>
+                     </div>
+                     <div className="warehouse-edit__name-housing">
+                        <label className="warehouse-edit__input-label">
+                           Contact Name
+                        </label>
+                        <input
+                           type="name"
+                           name="contactName"
+                           autoComplete="off"
+                           defaultValue={this.state.warehouse.contact.name}
+                           onChange={this.handleChange}
+                           className={`warehouse-edit__field ${
+                              validation.contactName
+                                 ? ""
+                                 : "warehouse-edit__field--error"
+                           }`}
+                        />
+                     </div>
+                     {!validation.contactName ? (
+                        <div className="warehouse-edit__alert">
+                           <img
+                              className="warehouse-edit__bang"
+                              src={errorIcon}
+                              alt="error exlaimation sign"
+                           />
+                           <p className="warehouse-edit__required">
+                              This field is required
+                           </p>
+                        </div>
+                     ) : null}
+                     <div className="warehouse-edit__name-housing">
+                        <label className="warehouse-edit__input-label">
+                           Position
+                        </label>
+                        <input
+                           type="name"
+                           name="position"
+                           autoComplete="off"
+                           defaultValue={this.state.warehouse.contact.position}
+                           onChange={this.handleChange}
+                           className={`warehouse-edit__field ${
+                              validation.position
+                                 ? ""
+                                 : "warehouse-edit__field--error"
+                           }`}
+                        />
+                     </div>
+                     {!validation.position ? (
+                        <div className="warehouse-edit__alert">
+                           <img
+                              className="warehouse-edit__bang"
+                              src={errorIcon}
+                              alt="error exlaimation sign"
+                           />
+                           <p className="warehouse-edit__required">
+                              This field is required
+                           </p>
+                        </div>
+                     ) : null}
+                     <div className="warehouse-edit__name-housing">
+                        <label className="warehouse-edit__input-label">
+                           Phone Number
+                        </label>
+                        <input
+                           type="name"
+                           name="phone"
+                           autoComplete="off"
+                           defaultValue={this.state.warehouse.contact.phone}
+                           onChange={this.handleChange}
+                           className={`warehouse-edit__field ${
+                              validation.phone
+                                 ? ""
+                                 : "warehouse-edit__field--error"
+                           }`}
+                        />
+                     </div>
+                     {!validation.phone ? (
+                        <div className="warehouse-edit__alert">
+                           <img
+                              className="warehouse-edit__bang"
+                              src={errorIcon}
+                              alt="error exlaimation sign"
+                           />
+                           <p className="warehouse-edit__required">
+                              Please enter a valid phone number
+                           </p>
+                        </div>
+                     ) : null}
+                     <div className="warehouse-edit__name-housing warehouse-edit__name-housing--bumper">
+                        <label className="warehouse-edit__input-label">
+                           Email
+                        </label>
+                        <input
+                           type="name"
+                           name="email"
+                           autoComplete="off"
+                           defaultValue={this.state.warehouse.contact.email}
+                           onChange={this.handleChange}
+                           className={`warehouse-edit__field ${
+                              validation.email
+                                 ? ""
+                                 : "warehouse-edit__field--error"
+                           }`}
+                        />
+                        {!validation.email ? (
+                           <div className="warehouse-edit__alert warehouse-edit__alert--adjustment">
+                              <img
+                                 className="warehouse-edit__bang"
+                                 src={errorIcon}
+                                 alt="error exlaimation sign"
+                              />
+                              <p className="warehouse-edit__required">
+                                 Please enter a valid email address
+                              </p>
+                           </div>
+                        ) : null}
+                     </div>
+                  </div>
+                  <div className="warehouse-edit__buttons warehouse-edit__buttons--mobile">
+                     <p
+                        className="warehouse-edit__cancel"
+                        onClick={() => this.props.history.goBack()}
+                     >
+                        Cancel
                      </p>
-                  ) : null}
-                  <form
-                     onSubmit={this.submitHandler}
-                     className="warehouse-edit__form"
-                  >
-                     <div className="warehouse-edit__card">
-                        <div className="warehouse-edit__subheader-housing">
-                           <h2 className="warehouse-edit__subheader">
-                              Warehouse Details
-                           </h2>
-                        </div>
-                        <div className="warehouse-edit__name-housing">
-                           <label className="warehouse-edit__input-label">
-                              Warehouse Name
-                           </label>
-                           <input
-                              type="name"
-                              name="name"
-                              autoComplete="off"
-                              defaultValue={this.state.warehouse.name}
-                              onChange={this.handleChange}
-                              className={`warehouse-edit__field ${
-                                 validation.name
-                                    ? ""
-                                    : "warehouse-edit__field--error"
-                              }`}
-                           />
-                        </div>
-                        {!validation.name ? (
-                           <div className="warehouse-edit__alert">
-                              <img
-                                 className="warehouse-edit__bang"
-                                 src={errorIcon}
-                                 alt="error exlaimation sign"
-                              />
-                              <p className="warehouse-edit__required">
-                                 This field is required
-                              </p>
-                           </div>
-                        ) : null}
-                        <div className="warehouse-edit__name-housing">
-                           <label className="warehouse-edit__input-label">
-                              Street Address
-                           </label>
-                           <input
-                              type="name"
-                              name="address"
-                              autoComplete="off"
-                              defaultValue={this.state.warehouse.address}
-                              onChange={this.handleChange}
-                              className={`warehouse-edit__field ${
-                                 validation.address
-                                    ? ""
-                                    : "warehouse-edit__field--error"
-                              }`}
-                           />
-                        </div>
-                        {!validation.address ? (
-                           <div className="warehouse-edit__alert">
-                              <img
-                                 className="warehouse-edit__bang"
-                                 src={errorIcon}
-                                 alt="error exlaimation sign"
-                              />
-                              <p className="warehouse-edit__required">
-                                 This field is required
-                              </p>
-                           </div>
-                        ) : null}
-                        <div className="warehouse-edit__name-housing">
-                           <label className="warehouse-edit__input-label">
-                              City
-                           </label>
-                           <input
-                              type="name"
-                              name="city"
-                              autoComplete="off"
-                              defaultValue={this.state.warehouse.city}
-                              onChange={this.handleChange}
-                              className={`warehouse-edit__field ${
-                                 validation.city
-                                    ? ""
-                                    : "warehouse-edit__field--error"
-                              }`}
-                           />
-                        </div>
-                        {!validation.city ? (
-                           <div className="warehouse-edit__alert">
-                              <img
-                                 className="warehouse-edit__bang"
-                                 src={errorIcon}
-                                 alt="error exlaimation sign"
-                              />
-                              <p className="warehouse-edit__required">
-                                 This field is required
-                              </p>
-                           </div>
-                        ) : null}
-                        <div className="warehouse-edit__name-housing warehouse-edit__name-housing--bumper">
-                           <label className="warehouse-edit__input-label">
-                              Country
-                           </label>
-                           <input
-                              type="name"
-                              name="country"
-                              autoComplete="off"
-                              defaultValue={this.state.warehouse.country}
-                              onChange={this.handleChange}
-                              className={`warehouse-edit__field ${
-                                 validation.country
-                                    ? ""
-                                    : "warehouse-edit__field--error"
-                              }`}
-                           />
-                           {!validation.country ? (
-                              <div className="warehouse-edit__alert warehouse-edit__alert--adjustment">
-                                 <img
-                                    className="warehouse-edit__bang"
-                                    src={errorIcon}
-                                    alt="error exlaimation sign"
-                                 />
-                                 <p className="warehouse-edit__required">
-                                    This field is required
-                                 </p>
-                              </div>
-                           ) : null}
-                        </div>
-                     </div>
-                     <div className="warehouse-edit__card warehouse-edit__card--border">
-                        <div className="warehouse-edit__subheader-housing">
-                           <h2 className="warehouse-edit__subheader warehouse-edit__subheader--contact">
-                              Contact Details
-                           </h2>
-                        </div>
-                        <div className="warehouse-edit__name-housing">
-                           <label className="warehouse-edit__input-label">
-                              Contact Name
-                           </label>
-                           <input
-                              type="name"
-                              name="contactName"
-                              autoComplete="off"
-                              defaultValue={this.state.warehouse.contact.name}
-                              onChange={this.handleChange}
-                              className={`warehouse-edit__field ${
-                                 validation.contactName
-                                    ? ""
-                                    : "warehouse-edit__field--error"
-                              }`}
-                           />
-                        </div>
-                        {!validation.contactName ? (
-                           <div className="warehouse-edit__alert">
-                              <img
-                                 className="warehouse-edit__bang"
-                                 src={errorIcon}
-                                 alt="error exlaimation sign"
-                              />
-                              <p className="warehouse-edit__required">
-                                 This field is required
-                              </p>
-                           </div>
-                        ) : null}
-                        <div className="warehouse-edit__name-housing">
-                           <label className="warehouse-edit__input-label">
-                              Position
-                           </label>
-                           <input
-                              type="name"
-                              name="position"
-                              autoComplete="off"
-                              defaultValue={
-                                 this.state.warehouse.contact.position
-                              }
-                              onChange={this.handleChange}
-                              className={`warehouse-edit__field ${
-                                 validation.position
-                                    ? ""
-                                    : "warehouse-edit__field--error"
-                              }`}
-                           />
-                        </div>
-                        {!validation.position ? (
-                           <div className="warehouse-edit__alert">
-                              <img
-                                 className="warehouse-edit__bang"
-                                 src={errorIcon}
-                                 alt="error exlaimation sign"
-                              />
-                              <p className="warehouse-edit__required">
-                                 This field is required
-                              </p>
-                           </div>
-                        ) : null}
-                        <div className="warehouse-edit__name-housing">
-                           <label className="warehouse-edit__input-label">
-                              Phone Number
-                           </label>
-                           <input
-                              type="name"
-                              name="phone"
-                              autoComplete="off"
-                              defaultValue={this.state.warehouse.contact.phone}
-                              onChange={this.handleChange}
-                              className={`warehouse-edit__field ${
-                                 validation.phone
-                                    ? ""
-                                    : "warehouse-edit__field--error"
-                              }`}
-                           />
-                        </div>
-                        {!validation.phone ? (
-                           <div className="warehouse-edit__alert">
-                              <img
-                                 className="warehouse-edit__bang"
-                                 src={errorIcon}
-                                 alt="error exlaimation sign"
-                              />
-                              <p className="warehouse-edit__required">
-                                 Please enter a valid phone number
-                              </p>
-                           </div>
-                        ) : null}
-                        <div className="warehouse-edit__name-housing warehouse-edit__name-housing--bumper">
-                           <label className="warehouse-edit__input-label">
-                              Email
-                           </label>
-                           <input
-                              type="name"
-                              name="email"
-                              autoComplete="off"
-                              defaultValue={this.state.warehouse.contact.email}
-                              onChange={this.handleChange}
-                              className={`warehouse-edit__field ${
-                                 validation.email
-                                    ? ""
-                                    : "warehouse-edit__field--error"
-                              }`}
-                           />
-                           {!validation.email ? (
-                              <div className="warehouse-edit__alert warehouse-edit__alert--adjustment">
-                                 <img
-                                    className="warehouse-edit__bang"
-                                    src={errorIcon}
-                                    alt="error exlaimation sign"
-                                 />
-                                 <p className="warehouse-edit__required">
-                                    Please enter a valid email address
-                                 </p>
-                              </div>
-                           ) : null}
-                        </div>
-                     </div>
-                     <div className="warehouse-edit__buttons warehouse-edit__buttons--mobile">
-                        <p
-                           className="warehouse-edit__cancel"
-                           onClick={() => this.props.history.goBack()}
-                        >
-                           Cancel
-                        </p>
-                        <button className="warehouse-edit__save">Save</button>
-                     </div>
-                  </form>
-               </div>
+                     <button className="warehouse-edit__save">Save</button>
+                  </div>
+               </form>
             </div>
-         </div>
+         </>
       );
    }
 }

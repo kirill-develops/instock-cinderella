@@ -61,87 +61,81 @@ class WarehousePage extends ListPageBase {
 
       return (
          <>
-            <div className="warehouse-page">
-               <div className="warehouse-page__inner">
-                  <PageHeader
-                     title={warehouse?.name}
-                     onBack={() => this.props.history.goBack()}
-                     editRoute={
-                        warehouse ? `/warehouses/${warehouse.id}/edit` : null
-                     }
-                  />
-                  <Error apiError={apiError} />
-                  {warehouse && (
-                     <div className="warehouse-page__info-panel">
-                        <div className="warehouse-page__info-body">
-                           <div className="warehouse-page__address">
-                              <div className="warehouse-page__info-group warehouse-page__info-group--mobile">
-                                 <h4 className="warehouse-page__info-label">
-                                    WAREHOUSE ADDRESS:
-                                 </h4>
-                                 <p className="warehouse-page__info-value">{`${warehouse.address}, ${warehouse.city}, ${warehouse.country}`}</p>
-                              </div>
-                              <div className="warehouse-page__info-group warehouse-page__info-group--tablet">
-                                 <h4 className="warehouse-page__info-label">
-                                    WAREHOUSE ADDRESS:
-                                 </h4>
-                                 <p className="warehouse-page__info-value">{`${warehouse.address},`}</p>
-                                 <p className="warehouse-page__info-value">{`${warehouse.city}, ${warehouse.country}`}</p>
-                              </div>
-                           </div>
-                           <div className="warehouse-page__contact">
-                              <div className="warehouse-page__info-group">
-                                 <h4 className="warehouse-page__info-label">
-                                    CONTACT NAME:
-                                 </h4>
-                                 <p className="warehouse-page__info-value">
-                                    {warehouse.contact.name}
-                                 </p>
-                                 <p className="warehouse-page__info-value">
-                                    {warehouse.contact.position}
-                                 </p>
-                              </div>
-                              <div className="warehouse-page__info-group warehouse-page__info-group--padded">
-                                 <h4 className="warehouse-page__info-label">
-                                    CONTACT INFORMATION:
-                                 </h4>
-                                 <p className="warehouse-page__info-value">
-                                    {warehouse.contact.phone}
-                                 </p>
-                                 <p className="warehouse-page__info-value">
-                                    {warehouse.contact.email}
-                                 </p>
-                              </div>
-                           </div>
+            <PageHeader
+               title={warehouse?.name}
+               onBack={() => this.props.history.goBack()}
+               editRoute={warehouse ? `/warehouses/${warehouse.id}/edit` : null}
+            />
+            <Error apiError={apiError} />
+            {warehouse && (
+               <div className="warehouse-page__info-panel">
+                  <div className="warehouse-page__info-body">
+                     <div className="warehouse-page__address">
+                        <div className="warehouse-page__info-group warehouse-page__info-group--mobile">
+                           <h4 className="warehouse-page__info-label">
+                              WAREHOUSE ADDRESS:
+                           </h4>
+                           <p className="warehouse-page__info-value">{`${warehouse.address}, ${warehouse.city}, ${warehouse.country}`}</p>
+                        </div>
+                        <div className="warehouse-page__info-group warehouse-page__info-group--tablet">
+                           <h4 className="warehouse-page__info-label">
+                              WAREHOUSE ADDRESS:
+                           </h4>
+                           <p className="warehouse-page__info-value">{`${warehouse.address},`}</p>
+                           <p className="warehouse-page__info-value">{`${warehouse.city}, ${warehouse.country}`}</p>
                         </div>
                      </div>
-                  )}
-                  {/* <div className="warehouse-page__headers-outer"> */}
-                  {
-                     <TableHeaders
-                        headers={WAREHOUSE_PAGE_HEADERS}
-                        handleSort={this.handleSort}
-                     />
-                  }
-                  {/* </div> */}
-                  {isLoading ? (
-                     <SkeletonTable
-                        rows={6}
-                        columns={5}
-                        flexWeights={[1, 1, 1, 1, 0.5]}
-                     />
-                  ) : (
-                     warehouse?.inventory.map((item) => (
-                        <InventoryListItem
-                           key={item.id}
-                           itemObj={item}
-                           onDelete={this.toggleModal}
-                           isWarehouseView
-                        />
-                     ))
-                  )}
+                     <div className="warehouse-page__contact">
+                        <div className="warehouse-page__info-group">
+                           <h4 className="warehouse-page__info-label">
+                              CONTACT NAME:
+                           </h4>
+                           <p className="warehouse-page__info-value">
+                              {warehouse.contact.name}
+                           </p>
+                           <p className="warehouse-page__info-value">
+                              {warehouse.contact.position}
+                           </p>
+                        </div>
+                        <div className="warehouse-page__info-group warehouse-page__info-group--padded">
+                           <h4 className="warehouse-page__info-label">
+                              CONTACT INFORMATION:
+                           </h4>
+                           <p className="warehouse-page__info-value">
+                              {warehouse.contact.phone}
+                           </p>
+                           <p className="warehouse-page__info-value">
+                              {warehouse.contact.email}
+                           </p>
+                        </div>
+                     </div>
+                  </div>
                </div>
-            </div>
+            )}
+            {/* <div className="warehouse-page__headers-outer"> */}
+            {
+               <TableHeaders
+                  headers={WAREHOUSE_PAGE_HEADERS}
+                  handleSort={this.handleSort}
+               />
+            }
+            {/* </div> */}
+            {isLoading ? (
+               <SkeletonTable
+                  rows={6}
+                  columns={5}
+                  flexWeights={[1, 1, 1, 1, 0.5]}
+               />
+            ) : (
+               warehouse?.inventory.map((item) => (
+                  <InventoryListItem
+                     key={item.id}
+                     itemObj={item}
+                     onDelete={this.toggleModal}
+                     isWarehouseView
+                  />
+               ))
+            )}
             <DeleteModal
                toDeleteId={toDeleteId}
                toDeleteName={toDeleteName}

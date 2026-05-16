@@ -110,34 +110,37 @@ export class EditInventoryItem extends Component {
       const validation = getInventoryFieldValidity(this.state);
 
       return (
-         <div className="inventory">
-            <div className="inventory__outer">
-               <div className="inventory__inner">
-                  <div className="inventory__box">
+         <div className="edit-inventory">
+            <div className="edit-inventory__outer">
+               <div className="edit-inventory__inner">
+                  <div className="edit-inventory__box">
                      <img
                         onClick={() => this.props.history.goBack()}
-                        className="inventory__back"
+                        className="edit-inventory__back"
                         src={arrowBack}
                         alt="back button"
                      />
-                     <h2 className="inventory__title">Edit Inventory Item</h2>
+                     <h2 className="edit-inventory__title">
+                        Edit Inventory Item
+                     </h2>
                   </div>
                   {this.state.apiError ? (
-                     <p className="inventory__required">
+                     <p className="edit-inventory__required">
                         {this.state.apiError}
                      </p>
                   ) : null}
-                  <div className="inventory__section">
+                  <div className="edit-inventory__section">
                      <form
-                        className="inventory__form"
+                        className="edit-
+                        inventory__form"
                         onSubmit={this.submitHandler}
                      >
-                        <div className="inventory__card">
-                           <h3 className="inventory__subheader">
+                        <div className="edit-inventory__card">
+                           <h3 className="edit-inventory__subheader">
                               Item Details
                            </h3>
-                           <div className="inventory__name--housing">
-                              <label className="inventory__label">
+                           <div className="edit-inventory__name--housing">
+                              <label className="edit-inventory__label">
                                  Item Name
                               </label>
                               <input
@@ -149,27 +152,27 @@ export class EditInventoryItem extends Component {
                                  defaultValue={
                                     this.state.inventoryItem.itemName
                                  }
-                                 className={`inventory__item ${
+                                 className={`edit-inventory__item ${
                                     validation.itemName
                                        ? ""
-                                       : "inventory__item--error"
+                                       : "edit-inventory__item--error"
                                  }`}
                               />
                            </div>
                            {!validation.itemName ? (
-                              <div className="inventory__alert">
+                              <div className="edit-inventory__alert">
                                  <img
-                                    className="inventory__bang"
+                                    className="edit-inventory__bang"
                                     src={errorIcon}
                                     alt="error exlaimation sign"
                                  />
-                                 <p className="inventory__required">
+                                 <p className="edit-inventory__required">
                                     This field is required
                                  </p>
                               </div>
                            ) : null}
-                           <div className="inventory__block">
-                              <label className="inventory__label">
+                           <div className="edit-inventory__block">
+                              <label className="edit-inventory__label">
                                  Description
                               </label>
                               <textarea
@@ -181,37 +184,37 @@ export class EditInventoryItem extends Component {
                                  defaultValue={
                                     this.state.inventoryItem.description
                                  }
-                                 className={`inventory__description ${
+                                 className={`edit-inventory__description ${
                                     validation.description
                                        ? ""
-                                       : "inventory__description--error"
+                                       : "edit-inventory__description--error"
                                  }`}
                               ></textarea>
                            </div>
                            {!validation.description ? (
-                              <div className="inventory__alert">
+                              <div className="edit-inventory__alert">
                                  <img
-                                    className="inventory__bang"
+                                    className="edit-inventory__bang"
                                     src={errorIcon}
                                     alt="error exlaimation sign"
                                  />
-                                 <p className="inventory__required">
+                                 <p className="edit-inventory__required">
                                     Minimum 10 characters required
                                  </p>
                               </div>
                            ) : null}
-                           <div className="inventory__block">
-                              <label className="inventory__label">
+                           <div className="edit-inventory__block">
+                              <label className="edit-inventory__label">
                                  Category
                               </label>
                               <select
                                  name="category"
                                  defaultValue={`${this.state.inventoryItem.category}`}
                                  onChange={this.handleChange}
-                                 className={`inventory__dropdown ${
+                                 className={`edit-inventory__dropdown ${
                                     validation.category
                                        ? ""
-                                       : "inventory__item--error"
+                                       : "edit-inventory__item--error"
                                  }`}
                               >
                                  <option value="Health">Health</option>
@@ -226,31 +229,35 @@ export class EditInventoryItem extends Component {
                               </select>
                            </div>
                            {!validation.category ? (
-                              <div className="inventory__alert">
+                              <div className="edit-inventory__alert">
                                  <img
-                                    className="inventory__bang"
+                                    className="edit-inventory__bang"
                                     src={errorIcon}
                                     alt="error exlaimation sign"
                                  />
-                                 <p className="inventory__required">
+                                 <p className="edit-inventory__required">
                                     This field is required
                                  </p>
                               </div>
                            ) : null}
                         </div>
-                        <div className="inventory__divider"></div>
-                        <div className="inventory__card inventory__card--divider">
-                           <h3 className="inventory__subheader">
+                        <div className="edit-inventory__divider"></div>
+                        <div className="edit-inventory__card edit-inventory__card--divider">
+                           <h3 className="edit-inventory__subheader">
                               Item Availability
                            </h3>
-                           <div className="inventory__availability">
-                              <label className="inventory__label">Status</label>
-                              <div className="inventory__details">
-                                 <div className="inventory__stockpile">
+                           <div className="edit-inventory__availability">
+                              <label className="edit-inventory__label">
+                                 Status
+                              </label>
+                              <div className="edit-inventory__details">
+                                 <div className="edit-inventory__stockpile">
                                     <input
-                                       checked={this.state.status === "In Stock"}
+                                       checked={
+                                          this.state.status === "In Stock"
+                                       }
                                        onChange={this.handleChange}
-                                       className="inventory__radio"
+                                       className="edit-inventory__radio"
                                        type="radio"
                                        id="instock"
                                        name="status"
@@ -258,19 +265,19 @@ export class EditInventoryItem extends Component {
                                        htmlFor="instock"
                                     ></input>
                                     <label
-                                       className="inventory__stock"
+                                       className="edit-inventory__stock"
                                        htmlFor="instock"
                                     >
                                        In Stock
                                     </label>
                                  </div>
-                                 <div className="inventory__stockpile inventory__stockpile--push">
+                                 <div className="edit-inventory__stockpile edit-inventory__stockpile--push">
                                     <input
                                        checked={
                                           this.state.status === "Out of Stock"
                                        }
                                        onChange={this.handleChange}
-                                       className="inventory__radio"
+                                       className="edit-inventory__radio"
                                        type="radio"
                                        id="outstock"
                                        name="status"
@@ -278,7 +285,7 @@ export class EditInventoryItem extends Component {
                                        htmlFor="outstock"
                                     ></input>
                                     <label
-                                       className="inventory__stock"
+                                       className="edit-inventory__stock"
                                        htmlFor="outstock"
                                     >
                                        Out of stock
@@ -286,21 +293,21 @@ export class EditInventoryItem extends Component {
                                  </div>
                               </div>
                               {!validation.status ? (
-                                 <div className="inventory__alert">
+                                 <div className="edit-inventory__alert">
                                     <img
-                                       className="inventory__bang"
+                                       className="edit-inventory__bang"
                                        src={errorIcon}
                                        alt="error exlaimation sign"
                                     />
-                                    <p className="inventory__required">
+                                    <p className="edit-inventory__required">
                                        This field is required
                                     </p>
                                  </div>
                               ) : null}
                               {this.isStock() ? (
-                                 <div className="inventory__block">
-                                    <div className="inventory__name--housing">
-                                       <label className="inventory__label">
+                                 <div className="edit-inventory__block">
+                                    <div className="edit-inventory__name--housing">
+                                       <label className="edit-inventory__label">
                                           Quantity
                                        </label>
                                        <input
@@ -311,39 +318,39 @@ export class EditInventoryItem extends Component {
                                           defaultValue={
                                              this.state.inventoryItem.quantity
                                           }
-                                          className={`inventory__item ${
+                                          className={`edit-inventory__item ${
                                              validation.quantity
                                                 ? ""
-                                                : "inventory__item--error"
+                                                : "edit-inventory__item--error"
                                           }`}
                                        />
                                     </div>
                                     {!validation.quantity ? (
-                                       <div className="inventory__alert">
+                                       <div className="edit-inventory__alert">
                                           <img
-                                             className="inventory__bang"
+                                             className="edit-inventory__bang"
                                              src={errorIcon}
                                              alt="error exlaimation sign"
                                           />
-                                          <p className="inventory__required">
+                                          <p className="edit-inventory__required">
                                              This field is required
                                           </p>
                                        </div>
                                     ) : null}
                                  </div>
                               ) : null}
-                              <div className="inventory__block">
-                                 <label className="inventory__label">
+                              <div className="edit-inventory__block">
+                                 <label className="edit-inventory__label">
                                     Warehouse
                                  </label>
                                  <select
                                     name="warehouseName"
                                     defaultValue={`${this.state.inventoryItem.warehouseName}`}
                                     onChange={this.handleChange}
-                                    className={`inventory__dropdown ${
+                                    className={`edit-inventory__dropdown ${
                                        validation.warehouseName
                                           ? ""
-                                          : "inventory__item--error"
+                                          : "edit-inventory__item--error"
                                     }`}
                                  >
                                     {this.state.warehouseArr.map(
@@ -360,13 +367,13 @@ export class EditInventoryItem extends Component {
                                     )}
                                  </select>
                                  {!validation.warehouseName ? (
-                                    <div className="inventory__alert">
+                                    <div className="edit-inventory__alert">
                                        <img
-                                          className="inventory__bang"
+                                          className="edit-inventory__bang"
                                           src={errorIcon}
                                           alt="error exlaimation sign"
                                        />
-                                       <p className="inventory__required">
+                                       <p className="edit-inventory__required">
                                           This field is required
                                        </p>
                                     </div>
@@ -374,15 +381,17 @@ export class EditInventoryItem extends Component {
                               </div>
                            </div>
                         </div>
-                        <div className="inventory__buttons inventory__buttons--mobile">
+                        <div className="edit-inventory__buttons edit-inventory__buttons--mobile">
                            <button
                               type="button"
-                              className="inventory__cancel"
+                              className="edit-inventory__cancel"
                               onClick={() => this.props.history.goBack()}
                            >
                               Cancel
                            </button>
-                           <button className="inventory__save">Save</button>
+                           <button className="edit-inventory__save">
+                              Save
+                           </button>
                         </div>
                      </form>
                   </div>

@@ -3,14 +3,14 @@ import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import Nav from "./components/Nav/Nav";
 import AddWarehousePage from "./components/AddWarehousePage/AddWarehousePage";
 import EditWarehouse from "./components/EditWarehouse/EditWarehouse";
-import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails.js";
-import WarehouseList from "./components/WarehouseList/WarehouseList";
+import WarehousePage from "./Pages/WarehousePage.js";
+import Warehouses from "./Pages/Warehouses.js";
 import EditInventoryItem from "./components/EditInventoryItem/EditInventoryItem.js";
 import ItemDetails from "./components/ItemDetails/ItemDetails";
-import InventoryList from "./components/InventoryList/InventoryList";
+import Inventory from "./Pages/Inventory.js";
 import Footer from "./components/Footer/Footer";
-import "./styles/App.scss";
 import AddInventoryItem from "./components/AddInventoryItem/AddInventoryItem";
+import "./styles/App.scss";
 
 const App = () => {
    return (
@@ -28,12 +28,12 @@ const App = () => {
             <Route
                path="/warehouses/:id"
                exact
-               component={WarehouseDetails}
+               component={WarehousePage}
             />
             <Route
                path="/warehouses"
                exact
-               component={WarehouseList}
+               component={Warehouses}
             />
             <Route
                path="/inventory/add"
@@ -50,7 +50,7 @@ const App = () => {
             <Route
                path="/inventory"
                exact
-               component={InventoryList}
+               component={Inventory}
             />
             <Redirect
                from="/"

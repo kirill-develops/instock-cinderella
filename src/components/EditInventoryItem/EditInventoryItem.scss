@@ -1,235 +1,240 @@
-@use "../../styles/partials/mixins"as *;
-@use "../../styles/partials/variables"as *;
-@use "../../styles/partials/colors"as *;
-@use "../../styles/partials/typography"as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/typography" as *;
 
-.inventory {
-  @include cardConfig;
+.edit-inventory {
+   @include cardConfig;
 
-  &__inner {
-    padding-bottom: 0;
-  }
+   &__inner {
+      padding-bottom: 0;
+   }
 
-  &__title {
-    padding-bottom: $mobile-inner-padding;
-    @include padding-horizontal-inner;
-    @include font-header;
-    padding-left: 0.5rem;
-
-    @include tablet {
+   &__title {
+      padding-bottom: $mobile-inner-padding;
+      @include padding-horizontal-inner;
+      @include font-header;
       padding-left: 0.5rem;
-    }
-  }
-
-  &__box {
-    display: flex;
-    align-items: baseline;
-    border-bottom: solid 1px $color-outline-divider-border-tableSort;
-
-    @include tablet {
-      padding-bottom: 0.2rem;
-    }
-  }
-
-  &__back {
-    margin-left: 1rem;
-
-    @include tablet {
-      margin-left: 2rem;
-    }
-  }
-
-  &__section {
-    display: flex;
-    flex-direction: column;
-  }
-
-  &__card {
-    @include padding-horizontal-inner;
-    width: 100%;
-
-    @include tablet {
-      margin-top: 2rem;
-      margin-bottom: 1rem;
-      width: 50%;
-    }
-
-    &--divider {
-      margin-top: 1.5rem;
-      border-top: solid 1px $color-outline-divider-border-tableSort;
 
       @include tablet {
-        @include divider-left;
-        margin-top: 2rem;
-        border-top: none;
+         padding-left: 0.5rem;
       }
-    }
-  }
+   }
 
-  &__subheader {
-    @include font-subheader;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-
-    @include tablet {
-      padding-top: 0rem;
-      padding-bottom: 2rem;
-    }
-  }
-
-  &__form {
-
-    @include tablet {
+   &__box {
       display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-  }
+      align-items: baseline;
+      border-bottom: solid 1px $color-outline-divider-border-tableSort;
 
-  &__label {
-    @include font-labels-links-buttons;
-  }
+      @include tablet {
+         padding-bottom: 0.2rem;
+      }
+   }
 
-  &__item {
-    @include form;
+   &__back {
+      margin-left: 1rem;
 
-    &:focus {
-      border-color: $color-instock-indigo;
-    }
+      @include tablet {
+         margin-left: 2rem;
+      }
+   }
 
-    &--error {
-      border: solid 1px $color-outStock;
-    }
-  }
+   &__section {
+      display: flex;
+      flex-direction: column;
+   }
 
-  &__alert {
-    display: flex;
-    align-items: center;
-    padding-top: 0.25rem;
-    background-color: $color-white;
-  }
+   &__card {
+      @include padding-horizontal-inner;
+      width: 100%;
 
-  &__bang {
-    height: 1rem;
-    width: 1rem;
-    margin-right: 0.5rem;
-  }
+      @include tablet {
+         margin-top: 2rem;
+         margin-bottom: 1rem;
+         width: 50%;
+      }
 
-  &__required {
-    font-size: 0.8rem;
-    color: $color-red;
-  }
+      &--divider {
+         margin-top: 1.5rem;
+         border-top: solid 1px $color-outline-divider-border-tableSort;
 
-  &__description {
-    @include form;
-    height: 8rem;
-    resize: none;
-    padding-top: 1rem;
-    font-family: $font-stack;
-    @include font-body-med;
+         @include tablet {
+            @include divider-left;
+            margin-top: 2rem;
+            border-top: none;
+         }
+      }
+   }
 
-    &:focus {
-      border-color: $color-instock-indigo;
-    }
+   &__subheader {
+      @include font-subheader;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
 
-    &--error {
-      border: solid 1px $color-outStock;
-    }
+      @include tablet {
+         padding-top: 0rem;
+         padding-bottom: 2rem;
+      }
+   }
 
-    @include tablet {
+   &__form {
+      @include tablet {
+         display: flex;
+         justify-content: center;
+         flex-wrap: wrap;
+      }
+   }
+
+   &__label {
+      @include font-labels-links-buttons;
+   }
+
+   &__item {
+      @include form;
+
+      &:focus {
+         border-color: $color-instock-indigo;
+      }
+
+      &--error {
+         border: solid 1px $color-outStock;
+      }
+   }
+
+   &__alert {
+      display: flex;
+      align-items: center;
+      padding-top: 0.25rem;
+      background-color: $color-white;
+   }
+
+   &__bang {
+      height: 1rem;
+      width: 1rem;
+      margin-right: 0.5rem;
+   }
+
+   &__required {
+      font-size: 0.8rem;
+      color: $color-red;
+   }
+
+   &__description {
+      @include form;
       height: 8rem;
-    }
-  }
+      resize: none;
+      padding-top: 1rem;
+      font-family: $font-stack;
+      @include font-body-med;
 
-  &__dropdown {
-    appearance: none;
-    border: none;
-    background-image: linear-gradient(45deg, transparent 50%, gray 50%),
-      linear-gradient(135deg, gray 50%, transparent 50%),
-      linear-gradient(to right, #ccc, #ccc);
-    background-position: calc(100% - 20px) calc(1em + 2px),
-      calc(100% - 15px) calc(1em + 2px), calc(100% - 2.5em) 0.5em;
-    background-size: 5px 5px, 5px 5px, 1px 1.5em;
-    background-repeat: no-repeat;
-  }
+      &:focus {
+         border-color: $color-instock-indigo;
+      }
 
-  &__block {
-    padding-top: 0.75rem;
+      &--error {
+         border: solid 1px $color-outStock;
+      }
 
-    @include tablet {
-      padding-top: 1.5rem;
-    }
-  }
+      @include tablet {
+         height: 8rem;
+      }
+   }
 
-  &__dropdown {
-    @include form;
-  }
+   &__dropdown {
+      appearance: none;
+      border: none;
+      background-image:
+         linear-gradient(45deg, transparent 50%, gray 50%),
+         linear-gradient(135deg, gray 50%, transparent 50%),
+         linear-gradient(to right, #ccc, #ccc);
+      background-position:
+         calc(100% - 20px) calc(1em + 2px),
+         calc(100% - 15px) calc(1em + 2px),
+         calc(100% - 2.5em) 0.5em;
+      background-size:
+         5px 5px,
+         5px 5px,
+         1px 1.5em;
+      background-repeat: no-repeat;
+   }
 
-  &__stockpile {
-    display: flex;
-    align-items: baseline;
+   &__block {
+      padding-top: 0.75rem;
 
-    &--push {
-      padding-right: 1rem;
-    }
-  }
+      @include tablet {
+         padding-top: 1.5rem;
+      }
+   }
 
-  &__availability {
-    display: flex;
-    flex-direction: column;
-  }
+   &__dropdown {
+      @include form;
+   }
 
-  &__details {
-    display: flex;
-    justify-content: space-between;
+   &__stockpile {
+      display: flex;
+      align-items: baseline;
 
-    @include tablet {
-      width: 15rem;
-    }
-  }
+      &--push {
+         padding-right: 1rem;
+      }
+   }
 
-  &__radio {
-    margin-right: 0.5rem;
+   &__availability {
+      display: flex;
+      flex-direction: column;
+   }
 
-    &--none {
-      display: none;
-    }
-  }
+   &__details {
+      display: flex;
+      justify-content: space-between;
 
-  &__stock {
-    @include font-body-med;
-  }
+      @include tablet {
+         width: 15rem;
+      }
+   }
 
-  &__buttons {
-    display: flex;
-    flex-direction: row;
-    @include padding-horizontal-outer;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-    margin-top: 1rem;
-    padding-bottom: 1rem;
-    padding-top: 1rem;
-    justify-content: space-between;
-    background-color: $color-lightgrey;
+   &__radio {
+      margin-right: 0.5rem;
 
-    @include tablet {
-      width: 100%;
-      justify-content: flex-end;
-    }
+      &--none {
+         display: none;
+      }
+   }
 
-    @include desktop {
-      width: 100%;
-      padding-right: 3rem;
-    }
-  }
+   &__stock {
+      @include font-body-med;
+   }
 
-  &__cancel {
-    @include secondary-cta-default;
-    @include font-labels-links-buttons;
-    margin-right: 1rem;
-  }
+   &__buttons {
+      display: flex;
+      flex-direction: row;
+      @include padding-horizontal-outer;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+      margin-top: 1rem;
+      padding-bottom: 1rem;
+      padding-top: 1rem;
+      justify-content: space-between;
+      background-color: $color-lightgrey;
 
-  &__save {
-    @include primary-cta-default;
-  }
+      @include tablet {
+         width: 100%;
+         justify-content: flex-end;
+      }
+
+      @include desktop {
+         width: 100%;
+         padding-right: 3rem;
+      }
+   }
+
+   &__cancel {
+      @include secondary-cta-default;
+      @include font-labels-links-buttons;
+      margin-right: 1rem;
+   }
+
+   &__save {
+      @include primary-cta-default;
+   }
 }

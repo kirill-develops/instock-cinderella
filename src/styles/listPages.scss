@@ -1,0 +1,183 @@
+@use "../styles/partials/colors" as *;
+@use "../styles/partials/variables" as *;
+@use "../styles/partials/mixins" as *;
+@use "../styles/partials/pageList" as *;
+
+// ─── Warehouses Page ──────────────────────────────────────────────────────────
+.warehouses {
+   @include pageList("../../assets/icons/search-24px.svg");
+}
+
+// ─── Inventory Page ───────────────────────────────────────────────────────────
+.inventory {
+   @include pageList("../../assets/icons/search-24px.svg");
+}
+
+// ─── Warehouse Page (single warehouse detail) ─────────────────────────────────
+.warehouse-page {
+   @include pageBase; // gets cardConfig, __title, __headers, __error, __delete
+
+   &__back-btn {
+      @include button-icon-wrapper;
+      margin-right: 1rem;
+
+      @include tablet {
+         margin-right: 0.5rem;
+      }
+   }
+
+   &__headline {
+      align-items: center;
+      background-color: $color-white;
+      display: flex;
+      flex-direction: row;
+      font-size: 0.8rem;
+      justify-content: space-around;
+      padding-bottom: 1rem;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+
+      @include tablet {
+         margin-bottom: 0px;
+         padding-bottom: 1.2rem;
+         padding-left: 2rem;
+         padding-right: 2rem;
+      }
+   }
+
+   &__headers {
+      @include tabletHeaders;
+      background-color: $color-white;
+   }
+
+   &__title {
+      margin-right: auto;
+      padding: 0;
+   }
+
+   &__edit-btn {
+      @include primary-cta-default;
+      height: 2rem;
+      width: 2rem;
+      cursor: pointer;
+
+      @include tablet {
+         height: 36px;
+         width: 5rem;
+      }
+   }
+
+   &__edit-icon {
+      width: 1rem;
+      height: 1rem;
+
+      @include tablet {
+         margin-left: 1rem;
+         margin-right: 0.5rem;
+      }
+   }
+
+   &__edit-label {
+      display: none;
+
+      @include tablet {
+         display: flex;
+         color: $color-white;
+         text-decoration: underline;
+         text-decoration-color: $color-instock-indigo;
+         padding-right: 1.5rem;
+      }
+   }
+
+   // info panel — unique to this page
+   &__info-panel {
+      @include divider-top;
+      background-color: $color-lightgrey;
+   }
+
+   &__info-body {
+      background-color: $color-white;
+
+      @include tablet {
+         padding: 1rem 0;
+         display: flex;
+      }
+   }
+
+   &__address {
+      @include padding-horizontal-inner;
+
+      @include tablet {
+         border-right: 1px solid $color-outline-divider-border-tableSort;
+         padding-right: 7rem;
+         padding-left: 1rem;
+      }
+
+      @include desktop {
+         padding-right: 14rem;
+         padding-left: 1.5rem;
+      }
+   }
+
+   &__contact {
+      @include padding-horizontal-inner;
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem 1.5rem;
+
+      @include tablet {
+         justify-content: flex-end;
+         padding: 0 0 0 2rem;
+         margin-right: auto;
+      }
+   }
+
+   &__info-group {
+      display: flex;
+      flex-direction: column;
+      line-height: 20px;
+
+      @include tablet {
+         padding-left: 1rem;
+      }
+
+      &--mobile {
+         @include tablet {
+            display: none;
+         }
+      }
+
+      &--tablet {
+         display: none;
+
+         @include tablet {
+            display: flex;
+         }
+      }
+
+      &--padded {
+         @include tablet {
+            padding-left: 6rem;
+         }
+
+         @include desktop {
+            padding-left: 8rem;
+         }
+      }
+   }
+
+   &__info-label {
+      @include font-table-header;
+      color: $color-table-header;
+      padding-top: 1rem;
+
+      @include tablet {
+         padding: 0;
+      }
+   }
+
+   &__info-value {
+      @include font-body-sml;
+      line-height: 20px;
+   }
+}

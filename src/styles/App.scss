@@ -1,28 +1,29 @@
-@use './partials/typography'as *;
-@use './partials/colors'as *;
-@use './partials/variables'as *;
+@use "./partials/typography" as *;
+@use "./partials/colors" as *;
+@use "./partials/variables" as *;
 
 * {
-  margin: 0;
-  box-sizing: border-box;
-  transition: 0.5s;
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   transition: 0.2s;
 }
 
 html {
-  font-family: $font-stack;
-  font-size: $root-font-size;
-  color: $color-instock-black;
-  height: 100%;
+   font-family: $font-stack;
+   font-size: $root-font-size;
+   color: $color-instock-black;
+   height: 100%;
 }
 
 body {
-  background-color: $color-background-light;
-  height: 100%;
+   background-color: $color-background-light;
+   height: 100%;
 }
 
 #root {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+   height: 100%;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
 }

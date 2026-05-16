@@ -3,7 +3,6 @@ import React from "react";
 import "./SkeletonTable.scss";
 
 function SkeletonTable({ rows = 6, columns = 5, flexWeights = [] }) {
-   console.log(flexWeights);
    return (
       <div className="skeleton-table">
          {Array.from({ length: rows }).map((_, rowIndex) => (

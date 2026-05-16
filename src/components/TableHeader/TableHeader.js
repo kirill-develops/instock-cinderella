@@ -6,7 +6,7 @@ const TableHeader = ({ header, handleSort }) => {
    return (
       <div
          className="header"
-         style={{ flex: header.flex }}
+         style={{ flex: `${header.flex} 1 0` }}
       >
          <>
             <h3 className="header__label">{header.name}</h3>

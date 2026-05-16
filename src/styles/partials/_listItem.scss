@@ -1,0 +1,140 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/colors" as *;
+
+// ─── List Item Shared Structure ──────────────────────────────────────────────
+@mixin listItemBase {
+   background-color: $color-background-light;
+
+   &:last-child {
+      border-bottom: none;
+      border-bottom-left-radius: 3px;
+      border-bottom-right-radius: 3px;
+   }
+
+   &__block {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding-top: $mobile-outer-padding;
+      width: 100%;
+   }
+
+   &__info {
+      @include font-body-med;
+      white-space: initial;
+      padding-top: 4px;
+
+      &--main {
+         color: $color-instock-indigo;
+         padding-top: 4px;
+      }
+
+      &--main-link {
+         @include link;
+      }
+
+      &--out-stock {
+         margin-top: 4px;
+         padding-top: 0;
+         @include tag-out-stock;
+      }
+
+      &--in-stock {
+         margin-top: 4px;
+         padding-top: 0;
+         @include tag-in-stock;
+      }
+   }
+
+   &__label {
+      @include font-table-header;
+      display: inline-block;
+      width: 50%;
+      padding-right: $mobile-totalHorizontal-padding;
+      padding-bottom: $mobile-outer-padding;
+      white-space: nowrap;
+
+      @include tablet {
+         padding-right: $mobile-outer-padding;
+         flex: 1;
+         display: flex;
+         flex-direction: column;
+         align-items: flex-start;
+         justify-content: center;
+
+         &--txt {
+            display: none;
+         }
+      }
+   }
+
+   &__actions-block {
+      padding-right: $mobile-inner-padding;
+      display: inline-flex;
+      margin-left: auto;
+      align-items: center;
+      gap: 0.5rem;
+      justify-content: flex-end;
+
+      @include tablet {
+         flex: 0.5;
+         gap: 0;
+         width: fit-content;
+         align-items: center;
+         padding-right: 0;
+         padding-bottom: $mobile-outer-padding;
+      }
+   }
+
+   &__delete-btn {
+     @include button-icon-wrapper;
+   }
+
+   &__link {
+      height: $icon-height;
+
+      @include tablet {
+         margin-left: $mobile-outer-padding;
+      }
+   }
+
+   &__icon {
+      height: $icon-height;
+
+      &--delete {
+         @extend #{&};
+
+         &:hover {
+            cursor: pointer;
+         }
+      }
+
+      &--edit {
+         @extend #{&};
+      }
+   }
+}
+
+// ─── List Item Inner Card ─────────────────
+@mixin listItemInner {
+   @include divider-top;
+   @include padding-horizontal-inner;
+   @include site-border;
+   padding-right: 0;
+   padding-bottom: 1.68rem;
+
+   @include tablet {
+      border-top: none;
+      @include divider-bottom;
+      padding-bottom: 0;
+   }
+
+   &:hover {
+      background-color: rgba(46, 102, 230, 0.07);
+   }
+
+   &:first-child {
+      box-shadow: 0px 5px 5px rgba(19, 24, 44, 0.1);
+   }
+}

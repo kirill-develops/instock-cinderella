@@ -55,82 +55,82 @@
 
 @mixin font-header {
    font-weight: 600;
-   font-size: 28px;
-   line-height: 36px;
+   font-size: 1.75rem;
+   line-height: 2.25rem;
 
    @include tablet {
-      font-size: 32px;
-      line-height: 40px;
+      font-size: 2rem;
+      line-height: 2.5rem;
    }
 }
 
 @mixin font-subheader {
    font-weight: 600;
-   font-size: 20px;
-   line-height: 28px;
+   font-size: 1.25rem;
+   line-height: 1.75rem;
 
    @include tablet {
-      font-size: 24px;
-      line-height: 32px;
+      font-size: 1.5rem;
+      line-height: 2rem;
    }
 }
 
 @mixin font-labels-links-buttons {
    font-weight: 600;
-   font-size: 13px;
-   line-height: 20px;
+   font-size: 0.8125rem;
+   line-height: 1.25rem;
 
    @include tablet {
-      font-size: 14px;
-      line-height: 22px;
+      font-size: 0.875rem;
+      line-height: 1.375rem;
    }
 }
 
 @mixin font-table-header {
    color: $color-table-header;
    font-weight: 600;
-   font-size: 11px;
-   line-height: 16px;
+   font-size: 0.6875rem;
+   line-height: 1rem;
 
    @include tablet {
-      font-size: 12px;
-      line-height: 18px;
+      font-size: 0.75rem;
+      line-height: 1.125rem;
    }
 }
 
 @mixin font-body-lrg {
    color: $color-instock-black;
    font-weight: 400;
-   font-size: 15px;
-   line-height: 26px;
+   font-size: 0.9375rem;
+   line-height: 1.625rem;
 
    @include tablet {
-      font-size: 16px;
-      line-height: 28px;
+      font-size: 1rem;
+      line-height: 1.75rem;
    }
 }
 
 @mixin font-body-med {
    color: $color-instock-black;
    font-weight: 400;
-   font-size: 13px;
-   line-height: 20px;
+   font-size: 0.8125rem;
+   line-height: 1.25rem;
 
    @include tablet {
-      font-size: 14px;
-      line-height: 22px;
+      font-size: 0.875rem;
+      line-height: 1.375rem;
    }
 }
 
 @mixin font-body-sml {
    color: $color-instock-black;
    font-weight: 400;
-   font-size: 11px;
-   line-height: 16px;
+   font-size: 0.6875rem;
+   line-height: 1rem;
 
    @include tablet {
-      font-size: 12px;
-      line-height: 18px;
+      font-size: 0.75rem;
+      line-height: 1.125rem;
    }
 }
 
@@ -154,21 +154,25 @@
 }
 
 @mixin primary-cta-default {
-   height: 2.25rem;
-   width: 100%;
-   border-radius: 1.25rem;
    @include font-labels-links-buttons;
    padding-left: $mobile-outer-padding;
    padding-right: $mobile-outer-padding;
+   height: 2.25rem;
+   min-width: 2.25rem;
+   width: 100%;
+   border-radius: 1.25rem;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 0.5rem;
    background-color: $color-instock-indigo;
    color: $color-white;
    text-decoration: none;
    border: none;
-   display: flex;
-   justify-content: center;
-   align-items: center;
 
    @include tablet {
+      padding-left: $tablet-outer-padding;
+      padding-right: $tablet-outer-padding;
       height: 38px;
       width: fit-content;
    }
@@ -338,15 +342,14 @@
 }
 
 @mixin button-icon-wrapper {
-   background-color: transparent;
    cursor: pointer;
+   background-color: transparent;
    background: none;
    border: none;
-   padding: 0;
-   cursor: pointer;
    display: flex;
    align-items: center;
    height: $icon-height;
+   padding: 0;
 
    &:focus-visible {
       outline: 2px solid $color-instock-indigo;

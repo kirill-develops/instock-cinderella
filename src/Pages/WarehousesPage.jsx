@@ -5,7 +5,7 @@ import TableHeaders from "../components/TableHeaders/TableHeaders";
 import WarehouseListItem from "../components/ListRow/WarehouseListItem/WarehouseListItem";
 import DeleteModal from "../components/DeleteModal/DeleteModal";
 import SkeletonTable from "../components/SkeletonTable/SkeletonTable";
-import ListHeader from "../components/ListHeader/ListHeader";
+import ListPageHeader from "../components/ListPageHeader/ListPageHeader";
 import Error from "../components/Error/Error";
 import "../styles/listPages.scss";
 
@@ -48,7 +48,7 @@ class Warehouses extends ListPageBase {
 
       return (
          <>
-            <ListHeader
+            <ListPageHeader
                title={"Warehouses"}
                ctaRoute="/warehouses/add"
                ctaText="Add New Warehouse"

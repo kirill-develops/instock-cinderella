@@ -5,7 +5,7 @@ import TableHeaders from "../components/TableHeaders/TableHeaders";
 import InventoryListItem from "../components/ListRow/InventoryListItem/InventoryListItem";
 import DeleteModal from "../components/DeleteModal/DeleteModal";
 import SkeletonTable from "../components/SkeletonTable/SkeletonTable";
-import ListHeader from "../components/ListHeader/ListHeader";
+import ListPageHeader from "../components/ListPageHeader/ListPageHeader";
 import Error from "../components/Error/Error";
 import "../styles/listPages.scss";
 
@@ -42,7 +42,7 @@ class Inventory extends ListPageBase {
 
       return (
          <>
-            <ListHeader
+            <ListPageHeader
                title={"Inventory"}
                ctaRoute="/inventory/add"
                ctaText="Add New Item"

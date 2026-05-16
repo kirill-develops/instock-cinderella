@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
-import "./ListHeader.scss";
+import "./ListPageHeader.scss";
 
-// src/components/ListHeader/ListHeader.jsx
-const ListHeader = ({ title, ctaRoute, ctaText }) => (
+const ListPageHeader = ({ title, ctaRoute, ctaText }) => (
    <div className="list-header">
       <h1 className="list-header__title">{title}</h1>
       <div className="list-header__actions">
@@ -26,4 +25,4 @@ const ListHeader = ({ title, ctaRoute, ctaText }) => (
    </div>
 );
 
-export default ListHeader;
+export default ListPageHeader;

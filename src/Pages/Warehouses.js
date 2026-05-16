@@ -93,7 +93,7 @@ class Warehouses extends ListPageBase {
                         <WarehouseListItem
                            key={warehouseObj.id}
                            warehouseObj={warehouseObj}
-                           handleDelete={this.handleDelete}
+                           toggleModal={this.toggleModal}
                         />
                      ))
                   )}

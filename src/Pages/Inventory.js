@@ -87,7 +87,7 @@ class Inventory extends ListPageBase {
                         <InventoryListItem
                            key={itemObj.id}
                            itemObj={itemObj}
-                           handleDelete={this.handleDelete}
+                           toggleModal={this.toggleModal}
                         />
                      ))
                   )}

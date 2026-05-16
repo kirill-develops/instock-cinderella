@@ -5,7 +5,7 @@ import DeleteIco from "../../assets/icons/delete_outline-24px.svg";
 import EditIco from "../../assets/icons/edit-24px.svg";
 import "./InventoryListItem.scss";
 
-const InventoryList = ({ itemObj, handleDelete, isWarehouseView = false }) => {
+const InventoryList = ({ itemObj, toggleModal, isWarehouseView = false }) => {
    const { category, itemName, id, quantity, status, warehouseName } = itemObj;
 
    return (
@@ -52,7 +52,7 @@ const InventoryList = ({ itemObj, handleDelete, isWarehouseView = false }) => {
                )}
                <div className="inventory-item__actions-block">
                   <button
-                     onClick={() => handleDelete(id, itemName)}
+                     onClick={() => toggleModal(id, itemName)}
                      className="inventory-item__delete-btn"
                      aria-label={`Delete ${itemName}`}
                   >

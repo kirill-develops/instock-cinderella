@@ -159,7 +159,7 @@ class WarehousePage extends ListPageBase {
                         <InventoryListItem
                            key={item.id}
                            itemObj={item}
-                           handleDelete={this.handleDelete}
+                           toggleModal={this.toggleModal}
                            isWarehouseView
                         />
                      ))

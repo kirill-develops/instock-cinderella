@@ -1,43 +1,16 @@
-import { Component } from "react";
 import { getRequestErrorMessage } from "./requestUtils";
+import QueryPageBase from "./QueryPageBase";
 
-class ListPageBase extends Component {
+class ListPageBase extends QueryPageBase {
    // subclasses implement these:
    // fetchData(id)         — returns a Promise
    // getDataArray(state)   — returns the array to sort
    // setDataArray(arr)     — returns partial state to set
    // getSortableValue(obj, key) — optional, defaults to obj[key]
 
-   componentDidMount() {
-      this.loadData();
-   }
+   setData = (data) => this.setDataArray(data);
 
-   componentDidUpdate(prevProps) {
-      const { id: prevId } = prevProps.match.params;
-      const { id: currentId } = this.props.match.params;
-      if (prevId !== currentId) this.loadData();
-   }
-
-   loadData = () => {
-      const { id } = this.props.match.params;
-      this.setState({ isLoading: true, apiError: "" });
-
-      this.fetchData(id)
-         .then((data) => {
-            this.setState({ ...this.setDataArray(data), isLoading: false });
-         })
-         .catch((err) => {
-            this.setState({
-               apiError: getRequestErrorMessage(
-                  err,
-                  "Error fetching data. Please try again.",
-               ),
-               isLoading: false,
-            });
-         });
-   };
-
-   handleDelete = (id, name) => {
+   toggleModal = (id, name) => {
       this.setState({ toDeleteId: id, toDeleteName: name });
    };
 

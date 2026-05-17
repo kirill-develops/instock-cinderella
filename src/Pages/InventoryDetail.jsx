@@ -35,6 +35,8 @@ class InventoryItemPage extends QueryPageBase {
          apiError,
       } = this.state;
 
+      console.log(this.state);
+
       return (
          <>
             <PageHeader
@@ -42,7 +44,7 @@ class InventoryItemPage extends QueryPageBase {
                onBack={() => this.props.history.goBack()}
                editRoute={`/inventory/${id}/edit`}
             />
-            <PageError error={apiError} />
+            <PageError apiError={apiError} />
             <div className="item-details__block">
                <div className="item-details__highlights">
                   <div className="item-details__label--description">

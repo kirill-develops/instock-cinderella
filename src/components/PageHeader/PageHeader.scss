@@ -3,7 +3,7 @@
 @use "../../styles/partials/colors" as *;
 
 .page-header {
-   @include padding-horizontal-inner;
+   @include cardConfig;
    padding-bottom: 1rem;
    background-color: $color-white;
    border-bottom: solid 1px $color-outline-divider-border-tableSort;

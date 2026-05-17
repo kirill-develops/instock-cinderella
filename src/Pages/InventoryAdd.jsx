@@ -6,6 +6,7 @@ import {
    getInventoryFieldValidity,
    getInventoryPayload,
 } from "../utils/inventoryFormUtils";
+import SkeletonView from "../components/SkeletonView/SkeletonView";
 
 class AddInventoryItem extends FormPageBase {
    constructor(props) {
@@ -34,9 +35,7 @@ class AddInventoryItem extends FormPageBase {
    isInStock = () => this.state.status === "In Stock";
 
    render() {
-      if (this.state.loading) {
-         return <p>Loading...</p>;
-      }
+      if (this.state.loading) return <SkeletonView variant="inventory" />;
 
       return (
          <InventoryForm

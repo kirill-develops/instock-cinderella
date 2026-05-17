@@ -7,6 +7,7 @@ import {
    getWarehousePayload,
    isWarehouseFormValid,
 } from "../utils/warehouseFormUtils";
+import SkeletonView from "../components/SkeletonView/SkeletonView";
 
 class EditWarehouse extends FormPageBase {
    getInitialFields = () => ({
@@ -51,7 +52,7 @@ class EditWarehouse extends FormPageBase {
    getRedirectPath = () => `/warehouses/${this.props.match.params.id}`;
 
    render() {
-      if (this.state.loading) return <p>Loading...</p>;
+      if (this.state.loading) return <SkeletonView variant="warehouse" />;
 
       return (
          <WarehouseForm

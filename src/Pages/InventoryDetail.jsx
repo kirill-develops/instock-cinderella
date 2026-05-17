@@ -3,6 +3,7 @@ import apiUtils from "../utils/apiUtils";
 import QueryPageBase from "../utils/QueryPageBase";
 import PageHeader from "../components/PageHeader/PageHeader";
 import "../styles/Pages.scss";
+import SkeletonView from "../components/SkeletonView/SkeletonView";
 
 class InventoryItemPage extends QueryPageBase {
    constructor(props) {
@@ -32,9 +33,12 @@ class InventoryItemPage extends QueryPageBase {
             warehouseName,
             quantity,
             status,
+            isLoading,
          },
          apiError,
       } = this.state;
+
+      if (isLoading) return <SkeletonView variant="detail" />;
 
       return (
          <>

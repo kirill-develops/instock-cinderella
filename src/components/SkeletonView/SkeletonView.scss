@@ -1,0 +1,214 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+// Defined outside .skeleton-form so @extend works across all nested selectors
+%shimmer {
+   background: linear-gradient(
+      90deg,
+      $color-cloud 20%,
+      $color-white 50%,
+      $color-cloud 80%
+   );
+   background-size: 220% 100%;
+   animation: skeleton-shimmer 1.2s ease-in-out infinite;
+   border-radius: 0.25rem;
+}
+
+@keyframes skeleton-shimmer {
+   0% {
+      background-position: 100% 0;
+   }
+
+   100% {
+      background-position: -100% 0;
+   }
+}
+
+.skeleton-form {
+   width: 100%;
+
+   // ── Shared header ─────────────────────────────────
+   &__header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: $mobile-inner-padding $mobile-outer-padding;
+
+      @include tablet {
+         padding: $mobile-inner-padding $tablet-outer-padding;
+      }
+   }
+
+   &__back {
+      @extend %shimmer;
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 50%;
+      flex-shrink: 0;
+   }
+
+   &__title {
+      @extend %shimmer;
+      height: 1.75rem;
+      width: 14rem;
+   }
+
+   &__edit-button {
+      @extend %shimmer;
+      width: 5rem;
+      height: 2.25rem;
+      border-radius: 2rem;
+      margin-left: auto;
+      flex-shrink: 0;
+   }
+
+   // ── Form variant ──────────────────────────────────
+   &__body {
+      display: flex;
+      flex-direction: column;
+
+      @include tablet {
+         flex-direction: row;
+         justify-content: center;
+      }
+   }
+
+   &__card {
+      @include padding-horizontal-inner;
+      display: flex;
+      flex-direction: column;
+
+      @include tablet {
+         width: 50%;
+         margin-top: 1.5rem;
+         margin-bottom: 1.5rem;
+      }
+
+      &--border {
+         @include tablet {
+            @include divider-left;
+         }
+      }
+   }
+
+   &__section-title {
+      @extend %shimmer;
+      height: 1.25rem;
+      width: 10rem;
+      margin-top: 1rem;
+      margin-bottom: 1.5rem;
+   }
+
+   &__field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      padding-top: 0.75rem;
+
+      @include tablet {
+         padding-top: 1.5rem;
+      }
+   }
+
+   &__label {
+      @extend %shimmer;
+      height: 0.75rem;
+      width: 6rem;
+   }
+
+   &__input {
+      @extend %shimmer;
+      height: 2.5rem;
+      width: 100%;
+      border-radius: 0.5rem;
+
+      &--tall {
+         height: 8rem;
+      }
+   }
+
+   &__radio-group {
+      display: flex;
+      gap: 1.5rem;
+   }
+
+   &__radio-option {
+      @extend %shimmer;
+      height: 1.25rem;
+      width: 5rem;
+      border-radius: 1rem;
+   }
+
+   &__buttons {
+      @include padding-horizontal-inner;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      display: flex;
+      gap: 1rem;
+
+      @include tablet {
+         justify-content: flex-end;
+      }
+   }
+
+   &__button {
+      @extend %shimmer;
+      height: 2.5rem;
+      width: 7rem;
+      border-radius: 2rem;
+
+      &--primary {
+         width: 9rem;
+      }
+   }
+
+   // ── Detail variant ────────────────────────────────
+   &__detail-card {
+      // margin: $mobile-inner-padding $mobile-outer-padding;
+      display: flex;
+      flex-direction: column;
+
+      @include tablet {
+         flex-direction: row;
+         // margin: $mobile-inner-padding $tablet-outer-padding;
+      }
+   }
+
+   &__detail-column {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      padding: 1.5rem;
+      flex: 1;
+   }
+
+   &__detail-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+   }
+
+   &__detail-label {
+      @extend %shimmer;
+      height: 0.6rem;
+      width: 5rem;
+   }
+
+   &__detail-value {
+      @extend %shimmer;
+      height: 1rem;
+      width: 80%;
+
+      &--short {
+         width: 55%;
+      }
+   }
+
+   &__detail-chip {
+      @extend %shimmer;
+      height: 1.75rem;
+      width: 5.5rem;
+      border-radius: 1rem;
+   }
+}

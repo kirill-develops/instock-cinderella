@@ -7,6 +7,7 @@ import {
    getWarehousePayload,
    isWarehouseFormValid,
 } from "../utils/warehouseFormUtils";
+import SkeletonView from "../components/SkeletonView/SkeletonView";
 
 class AddWarehousePage extends FormPageBase {
    constructor(props) {
@@ -32,7 +33,7 @@ class AddWarehousePage extends FormPageBase {
    getRedirectPath = () => "/warehouses";
 
    render() {
-      if (this.state.loading) return <p>Loading...</p>;
+      if (this.state.loading) return <SkeletonView variant="warehouse" />;
 
       return (
          <WarehouseForm

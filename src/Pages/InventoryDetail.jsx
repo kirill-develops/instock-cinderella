@@ -2,7 +2,7 @@ import React from "react";
 import apiUtils from "../utils/apiUtils";
 import QueryPageBase from "../utils/QueryPageBase";
 import PageHeader from "../components/PageHeader/PageHeader";
-import "../components/ItemDetails/ItemDetails.scss";
+import "../styles/Pages.scss";
 
 class InventoryItemPage extends QueryPageBase {
    constructor(props) {

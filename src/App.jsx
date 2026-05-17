@@ -1,14 +1,14 @@
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
 import Nav from "./components/Nav/Nav";
-import AddWarehousePage from "./components/AddWarehousePage/AddWarehousePage";
-import EditWarehousePage from "./components/EditWarehouse/EditWarehouse";
-import WarehousePage from "./Pages/WarehousePage";
-import WarehousesPage from "./Pages/WarehousesPage";
-import AddInventoryItemPage from "./components/AddInventoryItem/AddInventoryItem";
-import EditInventoryItemPage from "./components/EditInventoryItem/EditInventoryItem";
-import InventoryItemPage from "./Pages/InventoryItemPage";
-import InventoryPage from "./Pages/InventoryPage";
+import WarehouseAdd from "./Pages/WarehouseAdd";
+import WarehouseEdit from "./Pages/WarehouseEdit";
+import WarehouseDetail from "./Pages/WarehouseDetail";
+import WarehouseList from "./Pages/WarehouseList";
+import InventoryAdd from "./Pages/InventoryAdd";
+import InventoryEdit from "./Pages/InventoryEdit";
+import InventoryDetail from "./Pages/InventoryDetail";
+import InventoryList from "./Pages/InventoryList";
 import Footer from "./components/Footer/Footer";
 import "./styles/App.scss";
 import PageLayout from "./components/PageLayout/PageLayout";
@@ -20,41 +20,47 @@ const App = () => {
          <PageLayout>
             <Switch>
                <Route
+                  exact
                   path="/warehouses/add"
-                  component={AddWarehousePage}
+                  component={WarehouseAdd}
                />
                <Route
+                  exact
                   path="/warehouses/:id/edit"
-                  component={EditWarehousePage}
+                  component={WarehouseEdit}
                />
                <Route
+                  exact
                   path="/warehouses/:id"
-                  exact
-                  component={WarehousePage}
+                  component={WarehouseDetail}
                />
                <Route
+                  exact
                   path="/warehouses"
-                  exact
-                  component={WarehousesPage}
+                  component={WarehouseList}
                />
                <Route
+                  exact
                   path="/inventory/add"
-                  component={AddInventoryItemPage}
+                  component={InventoryAdd}
                />
                <Route
-                  path="/inventory/:id/edit"
-                  component={EditInventoryItemPage}
-               />
-               <Route
-                  path="/inventory/:id"
-                  component={InventoryItemPage}
-               />
-               <Route
-                  path="/inventory"
                   exact
-                  component={InventoryPage}
+                  path="/inventory/:id/edit"
+                  component={InventoryEdit}
+               />
+               <Route
+                  exact
+                  path="/inventory/:id"
+                  component={InventoryDetail}
+               />
+               <Route
+                  exact
+                  path="/inventory"
+                  component={InventoryList}
                />
                <Redirect
+                  exact
                   from="/"
                   to="/warehouses"
                />

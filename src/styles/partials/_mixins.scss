@@ -372,3 +372,71 @@
       border-color: $color-red;
    }
 }
+
+@mixin form-page-layout {
+   &__form {
+      display: flex;
+      flex-direction: column;
+
+      @include tablet {
+         flex-direction: row;
+         justify-content: center;
+         flex-wrap: wrap;
+      }
+   }
+
+   &__card {
+      @include padding-horizontal-inner;
+      display: flex;
+      flex-direction: column;
+
+      @include tablet {
+         width: 50%;
+         margin-top: 1.5rem;
+         margin-bottom: 1.5rem;
+      }
+
+      &--border {
+         margin-bottom: 1.5rem;
+
+         @include tablet {
+            @include divider-left;
+         }
+      }
+   }
+
+   &__section-title {
+      @include font-subheader;
+      padding-top: 1rem;
+
+      @include tablet {
+         padding-top: 0.5rem;
+         padding-bottom: 1rem;
+      }
+   }
+
+   &__buttons {
+      @include padding-horizontal-inner;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+      background-color: $color-background-light;
+
+      @include tablet {
+         width: 100%;
+         justify-content: flex-end;
+      }
+   }
+
+   &__cancel-button {
+      @include font-labels-links-buttons;
+      @include secondary-cta-default;
+   }
+
+   &__save-button {
+      @include primary-cta-default;
+      @include cta-text;
+   }
+}

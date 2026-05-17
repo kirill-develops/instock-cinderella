@@ -1,0 +1,246 @@
+@use "../styles/partials/colors" as *;
+@use "../styles/partials/variables" as *;
+@use "../styles/partials/mixins" as *;
+
+// ─── Warehouses Page ──────────────────────────────────────────────────────────
+.warehouses {
+   @include cardConfig;
+}
+
+// ─── Inventory Page ───────────────────────────────────────────────────────────
+.inventory {
+   @include cardConfig;
+}
+
+// ─── Warehouse Page (single warehouse detail) ─────────────────────────────────
+.warehouse-page {
+   @include cardConfig;
+
+   // info panel — unique to this page
+   &__info-panel {
+      @include divider-top;
+      background-color: $color-lightgrey;
+   }
+
+   &__info-body {
+      background-color: $color-white;
+
+      @include tablet {
+         padding: 1rem 0;
+         display: flex;
+      }
+   }
+
+   &__address {
+      @include padding-horizontal-inner;
+
+      @include tablet {
+         border-right: 1px solid $color-outline-divider-border-tableSort;
+         padding-right: 7rem;
+         padding-left: 1rem;
+      }
+
+      @include desktop {
+         padding-right: 14rem;
+         padding-left: 1.5rem;
+      }
+   }
+
+   &__contact {
+      @include padding-horizontal-inner;
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem 1.5rem;
+
+      @include tablet {
+         justify-content: flex-end;
+         padding: 0 0 0 2rem;
+         margin-right: auto;
+      }
+   }
+
+   &__info-group {
+      display: flex;
+      flex-direction: column;
+      line-height: 20px;
+
+      @include tablet {
+         padding-left: 1rem;
+      }
+
+      &--mobile {
+         @include tablet {
+            display: none;
+         }
+      }
+
+      &--tablet {
+         display: none;
+
+         @include tablet {
+            display: flex;
+         }
+      }
+
+      &--padded {
+         @include tablet {
+            padding-left: 6rem;
+         }
+
+         @include desktop {
+            padding-left: 8rem;
+         }
+      }
+   }
+
+   &__info-label {
+      @include font-table-header;
+      color: $color-table-header;
+      padding-top: 1rem;
+
+      @include tablet {
+         padding: 0;
+      }
+   }
+
+   &__info-value {
+      @include font-body-sml;
+      line-height: 20px;
+   }
+}
+
+// ─── Inventory Details Page (single item detail)
+// ─────────────────────────────────
+
+.item-details {
+   &__block {
+      padding-top: $mobile-outer-padding;
+      padding-bottom: $mobile-outer-padding;
+      @include padding-horizontal-inner;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+
+      @include tablet {
+         padding-top: $mobile-inner-padding;
+         padding-bottom: $mobile-inner-padding;
+         flex-direction: row;
+      }
+   }
+
+   &__highlights {
+      padding-bottom: 8px;
+
+      @include tablet {
+         width: 50%;
+         border-right: 1px solid $color-outline-divider-border-tableSort;
+         padding-bottom: 0;
+      }
+   }
+
+   &__more-info {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: baseline;
+
+      @include tablet {
+         padding-left: $desktop-inner-padding;
+         width: 50%;
+      }
+
+      @include desktop {
+         padding-left: $desktop-inner-padding;
+      }
+   }
+
+   &__info {
+      @include font-body-med;
+      white-space: initial;
+      padding-top: 4px;
+
+      &--out-stock {
+         margin-top: 4px;
+         padding-top: 0;
+
+         @include tag-out-stock;
+      }
+
+      &--in-stock {
+         margin-top: 4px;
+         padding-top: 0;
+
+         @include tag-in-stock;
+      }
+   }
+
+   &__label {
+      @include font-table-header;
+      padding-bottom: $mobile-outer-padding;
+
+      &:last-child {
+         padding-bottom: 0;
+      }
+
+      @include tablet {
+         padding-right: $mobile-outer-padding;
+         display: flex;
+         flex-direction: column;
+         align-items: flex-start;
+         justify-content: center;
+      }
+
+      &--description {
+         @extend .item-details__label;
+         width: 100%;
+
+         @include tablet {
+            padding-right: $mobile-inner-padding;
+         }
+
+         @include desktop {
+            padding-right: $desktop-inner-padding;
+         }
+      }
+
+      &--category {
+         @extend .item-details__label;
+         width: 100%;
+
+         @include tablet {
+            padding-right: $mobile-inner-padding;
+         }
+
+         @include desktop {
+            padding-right: $desktop-inner-padding;
+         }
+      }
+
+      &--status {
+         @extend .item-details__label;
+         width: 50%;
+
+         @include tablet {
+            padding-right: 0;
+         }
+      }
+
+      &--qty {
+         @extend .item-details__label;
+         width: 50%;
+
+         @include tablet {
+            padding-right: 0;
+         }
+      }
+
+      &--warehouse {
+         @extend .item-details__label;
+         width: 100%;
+
+         @include tablet {
+            padding-right: 0;
+         }
+      }
+   }
+}

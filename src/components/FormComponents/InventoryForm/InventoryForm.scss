@@ -1,0 +1,115 @@
+@use "../../../styles/partials/mixins" as *;
+@use "../../../styles/partials/variables" as *;
+@use "../../../styles/partials/colors" as *;
+@use "../../../styles/partials/typography" as *;
+
+.inventory-form {
+   @include form-page-layout;
+
+   &__block {
+      padding-top: 0.75rem;
+
+      @include tablet {
+         padding-top: 1.5rem;
+      }
+   }
+
+   &__label {
+      @include font-labels-links-buttons;
+   }
+
+   &__error-message {
+      display: flex;
+      align-items: center;
+      padding-top: 0.25rem;
+   }
+
+   &__error-icon {
+      height: 1rem;
+      width: 1rem;
+      margin-right: 0.5rem;
+   }
+
+   &__error-text {
+      font-size: 0.8rem;
+      color: $color-red;
+   }
+
+   &__description {
+      @include form;
+      height: 8rem;
+      resize: none;
+      padding-top: 1rem;
+      font-family: $font-stack;
+      @include font-body-med;
+
+      @include tablet {
+         height: 8rem;
+      }
+
+      &:focus {
+         border-color: $color-instock-indigo;
+      }
+
+      &--error {
+         border: solid 1px $color-outStock;
+      }
+   }
+
+   &__dropdown {
+      appearance: none;
+
+      background-image:
+         linear-gradient(45deg, transparent 50%, gray 50%),
+         linear-gradient(135deg, gray 50%, transparent 50%),
+         linear-gradient(to right, #ccc, #ccc);
+
+      background-position:
+         calc(100% - 20px) calc(1em + 2px),
+         calc(100% - 15px) calc(1em + 2px),
+         calc(100% - 2.5em) 0.5em;
+
+      background-size:
+         5px 5px,
+         5px 5px,
+         1px 1.5em;
+      background-repeat: no-repeat;
+      @include form;
+
+      &:focus {
+         border-color: $color-instock-indigo;
+      }
+
+      &--error {
+         border: solid 1px $color-outStock;
+      }
+   }
+
+   &__radio_option {
+      display: flex;
+      align-items: baseline;
+   }
+
+   &__availability {
+      display: flex;
+      flex-direction: column;
+   }
+
+   &__radio-group {
+      display: flex;
+      justify-content: flex-start;
+      gap: 2rem;
+
+      @include tablet {
+         width: 15rem;
+      }
+   }
+
+   &__radio {
+      margin-right: 0.5rem;
+   }
+
+   &__stock {
+      @include font-body-med;
+   }
+}

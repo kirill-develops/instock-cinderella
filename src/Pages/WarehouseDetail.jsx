@@ -6,8 +6,8 @@ import DeleteModal from "../components/DeleteModal/DeleteModal";
 import SkeletonTable from "../components/SkeletonTable/SkeletonTable";
 import ListPageBase from "../utils/ListPageBase";
 import PageHeader from "../components/PageHeader/PageHeader";
-import Error from "../components/Error/Error";
-import "../styles/listPages.scss";
+import PageError from "../components/PageError/PageError";
+import "../styles/Pages.scss";
 
 const WAREHOUSE_PAGE_HEADERS = [
    {
@@ -40,7 +40,7 @@ class WarehousePage extends ListPageBase {
          warehouse: null,
          toDeleteId: "",
          toDeleteName: "",
-         apiError: "TEST ERROR MESSAGE",
+         apiError: "",
          sortConfig: { key: "", isAscending: true },
       };
    }
@@ -66,7 +66,7 @@ class WarehousePage extends ListPageBase {
                onBack={() => this.props.history.goBack()}
                editRoute={warehouse ? `/warehouses/${warehouse.id}/edit` : null}
             />
-            <Error apiError={apiError} />
+            <PageError apiError={apiError} />
             {warehouse && (
                <div className="warehouse-page__info-panel">
                   <div className="warehouse-page__info-body">

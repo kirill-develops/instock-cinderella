@@ -1,0 +1,18 @@
+@use "../../../styles/partials/colors" as *;
+
+.form-error {
+   display: flex;
+   align-items: center;
+   padding-top: 0.25rem;
+
+   &__icon {
+      height: 1rem;
+      width: 1rem;
+      margin-right: 0.5rem;
+   }
+
+   &__text {
+      font-size: 0.8rem;
+      color: $color-red;
+   }
+}

@@ -27,6 +27,7 @@ export const getWarehousePayload = (source) => {
 
 export const getWarehouseFieldValidity = (source) => {
    const values = getWarehousePayload(source);
+   const normalizePhone = (phone) => String(phone).replace(/[\s\-().+]/g, "");
 
    return {
       name: hasMinLength(values.name, 3),
@@ -37,7 +38,7 @@ export const getWarehouseFieldValidity = (source) => {
       position: hasMinLength(values.position, 5),
       phone:
          !isBlank(values.phone) &&
-         validator.isMobilePhone(String(values.phone), ["en-CA"]),
+         validator.isMobilePhone(normalizePhone(values.phone)),
       email: !isBlank(values.email) && validator.isEmail(String(values.email)),
    };
 };

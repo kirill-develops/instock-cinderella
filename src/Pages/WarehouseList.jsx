@@ -6,8 +6,8 @@ import WarehouseListItem from "../components/ListRow/WarehouseListItem/Warehouse
 import DeleteModal from "../components/DeleteModal/DeleteModal";
 import SkeletonTable from "../components/SkeletonTable/SkeletonTable";
 import ListPageHeader from "../components/ListPageHeader/ListPageHeader";
-import Error from "../components/Error/Error";
-import "../styles/listPages.scss";
+import PageError from "../components/PageError/PageError";
+import "../styles/Pages.scss";
 
 const WAREHOUSE_HEADERS = [
    { name: "WAREHOUSE", flex: 0.8, key: "name" },
@@ -53,7 +53,7 @@ class Warehouses extends ListPageBase {
                ctaRoute="/warehouses/add"
                ctaText="Add New Warehouse"
             />
-            <Error apiError={apiError} />
+            <PageError apiError={apiError} />
             <div className="warehouses__headers">
                {
                   <TableHeaders

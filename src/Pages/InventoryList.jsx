@@ -6,8 +6,8 @@ import InventoryListItem from "../components/ListRow/InventoryListItem/Inventory
 import DeleteModal from "../components/DeleteModal/DeleteModal";
 import SkeletonTable from "../components/SkeletonTable/SkeletonTable";
 import ListPageHeader from "../components/ListPageHeader/ListPageHeader";
-import Error from "../components/Error/Error";
-import "../styles/listPages.scss";
+import PageError from "../components/PageError/PageError";
+import "../styles/Pages.scss";
 
 const INVENTORY_HEADERS = [
    { name: "INVENTORY ITEM", flex: 1, key: "itemName" },
@@ -47,7 +47,7 @@ class Inventory extends ListPageBase {
                ctaRoute="/inventory/add"
                ctaText="Add New Item"
             />
-            <Error apiError={apiError} />
+            <PageError apiError={apiError} />
             {
                <TableHeaders
                   headers={INVENTORY_HEADERS}

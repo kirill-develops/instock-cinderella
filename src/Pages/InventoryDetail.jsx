@@ -4,6 +4,7 @@ import QueryPageBase from "../utils/QueryPageBase";
 import PageHeader from "../components/PageHeader/PageHeader";
 import "../styles/Pages.scss";
 import SkeletonView from "../components/SkeletonView/SkeletonView";
+import PageError from "../components/PageError/PageError";
 
 class InventoryItemPage extends QueryPageBase {
    constructor(props) {
@@ -41,7 +42,7 @@ class InventoryItemPage extends QueryPageBase {
                onBack={() => this.props.history.goBack()}
                editRoute={`/inventory/${id}/edit`}
             />
-            {apiError ? <p className="item-details__info">{apiError}</p> : null}
+            <PageError error={apiError} />
             <div className="item-details__block">
                <div className="item-details__highlights">
                   <div className="item-details__label--description">

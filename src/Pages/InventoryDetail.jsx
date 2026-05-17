@@ -19,11 +19,6 @@ class InventoryItemPage extends QueryPageBase {
    setData = (item) => ({ item });
 
    render() {
-      // display during API GET req completed
-      if (!this.state.item) {
-         return <p>{this.state.apiError || "Loading..."}</p>;
-      }
-
       const {
          item: {
             id,

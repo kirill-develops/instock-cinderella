@@ -19,6 +19,8 @@ class InventoryItemPage extends QueryPageBase {
    setData = (item) => ({ item });
 
    render() {
+      if (this.state.isLoading) return <SkeletonView variant="detail" />;
+
       const {
          item: {
             id,
@@ -28,12 +30,9 @@ class InventoryItemPage extends QueryPageBase {
             warehouseName,
             quantity,
             status,
-            isLoading,
          },
          apiError,
       } = this.state;
-
-      if (isLoading) return <SkeletonView variant="detail" />;
 
       return (
          <>
